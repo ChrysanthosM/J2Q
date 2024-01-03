@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1b604b0d-001f-468b-a5c7-4b8b3422a052" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/j2sql/tests/TestJdbcIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/j2sql/tests/TestJdbcIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/j2sql/tests/TestSQLStatements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/j2sql/tests/TestSQLStatements.java" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 8
+}]]></component>
+  <component name="ProjectId" id="2aSAtse4snq442QCzM5Uab916yK" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectViewState">
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/MyDocuments/Cloud/GoogleDrive/Programming/Java/J2Q/src/test/java",
+    "project.structure.last.edited": "SDKs",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2"
+  }
+}]]></component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\MyDocuments\Cloud\GoogleDrive\Programming\Java\J2Q\src\test\java" />
+      <recent name="D:\MyDocuments\Cloud\GoogleDrive\Programming\Java\J2Q\src\main\java" />
+    </key>
+  </component>
+  <component name="RunManager">
+    <configuration name="TestJdbcIO.testData" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="J2Q" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="j2sql.tests.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="j2sql.tests" />
+      <option name="MAIN_CLASS_NAME" value="j2sql.tests.TestJdbcIO" />
+      <option name="METHOD_NAME" value="testData" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.TestJdbcIO.testData" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="jdk-21.0.1-corretto-21.0.1-f644763e9732-eed86825" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1b604b0d-001f-468b-a5c7-4b8b3422a052" name="Changes" comment="" />
+      <created>1704301824325</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1704301824325</updated>
+    </task>
+    <servers />
+  </component>
+</project>
