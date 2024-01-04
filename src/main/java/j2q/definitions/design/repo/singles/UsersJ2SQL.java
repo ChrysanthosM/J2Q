@@ -1,6 +1,6 @@
 package j2q.definitions.design.repo.singles;
 
-import j2q.J2SQL;
+import j2q.j2sql.J2SQL;
 import j2q.definitions.design.schema.tables.TUsers;
 import j2q.definitions.design.repo.AbstractJ2;
 import jakarta.annotation.PostConstruct;

@@ -1,4 +1,4 @@
-package j2q;
+package j2q.j2data;
 
 import j2q.AppConfig;
 import j2q.db.JdbcIO;

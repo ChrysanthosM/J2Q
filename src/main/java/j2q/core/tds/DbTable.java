@@ -3,7 +3,7 @@ package j2q.core.tds;
 import j2q.definitions.design.schema.PairOfTableField;
 import j2q.definitions.design.schema.enums.GlobalFieldsDefinition;
 import j2q.definitions.design.schema.enums.GlobalTablesDefinition;
-import j2q.J2SQLShared;
+import j2q.j2sql.J2SQLShared;
 import jakarta.annotation.PostConstruct;
 import lombok.Getter;
 import org.apache.commons.lang3.tuple.Pair;

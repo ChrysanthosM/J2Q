@@ -5,13 +5,11 @@ import j2q.definitions.design.schema.enums.GlobalFieldsDefinition;
 import j2q.definitions.design.schema.enums.GlobalTablesDefinition;
 import j2q.core.tds.DbTable;
 import com.google.common.collect.ImmutableList;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 
 @Component
-@Scope("singleton")
 public class TAutoNumbering extends DbTable {
     @Override public GlobalTablesDefinition.DbT getDbT() { return GlobalTablesDefinition.DbT.AutoNumbering; }
     @Override public String getSystemName() { return "Sys_AutoNumbering"; }

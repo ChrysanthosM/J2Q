@@ -4,14 +4,12 @@ import j2q.definitions.design.schema.enums.GlobalTablesDefinition;
 import com.google.common.collect.ImmutableList;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Component;
 
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 
 @Component
-@Scope("singleton")
 public final class DbTableInstances {
     private static final ConcurrentHashMap<GlobalTablesDefinition.DbT, DbTable> mapTableInstances = new ConcurrentHashMap<>();
     private final List<IDbTable> implementations;

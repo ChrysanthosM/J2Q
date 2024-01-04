@@ -11,7 +11,6 @@ import org.springframework.stereotype.Component;
 import java.util.List;
 
 @Component
-@Scope("singleton")
 public class TUsers extends DbTable {
     @Override public GlobalTablesDefinition.DbT getDbT() { return GlobalTablesDefinition.DbT.Users; }
     @Override public String getSystemName() { return "Sys_Users"; }

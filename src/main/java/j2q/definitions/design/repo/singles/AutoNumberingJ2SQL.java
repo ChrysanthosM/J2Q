@@ -1,6 +1,6 @@
 package j2q.definitions.design.repo.singles;
 
-import j2q.J2SQL;
+import j2q.j2sql.J2SQL;
 import j2q.definitions.design.repo.AbstractJ2;
 import j2q.definitions.design.schema.tables.TAutoNumbering;
 import jakarta.annotation.PostConstruct;
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Component;
 import java.util.Map;
 import java.util.concurrent.*;
 
-import static j2q.J2SQLShared.MAX;
+import static j2q.j2sql.J2SQLShared.MAX;
 
 @Component
 public class AutoNumberingJ2SQL extends AbstractJ2<AutoNumberingRepo.TypeOfSQL> implements AutoNumberingRepo {

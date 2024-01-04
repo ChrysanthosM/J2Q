@@ -1,6 +1,6 @@
 package j2q.core.linSQL;
 
-import j2q.J2SQLShared;
+import j2q.j2sql.J2SQLShared;
 import j2q.core.sqlCreator.sqlBuilder.*;
 import j2q.core.sqlCreator.sqlResolvers.sqlFilters.GroupOfWheres;
 import j2q.core.sqlCreator.sqlResolvers.sqlFilters.IWhere;

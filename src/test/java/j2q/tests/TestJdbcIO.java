@@ -1,7 +1,7 @@
 package j2q.tests;
 
-import j2q.J2Data;
-import j2q.J2SQL;
+import j2q.j2data.J2Data;
+import j2q.j2sql.J2SQL;
 import j2q.db.JdbcIO;
 import j2q.db.datasources.DataSourceForSQLite;
 import j2q.db.loader.DbRecord;
