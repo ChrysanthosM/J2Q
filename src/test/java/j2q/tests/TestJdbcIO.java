@@ -1,5 +1,6 @@
 package j2q.tests;
 
+import j2q.definitions.design.repo.singles.AutoNumberingRepo;
 import j2q.j2data.J2Data;
 import j2q.j2sql.J2SQL;
 import j2q.db.JdbcIO;
@@ -50,9 +51,9 @@ public class TestJdbcIO {
 
     @Test
     public void testJ2Data() throws SQLException {
-        List<AutoNumberingDTO> listSample = j2Data.getAutoNumberingList();
+        List<AutoNumberingDTO> listSample = j2Data.getAutoNumberingList(AutoNumberingRepo.TypeOfSQL.ALL);
         listSample.forEach(System.out::println);
-        listSample = j2Data.getAutoNumberingListAsync();
+        listSample = j2Data.getAutoNumberingListAsync(AutoNumberingRepo.TypeOfSQL.ALL);
         listSample.forEach(System.out::println);
 
 

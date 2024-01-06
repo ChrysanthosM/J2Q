@@ -1,0 +1,14 @@
+package j2q.controllers;
+
+import j2q.definitions.design.repo.singles.AutoNumberingRepo;
+import j2q.definitions.dtos.AutoNumberingDTO;
+import org.springframework.web.bind.annotation.RequestParam;
+
+import java.sql.SQLException;
+import java.util.List;
+
+public interface IDataController {
+    List<AutoNumberingDTO> getAutoNumberingList(@RequestParam(name = "type") AutoNumberingRepo.TypeOfSQL type) throws SQLException;
+    List<AutoNumberingDTO> getAutoNumberingListAsync(@RequestParam(name = "type") AutoNumberingRepo.TypeOfSQL type) throws SQLException;
+
+}

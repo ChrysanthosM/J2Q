@@ -17,7 +17,7 @@ import java.util.List;
 import java.util.Objects;
 
 @RestController
-public class RestControllerSQL {
+public final class RestControllerSQL {
     @Autowired private UsersSQL usersSQL;
     @Autowired private AutoNumberingSQL autoNumberingSQL;
     @Autowired private OptionsSQL optionsSQL;
@@ -57,9 +57,9 @@ public class RestControllerSQL {
     }
 
 
-    //localhost:8080/AutoNumbering?type=ALL
-    @GetMapping("/AutoNumbering")
-    public String getAutoNumbering(@RequestParam(name = "type") AutoNumberingRepo.TypeOfSQL type) {
+    //localhost:8080/AutoNumberingSQL?type=ALL
+    @GetMapping("/AutoNumberingSQL")
+    public String getAutoNumberingSQL(@RequestParam(name = "type") AutoNumberingRepo.TypeOfSQL type) {
         return autoNumberingSQL.getSQL(type);
     }
 
