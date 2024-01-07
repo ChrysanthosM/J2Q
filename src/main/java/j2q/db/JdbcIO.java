@@ -2,9 +2,7 @@ package j2q.db;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
-import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Lists;
-import j2q.db.loader.DbRecord;
 import j2q.db.loader.IRowLoader;
 import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.stereotype.Component;
@@ -16,46 +14,12 @@ import javax.sql.DataSource;
 import java.sql.*;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.CopyOnWriteArrayList;
 import java.util.stream.IntStream;
 
 @ThreadSafe
 @Component
 public class JdbcIO {
-    public Map<Integer, DbRecord> selectRecords(@Nonnull DataSource dataSource,
-                                                @Nonnull String query, @Nullable Object... params) throws SQLException {
-        Preconditions.checkNotNull(dataSource);
-        Preconditions.checkNotNull(query);
-        Map<Integer, DbRecord> returnHashMap = new ConcurrentHashMap<>();
-
-        List<CompletableFuture<DbRecord>> futureDbRecords = Lists.newArrayList();
-        try (Connection conn = dataSource.getConnection();
-             final PreparedStatement stmt = conn.prepareStatement(query)) {
-            setParams(stmt, params);
-
-            try (ResultSet resultSet = stmt.executeQuery()) {
-                ResultSetMetaData metaData = resultSet.getMetaData();
-                while (resultSet.next()) {
-                    int recordSeq = resultSet.getRow();
-                    final List<Pair<String, Object>> columnNamesValues = getColumnNamesValues(metaData, resultSet);
-                    CompletableFuture<DbRecord> futureDbRecord = CompletableFuture.supplyAsync(() -> {
-                        try {
-                            return new DbRecord(recordSeq, columnNamesValues);
-                        } catch (Exception e) {
-                            throw new RuntimeException("Error creating futureDbRecord", e);
-                        }
-                    });
-                    futureDbRecords.add(futureDbRecord);
-                }
-                futureDbRecords.parallelStream().forEach(futureRecord -> {
-                    DbRecord completedDbRecord = futureRecord.join();
-                    returnHashMap.put(completedDbRecord.getRecordSeq(), completedDbRecord);
-                });
-            }
-        }
-        return ImmutableMap.copyOf(returnHashMap);
-    }
     private List<Pair<String, Object>> getColumnNamesValues(ResultSetMetaData metaData, ResultSet fromResultSet) throws SQLException {
         int columnsCount = metaData.getColumnCount();
         final List<Pair<String, Object>> columnNamesValues = new ArrayList<>(columnsCount);
@@ -72,19 +36,34 @@ public class JdbcIO {
     public <T> List<T> selectAsync(@Nonnull DataSource dataSource, @Nonnull IRowLoader<T> rowLoader,
                                    @Nonnull String query, @Nullable Object... params) throws SQLException {
         Preconditions.checkNotNull(dataSource);
-        Preconditions.checkNotNull(rowLoader);
         Preconditions.checkNotNull(query);
-
-        Map<Integer, DbRecord> dbRecordsHashMap = selectRecords(dataSource, query, params);
-        if (dbRecordsHashMap.isEmpty()) return new ArrayList<>();
-
         List<T> returnList = new CopyOnWriteArrayList<>();
-        dbRecordsHashMap.entrySet().parallelStream().forEach(entry -> {
-            T pojo = rowLoader.convertDbRecord(entry.getValue());
-            if (pojo != null) returnList.add(pojo);
-        });
 
-        return ImmutableList.copyOf(returnList);
+        List<CompletableFuture<T>> futureTs = Lists.newArrayList();
+        try (Connection conn = dataSource.getConnection();
+             final PreparedStatement stmt = conn.prepareStatement(query)) {
+            setParams(stmt, params);
+
+            try (ResultSet resultSet = stmt.executeQuery()) {
+                ResultSetMetaData metaData = resultSet.getMetaData();
+                while (resultSet.next()) {
+                    final List<Pair<String, Object>> columnNamesValues = getColumnNamesValues(metaData, resultSet);
+                    CompletableFuture<T> futureT = CompletableFuture.supplyAsync(() -> {
+                        try {
+                            return rowLoader.convertResultSet(columnNamesValues);
+                        } catch (Exception e) {
+                            throw new RuntimeException("Error creating futureT", e);
+                        }
+                    });
+                    futureTs.add(futureT);
+                }
+                futureTs.parallelStream().forEach(futureT -> {
+                    T completedT = futureT.join();
+                    if (completedT != null) returnList.add(completedT);
+                });
+            }
+            return ImmutableList.copyOf(returnList);
+        }
     }
 
     public <T> List<T> select(@Nonnull DataSource dataSource, @Nonnull IRowLoader<T> rowLoader,

@@ -1,10 +1,12 @@
 package j2q.definitions.dtos;
 
-import j2q.db.loader.DbRecord;
 import j2q.db.loader.RowLoader;
+import org.apache.commons.lang3.tuple.Pair;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
+import java.util.NoSuchElementException;
 
 import static j2q.definitions.design.schema.enums.GlobalFieldsDefinition.DbF.*;
 
@@ -21,11 +23,11 @@ public record AutoNumberingDTO(int recId, String entityType, int entityNumber) {
             );
         }
         @Override
-        public AutoNumberingDTO convertDbRecord(DbRecord dbRecord) {
+        public AutoNumberingDTO convertResultSet(List<Pair<String, Object>> columnNamesValues) throws NoSuchElementException {
             return new AutoNumberingDTO(
-                    dbRecord.getValue(RecID.getSystemName()),
-                    dbRecord.getValue(EntityType.getSystemName()),
-                    dbRecord.getValue(EntityNumber.getSystemName())
+                    DtoFieldValue.getValue(RecID, columnNamesValues),
+                    DtoFieldValue.getValue(EntityType, columnNamesValues),
+                    DtoFieldValue.getValue(EntityNumber, columnNamesValues)
             );
         }
     }

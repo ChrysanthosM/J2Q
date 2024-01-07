@@ -1,10 +1,12 @@
 package j2q.definitions.dtos;
 
-import j2q.db.loader.DbRecord;
 import j2q.db.loader.RowLoader;
+import org.apache.commons.lang3.tuple.Pair;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
+import java.util.NoSuchElementException;
 
 import static j2q.definitions.design.schema.enums.GlobalFieldsDefinition.DbF.*;
 
@@ -21,11 +23,11 @@ public record UsersDTO(int recId, String userName, String userPassword) {
             );
         }
         @Override
-        public UsersDTO convertDbRecord(DbRecord dbRecord) {
+        public UsersDTO convertResultSet(List<Pair<String, Object>> columnNamesValues) throws NoSuchElementException {
             return new UsersDTO(
-                    dbRecord.getValue(RecID.getSystemName()),
-                    dbRecord.getValue(UserName.getSystemName()),
-                    dbRecord.getValue(UserPassword.getSystemName())
+                    DtoFieldValue.getValue(RecID, columnNamesValues),
+                    DtoFieldValue.getValue(UserName, columnNamesValues),
+                    DtoFieldValue.getValue(UserPassword, columnNamesValues)
             );
         }
     }

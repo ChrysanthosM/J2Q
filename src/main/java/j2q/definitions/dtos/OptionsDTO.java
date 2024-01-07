@@ -1,10 +1,12 @@
 package j2q.definitions.dtos;
 
-import j2q.db.loader.DbRecord;
 import j2q.db.loader.RowLoader;
+import org.apache.commons.lang3.tuple.Pair;
 
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.List;
+import java.util.NoSuchElementException;
 
 import static j2q.definitions.design.schema.enums.GlobalFieldsDefinition.DbF.*;
 
@@ -26,15 +28,15 @@ public record OptionsDTO(int recId, String optionType, String optionName, String
             );
         }
         @Override
-        public OptionsDTO convertDbRecord(DbRecord dbRecord) {
+        public OptionsDTO convertResultSet(List<Pair<String, Object>> columnNamesValues) throws NoSuchElementException {
             return new OptionsDTO(
-                    dbRecord.getValue(RecID.getSystemName()),
-                    dbRecord.getValue(OptionType.getSystemName()),
-                    dbRecord.getValue(OptionName.getSystemName()),
-                    dbRecord.getValue(OptionValue.getSystemName()),
-                    dbRecord.getValue(OptionDetails.getSystemName()),
-                    dbRecord.getValue(UserStamp.getSystemName()),
-                    dbRecord.getValue(DateStamp.getSystemName())
+                    DtoFieldValue.getValue(RecID, columnNamesValues),
+                    DtoFieldValue.getValue(OptionType, columnNamesValues),
+                    DtoFieldValue.getValue(OptionName, columnNamesValues),
+                    DtoFieldValue.getValue(OptionValue, columnNamesValues),
+                    DtoFieldValue.getValue(OptionDetails, columnNamesValues),
+                    DtoFieldValue.getValue(UserStamp, columnNamesValues),
+                    DtoFieldValue.getValue(DateStamp, columnNamesValues)
             );
         }
     }
