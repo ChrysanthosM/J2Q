@@ -35,13 +35,6 @@ public class JdbcIO {
 
     /**
      * !!!!!!!!! RETURNS UNSORTED List !!!!!!!!!
-     * @param dataSource
-     * @param rowLoader
-     * @param query
-     * @param params
-     * @return
-     * @param <T>
-     * @throws SQLException
      */
     public <T> List<T> selectAsync(@Nonnull DataSource dataSource, @Nonnull IRowLoader<T> rowLoader,
                                    @Nonnull String query, @Nullable Object... params) throws SQLException {
