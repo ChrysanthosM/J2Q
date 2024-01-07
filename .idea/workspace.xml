@@ -4,15 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b604b0d-001f-468b-a5c7-4b8b3422a052" name="Changes" comment="fix AbstractService">
+    <list default="true" id="1b604b0d-001f-468b-a5c7-4b8b3422a052" name="Changes" comment="fix selectAsync doc">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/db/JdbcIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/db/JdbcIO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/db/loader/DbRecord.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/db/loader/FieldValue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/db/loader/IRowLoader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/db/loader/IRowLoader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/definitions/dtos/AutoNumberingDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/definitions/dtos/AutoNumberingDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/definitions/dtos/OptionsDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/definitions/dtos/OptionsDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/definitions/dtos/UsersDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/definitions/dtos/UsersDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/j2q/tests/TestJdbcIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/j2q/tests/TestJdbcIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/commons/CommonMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/commons/CommonMethods.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/linSQL/LInSQLBuilderParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/linSQL/LInSQLBuilderParams.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -42,12 +37,12 @@
   "keyToString": {
     "Application.ApplicationSQLRun.executor": "Run",
     "JUnit.TestJdbcIO.testData.executor": "Run",
-    "JUnit.TestJdbcIO.testJ2Data.executor": "Debug",
+    "JUnit.TestJdbcIO.testJ2Data.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/MyDocuments/Cloud/GoogleDrive/Programming/Java/J2Q/src/test/java",
+    "last_opened_file_path": "D:/MyDocuments/Cloud/GoogleDrive/Programming/Java/jpaTesting",
     "project.structure.last.edited": "SDKs",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2"
@@ -180,7 +175,31 @@
       <option name="project" value="LOCAL" />
       <updated>1704616986124</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="fix selectAsync faster">
+      <option name="closed" value="true" />
+      <created>1704621631162</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1704621631162</updated>
+    </task>
+    <task id="LOCAL-00008" summary="fix selectAsync doc">
+      <option name="closed" value="true" />
+      <created>1704622115508</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1704622115508</updated>
+    </task>
+    <task id="LOCAL-00009" summary="fix selectAsync doc">
+      <option name="closed" value="true" />
+      <created>1704622263869</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1704622263869</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -188,6 +207,8 @@
     <MESSAGE value="J2Data" />
     <MESSAGE value="fix" />
     <MESSAGE value="fix AbstractService" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix AbstractService" />
+    <MESSAGE value="fix selectAsync faster" />
+    <MESSAGE value="fix selectAsync doc" />
+    <option name="LAST_COMMIT_MESSAGE" value="fix selectAsync doc" />
   </component>
 </project>

@@ -2,21 +2,10 @@ package j2q.commons;
 
 import com.google.common.base.Joiner;
 import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.tuple.MutablePair;
 
 import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
-public class CommonMethods {
-    public static Object getKeyOr(@Nullable MutablePair fromMutablePair, Object defaultIfNull) {
-        if (fromMutablePair == null) return defaultIfNull;
-        return fromMutablePair.getKey();
-    }
-    public static Object getValueOr(@Nullable MutablePair fromMutablePair, Object defaultIfNull) {
-        if (fromMutablePair == null) return defaultIfNull;
-        return fromMutablePair.getValue();
-    }
-
+public final class CommonMethods {
     public static String stringsConcat(boolean encloseInParenthesis, @Nonnull String... args) {
         StringBuilder concatString = new StringBuilder();
         if (encloseInParenthesis) concatString.append("(");
@@ -25,7 +14,7 @@ public class CommonMethods {
         return concatString.toString();
     }
 
-    public static String splitCamelCase(String input) {
+    public static String splitCamelCase(@Nonnull String input) {
         StringBuilder result = new StringBuilder();
 
         for (int i = 0; i < input.length(); i++) {

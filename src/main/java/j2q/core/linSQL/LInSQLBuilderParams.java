@@ -1,6 +1,5 @@
 package j2q.core.linSQL;
 
-import j2q.commons.CommonMethods;
 import j2q.j2sql.J2SQLShared;
 import j2q.definitions.design.schema.PairOfTableField;
 import j2q.definitions.design.schema.enums.GlobalFieldsDefinition;
@@ -24,7 +23,7 @@ import java.util.Objects;
 @Getter
 public final class LInSQLBuilderParams {
     @Setter private J2SQLShared.TypeOfSQLStatement typeOfSQL = null;
-    private MutablePair<DbTable, String> workWithDbTableAsAlias;
+    private MutablePair<DbTable, String> workWithDbTableAsAlias = new MutablePair<>();
     private final List<SqlUserSelection> sqlUserSelections = Lists.newArrayList();
     private boolean selectDistinct = false;
     @Setter private boolean applyAutoAlias = false;
@@ -42,7 +41,7 @@ public final class LInSQLBuilderParams {
 
     void clearSQLPropertiesMain() {
         this.typeOfSQL = null;
-        this.workWithDbTableAsAlias = null;
+        this.workWithDbTableAsAlias = new MutablePair<>();
         this.sqlUserSelections.clear();
         this.selectDistinct = false;
         this.applyAutoAlias = false;
@@ -63,8 +62,10 @@ public final class LInSQLBuilderParams {
     void setSelectDistinct() { this.selectDistinct = true; }
 
     //-------Table
-    public DbTable getWorkWithTableOnlyDbTable() { return (DbTable) CommonMethods.getKeyOr(this.workWithDbTableAsAlias, null); }
-    public String getWorkWithTableOnlyAsAlias() { return (String) CommonMethods.getValueOr(this.workWithDbTableAsAlias, null); }
+//    public DbTable getWorkWithTableOnlyDbTable() { return (DbTable) CommonMethods.getKeyOr(this.workWithDbTableAsAlias, null); }
+//    public String getWorkWithTableOnlyAsAlias() { return (String) CommonMethods.getValueOr(this.workWithDbTableAsAlias, null); }
+    public DbTable getWorkWithTableOnlyDbTable() { return Objects.requireNonNullElse(this.workWithDbTableAsAlias.getLeft(), null);  }
+    public String getWorkWithTableOnlyAsAlias() { return Objects.requireNonNullElse(this.workWithDbTableAsAlias.getRight(), null); }
     void setWorkWithDbTableAsAlias(DbTable setWorkWithTable, String asAlias) { this.workWithDbTableAsAlias = MutablePair.of(setWorkWithTable, asAlias); }
 
     //-------Select Fields/Constants/Functions/StringsFunctions
