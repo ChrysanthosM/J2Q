@@ -4,10 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b604b0d-001f-468b-a5c7-4b8b3422a052" name="Changes" comment="fix selectAsync doc">
+    <list default="true" id="1b604b0d-001f-468b-a5c7-4b8b3422a052" name="Changes" comment="some refactor">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/commons/CommonMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/commons/CommonMethods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/linSQL/LInSQLBuilderParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/linSQL/LInSQLBuilderParams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/db/datasources/JdbcTemplateConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/db/datasources/JdbcTemplateConfig.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,21 +32,22 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Application.ApplicationSQLRun.executor": "Run",
-    "JUnit.TestJdbcIO.testData.executor": "Run",
-    "JUnit.TestJdbcIO.testJ2Data.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/MyDocuments/Cloud/GoogleDrive/Programming/Java/jpaTesting",
-    "project.structure.last.edited": "SDKs",
-    "project.structure.proportion": "0.0",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.ApplicationSQLRun.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestJdbcIO.testData.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestJdbcIO.testJ2Data.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;D:/MyDocuments/Cloud/GoogleDrive/Programming/Java/jpaTesting&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;SDKs&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\MyDocuments\Cloud\GoogleDrive\Programming\Java\J2Q\src\test\java" />
@@ -199,7 +199,15 @@
       <option name="project" value="LOCAL" />
       <updated>1704622263869</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="some refactor">
+      <option name="closed" value="true" />
+      <created>1704649537172</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1704649537172</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -209,6 +217,7 @@
     <MESSAGE value="fix AbstractService" />
     <MESSAGE value="fix selectAsync faster" />
     <MESSAGE value="fix selectAsync doc" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix selectAsync doc" />
+    <MESSAGE value="some refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="some refactor" />
   </component>
 </project>
