@@ -2,7 +2,7 @@ package j2q.core.sqlRetriever;
 
 import j2q.core.linSQL.LinSQL;
 import j2q.core.sqlCreator.sqlBuilder.*;
-import j2q.definitions.design.schema.enums.GlobalFieldsDefinition;
+import j2q.setup.definitions.design.schema.enums.GlobalFieldsDefinition;
 import j2q.core.tds.DbTable;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;

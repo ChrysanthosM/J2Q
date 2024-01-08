@@ -1,20 +1,13 @@
 package j2q.controllers;
 
-import j2q.definitions.design.repo.singles.AutoNumberingRepo;
-import j2q.definitions.design.repo.singles.OptionsRepo;
-import j2q.definitions.design.repo.singles.UsersRepo;
-import j2q.definitions.design.repo.singles.OptionsSQL;
-import j2q.definitions.design.repo.singles.UsersSQL;
-import com.google.common.collect.Lists;
-import org.apache.commons.lang3.StringUtils;
+import j2q.setup.definitions.design.repo.singles.AutoNumberingRepo;
+import j2q.setup.definitions.design.repo.singles.OptionsSQL;
+import j2q.setup.definitions.design.repo.singles.UsersSQL;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
-import j2q.definitions.design.repo.singles.AutoNumberingSQL;
+import j2q.setup.definitions.design.repo.singles.AutoNumberingSQL;
 import org.springframework.web.bind.annotation.RestController;
-
-import java.util.List;
-import java.util.Objects;
 
 @RestController
 public final class RestControllerSQL {

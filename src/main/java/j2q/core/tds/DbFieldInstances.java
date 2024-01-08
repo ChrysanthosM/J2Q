@@ -1,6 +1,6 @@
 package j2q.core.tds;
 
-import j2q.definitions.design.schema.enums.GlobalFieldsDefinition;
+import j2q.setup.definitions.design.schema.enums.GlobalFieldsDefinition;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
 

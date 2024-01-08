@@ -1,7 +1,7 @@
 package j2q.core.sqlCreator.sqlBuilder;
 
 import j2q.commons.CommonMethods;
-import j2q.definitions.design.schema.enums.GlobalFieldsDefinition;
+import j2q.setup.definitions.design.schema.enums.GlobalFieldsDefinition;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
 import j2q.core.sqlCreator.LInSQLBuilderShared;

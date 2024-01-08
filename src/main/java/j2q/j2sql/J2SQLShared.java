@@ -3,7 +3,7 @@ package j2q.j2sql;
 import j2q.core.linSQL.LinSQL;
 import j2q.core.sqlCreator.sqlResolvers.sqlFilters.*;
 import j2q.core.sqlCreator.sqlResolvers.sqlUserField.SQLFieldFromPairOfTableField;
-import j2q.definitions.design.schema.PairOfTableField;
+import j2q.core.sqlCreator.PairOfTableField;
 import j2q.db.model.GlobalFieldModelDefinition;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;

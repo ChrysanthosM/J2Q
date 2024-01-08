@@ -1,12 +1,12 @@
 package j2q.tests;
 
-import j2q.definitions.design.repo.singles.AutoNumberingRepo;
+import j2q.setup.definitions.design.repo.singles.AutoNumberingRepo;
 import j2q.j2data.J2Data;
 import j2q.j2sql.J2SQL;
 import j2q.db.JdbcIO;
 import j2q.db.datasources.DataSourceForSQLite;
-import j2q.definitions.design.schema.tables.TAutoNumbering;
-import j2q.definitions.dtos.AutoNumberingDTO;
+import j2q.setup.definitions.design.schema.tables.TAutoNumbering;
+import j2q.setup.definitions.dtos.AutoNumberingDTO;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;

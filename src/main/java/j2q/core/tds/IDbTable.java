@@ -1,8 +1,8 @@
 package j2q.core.tds;
 
-import j2q.definitions.design.schema.PairOfTableField;
-import j2q.definitions.design.schema.enums.GlobalFieldsDefinition;
-import j2q.definitions.design.schema.enums.GlobalTablesDefinition;
+import j2q.core.sqlCreator.PairOfTableField;
+import j2q.setup.definitions.design.schema.enums.GlobalFieldsDefinition;
+import j2q.setup.definitions.design.schema.enums.GlobalTablesDefinition;
 
 import java.util.List;
 

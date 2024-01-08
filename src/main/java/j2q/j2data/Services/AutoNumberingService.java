@@ -1,8 +1,8 @@
 package j2q.j2data.Services;
 
-import j2q.definitions.design.repo.singles.AutoNumberingRepo;
-import j2q.definitions.design.repo.singles.AutoNumberingSQL;
-import j2q.definitions.dtos.AutoNumberingDTO;
+import j2q.setup.definitions.design.repo.singles.AutoNumberingRepo;
+import j2q.setup.definitions.design.repo.singles.AutoNumberingSQL;
+import j2q.setup.definitions.dtos.AutoNumberingDTO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

@@ -8,7 +8,7 @@ import j2q.core.sqlCreator.sqlResolvers.sqlFilters.IWhere;
 import j2q.core.sqlCreator.sqlResolvers.sqlUserField.SQLFieldObject;
 import j2q.core.sqlCreator.sqlResolvers.sqlUserField.SQLFieldOperation;
 import j2q.db.datasources.IDataSource;
-import j2q.definitions.design.schema.PairOfTableField;
+import j2q.core.sqlCreator.PairOfTableField;
 import j2q.core.tds.DbTable;
 import jdk.jfr.Description;
 import org.apache.commons.lang3.StringUtils;

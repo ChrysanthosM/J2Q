@@ -2,7 +2,7 @@ package j2q.core.sqlCreator.sqlResolvers.sqlUserField;
 
 import j2q.core.linSQL.LinSQLCommons;
 import j2q.core.sqlRetriever.SQLRetrieverForDBs;
-import j2q.definitions.design.schema.enums.GlobalFieldValuesDefinition;
+import j2q.setup.definitions.design.schema.enums.GlobalFieldValuesDefinition;
 import j2q.db.model.GlobalFieldModelDefinition;
 import com.google.common.base.Preconditions;
 import j2q.core.sqlCreator.sqlResolvers.SqlUserSelection;

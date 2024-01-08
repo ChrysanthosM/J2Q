@@ -1,7 +1,7 @@
 package j2q.core.sqlCreator.sqlResolvers.sqlUserField;
 
-import j2q.definitions.design.schema.PairOfTableField;
-import j2q.definitions.design.schema.enums.GlobalFieldsDefinition;
+import j2q.core.sqlCreator.PairOfTableField;
+import j2q.setup.definitions.design.schema.enums.GlobalFieldsDefinition;
 import j2q.core.sqlCreator.sqlResolvers.SqlUserSelection;
 import j2q.core.sqlRetriever.SQLRetrieverForDBs;
 

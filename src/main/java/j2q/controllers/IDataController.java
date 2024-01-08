@@ -1,7 +1,7 @@
 package j2q.controllers;
 
-import j2q.definitions.design.repo.singles.AutoNumberingRepo;
-import j2q.definitions.dtos.AutoNumberingDTO;
+import j2q.setup.definitions.design.repo.singles.AutoNumberingRepo;
+import j2q.setup.definitions.dtos.AutoNumberingDTO;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import java.sql.SQLException;

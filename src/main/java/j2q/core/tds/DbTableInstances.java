@@ -1,6 +1,6 @@
 package j2q.core.tds;
 
-import j2q.definitions.design.schema.enums.GlobalTablesDefinition;
+import j2q.setup.definitions.design.schema.enums.GlobalTablesDefinition;
 import com.google.common.collect.ImmutableList;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
