@@ -18,6 +18,8 @@ public abstract class DbTable implements IDbTable {
     @Override public abstract String getSystemName();
     @Override public abstract String getTablePrefixForFields();
     @Override public abstract List<GlobalFieldsDefinition.DbF> getHasKeys();
+    @Override public abstract Boolean getAutoIncrease();
+    @Override public abstract Boolean getPutAutoStamp();
 
     @Override public abstract List<PairOfTableField> getDbFs();
 

@@ -11,8 +11,8 @@ public interface IDbTable {
     String getSystemName();
     String getTablePrefixForFields();
     List<GlobalFieldsDefinition.DbF> getHasKeys();
-    default Boolean getIsAutoIncrease() { return false; }
-    default Boolean getPutAutoStamp() { return false; }
+    Boolean getAutoIncrease();
+    Boolean getPutAutoStamp();
 
     List<PairOfTableField> getDbFs();
 }

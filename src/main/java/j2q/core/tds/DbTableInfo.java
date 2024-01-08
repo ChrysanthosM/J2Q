@@ -48,7 +48,7 @@ public final class DbTableInfo {
         this.dbtSystemName = dbTable.getSystemName();
 
         this.dbtHasKeys = ImmutableList.copyOf(dbTable.getHasKeys());
-        this.dbtIsAutoIncrease = dbTable.getIsAutoIncrease();
+        this.dbtIsAutoIncrease = dbTable.getAutoIncrease();
         this.dbtPutAutoStamp = dbTable.getPutAutoStamp();
 
         this.dbtHasFieldsPrefix = dbTable.getTablePrefixForFields();
