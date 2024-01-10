@@ -1,8 +1,8 @@
 package j2q.tests;
 
 import j2q.setup.definitions.design.repo.singles.AutoNumberingRepo;
-import j2q.j2sql.J2Data;
-import j2q.j2sql.J2SQL;
+import j2q.setup.controllers.J2Data;
+import j2q.core.face.J2SQL;
 import j2q.db.JdbcIO;
 import j2q.db.datasources.DataSourceForSQLite;
 import j2q.setup.definitions.design.schema.tables.TAutoNumbering;

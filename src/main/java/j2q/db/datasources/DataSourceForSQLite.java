@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import javax.sql.DataSource;
 
 @Component
-public class DataSourceForSQLite implements IDataSource {
+public final class DataSourceForSQLite implements IDataSource {
     private @Autowired @Qualifier("sqliteDataSource") DataSource sqliteDataSource;
 
     @Override public DataSource getDS() { return sqliteDataSource; }

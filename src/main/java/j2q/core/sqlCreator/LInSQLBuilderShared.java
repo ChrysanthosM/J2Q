@@ -1,6 +1,6 @@
 package j2q.core.sqlCreator;
 
-import j2q.j2sql.J2SQLShared;
+import j2q.core.face.J2SQLShared;
 import j2q.core.sqlCreator.sqlResolvers.sqlUserField.*;
 import j2q.setup.definitions.design.schema.enums.GlobalFieldsDefinition;
 import j2q.db.model.GlobalFieldModelDefinition;

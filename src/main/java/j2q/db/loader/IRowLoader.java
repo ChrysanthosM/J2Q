@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-public interface IRowLoader<T> {
+public sealed interface IRowLoader<T> permits RowLoader {
     T convertResultSet(ResultSet resultSet) throws SQLException;
     T convertResultSet(List<Pair<String, Object>> columnNamesValues) throws NoSuchElementException;
 }

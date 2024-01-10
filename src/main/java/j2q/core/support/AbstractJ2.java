@@ -2,7 +2,7 @@ package j2q.core.support;
 
 import j2q.AppConfig;
 import j2q.ApplicationSQLRun;
-import j2q.j2sql.J2SQL;
+import j2q.core.face.J2SQL;
 import j2q.db.datasources.IDataSource;
 import jakarta.annotation.PostConstruct;
 import lombok.Getter;

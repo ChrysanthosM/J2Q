@@ -9,7 +9,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import javax.sql.DataSource;
 
 @Configuration
-public final class JdbcTemplateConfig {
+public class JdbcTemplateConfig {
     @Bean(name = "sqliteDataSource")
     public DataSource sqliteDataSource() {
         HikariDataSource dataSource = new HikariDataSource();

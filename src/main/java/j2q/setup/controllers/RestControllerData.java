@@ -1,6 +1,5 @@
-package j2q.controllers;
+package j2q.setup.controllers;
 
-import j2q.j2sql.J2Data;
 import j2q.setup.definitions.design.repo.singles.AutoNumberingRepo;
 import j2q.setup.definitions.dtos.AutoNumberingDTO;
 import org.springframework.beans.factory.annotation.Autowired;

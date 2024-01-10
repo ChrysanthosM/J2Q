@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import javax.sql.DataSource;
 
 @Component
-public class DataSourceForMSSQL implements IDataSource {
+public final class DataSourceForMSSQL implements IDataSource {
     private @Autowired @Qualifier("mssqlDataSource") DataSource mssqlDataSource;
 
     @Override public DataSource getDS() { return mssqlDataSource; }

@@ -1,4 +1,4 @@
-package j2q.j2sql;
+package j2q.core.face;
 
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;

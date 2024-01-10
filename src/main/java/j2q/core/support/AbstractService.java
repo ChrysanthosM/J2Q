@@ -1,4 +1,4 @@
-package j2q.services;
+package j2q.core.support;
 
 import j2q.AppConfig;
 import j2q.db.JdbcIO;

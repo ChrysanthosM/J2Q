@@ -1,6 +1,6 @@
 package j2q.core.sqlCreator.sqlResolvers.sqlFilters;
 
-import j2q.j2sql.J2SQLShared;
+import j2q.core.face.J2SQLShared;
 import j2q.core.sqlRetriever.SQLRetrieverForDBs;
 import j2q.db.model.GlobalFieldModelDefinition;
 import com.google.common.base.Strings;

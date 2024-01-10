@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 import javax.sql.DataSource;
 
 @Component
-public class DataSourceForDB2i implements IDataSource {
+public final class DataSourceForDB2i implements IDataSource {
     private @Autowired @Qualifier("db2iDataSource") DataSource db2iDataSource;
 
     @Override public DataSource getDS() { return db2iDataSource; }

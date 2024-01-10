@@ -1,7 +1,7 @@
 package j2q.core.sqlCreator.sqlResolvers.sqlFilters;
 
 import j2q.core.linSQL.LinSQL;
-import j2q.j2sql.J2SQLShared;
+import j2q.core.face.J2SQLShared;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
