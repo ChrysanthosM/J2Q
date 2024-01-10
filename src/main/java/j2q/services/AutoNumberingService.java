@@ -1,4 +1,4 @@
-package j2q.j2data.Services;
+package j2q.services;
 
 import j2q.setup.definitions.design.repo.singles.AutoNumberingRepo;
 import j2q.setup.definitions.design.repo.singles.AutoNumberingSQL;

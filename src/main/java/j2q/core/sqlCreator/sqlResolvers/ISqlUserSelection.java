@@ -5,7 +5,8 @@ import j2q.core.sqlCreator.sqlResolvers.sqlFilters.IDeployFilters;
 import javax.annotation.Nullable;
 import java.lang.reflect.Type;
 
-interface ISqlUserSelection extends IResolveObjectForSQL, IDeployFilters {
+sealed interface ISqlUserSelection extends IResolveObjectForSQL, IDeployFilters
+        permits SqlUserSelection {
     Type getTypeOfSelection();
     void init(@Nullable String setPrefix, @Nullable String asAlias, @Nullable Object... args);
 

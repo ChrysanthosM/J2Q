@@ -6,7 +6,7 @@ import j2q.setup.definitions.design.schema.enums.GlobalTablesDefinition;
 
 import java.util.List;
 
-public interface IDbTable {
+public sealed interface IDbTable permits DbTable {
     GlobalTablesDefinition.DbT getDbT();
     String getSystemName();
     String getTablePrefixForFields();

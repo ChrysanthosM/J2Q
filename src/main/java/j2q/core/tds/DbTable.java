@@ -11,7 +11,7 @@ import org.apache.commons.lang3.tuple.Pair;
 import javax.annotation.Nonnull;
 import java.util.List;
 
-public abstract class DbTable implements IDbTable {
+public abstract non-sealed class DbTable implements IDbTable {
     public final GlobalFieldsDefinition.DbF ALL = GlobalFieldsDefinition.DbF.ALL;
 
     @Override public abstract GlobalTablesDefinition.DbT getDbT();

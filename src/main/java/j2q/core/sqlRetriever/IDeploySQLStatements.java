@@ -1,6 +1,7 @@
 package j2q.core.sqlRetriever;
 
-interface IDeploySQLStatements extends IDefaultsSQLRetrieverForDBs {
+sealed interface IDeploySQLStatements extends IDefaultsSQLRetrieverForDBs
+        permits SQLRetrieverCore {
     default String getSQLStatementForSelect() { return getDefaultSQLStatementForSelect(); }
     default String getSQLStatementForDelete() { return getDefaultSQLStatementForDelete(); }
     default String getSQLStatementForUpdate() { return getDefaultSQLStatementForUpdate(); }

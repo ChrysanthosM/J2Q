@@ -10,7 +10,8 @@ import org.apache.commons.lang3.StringUtils;
 
 import javax.annotation.Nullable;
 
-public abstract class AbstractWhere extends AbstractFilter {
+public sealed abstract class AbstractWhere extends AbstractFilter
+        permits BetweenValuesWhere, ExistsWhere, InSubSelectWhere, InValuesWhere, LikeValueWhere, ValueWhere {
     abstract TypeOfWhere getTypeOfWhere();
 
     private J2SQLShared.PFX wherePrefix = null;

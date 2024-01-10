@@ -2,8 +2,11 @@ package j2q.core.sqlRetriever;
 
 import j2q.core.sqlCreator.sqlResolvers.sqlFunctions.*;
 import j2q.db.model.GlobalFieldModelDefinition;
+import lombok.Getter;
 
-public interface IDeploySQLFunctions extends IDefaultsSQLRetrieverForDBs {
+public sealed interface IDeploySQLFunctions extends IDefaultsSQLRetrieverForDBs
+        permits SQLRetrieverCore {
+    @Getter
     enum TypeOfSQLFunction {
         TRIM(GlobalFieldModelDefinition.DataTypeForSQL.TEXT),
         LTRIM(GlobalFieldModelDefinition.DataTypeForSQL.TEXT),
@@ -36,7 +39,6 @@ public interface IDeploySQLFunctions extends IDefaultsSQLRetrieverForDBs {
 
         private final GlobalFieldModelDefinition.DataTypeForSQL dataTypeForSQL;
         TypeOfSQLFunction(GlobalFieldModelDefinition.DataTypeForSQL dataTypeForSQL) { this.dataTypeForSQL = dataTypeForSQL; }
-        public GlobalFieldModelDefinition.DataTypeForSQL getDataTypeForSQL() { return this.dataTypeForSQL; }
     }
     static SQLFunction create(TypeOfSQLFunction typeOfSQLFunction, Object... args) {
         switch (typeOfSQLFunction) {

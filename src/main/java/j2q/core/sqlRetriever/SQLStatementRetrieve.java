@@ -6,8 +6,9 @@ import j2q.core.sqlCreator.sqlBuilder.*;
 import j2q.db.model.GlobalDBDefinition;
 import lombok.Getter;
 
+@Getter
 public final class SQLStatementRetrieve {
-    @Getter private final SQLRetrieverForDBs sqlRetrieverForDB;
+    private final SQLRetrieverForDBs sqlRetrieverForDB;
     public SQLStatementRetrieve(GlobalDBDefinition.TypeOfDB typeOfDB, String dbPrefixForTableLocation, boolean tableMustPrefixFields,
                                 LinSQL.TypeOfNamingSystemOrNormalized typeOfNamingSystemOrNormalized) {
         switch (typeOfDB) {

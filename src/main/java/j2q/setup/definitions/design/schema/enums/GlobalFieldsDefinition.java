@@ -2,6 +2,7 @@ package j2q.setup.definitions.design.schema.enums;
 
 import j2q.core.sqlCreator.sqlResolvers.sqlFilters.IDeployFilters;
 import j2q.core.sqlCreator.sqlResolvers.sqlFilters.IProvideDataTypeForSQL;
+import lombok.Getter;
 
 import java.util.List;
 
@@ -10,6 +11,7 @@ import static j2q.db.model.GlobalFieldModelDefinition.DbFieldDataType.* ;
 import static j2q.commons.CommonMethods.splitCamelCase;
 
 public final class GlobalFieldsDefinition {
+    @Getter
     public enum DbF implements IDeployFilters, IProvideDataTypeForSQL {
         ALL("*"),
 
@@ -42,15 +44,6 @@ public final class GlobalFieldsDefinition {
             this.systemName = systemName;
             this.fieldDataType = fieldDataType;
             this.asAlias = splitCamelCase(this.name());
-        }
-        public String getSystemName() {
-            return this.systemName;
-        }
-        public DbFieldDataType getFieldDataType() {
-            return this.fieldDataType;
-        }
-        public String getAsAlias() {
-            return this.asAlias;
         }
 
         public List<String> getAcceptedValues() {

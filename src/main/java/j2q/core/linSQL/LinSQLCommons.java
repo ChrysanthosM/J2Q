@@ -5,7 +5,7 @@ import org.apache.commons.lang3.StringUtils;
 
 import javax.annotation.Nonnull;
 
-public class LinSQLCommons {
+public final class LinSQLCommons {
     public final static String QUOTE =  "'";
     public final static String ASTERISK =  "*";
 

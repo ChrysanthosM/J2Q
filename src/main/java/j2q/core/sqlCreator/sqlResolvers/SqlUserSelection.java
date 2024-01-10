@@ -6,7 +6,7 @@ import lombok.Getter;
 import javax.annotation.Nullable;
 import java.lang.reflect.Type;
 
-public abstract class SqlUserSelection implements ISqlUserSelection {
+public abstract non-sealed class SqlUserSelection implements ISqlUserSelection {
     @Getter private boolean ignoreTableAsAlias = false;
     public void setIgnoreTableAsAlias() { this.ignoreTableAsAlias = true; }
 

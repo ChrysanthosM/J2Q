@@ -15,7 +15,8 @@ import org.apache.commons.lang3.tuple.Triple;
 import java.util.List;
 import java.util.Set;
 
-abstract class SQLRetrieverCore implements IDeployMethods, IDeploySQLStatements, IDeploySQLFunctions {
+abstract sealed class SQLRetrieverCore implements IDeployMethods, IDeploySQLStatements, IDeploySQLFunctions
+        permits SQLRetrieverForDBs {
     protected abstract String getDbPrefixForTableLocation();
     protected abstract LinSQL.TypeOfNamingSystemOrNormalized getTypeOfNamingSystemOrNormalized();
     protected abstract boolean getTableMustPrefixFields();

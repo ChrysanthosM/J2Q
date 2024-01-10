@@ -1,6 +1,6 @@
 package j2q.core.sqlCreator.sqlResolvers.sqlFilters;
 
-public interface IWhere {
+public sealed interface IWhere permits AbstractFilter {
     enum TypeOfWhere {
         WhereValue (null),
         WhereInValues("IN"),

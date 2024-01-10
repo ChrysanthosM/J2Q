@@ -6,7 +6,8 @@ import j2q.core.sqlRetriever.SQLRetrieverForDBs;
 import j2q.db.model.GlobalFieldModelDefinition;
 import lombok.Setter;
 
-public abstract class WhenThen implements IWhen, IResolveObjectForSQL {
+public sealed abstract class WhenThen implements IWhen, IResolveObjectForSQL
+        permits WhenThenSearched, WhenThenSimple {
     private final Object thenExpression;
     @Setter private GlobalFieldModelDefinition.DataTypeForSQL dataTypeForSQL;
 

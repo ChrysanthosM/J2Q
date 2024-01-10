@@ -6,17 +6,18 @@ import lombok.Getter;
 
 import java.util.List;
 
+@Getter
 public final class DbField {
-    @Getter private final GlobalFieldsDefinition.DbF dbfNameEnum;
+    private final GlobalFieldsDefinition.DbF dbfNameEnum;
 
-    @Getter private final String dbfNormalName;
-    @Getter private final String dbfSystemName;
-    @Getter private final String dbfAsAlias;
+    private final String dbfNormalName;
+    private final String dbfSystemName;
+    private final String dbfAsAlias;
 
-    @Getter private final GlobalFieldModelDefinition.DbFieldDataType dbfDataType;
-    @Getter private final GlobalFieldModelDefinition.DataTypeForSQL dbfDataTypeForSQL;
+    private final GlobalFieldModelDefinition.DbFieldDataType dbfDataType;
+    private final GlobalFieldModelDefinition.DataTypeForSQL dbfDataTypeForSQL;
 
-    @Getter private final List<String> dbfAcceptedValues;
+    private final List<String> dbfAcceptedValues;
 
     public DbField(GlobalFieldsDefinition.DbF dbF) {
         this.dbfNameEnum = dbF;

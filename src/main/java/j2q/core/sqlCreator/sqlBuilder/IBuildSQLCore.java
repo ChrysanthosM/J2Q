@@ -1,6 +1,6 @@
 package j2q.core.sqlCreator.sqlBuilder;
 
-interface IBuildSQLCore {
+sealed interface IBuildSQLCore permits BuildSQLCore {
     String getStringForSQL();
     void setStringForSQL(String setString);
 }

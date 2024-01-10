@@ -7,7 +7,7 @@ import javax.swing.*;
 import java.math.BigInteger;
 import java.util.Map;
 
-interface IDeployMethods {
+sealed interface IDeployMethods permits SQLRetrieverCore {
     String getNullWord();
     Map<LinSQL.TypeOfComparison, String> getComparisonType();
     Map<SortOrder, String> getOrderByType();

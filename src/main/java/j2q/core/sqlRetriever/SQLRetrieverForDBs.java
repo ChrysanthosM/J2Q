@@ -9,7 +9,8 @@ import lombok.Getter;
 import lombok.Setter;
 import org.apache.commons.lang3.StringUtils;
 
-public abstract class SQLRetrieverForDBs extends SQLRetrieverCore implements IDefaultsSQLRetrieverForDBs {
+public sealed abstract class SQLRetrieverForDBs extends SQLRetrieverCore implements IDefaultsSQLRetrieverForDBs
+        permits SQLRetrieverForDB_DB2, SQLRetrieverForDB_MSSQL, SQLRetrieverForDB_SQLite {
     private final LinSQL.TypeOfNamingSystemOrNormalized typeOfNamingSystemOrNormalized;
     private final String dbPrefixForTableLocation;
     private final boolean tableMustPrefixFields;

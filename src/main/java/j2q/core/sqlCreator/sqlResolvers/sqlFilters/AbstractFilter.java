@@ -6,7 +6,8 @@ import j2q.core.sqlRetriever.SQLRetrieverForDBs;
 import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;
 
-public abstract class AbstractFilter implements IWhere, IResolveObjectForSQL, IFilter {
+public sealed abstract class AbstractFilter implements IWhere, IResolveObjectForSQL, IFilter
+        permits AbstractWhere, GroupOfWheres {
     @Override public abstract String getResolveObjectForSQL(SQLRetrieverForDBs forSQLRetrieverForDB);
 
     private LinSQL.TypeOfLogicalOperator typeOfLogicalOperator = null;

@@ -15,7 +15,10 @@ import java.util.List;
 import java.util.Objects;
 import java.util.stream.Stream;
 
-public abstract class SQLFunction extends SqlUserSelection {
+public abstract sealed class SQLFunction extends SqlUserSelection
+        permits SQLFunction1Param, SQLFunction2Params, SQLFunction3Params,
+        SQLFunctionAggregates, SQLFunctionAggregatesWithPossibleALL,
+        SQLFunctionCASE, SQLFunctionCONCAT, SQLFunctionTRANSLATE {
     static String getNonSupportedMsg() { return "Non Supported Method"; }
 
     @Override public Type getTypeOfSelection() { return this.getClass(); }
