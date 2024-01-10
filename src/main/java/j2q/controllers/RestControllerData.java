@@ -24,5 +24,4 @@ public final class RestControllerData implements IDataController {
         return j2Data.getAutoNumberingListAsync(type);
     }
 
-
 }
