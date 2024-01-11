@@ -1,6 +1,6 @@
 package j2q.core.tds;
 
-import j2q.setup.definitions.design.schema.enums.GlobalFieldsDefinition;
+import j2q.setup.definitions.design.schema.enums.DbF;
 import jakarta.annotation.PostConstruct;
 import org.springframework.stereotype.Component;
 
@@ -9,14 +9,14 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Component
 public final class DbFieldInstances {
-    private static final ConcurrentHashMap<GlobalFieldsDefinition.DbF, DbField> mapFieldInstances = new ConcurrentHashMap<>();
+    private static final ConcurrentHashMap<DbF, DbField> mapFieldInstances = new ConcurrentHashMap<>();
 
     @PostConstruct
     public void init() {
-        Arrays.stream(GlobalFieldsDefinition.DbF.values()).parallel().forEach(f -> mapFieldInstances.put(f, new DbField(f)));
+        Arrays.stream(DbF.values()).parallel().forEach(f -> mapFieldInstances.put(f, new DbField(f)));
     }
 
-    public static DbField getMapTableInstance(GlobalFieldsDefinition.DbF forDbF) {
+    public static DbField getMapTableInstance(DbF forDbF) {
         return mapFieldInstances.getOrDefault(forDbF, null);
     }
 }

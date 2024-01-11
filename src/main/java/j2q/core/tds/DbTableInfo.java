@@ -1,8 +1,8 @@
 package j2q.core.tds;
 
 import j2q.core.sqlCreator.PairOfTableField;
-import j2q.setup.definitions.design.schema.enums.GlobalFieldsDefinition;
-import j2q.setup.definitions.design.schema.enums.GlobalTablesDefinition;
+import j2q.setup.definitions.design.schema.enums.DbF;
+import j2q.setup.definitions.design.schema.enums.DbT;
 import j2q.db.model.GlobalFieldModelDefinition;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
@@ -16,17 +16,17 @@ import java.util.stream.IntStream;
 
 @Getter
 public final class DbTableInfo {
-    private final GlobalTablesDefinition.DbT dbtNameEnum;
+    private final DbT dbtNameEnum;
 
     private final String dbtNormalName;
     private final String dbtSystemName;
 
-    private final List<GlobalFieldsDefinition.DbF> dbtHasKeys;
+    private final List<DbF> dbtHasKeys;
     private final Boolean dbtIsAutoIncrease;
     private final Boolean dbtPutAutoStamp;
 
     private final String dbtHasFieldsPrefix;
-    private final List<GlobalFieldsDefinition.DbF> dbtHasDbFieldNamesEnum;
+    private final List<DbF> dbtHasDbFieldNamesEnum;
     private final List<DbField> dbtHasDbFields;
 
     private final List<String> dbtHasFieldsNormalNames;
@@ -35,11 +35,11 @@ public final class DbTableInfo {
     private final List<GlobalFieldModelDefinition.DbFieldDataType> dbtHasFieldsDataType ;
     private final List<GlobalFieldModelDefinition.DataTypeForSQL> dbtHasFieldsDataTypeForSQL;
 
-    private final ImmutableMap<GlobalFieldsDefinition.DbF, String> dbtHasFieldsNameEnum_NormalName;
-    private final ImmutableMap<GlobalFieldsDefinition.DbF, String> dbtHasFieldsNameEnum_SystemName;
-    private final ImmutableMap<GlobalFieldsDefinition.DbF, String> dbtHasFieldsNameEnum_AsAlias;
-    private final ImmutableMap<GlobalFieldsDefinition.DbF, GlobalFieldModelDefinition.DbFieldDataType> dbtHasFieldsNameEnum_DataType;
-    private final ImmutableMap<GlobalFieldsDefinition.DbF, GlobalFieldModelDefinition.DataTypeForSQL> dbtHasFieldsNameEnum_DataTypeForSQL;
+    private final ImmutableMap<DbF, String> dbtHasFieldsNameEnum_NormalName;
+    private final ImmutableMap<DbF, String> dbtHasFieldsNameEnum_SystemName;
+    private final ImmutableMap<DbF, String> dbtHasFieldsNameEnum_AsAlias;
+    private final ImmutableMap<DbF, GlobalFieldModelDefinition.DbFieldDataType> dbtHasFieldsNameEnum_DataType;
+    private final ImmutableMap<DbF, GlobalFieldModelDefinition.DataTypeForSQL> dbtHasFieldsNameEnum_DataTypeForSQL;
 
     public DbTableInfo(DbTable dbTable) {
         this.dbtNameEnum = dbTable.getDbT();
@@ -68,19 +68,19 @@ public final class DbTableInfo {
 //            this.dbtHasFieldsNameEnum_DataType.put(this.dbtHasDbFieldNamesEnum.get(i), this.dbtHasFieldsDataType.get(i));
 //            this.dbtHasFieldsNameEnum_DataTypeForSQL.put(this.dbtHasDbFieldNamesEnum.get(i), this.dbtHasFieldsDataTypeForSQL.get(i));
 //        }
-        this.dbtHasFieldsNameEnum_NormalName = ImmutableMap.copyOf((Map<? extends GlobalFieldsDefinition.DbF, ? extends String>)
+        this.dbtHasFieldsNameEnum_NormalName = ImmutableMap.copyOf((Map<? extends DbF, ? extends String>)
                 IntStream.range(0, this.dbtHasDbFieldNamesEnum.size()).boxed()
                         .collect(Collectors.toMap(this.dbtHasDbFieldNamesEnum::get, this.dbtHasFieldsNormalNames::get, (existing, replacement) -> existing, HashMap::new)));
-        this.dbtHasFieldsNameEnum_SystemName = ImmutableMap.copyOf((Map<? extends GlobalFieldsDefinition.DbF, ? extends String>)
+        this.dbtHasFieldsNameEnum_SystemName = ImmutableMap.copyOf((Map<? extends DbF, ? extends String>)
                 IntStream.range(0, this.dbtHasDbFieldNamesEnum.size()).boxed()
                         .collect(Collectors.toMap(this.dbtHasDbFieldNamesEnum::get, this.dbtHasFieldsSystemNames::get, (existing, replacement) -> existing, HashMap::new)));
-        this.dbtHasFieldsNameEnum_AsAlias = ImmutableMap.copyOf((Map<? extends GlobalFieldsDefinition.DbF, ? extends String>)
+        this.dbtHasFieldsNameEnum_AsAlias = ImmutableMap.copyOf((Map<? extends DbF, ? extends String>)
                 IntStream.range(0, this.dbtHasDbFieldNamesEnum.size()).boxed()
                         .collect(Collectors.toMap(this.dbtHasDbFieldNamesEnum::get, this.dbtHasFieldsAsAlias::get, (existing, replacement) -> existing, HashMap::new)));
-        this.dbtHasFieldsNameEnum_DataType = ImmutableMap.copyOf((Map<? extends GlobalFieldsDefinition.DbF, ? extends GlobalFieldModelDefinition.DbFieldDataType>)
+        this.dbtHasFieldsNameEnum_DataType = ImmutableMap.copyOf((Map<? extends DbF, ? extends GlobalFieldModelDefinition.DbFieldDataType>)
                 IntStream.range(0, this.dbtHasDbFieldNamesEnum.size()).boxed()
                         .collect(Collectors.toMap(this.dbtHasDbFieldNamesEnum::get, this.dbtHasFieldsDataType::get, (existing, replacement) -> existing, HashMap::new)));
-        this.dbtHasFieldsNameEnum_DataTypeForSQL = ImmutableMap.copyOf((Map<? extends GlobalFieldsDefinition.DbF, ? extends GlobalFieldModelDefinition.DataTypeForSQL>)
+        this.dbtHasFieldsNameEnum_DataTypeForSQL = ImmutableMap.copyOf((Map<? extends DbF, ? extends GlobalFieldModelDefinition.DataTypeForSQL>)
                 IntStream.range(0, this.dbtHasDbFieldNamesEnum.size()).boxed()
                         .collect(Collectors.toMap(this.dbtHasDbFieldNamesEnum::get, this.dbtHasFieldsDataTypeForSQL::get, (existing, replacement) -> existing, HashMap::new)));
     }

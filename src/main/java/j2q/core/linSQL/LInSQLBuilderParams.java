@@ -2,7 +2,7 @@ package j2q.core.linSQL;
 
 import j2q.core.face.J2SQLShared;
 import j2q.core.sqlCreator.PairOfTableField;
-import j2q.setup.definitions.design.schema.enums.GlobalFieldsDefinition;
+import j2q.setup.definitions.design.schema.enums.DbF;
 import j2q.core.tds.DbTable;
 import com.google.common.collect.Lists;
 import j2q.core.sqlCreator.LInSQLBuilderShared;
@@ -69,8 +69,8 @@ public final class LInSQLBuilderParams {
     void setWorkWithDbTableAsAlias(DbTable setWorkWithTable, String asAlias) { this.workWithDbTableAsAlias = MutablePair.of(setWorkWithTable, asAlias); }
 
     //-------Select Fields/Constants/Functions/StringsFunctions
-    List<GlobalFieldsDefinition.DbF> getUserSelectionsOnlyDbFieldEnum() {
-        List<GlobalFieldsDefinition.DbF> returnList = Lists.newArrayList();
+    List<DbF> getUserSelectionsOnlyDbFieldEnum() {
+        List<DbF> returnList = Lists.newArrayList();
         sqlUserSelections.stream().filter(s -> s instanceof SQLFieldFromTable).forEach(s -> returnList.add(((SQLFieldFromTable) s).getDbFieldEnum()));
         return returnList;
     }

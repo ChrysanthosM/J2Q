@@ -1,8 +1,8 @@
 package j2q.core.tds;
 
 import j2q.core.sqlCreator.PairOfTableField;
-import j2q.setup.definitions.design.schema.enums.GlobalFieldsDefinition;
-import j2q.setup.definitions.design.schema.enums.GlobalTablesDefinition;
+import j2q.setup.definitions.design.schema.enums.DbF;
+import j2q.setup.definitions.design.schema.enums.DbT;
 import j2q.core.face.J2SQLShared;
 import jakarta.annotation.PostConstruct;
 import lombok.Getter;
@@ -12,12 +12,12 @@ import javax.annotation.Nonnull;
 import java.util.List;
 
 public abstract non-sealed class DbTable implements IDbTable {
-    public final GlobalFieldsDefinition.DbF ALL = GlobalFieldsDefinition.DbF.ALL;
+    public final DbF ALL = DbF.ALL;
 
-    @Override public abstract GlobalTablesDefinition.DbT getDbT();
+    @Override public abstract DbT getDbT();
     @Override public abstract String getSystemName();
     @Override public abstract String getTablePrefixForFields();
-    @Override public abstract List<GlobalFieldsDefinition.DbF> getHasKeys();
+    @Override public abstract List<DbF> getHasKeys();
     @Override public abstract Boolean getAutoIncrease();
     @Override public abstract Boolean getPutAutoStamp();
 

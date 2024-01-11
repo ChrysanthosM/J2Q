@@ -2,7 +2,7 @@ package j2q.setup.definitions.dtos;
 
 import j2q.core.support.DtoFieldValue;
 import j2q.db.loader.RowLoader;
-import j2q.setup.definitions.design.schema.enums.GlobalFieldsDefinition;
+import j2q.setup.definitions.design.schema.enums.DbF;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.sql.ResultSet;
@@ -17,17 +17,17 @@ public record AutoNumberingDTO(int recId, String entityType, int entityNumber) {
         @Override
         public AutoNumberingDTO convertResultSet(ResultSet resultSet) throws SQLException {
             return new AutoNumberingDTO(
-                    resultSet.getInt(GlobalFieldsDefinition.DbF.RecID.getSystemName()),
-                    resultSet.getString(GlobalFieldsDefinition.DbF.EntityType.getSystemName()),
-                    resultSet.getInt(GlobalFieldsDefinition.DbF.EntityNumber.getSystemName())
+                    resultSet.getInt(DbF.RecID.getSystemName()),
+                    resultSet.getString(DbF.EntityType.getSystemName()),
+                    resultSet.getInt(DbF.EntityNumber.getSystemName())
             );
         }
         @Override
         public AutoNumberingDTO convertResultSet(List<Pair<String, Object>> columnNamesValues) throws NoSuchElementException {
             return new AutoNumberingDTO(
-                    DtoFieldValue.getValue(GlobalFieldsDefinition.DbF.RecID, columnNamesValues),
-                    DtoFieldValue.getValue(GlobalFieldsDefinition.DbF.EntityType, columnNamesValues),
-                    DtoFieldValue.getValue(GlobalFieldsDefinition.DbF.EntityNumber, columnNamesValues)
+                    DtoFieldValue.getValue(DbF.RecID, columnNamesValues),
+                    DtoFieldValue.getValue(DbF.EntityType, columnNamesValues),
+                    DtoFieldValue.getValue(DbF.EntityNumber, columnNamesValues)
             );
         }
     }

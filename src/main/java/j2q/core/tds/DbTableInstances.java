@@ -1,6 +1,6 @@
 package j2q.core.tds;
 
-import j2q.setup.definitions.design.schema.enums.GlobalTablesDefinition;
+import j2q.setup.definitions.design.schema.enums.DbT;
 import com.google.common.collect.ImmutableList;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +11,7 @@ import java.util.concurrent.ConcurrentHashMap;
 
 @Component
 public final class DbTableInstances {
-    private static final ConcurrentHashMap<GlobalTablesDefinition.DbT, DbTable> mapTableInstances = new ConcurrentHashMap<>();
+    private static final ConcurrentHashMap<DbT, DbTable> mapTableInstances = new ConcurrentHashMap<>();
     private final List<IDbTable> implementations;
 
     @Autowired
@@ -24,7 +24,7 @@ public final class DbTableInstances {
     }
 
 
-    public static DbTable getMapTableInstance(GlobalTablesDefinition.DbT forDbT) {
+    public static DbTable getMapTableInstance(DbT forDbT) {
         return mapTableInstances.getOrDefault(forDbT, null);
     }
 }

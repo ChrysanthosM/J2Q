@@ -1,7 +1,7 @@
 package j2q.core.sqlCreator.sqlBuilder;
 
 import j2q.commons.CommonMethods;
-import j2q.setup.definitions.design.schema.enums.GlobalFieldsDefinition;
+import j2q.setup.definitions.design.schema.enums.DbF;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
 import j2q.core.sqlCreator.LInSQLBuilderShared;
@@ -21,7 +21,7 @@ public final class BuildSQLInsertRows extends BuildSQLCore {
     private BuildSQLInsertRows(SQLRetrieverForDBs forSQLRetrieverForDB) {
         boolean putAutoStamp = forSQLRetrieverForDB.getWorkBuildSQLWorkTable().getDbTable().getPutAutoStamp();
 
-        final List<GlobalFieldsDefinition.DbF> intoDbFs = Lists.newArrayList();
+        final List<DbF> intoDbFs = Lists.newArrayList();
         if (!forSQLRetrieverForDB.getWorkBuildSQLWorkTable().getDbTable().getAutoIncrease()) {
             intoDbFs.addAll(forSQLRetrieverForDB.getWorkBuildSQLWorkTable().getDbTable().getHasKeys());
         }
@@ -40,8 +40,8 @@ public final class BuildSQLInsertRows extends BuildSQLCore {
         super.setStringForSQL(Joiner.on(", ").join(insertRowsForSQL));
 
         if (putAutoStamp) {
-            intoDbFs.add(GlobalFieldsDefinition.DbF.UserStamp);
-            intoDbFs.add(GlobalFieldsDefinition.DbF.DateStamp);
+            intoDbFs.add(DbF.UserStamp);
+            intoDbFs.add(DbF.DateStamp);
         }
 
         String tableHasPrefixForFields = StringUtils.defaultString(forSQLRetrieverForDB.getWorkBuildSQLWorkTable().getDbTable().getTablePrefixForFields());
@@ -54,7 +54,7 @@ public final class BuildSQLInsertRows extends BuildSQLCore {
 
 
     private String getInsertRowForSQL(SQLRetrieverForDBs forSQLRetrieverForDB,
-                                      List<GlobalFieldsDefinition.DbF> intoDbF, boolean isAutoStamp, List<Object> rowFieldValues) {
+                                      List<DbF> intoDbF, boolean isAutoStamp, List<Object> rowFieldValues) {
         List<String> fieldValuesForSQL = Lists.newArrayList();
         for (int i = 0; i < intoDbF.size(); i++) {
             fieldValuesForSQL.add(LInSQLBuilderShared.getSqlUserSelection(

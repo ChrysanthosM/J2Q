@@ -1,16 +1,16 @@
 package j2q.core.tds;
 
 import j2q.core.sqlCreator.PairOfTableField;
-import j2q.setup.definitions.design.schema.enums.GlobalFieldsDefinition;
-import j2q.setup.definitions.design.schema.enums.GlobalTablesDefinition;
+import j2q.setup.definitions.design.schema.enums.DbF;
+import j2q.setup.definitions.design.schema.enums.DbT;
 
 import java.util.List;
 
 public sealed interface IDbTable permits DbTable {
-    GlobalTablesDefinition.DbT getDbT();
+    DbT getDbT();
     String getSystemName();
     String getTablePrefixForFields();
-    List<GlobalFieldsDefinition.DbF> getHasKeys();
+    List<DbF> getHasKeys();
     Boolean getAutoIncrease();
     Boolean getPutAutoStamp();
 

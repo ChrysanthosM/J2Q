@@ -8,13 +8,13 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-public class GlobalFieldValuesDefinition {
-    private static final Map<GlobalFieldsDefinition.DbF, List<String>> bufferValues = new ImmutableMap.Builder<GlobalFieldsDefinition.DbF, List<String>>()
-            .put(GlobalFieldsDefinition.DbF.EntityType, Arrays.stream(ValuesForEntityType.values()).map(ValuesForEntityType::getValue).collect(Collectors.toList()))
-            .put(GlobalFieldsDefinition.DbF.OptionType, Arrays.stream(ValuesForOptionType.values()).map(ValuesForOptionType::getValue).collect(Collectors.toList()))
+public class DbFValues {
+    private static final Map<DbF, List<String>> bufferValues = new ImmutableMap.Builder<DbF, List<String>>()
+            .put(DbF.EntityType, Arrays.stream(ValuesForEntityType.values()).map(ValuesForEntityType::getValue).collect(Collectors.toList()))
+            .put(DbF.OptionType, Arrays.stream(ValuesForOptionType.values()).map(ValuesForOptionType::getValue).collect(Collectors.toList()))
             .build();
 
-    public static List<String> getValues(@Nonnull GlobalFieldsDefinition.DbF forField) {
+    public static List<String> getValues(@Nonnull DbF forField) {
         return bufferValues.getOrDefault(forField, null);
     }
 

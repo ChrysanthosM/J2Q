@@ -6,7 +6,7 @@ import j2q.core.sqlCreator.sqlResolvers.sqlFilters.GroupOfWheres;
 import j2q.core.sqlCreator.sqlResolvers.sqlFilters.IWhere;
 import j2q.db.datasources.IDataSource;
 import j2q.core.sqlCreator.PairOfTableField;
-import j2q.setup.definitions.design.schema.enums.GlobalFieldsDefinition;
+import j2q.setup.definitions.design.schema.enums.DbF;
 import j2q.core.tds.DbTable;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
@@ -111,7 +111,7 @@ public final class LinSQL {
         Stream.of(addSelectedFields).filter(Objects::nonNull).forEach(o -> workLInSQLBuilder.getWorkLInSQLBuilderParams().addUserSelection(o, StringUtils.EMPTY));
     }
     public void selectAll() {
-        workLInSQLBuilder.getWorkLInSQLBuilderParams().addUserSelection(GlobalFieldsDefinition.DbF.ALL, StringUtils.EMPTY);
+        workLInSQLBuilder.getWorkLInSQLBuilderParams().addUserSelection(DbF.ALL, StringUtils.EMPTY);
     }
 //    @Description("Add selected SQL Field/Constant/SQLFunction")
 //    public J2SQL selectAsAlias(@Nonnull Object addSelectedField, @Nullable String asAlias) {
@@ -191,7 +191,7 @@ public final class LinSQL {
     }
 
     public void updateFieldSetValue(@Nonnull PairOfTableField updField, @Nonnull Object setValue) {
-        Preconditions.checkArgument(updField.getDbf() != GlobalFieldsDefinition.DbF.ALL);
+        Preconditions.checkArgument(updField.getDbf() != DbF.ALL);
         workLInSQLBuilder.getWorkLInSQLBuilderParams().setTypeOfSQL(J2SQLShared.TypeOfSQLStatement.SQL_UPDATE);
         workLInSQLBuilder.getWorkLInSQLBuilderParams().addUpdateFieldSetValue(updField, setValue);
     }

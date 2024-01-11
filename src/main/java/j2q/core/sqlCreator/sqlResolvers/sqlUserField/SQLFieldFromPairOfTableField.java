@@ -1,7 +1,7 @@
 package j2q.core.sqlCreator.sqlResolvers.sqlUserField;
 
 import j2q.core.sqlCreator.PairOfTableField;
-import j2q.setup.definitions.design.schema.enums.GlobalFieldsDefinition;
+import j2q.setup.definitions.design.schema.enums.DbF;
 import j2q.core.sqlCreator.sqlResolvers.SqlUserSelection;
 import j2q.core.sqlRetriever.SQLRetrieverForDBs;
 
@@ -35,7 +35,7 @@ public final class SQLFieldFromPairOfTableField extends SqlUserSelection {
         super.setAsAlias(asAlias);
     }
 
-    public GlobalFieldsDefinition.DbF getDbFieldEnum() { return this.pairOfTableField.getDbf(); }
+    public DbF getDbFieldEnum() { return this.pairOfTableField.getDbf(); }
 
     @Override public String getResolveObjectForSQL(SQLRetrieverForDBs forSQLRetrieverForDB) {
         if (isIgnoreTableAsAlias()) this.sqlFieldFromTable.setIgnoreTableAsAlias();

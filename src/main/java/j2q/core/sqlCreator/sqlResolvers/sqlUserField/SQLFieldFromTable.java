@@ -4,8 +4,8 @@ import j2q.core.linSQL.LinSQL;
 import j2q.core.linSQL.LinSQLCommons;
 import j2q.core.sqlCreator.sqlResolvers.SqlUserSelection;
 import j2q.core.sqlRetriever.SQLRetrieverForDBs;
-import j2q.setup.definitions.design.schema.enums.GlobalFieldsDefinition;
-import j2q.setup.definitions.design.schema.enums.GlobalTablesDefinition;
+import j2q.setup.definitions.design.schema.enums.DbF;
+import j2q.setup.definitions.design.schema.enums.DbT;
 import j2q.core.tds.DbFieldInstances;
 import j2q.core.tds.DbTable;
 import j2q.core.tds.DbTableInstances;
@@ -26,35 +26,35 @@ import java.util.Set;
 public final class SQLFieldFromTable extends SqlUserSelection {
     @Override public Type getTypeOfSelection() { return this.getClass(); }
 
-    private GlobalFieldsDefinition.DbF dbF;
+    private DbF dbF;
     private DbField dbField = null;
 
-    public SQLFieldFromTable(@Nonnull GlobalFieldsDefinition.DbF dbF) {
+    public SQLFieldFromTable(@Nonnull DbF dbF) {
         super();
         init(null, null, dbF);
     }
-    public SQLFieldFromTable(@Nonnull GlobalFieldsDefinition.DbF dbF, @Nullable String asAlias) {
+    public SQLFieldFromTable(@Nonnull DbF dbF, @Nullable String asAlias) {
         super();
         init(null, asAlias, dbF);
     }
-    public SQLFieldFromTable(@Nonnull GlobalFieldsDefinition.DbF dbF, @Nullable String asAlias, @Nullable String setPrefix) {
+    public SQLFieldFromTable(@Nonnull DbF dbF, @Nullable String asAlias, @Nullable String setPrefix) {
         super();
         init(setPrefix, asAlias, dbF);
     }
     @Override public void init(@Nullable String setPrefix, @Nullable String asAlias, @Nullable Object... args) {
         assert args != null;
-        this.dbF = (GlobalFieldsDefinition.DbF) args[0];
+        this.dbF = (DbF) args[0];
         this.dbField = DbFieldInstances.getMapTableInstance(this.dbF);
         super.setHasPrefix(setPrefix);
         super.setAsAlias(asAlias);
     }
 
-    public GlobalFieldsDefinition.DbF getDbFieldEnum() { return this.dbF; }
+    public DbF getDbFieldEnum() { return this.dbF; }
 
     @Override public String getResolveObjectForSQL(SQLRetrieverForDBs forSQLRetrieverForDB) {
         return getResolveObjectForSQLMain(forSQLRetrieverForDB, null);
     }
-    String getResolveObjectForSQLMain(SQLRetrieverForDBs forSQLRetrieverForDB, @Nullable GlobalTablesDefinition.DbT forDbt) {
+    String getResolveObjectForSQLMain(SQLRetrieverForDBs forSQLRetrieverForDB, @Nullable DbT forDbt) {
         String returnName = StringUtils.defaultString(this.getHasPrefix());
 
         String tableHasPrefixForFields = StringUtils.EMPTY;
@@ -64,7 +64,7 @@ public final class SQLFieldFromTable extends SqlUserSelection {
         if (forSQLRetrieverForDB.getTypeOfNamingSystemOrNormalized() == LinSQL.TypeOfNamingSystemOrNormalized.SYSTEM) {
             returnName = returnName.concat(tableHasPrefixForFields.concat(this.dbField.getDbfSystemName()));
         } else {
-            if (this.dbField.getDbfNameEnum() == GlobalFieldsDefinition.DbF.ALL) {
+            if (this.dbField.getDbfNameEnum() == DbF.ALL) {
                 returnName = returnName.concat(LinSQLCommons.ASTERISK);
             } else {
                 returnName = returnName.concat(this.dbField.getDbfNormalName());
@@ -73,10 +73,10 @@ public final class SQLFieldFromTable extends SqlUserSelection {
 
         if (StringUtils.isBlank(this.getHasPrefix())) {
             String tableAsAlias = StringUtils.defaultString(forSQLRetrieverForDB.getWorkLInSQLBuilderParams().getWorkWithTableOnlyAsAlias());
-            Set<Triple<DbTable, String, List<GlobalFieldsDefinition.DbF>>> availableTablesWithFields = forSQLRetrieverForDB.getAvailableTablesWithFields();
+            Set<Triple<DbTable, String, List<DbF>>> availableTablesWithFields = forSQLRetrieverForDB.getAvailableTablesWithFields();
             if (CollectionUtils.isNotEmpty(availableTablesWithFields)) {
-                for (Triple<DbTable, String, List<GlobalFieldsDefinition.DbF>> availableTableWithFields : Lists.reverse(availableTablesWithFields.stream().toList())) {
-                    List<GlobalFieldsDefinition.DbF> tblFields = availableTableWithFields.getRight();
+                for (Triple<DbTable, String, List<DbF>> availableTableWithFields : Lists.reverse(availableTablesWithFields.stream().toList())) {
+                    List<DbF> tblFields = availableTableWithFields.getRight();
                     if (CollectionUtils.isNotEmpty(tblFields)) {
                         if (tblFields.contains(this.dbField.getDbfNameEnum())) {
                             tableAsAlias = availableTableWithFields.getMiddle();

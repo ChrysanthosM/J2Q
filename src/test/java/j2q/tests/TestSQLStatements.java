@@ -3,7 +3,7 @@ package j2q.tests;
 import com.google.common.collect.Lists;
 import j2q.core.face.J2SQL;
 import j2q.db.datasources.DataSourceForDB2i;
-import j2q.setup.definitions.design.schema.enums.GlobalFieldValuesDefinition;
+import j2q.setup.definitions.design.schema.enums.DbFValues;
 import j2q.setup.definitions.design.schema.tables.TAutoNumbering;
 import j2q.setup.definitions.design.schema.tables.TOptions;
 import org.apache.commons.lang3.StringUtils;
@@ -227,7 +227,7 @@ public class TestSQLStatements {
                         : "SELECT DISTINCT AASys_RecID AS \"Rec_ID\", AASys_EntityType AS \"Entity_Type\", AASys_EntityNumber AS \"Entity_Number\" FROM $.Sys_AutoNumbering  WHERE (AASys_EntityNumber = 1)"));
 
         stmts.add(checkResult(J2SQL.create(workDataSource, normalizeNames).from(tAutoNumbering)
-                        .where(tAutoNumbering.ENTITY_TYPE.eq(GlobalFieldValuesDefinition.ValuesForEntityType.SURROGATE_NUM))
+                        .where(tAutoNumbering.ENTITY_TYPE.eq(DbFValues.ValuesForEntityType.SURROGATE_NUM))
                         .and(tAutoNumbering.ENTITY_TYPE.inSubSelect(J2SQL.create(workDataSource, normalizeNames).from(tAutoNumbering).select(tAutoNumbering.ENTITY_TYPE).getSQL()))
                         .and(not(tAutoNumbering.ENTITY_TYPE.like("AB%")))
                         .and(tAutoNumbering.ENTITY_TYPE.between(11, 22).or(tAutoNumbering.ENTITY_NUMBER.between(1, 2)))
@@ -292,8 +292,8 @@ public class TestSQLStatements {
 
         stmts.add(checkResult(J2SQL.create(workDataSource, normalizeNames).from(tAutoNumbering)
                         .select(CASE1n(11,
-                                WHEN(tAutoNumbering.ENTITY_TYPE.eq(GlobalFieldValuesDefinition.ValuesForEntityType.SURROGATE_NUM), 22),
-                                WHEN(tAutoNumbering.ENTITY_TYPE.lt(GlobalFieldValuesDefinition.ValuesForEntityType.SURROGATE_NUM), 33)))
+                                WHEN(tAutoNumbering.ENTITY_TYPE.eq(DbFValues.ValuesForEntityType.SURROGATE_NUM), 22),
+                                WHEN(tAutoNumbering.ENTITY_TYPE.lt(DbFValues.ValuesForEntityType.SURROGATE_NUM), 33)))
                         .select(CASE2s(tAutoNumbering.ENTITY_TYPE, "11",
                                 WHEN(2, "22"),
                                 WHEN(3, "33")))

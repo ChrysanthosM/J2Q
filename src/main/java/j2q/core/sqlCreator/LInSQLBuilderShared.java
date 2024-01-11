@@ -2,7 +2,7 @@ package j2q.core.sqlCreator;
 
 import j2q.core.face.J2SQLShared;
 import j2q.core.sqlCreator.sqlResolvers.sqlUserField.*;
-import j2q.setup.definitions.design.schema.enums.GlobalFieldsDefinition;
+import j2q.setup.definitions.design.schema.enums.DbF;
 import j2q.db.model.GlobalFieldModelDefinition;
 import j2q.core.sqlCreator.sqlResolvers.sqlFunctions.SQLFunction;
 import j2q.core.sqlCreator.sqlResolvers.SqlUserSelection;
@@ -23,8 +23,8 @@ public final class LInSQLBuilderShared {
         if (selectionObject instanceof SQLFieldFromTable) return (SqlUserSelection) selectionObject;
         if (selectionObject instanceof SQLFieldFromPairOfTableField) return (SQLFieldFromPairOfTableField) selectionObject;
 
-        if (selectionObject instanceof GlobalFieldsDefinition.DbF) {
-            return new SQLFieldFromTable((GlobalFieldsDefinition.DbF) selectionObject, asAlias);
+        if (selectionObject instanceof DbF) {
+            return new SQLFieldFromTable((DbF) selectionObject, asAlias);
         }
         if (selectionObject instanceof PairOfTableField) {
             return new SQLFieldFromPairOfTableField((PairOfTableField) selectionObject, asAlias);

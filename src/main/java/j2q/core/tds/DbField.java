@@ -1,6 +1,6 @@
 package j2q.core.tds;
 
-import j2q.setup.definitions.design.schema.enums.GlobalFieldsDefinition;
+import j2q.setup.definitions.design.schema.enums.DbF;
 import j2q.db.model.GlobalFieldModelDefinition;
 import lombok.Getter;
 
@@ -8,7 +8,7 @@ import java.util.List;
 
 @Getter
 public final class DbField {
-    private final GlobalFieldsDefinition.DbF dbfNameEnum;
+    private final DbF dbfNameEnum;
 
     private final String dbfNormalName;
     private final String dbfSystemName;
@@ -19,7 +19,7 @@ public final class DbField {
 
     private final List<String> dbfAcceptedValues;
 
-    public DbField(GlobalFieldsDefinition.DbF dbF) {
+    public DbField(DbF dbF) {
         this.dbfNameEnum = dbF;
 
         this.dbfNormalName = this.dbfNameEnum.name();

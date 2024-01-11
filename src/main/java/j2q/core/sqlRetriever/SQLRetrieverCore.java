@@ -2,7 +2,7 @@ package j2q.core.sqlRetriever;
 
 import j2q.core.linSQL.LinSQL;
 import j2q.core.sqlCreator.sqlBuilder.*;
-import j2q.setup.definitions.design.schema.enums.GlobalFieldsDefinition;
+import j2q.setup.definitions.design.schema.enums.DbF;
 import j2q.core.tds.DbTable;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
@@ -32,9 +32,9 @@ abstract sealed class SQLRetrieverCore implements IDeployMethods, IDeploySQLStat
     @Getter(AccessLevel.PROTECTED) @Setter(AccessLevel.PROTECTED) private BuildSQLUpdateFields workBuildSQLUpdateFields = null;
     @Getter(AccessLevel.PROTECTED) @Setter(AccessLevel.PROTECTED) private BuildSQLInsertRows workBuildSQLInsertRows = null;
 
-    @Getter private final Set<Triple<DbTable, String, List<GlobalFieldsDefinition.DbF>>> availableTablesWithFields = Sets.newHashSet();
-    public void addAvailableTableWithFields(Triple<DbTable, String, List<GlobalFieldsDefinition.DbF>> tableWithFields) { this.availableTablesWithFields.add(tableWithFields); }
-    public void addAvailableTableWithFields(Set<Triple<DbTable, String, List<GlobalFieldsDefinition.DbF>>> tablesWithFields) { this.availableTablesWithFields.addAll(tablesWithFields); }
+    @Getter private final Set<Triple<DbTable, String, List<DbF>>> availableTablesWithFields = Sets.newHashSet();
+    public void addAvailableTableWithFields(Triple<DbTable, String, List<DbF>> tableWithFields) { this.availableTablesWithFields.add(tableWithFields); }
+    public void addAvailableTableWithFields(Set<Triple<DbTable, String, List<DbF>>> tablesWithFields) { this.availableTablesWithFields.addAll(tablesWithFields); }
     protected void clearAvailableTablesWithFields() { this.availableTablesWithFields.clear(); }
 
     @Getter private final List<String> fieldMapper = Lists.newArrayList();
