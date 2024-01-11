@@ -2,10 +2,10 @@ package j2q.core.sqlCreator.sqlResolvers.sqlUserField;
 
 import j2q.core.linSQL.LinSQLCommons;
 import j2q.core.sqlRetriever.SQLRetrieverForDBs;
-import j2q.setup.definitions.design.schema.enums.DbFValues;
 import j2q.db.model.GlobalFieldModelDefinition;
 import com.google.common.base.Preconditions;
 import j2q.core.sqlCreator.sqlResolvers.SqlUserSelection;
+import j2q.core.tds.IValueFor;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -26,7 +26,7 @@ public final class SQLFieldFromConstant extends SqlUserSelection {
     @Override public void init(@Nullable String setPrefix, @Nullable String asAlias, @Nullable Object... args) {
         Preconditions.checkNotNull(args);
         this.value = args[0];
-        if (this.value instanceof DbFValues.IValueFor enumValue) {
+        if (this.value instanceof IValueFor enumValue) {
             this.value = enumValue.getValue();
         }
         super.setAsAlias(asAlias);

@@ -2,6 +2,7 @@ package j2q.setup.definitions.design.schema.enums;
 
 import j2q.core.sqlCreator.sqlResolvers.sqlFilters.IDeployFilters;
 import j2q.core.sqlCreator.sqlResolvers.sqlFilters.IProvideDataTypeForSQL;
+import j2q.core.tds.DbFieldValues;
 import j2q.db.model.GlobalFieldModelDefinition;
 import lombok.Getter;
 
@@ -49,7 +50,7 @@ public enum DbF implements IDeployFilters, IProvideDataTypeForSQL {
     }
 
     public List<String> getAcceptedValues() {
-        return DbFValues.getValues(this);
+        return DbFieldValues.getValues(this);
     }
 
     @Override
