@@ -37,7 +37,7 @@ public abstract class AbstractJ2<E extends Enum<E>> {
     public String getSQL(E typeOfSQL) { return bufferSQLs.getOrDefault(typeOfSQL, null); }
 
     @PostConstruct
-    public void startLoading() {
+    public void load() {
         this.defaultDataSource = context.getBean(AppConfig.class).getDefaultDataSource();
         loadBuffers();
     }
