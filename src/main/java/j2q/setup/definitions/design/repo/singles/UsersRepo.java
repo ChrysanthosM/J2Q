@@ -1,8 +1,6 @@
 package j2q.setup.definitions.design.repo.singles;
 
-import j2q.core.support.IRepo;
-
-public interface UsersRepo extends IRepo {
+public interface UsersRepo {
     enum TypeOfSQL {
         ALL,
         INSERT_ROW,

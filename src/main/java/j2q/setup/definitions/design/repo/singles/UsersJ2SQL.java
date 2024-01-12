@@ -3,39 +3,25 @@ package j2q.setup.definitions.design.repo.singles;
 import j2q.core.face.J2SQL;
 import j2q.setup.definitions.design.schema.tables.TUsers;
 import j2q.core.support.AbstractJ2;
-import jakarta.annotation.PostConstruct;
+import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.scheduling.annotation.Async;
 import org.springframework.stereotype.Component;
 
-import java.util.Map;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.ConcurrentHashMap;
 
 @Component
 public class UsersJ2SQL extends AbstractJ2<UsersRepo.TypeOfSQL> implements UsersRepo {
-    private @Autowired TUsers tUsers;
+    @Autowired private TUsers tUsers;
 
     protected UsersJ2SQL() {
         super(UsersRepo.TypeOfSQL.class);
     }
 
-    @Override
-    @PostConstruct
-    public void loadBuffer() {
-        Map<TypeOfSQL, CompletableFuture<J2SQL>> loadJ2SQLsAsync = new ConcurrentHashMap<>() ;
-        loadJ2SQLsAsync.put(TypeOfSQL.ALL, getALL());
-        loadJ2SQLsAsync.put(TypeOfSQL.INSERT_ROW, getINSERT_ROW());
-
-        super.loadBuffers((Map<Class<TypeOfSQL>, CompletableFuture<J2SQL>>) (Map<?, ?>) loadJ2SQLsAsync);
+    @Async public Pair<TypeOfSQL, CompletableFuture<J2SQL>> getALL() {
+        return Pair.of(TypeOfSQL.ALL, CompletableFuture.supplyAsync(() -> J2SQL.create(getDefaultDataSource()).from(tUsers)));
     }
-
-    @Async private CompletableFuture<J2SQL> getALL() {
-        return CompletableFuture.supplyAsync(() -> J2SQL.create(getDefaultDataSource()).from(tUsers));
+    @Async public Pair<TypeOfSQL, CompletableFuture<J2SQL>> getINSERT_ROW() {
+        return Pair.of(TypeOfSQL.INSERT_ROW, CompletableFuture.supplyAsync(() -> J2SQL.create(getDefaultDataSource()).insertInto(tUsers).insertRow()));
     }
-    @Async private CompletableFuture<J2SQL> getINSERT_ROW() {
-        return CompletableFuture.supplyAsync(() -> J2SQL.create(getDefaultDataSource()).insertInto(tUsers).insertRow());
-    }
-
-
 }
