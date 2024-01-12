@@ -11,9 +11,7 @@ import java.util.List;
 @Component
 public class TOptions extends TTable {
     public TOptions() {
-        super(DbT.Options, "Sys_Options", "AB", List.of(DbF.RecID));
-        setAutoIncrease();
-        setPutAutoStamp();
+        super(DbT.Options);
         setDbFs(REC_ID, OPTION_TYPE, OPTION_NAME, OPTION_VALUE, OPTION_DETAILS);
     }
 

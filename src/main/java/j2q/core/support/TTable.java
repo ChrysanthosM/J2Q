@@ -15,22 +15,18 @@ public abstract class TTable extends DbTable {
     private final String systemName;
     private final String tablePrefixForFields;
     private final List<DbF> hasKeys;
-    private Boolean autoIncrease = false;
-    private Boolean putAutoStamp = false;
+    private final Boolean autoIncrease;
+    private final Boolean putAutoStamp;
 
     private List<PairOfTableField> dbFs;
 
-    public TTable(DbT dbT, String systemName, String tablePrefixForFields, List<DbF> hasKeys) {
+    public TTable(DbT dbT) {
         this.dbT = dbT;
-        this.systemName = systemName;
-        this.tablePrefixForFields = tablePrefixForFields;
-        this.hasKeys = ImmutableList.copyOf(hasKeys);
-    }
-    public void setAutoIncrease() {
-        this.autoIncrease = true;
-    }
-    public void setPutAutoStamp() {
-        this.putAutoStamp = true;
+        this.systemName = dbT.getSystemName();
+        this.tablePrefixForFields = dbT.getTablePrefixForFields();
+        this.hasKeys = ImmutableList.copyOf(dbT.getHasKeys());
+        this.autoIncrease = dbT.getAutoIncrease();
+        this.putAutoStamp = dbT.getPutAutoStamp();
     }
 
     public void setDbFs(PairOfTableField... dbFs) { this.dbFs = ImmutableList.copyOf(dbFs); }

@@ -11,8 +11,7 @@ import java.util.List;
 @Component
 public class TAutoNumbering extends TTable {
     public TAutoNumbering() {
-        super(DbT.AutoNumbering, "Sys_AutoNumbering", "AA", List.of(DbF.RecID));
-        setAutoIncrease();
+        super(DbT.AutoNumbering);
         setDbFs(REC_ID, ENTITY_TYPE, ENTITY_NUMBER);
     }
 

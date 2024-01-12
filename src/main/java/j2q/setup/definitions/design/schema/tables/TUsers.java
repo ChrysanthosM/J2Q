@@ -11,7 +11,7 @@ import java.util.List;
 @Component
 public class TUsers extends TTable {
     public TUsers() {
-        super(DbT.Users, "Sys_Users", "AC", List.of(DbF.RecID));
+        super(DbT.Users);
         setDbFs(REC_ID, USER_NAME, USER_PASSWORD);
     }
 
