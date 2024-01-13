@@ -229,7 +229,7 @@ public interface J2SQLShared {
     static SQLFunctionObject INITCAP(@Nonnull Object arg) { return SQLFunctionObject.of(IDeploySQLFunctions.create(IDeploySQLFunctions.TypeOfSQLFunction.INITCAP, arg)); }
     static SQLFunctionObject SPACE(int numOfSpaces) {
         Preconditions.checkArgument(numOfSpaces >= 0);
-        return SQLFunctionObject.of(IDeploySQLFunctions.create(IDeploySQLFunctions.TypeOfSQLFunction.SPACE, Integer.valueOf(numOfSpaces)));
+        return SQLFunctionObject.of(IDeploySQLFunctions.create(IDeploySQLFunctions.TypeOfSQLFunction.SPACE, numOfSpaces));
     }
     static SQLFunctionObject INSTR(@Nonnull Object arg, @Nonnull Object find) { return SQLFunctionObject.of(IDeploySQLFunctions.create(IDeploySQLFunctions.TypeOfSQLFunction.INSTR, Stream.of(arg, find).toArray())); }
     static SQLFunctionObject LEFT(@Nonnull Object arg, int len) {

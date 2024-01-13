@@ -26,7 +26,7 @@ public abstract sealed class SQLFunction extends SqlUserSelection
 
     private List<Object> params = Lists.newArrayList();
     protected List<Object> getParams() { return this.params; }
-    protected Object getParam() { return this.params.get(0); }
+    protected Object getParam() { return this.params.getFirst(); }
     protected void setParams(List<Object> params) { this.params = params; }
     protected void addParam(Object param) { this.params.add(param); }
     private List<String> paramsSelectedFieldForSQL = null;
@@ -38,10 +38,10 @@ public abstract sealed class SQLFunction extends SqlUserSelection
         return this.paramsSelectedFieldForSQL;
     }
     protected String getFirstParamSelectedFieldForSQL(SQLRetrieverForDBs forSQLRetrieverForDB, @Nullable GlobalFieldModelDefinition.DataTypeForSQL dataTypeForSQL) {
-        return LInSQLBuilderShared.getSqlUserSelection(this.params.get(0), dataTypeForSQL).getResolveObjectForSQL(forSQLRetrieverForDB);
+        return LInSQLBuilderShared.getSqlUserSelection(this.params.getFirst(), dataTypeForSQL).getResolveObjectForSQL(forSQLRetrieverForDB);
     }
     protected String getLastParamSelectedFieldForSQL(SQLRetrieverForDBs forSQLRetrieverForDB, @Nullable GlobalFieldModelDefinition.DataTypeForSQL dataTypeForSQL) {
-        SqlUserSelection mainParam = LInSQLBuilderShared.getSqlUserSelection(this.params.get(this.params.size() - 1), dataTypeForSQL);
+        SqlUserSelection mainParam = LInSQLBuilderShared.getSqlUserSelection(this.params.getLast(), dataTypeForSQL);
         mainParam.setIgnoreTableAsAlias();
         return mainParam.getResolveObjectForSQL(forSQLRetrieverForDB);
     }

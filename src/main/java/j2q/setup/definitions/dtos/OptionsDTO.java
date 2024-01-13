@@ -13,8 +13,8 @@ import java.util.NoSuchElementException;
 public record OptionsDTO(int recId, String optionType, String optionName, String optionValue, String optionDetails,
                          String userStamp, String dateStamp) {
 
-    public static LoadDao newConverter() { return new LoadDao(); }
-    public static class LoadDao extends RowLoader<OptionsDTO> {
+    public static LoadDTO newConverter() { return new LoadDTO(); }
+    public static class LoadDTO extends RowLoader<OptionsDTO> {
         @Override
         public OptionsDTO convertResultSet(ResultSet resultSet) throws SQLException {
             return new OptionsDTO(

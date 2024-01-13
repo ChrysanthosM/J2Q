@@ -12,8 +12,8 @@ import java.util.NoSuchElementException;
 
 public record AutoNumberingDTO(int recId, String entityType, int entityNumber) {
 
-    public static LoadDao newConverter() { return new LoadDao(); }
-    public static class LoadDao extends RowLoader<AutoNumberingDTO> {
+    public static LoadDTO newConverter() { return new LoadDTO(); }
+    public static class LoadDTO extends RowLoader<AutoNumberingDTO> {
         @Override
         public AutoNumberingDTO convertResultSet(ResultSet resultSet) throws SQLException {
             return new AutoNumberingDTO(

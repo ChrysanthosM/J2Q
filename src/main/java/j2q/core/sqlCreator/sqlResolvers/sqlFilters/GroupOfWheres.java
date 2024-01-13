@@ -22,8 +22,8 @@ public final class GroupOfWheres extends AbstractFilter {
         this.whereFilters = whereFilters;
     }
 
-    @Override public void addParenthesisLeft() { ((IFilter) this.whereFilters.get(0)).addParenthesisLeft(); }
-    @Override public void addParenthesisRight() { ((IFilter) this.whereFilters.get(this.whereFilters.size() -1)).addParenthesisRight(); }
+    @Override public void addParenthesisLeft() { ((IFilter) this.whereFilters.getFirst()).addParenthesisLeft(); }
+    @Override public void addParenthesisRight() { ((IFilter) this.whereFilters.getLast()).addParenthesisRight(); }
 
     @Override
     public String getResolveObjectForSQL(SQLRetrieverForDBs forSQLRetrieverForDB) {

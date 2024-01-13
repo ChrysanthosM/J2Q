@@ -6,8 +6,6 @@ import j2q.setup.definitions.design.schema.enums.DbF;
 import j2q.setup.definitions.design.schema.enums.DbT;
 import org.springframework.stereotype.Component;
 
-import java.util.List;
-
 @Component
 public class TUsers extends TTable {
     public TUsers() {

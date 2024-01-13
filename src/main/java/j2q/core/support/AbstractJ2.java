@@ -20,10 +20,10 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.*;
 
+import static j2q.setup.definitions.design.repo.Params.LOAD_TIMEOUT;
+
 
 public abstract class AbstractJ2<E extends Enum<E>> {
-    private final int LOAD_TIMEOUT = 10;
-
     @Autowired private ApplicationContext context;
     @Getter private IDataSource defaultDataSource;
 
@@ -36,6 +36,7 @@ public abstract class AbstractJ2<E extends Enum<E>> {
     protected AbstractJ2(Class<E> typeOfSQL) { this.typeOfSQL = typeOfSQL; }
 
     public void addLoader(E typeOfSQL, J2SQL j2SQL) { loadBuffers.add(Pair.of(typeOfSQL, CompletableFuture.supplyAsync(() -> j2SQL))); }
+
     public J2SQL getJ2SQL(E typeOfSQL) { return bufferJ2SQLs.getOrDefault(typeOfSQL, null); }
     public String getSQL(E typeOfSQL) { return bufferSQLs.getOrDefault(typeOfSQL, null); }
 
@@ -61,29 +62,26 @@ public abstract class AbstractJ2<E extends Enum<E>> {
                 }
             });
         }
-        if (!loadBuffers.isEmpty()) {
-            loadBuffers.parallelStream().forEach(m -> {
-                try {
-                    bufferJ2SQLs.put(m.getKey(), m.getValue().get(LOAD_TIMEOUT, TimeUnit.SECONDS));
-                    bufferSQLs.put(m.getKey(), bufferJ2SQLs.get(m.getKey()).getSQL());
-                    loadBuffers.remove(m);
-                } catch (InterruptedException | ExecutionException | TimeoutException e) {
-                    throw new RuntimeException(e);
-                }
-            });
-        }
+        if (loadBuffers.isEmpty()) return;
+
+        loadBuffers.parallelStream().forEach(m -> {
+            try {
+                bufferJ2SQLs.put(m.getKey(), m.getValue().get(LOAD_TIMEOUT, TimeUnit.SECONDS));
+                bufferSQLs.put(m.getKey(), bufferJ2SQLs.get(m.getKey()).getSQL());
+                loadBuffers.remove(m);
+            } catch (InterruptedException | ExecutionException | TimeoutException e) {
+                throw new RuntimeException(e);
+            }
+        });
     }
     private List<Method> getLoaders() {
         List<Method> loadMethods = Lists.newArrayList();
         Method[] methods = this.getClass().getDeclaredMethods();
         if (CollectionUtils.isNotEmpty(Arrays.asList(methods))) {
             for (Method method : methods) {
-                if (method.getName().startsWith("load")) {
+                if (method.isAnnotationPresent(LoadJ2SQL.class)) {
                     loadMethods.add(method);
                 }
-//                if (method.isAnnotationPresent(Async.class)) {
-//
-//                }
             }
         }
         return loadMethods;

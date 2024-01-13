@@ -40,10 +40,10 @@ public final class BuildSQLWhereFilters extends BuildSQLCore {
     }
 
 
-    public static String getResolveFilterForSQL(SQLRetrieverForDBs forSQLRetrieverForDB, IWhere whereFilter, boolean resetFirstOperator) { return getResolveFiltersForSQL(forSQLRetrieverForDB, List.of(whereFilter), resetFirstOperator).get(0); }
+    public static String getResolveFilterForSQL(SQLRetrieverForDBs forSQLRetrieverForDB, IWhere whereFilter, boolean resetFirstOperator) { return getResolveFiltersForSQL(forSQLRetrieverForDB, List.of(whereFilter), resetFirstOperator).getFirst(); }
     public static List<String> getResolveFiltersForSQL(SQLRetrieverForDBs forSQLRetrieverForDB, List<IWhere> whereFilters, boolean resetFirstOperator) {
         whereFilters.stream().filter(w -> ((IFilter) w).getTypeOfLogicalOperator() == null).forEach(w -> ((IFilter) w).setTypeOfLogicalOperator(LinSQL.TypeOfLogicalOperator.AND));
-        if (resetFirstOperator) ((IFilter) whereFilters.get(0)).setTypeOfLogicalOperator(null);
+        if (resetFirstOperator) ((IFilter) whereFilters.getFirst()).setTypeOfLogicalOperator(null);
 
         List<String> whereFiltersForSQL = Lists.newArrayList();
         for (IWhere where : whereFilters) {

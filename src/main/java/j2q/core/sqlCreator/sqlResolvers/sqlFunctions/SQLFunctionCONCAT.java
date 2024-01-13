@@ -19,7 +19,7 @@ public final class SQLFunctionCONCAT extends SQLFunction {
     @Override
     public String defaultResolver(SQLRetrieverForDBs forSQLRetrieverForDB) {
         Optional<String> result = super.getParamsSelectedFieldForSQL(forSQLRetrieverForDB, null).stream().reduce((a, b) -> "CONCAT(".concat(a).concat(", ").concat(b).concat(")"));
-        return getFinalValueAsAlias(result.get(), super.getAsAlias());
+        return getFinalValueAsAlias(result.orElseThrow(), super.getAsAlias());
     }
 
     @Override

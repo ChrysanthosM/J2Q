@@ -99,7 +99,7 @@ public final class LInSQLBuilderParams {
     void addJoinWith(MutableTriple<LinSQL.TypeOfJoin, LinSQL, List<IWhere>> joinWith) { this.joinWith.add(joinWith); }
     MutableTriple<LinSQL.TypeOfJoin, LinSQL, List<IWhere>> getLastJoin() {
         if (CollectionUtils.isEmpty(this.joinWith)) throw new IllegalCallerException("Nothing to Join With");
-        return this.joinWith.get(this.joinWith.size() - 1);
+        return this.joinWith.getLast();
     }
 
     //-------Union With

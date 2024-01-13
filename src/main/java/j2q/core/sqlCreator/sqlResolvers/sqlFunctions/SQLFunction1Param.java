@@ -22,7 +22,7 @@ public final class SQLFunction1Param extends SQLFunction {
     @Override
     public String defaultResolver(SQLRetrieverForDBs forSQLRetrieverForDB) {
         String result = CommonMethods.stringsConcat(false, this.typeOfSQLFunction.name(), "(",
-                super.getParamsSelectedFieldForSQL(forSQLRetrieverForDB, null).get(0),
+                super.getParamsSelectedFieldForSQL(forSQLRetrieverForDB, null).getFirst(),
                 ")");
         return getFinalValueAsAlias(result, getAsAlias());
     }

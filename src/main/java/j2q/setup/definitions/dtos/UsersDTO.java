@@ -12,8 +12,8 @@ import java.util.NoSuchElementException;
 
 public record UsersDTO(int recId, String userName, String userPassword) {
 
-    public static LoadDao newConverter() { return new LoadDao(); }
-    public static class LoadDao extends RowLoader<UsersDTO> {
+    public static LoadDTO newConverter() { return new LoadDTO(); }
+    public static class LoadDTO extends RowLoader<UsersDTO> {
         @Override
         public UsersDTO convertResultSet(ResultSet resultSet) throws SQLException {
             return new UsersDTO(
