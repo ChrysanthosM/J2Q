@@ -8,10 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class OptionsJ2SQL extends AbstractJ2<OptionsRepo.TypeOfSQL> implements OptionsRepo {
+public final class OptionsJ2SQL extends AbstractJ2<OptionsRepo.TypeOfSQL> implements OptionsRepo {
     private @Autowired TOptions tOptions;
 
-    protected OptionsJ2SQL() {
+    private OptionsJ2SQL() {
         super(TypeOfSQL.class);
     }
 

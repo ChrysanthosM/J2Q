@@ -8,10 +8,10 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
 @Component
-public class UsersJ2SQL extends AbstractJ2<UsersRepo.TypeOfSQL> implements UsersRepo {
+public final class UsersJ2SQL extends AbstractJ2<UsersRepo.TypeOfSQL> implements UsersRepo {
     @Autowired private TUsers tUsers;
 
-    protected UsersJ2SQL() {
+    private UsersJ2SQL() {
         super(UsersRepo.TypeOfSQL.class);
     }
 

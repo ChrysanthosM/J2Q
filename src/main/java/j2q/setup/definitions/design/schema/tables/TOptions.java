@@ -7,7 +7,7 @@ import j2q.setup.definitions.design.schema.enums.DbT;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TOptions extends TTable {
+public final class TOptions extends TTable {
     public TOptions() {
         super(DbT.Options);
         setDbFs(REC_ID, OPTION_TYPE, OPTION_NAME, OPTION_VALUE, OPTION_DETAILS);

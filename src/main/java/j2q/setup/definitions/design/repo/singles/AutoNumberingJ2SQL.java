@@ -10,10 +10,10 @@ import org.springframework.stereotype.Component;
 import static j2q.core.face.J2SQLShared.MAX;
 
 @Component
-public class AutoNumberingJ2SQL extends AbstractJ2<AutoNumberingRepo.TypeOfSQL> implements AutoNumberingRepo {
+public final class AutoNumberingJ2SQL extends AbstractJ2<AutoNumberingRepo.TypeOfSQL> implements AutoNumberingRepo {
     @Autowired private TAutoNumbering tAutoNumbering;
 
-    protected AutoNumberingJ2SQL() {
+    private AutoNumberingJ2SQL() {
         super(TypeOfSQL.class);
     }
 

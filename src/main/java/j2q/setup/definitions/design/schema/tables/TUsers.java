@@ -7,7 +7,7 @@ import j2q.setup.definitions.design.schema.enums.DbT;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TUsers extends TTable {
+public final class TUsers extends TTable {
     public TUsers() {
         super(DbT.Users);
         setDbFs(REC_ID, USER_NAME, USER_PASSWORD);

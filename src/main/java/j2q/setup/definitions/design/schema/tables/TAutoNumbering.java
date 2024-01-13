@@ -7,7 +7,7 @@ import j2q.setup.definitions.design.schema.enums.DbT;
 import org.springframework.stereotype.Component;
 
 @Component
-public class TAutoNumbering extends TTable {
+public final class TAutoNumbering extends TTable {
     public TAutoNumbering() {
         super(DbT.AutoNumbering);
         setDbFs(REC_ID, ENTITY_TYPE, ENTITY_NUMBER);

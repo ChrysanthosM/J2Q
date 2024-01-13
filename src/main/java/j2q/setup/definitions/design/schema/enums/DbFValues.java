@@ -4,7 +4,7 @@ import j2q.core.tds.IValueFor;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
-public class DbFValues {
+public final class DbFValues {
     @Getter @AllArgsConstructor
     public enum ValuesForEntityType implements IValueFor {
         TEMP_STUCK("E01"), SURROGATE_NUM("E02");

@@ -7,27 +7,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b604b0d-001f-468b-a5c7-4b8b3422a052" name="Changes" comment="change J2SQLs again">
-      <change afterPath="$PROJECT_DIR$/src/main/java/j2q/core/support/LoadJ2SQL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/Params.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/face/J2SQLShared.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/face/J2SQLShared.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/linSQL/LInSQLBuilderParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/linSQL/LInSQLBuilderParams.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/sqlCreator/sqlBuilder/BuildSQLWhereFilters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/sqlCreator/sqlBuilder/BuildSQLWhereFilters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/sqlCreator/sqlResolvers/sqlFilters/GroupOfWheres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/sqlCreator/sqlResolvers/sqlFilters/GroupOfWheres.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/sqlCreator/sqlResolvers/sqlFunctions/SQLFunction.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/sqlCreator/sqlResolvers/sqlFunctions/SQLFunction.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/sqlCreator/sqlResolvers/sqlFunctions/SQLFunction1Param.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/sqlCreator/sqlResolvers/sqlFunctions/SQLFunction1Param.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/sqlCreator/sqlResolvers/sqlFunctions/SQLFunctionCONCAT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/sqlCreator/sqlResolvers/sqlFunctions/SQLFunctionCONCAT.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/support/AbstractJ2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/support/AbstractJ2.java" afterDir="false" />
+    <list default="true" id="1b604b0d-001f-468b-a5c7-4b8b3422a052" name="Changes" comment="refactor">
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/Params.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/Params.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/AutoNumberingJ2SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/AutoNumberingJ2SQL.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/OptionsJ2SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/OptionsJ2SQL.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/UsersJ2SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/UsersJ2SQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/schema/enums/DbFValues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/schema/enums/DbFValues.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/schema/tables/TAutoNumbering.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/schema/tables/TAutoNumbering.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/schema/tables/TOptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/schema/tables/TOptions.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/schema/tables/TUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/schema/tables/TUsers.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/dtos/AutoNumberingDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/dtos/AutoNumberingDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/dtos/OptionsDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/dtos/OptionsDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/dtos/UsersDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/dtos/UsersDTO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -339,7 +327,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705141065215</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="refactor">
+      <option name="closed" value="true" />
+      <created>1705154860279</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1705154860279</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -357,6 +353,7 @@
     <MESSAGE value="2nd commit" />
     <MESSAGE value="change J2SQLs" />
     <MESSAGE value="change J2SQLs again" />
-    <option name="LAST_COMMIT_MESSAGE" value="change J2SQLs again" />
+    <MESSAGE value="refactor" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
   </component>
 </project>
