@@ -14,8 +14,8 @@ import org.springframework.context.ApplicationContext;
 
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
-import java.lang.reflect.ParameterizedType;
-import java.lang.reflect.Type;
+import java.util.Arrays;
+import java.util.Deque;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.*;
@@ -31,58 +31,61 @@ public abstract class AbstractJ2<E extends Enum<E>> {
     @Getter private final Map<E, J2SQL> bufferJ2SQLs = new ConcurrentHashMap<>();
     @Getter private final Map<E, String> bufferSQLs = new ConcurrentHashMap<>();
 
+    private final Deque<Pair<E, CompletableFuture<J2SQL>>> loadBuffers = new ConcurrentLinkedDeque<>();
+
     protected AbstractJ2(Class<E> typeOfSQL) { this.typeOfSQL = typeOfSQL; }
 
+    public void addLoader(E typeOfSQL, J2SQL j2SQL) { loadBuffers.add(Pair.of(typeOfSQL, CompletableFuture.supplyAsync(() -> j2SQL))); }
     public J2SQL getJ2SQL(E typeOfSQL) { return bufferJ2SQLs.getOrDefault(typeOfSQL, null); }
     public String getSQL(E typeOfSQL) { return bufferSQLs.getOrDefault(typeOfSQL, null); }
 
     @PostConstruct
     public void load() {
         this.defaultDataSource = context.getBean(AppConfig.class).getDefaultDataSource();
-        loadBuffers();
-    }
 
-    private void loadBuffers() {
         long startLoadingTime = System.currentTimeMillis();
-
-        List<Method> methods = getMethodsToLoad();
-        if (CollectionUtils.isNotEmpty(methods)) {
-            methods.parallelStream().forEach(m -> {
-                try {
-                    Pair<E, CompletableFuture<J2SQL>> result = (Pair<E, CompletableFuture<J2SQL>>) m.invoke(this);
-                    bufferJ2SQLs.put(result.getKey(), result.getValue().get(LOAD_TIMEOUT, TimeUnit.SECONDS));
-                    bufferSQLs.put(result.getKey(), bufferJ2SQLs.get(result.getKey()).getSQL());
-                } catch (IllegalAccessException | InvocationTargetException | InterruptedException | ExecutionException | TimeoutException e) {
-                    throw new RuntimeException(e);
-                }
-            });
-        }
-
+        loadBuffers();
         long loadingTime = System.currentTimeMillis() - startLoadingTime;
         System.out.println(this.getClass().getSimpleName() + " loaded in " + loadingTime);
         ApplicationSQLRun.addLoadingTime(loadingTime);
     }
 
-    private List<Method> getMethodsToLoad() {
-        List<Method> methodsWithCompletableFuture = Lists.newArrayList();
-
-        Method[] methods = this.getClass().getDeclaredMethods();
-        for (Method method : methods) {
-            if (method.getGenericReturnType() instanceof ParameterizedType type) {
-                if (type.getRawType() == Pair.class) {
-                    Type[] typeArguments = type.getActualTypeArguments();
-                    if (typeArguments.length == 2 &&
-                            typeArguments[0].getTypeName().endsWith(this.typeOfSQL.getSimpleName()) &&
-                            typeArguments[1] instanceof ParameterizedType secondType) {
-                        if (secondType.getRawType() == CompletableFuture.class &&
-                                secondType.getActualTypeArguments().length == 1 &&
-                                secondType.getActualTypeArguments()[0].getTypeName().endsWith(J2SQL.class.getSimpleName())) {
-                            methodsWithCompletableFuture.add(method);
-                        }
-                    }
+    private void loadBuffers() {
+        List<Method> loaders = getLoaders();
+        if (CollectionUtils.isNotEmpty(loaders)) {
+            loaders.parallelStream().forEach(m -> {
+                try {
+                    m.invoke(this);
+                } catch (IllegalAccessException | InvocationTargetException e) {
+                    throw new RuntimeException(e);
                 }
+            });
+        }
+        if (!loadBuffers.isEmpty()) {
+            loadBuffers.parallelStream().forEach(m -> {
+                try {
+                    bufferJ2SQLs.put(m.getKey(), m.getValue().get(LOAD_TIMEOUT, TimeUnit.SECONDS));
+                    bufferSQLs.put(m.getKey(), bufferJ2SQLs.get(m.getKey()).getSQL());
+                    loadBuffers.remove(m);
+                } catch (InterruptedException | ExecutionException | TimeoutException e) {
+                    throw new RuntimeException(e);
+                }
+            });
+        }
+    }
+    private List<Method> getLoaders() {
+        List<Method> loadMethods = Lists.newArrayList();
+        Method[] methods = this.getClass().getDeclaredMethods();
+        if (CollectionUtils.isNotEmpty(Arrays.asList(methods))) {
+            for (Method method : methods) {
+                if (method.getName().startsWith("load")) {
+                    loadMethods.add(method);
+                }
+//                if (method.isAnnotationPresent(Async.class)) {
+//
+//                }
             }
         }
-        return methodsWithCompletableFuture;
+        return loadMethods;
     }
 }
