@@ -7,14 +7,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b604b0d-001f-468b-a5c7-4b8b3422a052" name="Changes" comment="refactor">
-      <change afterPath="$PROJECT_DIR$/src/main/java/j2q/core/sqlCreator/sqlResolvers/IDeployOrdering.java" afterDir="false" />
+    <list default="true" id="1b604b0d-001f-468b-a5c7-4b8b3422a052" name="Changes" comment="deploy ordering">
+      <change afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/dao/IGenericDAO.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/face/J2SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/face/J2SQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/face/J2SQLShared.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/face/J2SQLShared.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/sqlCreator/PairOfTableField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/sqlCreator/PairOfTableField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/schema/enums/DbF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/schema/enums/DbF.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/j2q/tests/TestSQLStatements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/j2q/tests/TestSQLStatements.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -342,7 +337,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705155348236</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="deploy ordering">
+      <option name="closed" value="true" />
+      <created>1705228233751</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1705228233751</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -361,6 +364,7 @@
     <MESSAGE value="change J2SQLs" />
     <MESSAGE value="change J2SQLs again" />
     <MESSAGE value="refactor" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor" />
+    <MESSAGE value="deploy ordering" />
+    <option name="LAST_COMMIT_MESSAGE" value="deploy ordering" />
   </component>
 </project>
