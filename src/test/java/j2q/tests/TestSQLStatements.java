@@ -136,12 +136,12 @@ public class TestSQLStatements {
         stmts.add(checkResult(J2SQL.create(workDataSource, normalizeNames).from(tAutoNumbering)
                         .select(tAutoNumbering.ENTITY_TYPE, COUNT())
                         .groupBy(tAutoNumbering.ENTITY_TYPE).having(COUNT().gt(1))
-                        .orderBy(tAutoNumbering.ENTITY_TYPE)
+                        .orderBy(tAutoNumbering.ENTITY_TYPE.desc(), tAutoNumbering.ENTITY_NUMBER.asc())
                         .setApplyAutoAlias()
                         .getSQL(),
                 normalizeNames
-                        ? "SELECT EntityType AS \"Entity_Type\", COUNT(*) FROM $.AutoNumbering  GROUP BY EntityType  HAVING COUNT(*) > 1 ORDER BY EntityType ASC"
-                        : "SELECT AASys_EntityType AS \"Entity_Type\", COUNT(*) FROM $.Sys_AutoNumbering  GROUP BY AASys_EntityType  HAVING COUNT(*) > 1 ORDER BY AASys_EntityType ASC"));
+                        ? "SELECT EntityType AS \"Entity_Type\", COUNT(*) FROM $.AutoNumbering  GROUP BY EntityType  HAVING COUNT(*) > 1 ORDER BY EntityType DESC, EntityNumber ASC"
+                        : "SELECT AASys_EntityType AS \"Entity_Type\", COUNT(*) FROM $.Sys_AutoNumbering  GROUP BY AASys_EntityType  HAVING COUNT(*) > 1 ORDER BY AASys_EntityType DESC, AASys_EntityNumber ASC"));
 
         stmts.add(checkResult(J2SQL.create(workDataSource, normalizeNames).from(tAutoNumbering.as(T0)).selectAll()
                         .leftJoin(tOptions.as(J1)).fromJoinSelectOnly(tOptions.ALL).on(j1(tAutoNumbering.ENTITY_TYPE).eq(t0(tOptions.OPTION_TYPE)))

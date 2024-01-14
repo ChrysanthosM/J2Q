@@ -1,5 +1,6 @@
 package j2q.core.sqlCreator;
 
+import j2q.core.sqlCreator.sqlResolvers.IDeployOrdering;
 import j2q.setup.definitions.design.schema.enums.DbF;
 import j2q.setup.definitions.design.schema.enums.DbT;
 import j2q.db.model.GlobalFieldModelDefinition;
@@ -13,7 +14,7 @@ import lombok.Getter;
 import javax.annotation.Nonnull;
 
 @Getter
-public final class PairOfTableField implements IDeployFilters, IProvideDataTypeForSQL {
+public final class PairOfTableField implements IDeployFilters, IDeployOrdering, IProvideDataTypeForSQL {
     public static PairOfTableField of(DbT dbt, DbF dbf) { return new PairOfTableField(dbt, dbf); }
 
     private final DbT dbt;

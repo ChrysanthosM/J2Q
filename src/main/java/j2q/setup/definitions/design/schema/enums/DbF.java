@@ -1,5 +1,6 @@
 package j2q.setup.definitions.design.schema.enums;
 
+import j2q.core.sqlCreator.sqlResolvers.IDeployOrdering;
 import j2q.core.sqlCreator.sqlResolvers.sqlFilters.IDeployFilters;
 import j2q.core.sqlCreator.sqlResolvers.sqlFilters.IProvideDataTypeForSQL;
 import j2q.core.tds.DbFieldValues;
@@ -13,7 +14,7 @@ import static j2q.db.model.GlobalFieldModelDefinition.DbFieldDataType.DATATYPE_I
 import static j2q.db.model.GlobalFieldModelDefinition.DbFieldDataType.DATATYPE_TEXT;
 
 @Getter
-public enum DbF implements IDeployFilters, IProvideDataTypeForSQL {
+public enum DbF implements IDeployFilters, IDeployOrdering, IProvideDataTypeForSQL {
     ALL("*"),
 
     RecID("Sys_RecID", DATATYPE_INTEGER),

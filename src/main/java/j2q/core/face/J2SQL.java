@@ -182,8 +182,8 @@ public final class J2SQL {
     @Description("add Order By - All ASCENDING.")
     public J2SQL orderBy(@Nonnull Object... addOrderBy) { return this.orderBy(SortOrder.ASCENDING, addOrderBy); }
     @Description("add Order By.")
-    public J2SQL orderBy(@Nonnull SortOrder sortOrder, @Nonnull Object... addOrderBy) {
-        workLinSQL.orderBy(sortOrder, addOrderBy);
+    public J2SQL orderBy(@Nonnull SortOrder sortOrderAll, @Nonnull Object... addOrderBy) {
+        workLinSQL.orderBy(sortOrderAll, addOrderBy);
         return this;
     }
     @Description("add Order By.")

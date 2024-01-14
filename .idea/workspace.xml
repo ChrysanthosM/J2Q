@@ -8,14 +8,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b604b0d-001f-468b-a5c7-4b8b3422a052" name="Changes" comment="refactor">
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/Params.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/Params.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/AutoNumberingJ2SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/AutoNumberingJ2SQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/OptionsJ2SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/OptionsJ2SQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/UsersJ2SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/UsersJ2SQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/schema/enums/DbFValues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/schema/enums/DbFValues.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/schema/tables/TAutoNumbering.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/schema/tables/TAutoNumbering.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/schema/tables/TOptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/schema/tables/TOptions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/schema/tables/TUsers.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/schema/tables/TUsers.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/j2q/core/sqlCreator/sqlResolvers/IDeployOrdering.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/face/J2SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/face/J2SQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/face/J2SQLShared.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/face/J2SQLShared.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/sqlCreator/PairOfTableField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/sqlCreator/PairOfTableField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/schema/enums/DbF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/schema/enums/DbF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/j2q/tests/TestSQLStatements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/j2q/tests/TestSQLStatements.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +24,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -80,7 +79,7 @@
       <recent name="j2q.setup.definitions.design.schema.enums" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestJdbcIO.testData">
+  <component name="RunManager" selected="JUnit.TestSQLStatements.testSQLStatements">
     <configuration name="ApplicationSQLRun" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="j2q.ApplicationSQLRun" />
       <module name="J2Q" />
@@ -144,9 +143,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestSQLStatements.testSQLStatements" />
         <item itemvalue="JUnit.TestJdbcIO.testData" />
         <item itemvalue="Application.ApplicationSQLRun" />
-        <item itemvalue="JUnit.TestSQLStatements.testSQLStatements" />
         <item itemvalue="JUnit.TestJdbcIO.testJ2Data" />
       </list>
     </recent_temporary>
@@ -335,7 +334,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705154860279</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="refactor">
+      <option name="closed" value="true" />
+      <created>1705155348236</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1705155348236</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

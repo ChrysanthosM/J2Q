@@ -10,10 +10,12 @@ import com.google.common.collect.Lists;
 import j2q.core.sqlCreator.sqlResolvers.sqlFunctions.SQLFunction;
 import j2q.core.sqlRetriever.IDeploySQLFunctions;
 import jdk.jfr.Description;
+import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.tuple.MutablePair;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import javax.swing.*;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Stream;
@@ -141,11 +143,14 @@ public interface J2SQLShared {
         public static SQLFieldFromPairOfTableField jz(@Nonnull PairOfTableField prefixedDbF) { return new SQLFieldFromPairOfTableField(prefixedDbF, null, PFX.JZ.name().concat(".")); }
     }
 
+    static MutablePair<Object, SortOrder> asc(@Nonnull Object addOrderBy) { return MutablePair.of(addOrderBy, SortOrder.ASCENDING); }
+    static MutablePair<Object, SortOrder> desc(@Nonnull Object addOrderBy) { return MutablePair.of(addOrderBy, SortOrder.DESCENDING); }
+
+
     static IWhere not(@Nonnull IWhere filter) {
         ((AbstractFilter) filter).setInvertSelection(true);
         return filter;
     }
-
 
     //-------Create Filters
     final class Filter {
@@ -206,12 +211,10 @@ public interface J2SQLShared {
 
 
     //-------SQLFunctions
+    @AllArgsConstructor
     final class SQLFunctionObject implements IDeployFilters, IProvideDataTypeForSQL {
         private final SQLFunction sqlFunction;
         private static SQLFunctionObject of(SQLFunction sqlFunction) { return new SQLFunctionObject(sqlFunction); }
-        private SQLFunctionObject(SQLFunction sqlFunction) {
-            this.sqlFunction = sqlFunction;
-        }
         public Object getSqlFunction() { return sqlFunction; }
 
         @Override
