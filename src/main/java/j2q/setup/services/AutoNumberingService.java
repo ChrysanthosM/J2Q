@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 @Component
-public final class AutoNumberingService extends AbstractService {
+public final class AutoNumberingService extends AbstractService<AutoNumberingDTO> {
     @Autowired private AutoNumberingSQL autoNumberingSQL;
 
     public List<AutoNumberingDTO> getAutoNumberingList(AutoNumberingRepo.TypeOfSQL type) throws SQLException {
@@ -20,4 +20,5 @@ public final class AutoNumberingService extends AbstractService {
     public List<AutoNumberingDTO> getAutoNumberingListAsync(AutoNumberingRepo.TypeOfSQL type) throws SQLException {
         return getJdbcIO().selectAsync(getDefaultDataSource(), AutoNumberingDTO.newConverter(), autoNumberingSQL.getSQL(type));
     }
+
 }

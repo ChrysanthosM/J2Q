@@ -9,7 +9,7 @@ import org.springframework.context.ApplicationContext;
 
 import javax.sql.DataSource;
 
-public abstract class AbstractService {
+public abstract non-sealed class AbstractService<T> implements IBaseDAO<T> {
     @Autowired private ApplicationContext context;
     @Getter private DataSource defaultDataSource;
     @Autowired @Getter private JdbcIO jdbcIO;

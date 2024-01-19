@@ -1,6 +1,6 @@
 package j2q.db.datasources;
 
-import j2q.db.model.GlobalDBDefinition;
+import j2q.db.definition.GlobalDBDefinition;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;

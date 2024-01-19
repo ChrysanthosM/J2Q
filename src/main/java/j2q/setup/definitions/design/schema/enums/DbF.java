@@ -4,14 +4,14 @@ import j2q.core.sqlCreator.sqlResolvers.IDeployOrdering;
 import j2q.core.sqlCreator.sqlResolvers.sqlFilters.IDeployFilters;
 import j2q.core.sqlCreator.sqlResolvers.sqlFilters.IProvideDataTypeForSQL;
 import j2q.core.tds.DbFieldValues;
-import j2q.db.model.GlobalFieldModelDefinition;
+import j2q.db.definition.GlobalFieldModelDefinition;
 import lombok.Getter;
 
 import java.util.List;
 
 import static j2q.commons.CommonMethods.splitCamelCase;
-import static j2q.db.model.GlobalFieldModelDefinition.DbFieldDataType.DATATYPE_INTEGER;
-import static j2q.db.model.GlobalFieldModelDefinition.DbFieldDataType.DATATYPE_TEXT;
+import static j2q.db.definition.GlobalFieldModelDefinition.DbFieldDataType.DATATYPE_INTEGER;
+import static j2q.db.definition.GlobalFieldModelDefinition.DbFieldDataType.DATATYPE_TEXT;
 
 @Getter
 public enum DbF implements IDeployFilters, IDeployOrdering, IProvideDataTypeForSQL {

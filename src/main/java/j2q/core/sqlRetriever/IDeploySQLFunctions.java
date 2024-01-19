@@ -1,7 +1,7 @@
 package j2q.core.sqlRetriever;
 
 import j2q.core.sqlCreator.sqlResolvers.sqlFunctions.*;
-import j2q.db.model.GlobalFieldModelDefinition;
+import j2q.db.definition.GlobalFieldModelDefinition;
 import lombok.Getter;
 
 public sealed interface IDeploySQLFunctions extends IDefaultsSQLRetrieverForDBs

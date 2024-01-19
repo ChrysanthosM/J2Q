@@ -2,7 +2,7 @@ package j2q.core.sqlCreator.sqlResolvers.sqlFilters;
 
 import j2q.core.face.J2SQLShared;
 import j2q.core.sqlRetriever.SQLRetrieverForDBs;
-import j2q.db.model.GlobalFieldModelDefinition;
+import j2q.db.definition.GlobalFieldModelDefinition;
 import com.google.common.base.Strings;
 import j2q.core.sqlCreator.LInSQLBuilderShared;
 import j2q.core.sqlCreator.sqlResolvers.SqlUserSelection;

@@ -1,7 +1,7 @@
 package j2q.core.sqlCreator.sqlResolvers.sqlUserField;
 
 import j2q.commons.CommonMethods;
-import j2q.db.model.GlobalFieldModelDefinition;
+import j2q.db.definition.GlobalFieldModelDefinition;
 import j2q.core.sqlCreator.LInSQLBuilderShared;
 import j2q.core.linSQL.LinSQLCommons;
 import j2q.core.sqlCreator.sqlResolvers.SqlUserSelection;

@@ -11,7 +11,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 @RestController
-public final class RestControllerData implements IDataController {
+public final class RestAutoNumberingController implements IAutoNumbering {
     @Autowired private J2Data j2Data;
 
     @GetMapping("/AutoNumberingList") //localhost:8080/AutoNumberingList?type=ALL

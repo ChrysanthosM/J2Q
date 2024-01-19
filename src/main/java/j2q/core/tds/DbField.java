@@ -1,7 +1,7 @@
 package j2q.core.tds;
 
 import j2q.setup.definitions.design.schema.enums.DbF;
-import j2q.db.model.GlobalFieldModelDefinition;
+import j2q.db.definition.GlobalFieldModelDefinition;
 import lombok.Getter;
 
 import java.util.List;

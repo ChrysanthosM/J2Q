@@ -3,7 +3,7 @@ package j2q.core.sqlCreator.sqlResolvers.sqlFilters;
 import j2q.core.sqlCreator.LInSQLBuilderShared;
 import j2q.core.sqlCreator.sqlResolvers.IResolveObjectForSQL;
 import j2q.core.sqlRetriever.SQLRetrieverForDBs;
-import j2q.db.model.GlobalFieldModelDefinition;
+import j2q.db.definition.GlobalFieldModelDefinition;
 import lombok.Setter;
 
 public sealed abstract class WhenThen implements IWhen, IResolveObjectForSQL

@@ -1,6 +1,6 @@
 package j2q.db.datasources;
 
-import j2q.db.model.GlobalDBDefinition;
+import j2q.db.definition.GlobalDBDefinition;
 
 import javax.sql.DataSource;
 

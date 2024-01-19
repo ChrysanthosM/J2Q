@@ -1,4 +1,4 @@
-package j2q.db.model;
+package j2q.db.definition;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;

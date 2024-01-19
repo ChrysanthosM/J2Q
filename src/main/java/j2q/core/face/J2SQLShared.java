@@ -4,7 +4,7 @@ import j2q.core.linSQL.LinSQL;
 import j2q.core.sqlCreator.sqlResolvers.sqlFilters.*;
 import j2q.core.sqlCreator.sqlResolvers.sqlUserField.SQLFieldFromPairOfTableField;
 import j2q.core.sqlCreator.PairOfTableField;
-import j2q.db.model.GlobalFieldModelDefinition;
+import j2q.db.definition.GlobalFieldModelDefinition;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import j2q.core.sqlCreator.sqlResolvers.sqlFunctions.SQLFunction;

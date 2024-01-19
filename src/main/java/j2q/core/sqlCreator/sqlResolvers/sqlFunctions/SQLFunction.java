@@ -3,7 +3,7 @@ package j2q.core.sqlCreator.sqlResolvers.sqlFunctions;
 import j2q.core.linSQL.LinSQLCommons;
 import j2q.core.sqlCreator.LInSQLBuilderShared;
 import j2q.core.sqlRetriever.SQLRetrieverForDBs;
-import j2q.db.model.GlobalFieldModelDefinition;
+import j2q.db.definition.GlobalFieldModelDefinition;
 import com.google.common.collect.Lists;
 import j2q.core.sqlCreator.sqlResolvers.SqlUserSelection;
 import j2q.core.sqlRetriever.IDeploySQLFunctions;

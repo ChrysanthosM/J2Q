@@ -1,7 +1,7 @@
 package j2q.core.linSQL;
 
 import j2q.core.sqlCreator.sqlBuilder.*;
-import j2q.db.model.GlobalDBDefinition;
+import j2q.db.definition.GlobalDBDefinition;
 import com.google.common.io.Files;
 import j2q.core.sqlRetriever.SQLRetrieverForDBs;
 import j2q.core.sqlRetriever.SQLStatementRetrieve;

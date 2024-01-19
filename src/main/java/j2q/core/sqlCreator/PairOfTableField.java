@@ -3,7 +3,7 @@ package j2q.core.sqlCreator;
 import j2q.core.sqlCreator.sqlResolvers.IDeployOrdering;
 import j2q.setup.definitions.design.schema.enums.DbF;
 import j2q.setup.definitions.design.schema.enums.DbT;
-import j2q.db.model.GlobalFieldModelDefinition;
+import j2q.db.definition.GlobalFieldModelDefinition;
 import j2q.core.tds.DbField;
 import j2q.core.tds.DbFieldInstances;
 import j2q.core.sqlCreator.sqlResolvers.sqlFilters.IDeployFilters;

@@ -3,7 +3,7 @@ package j2q.core.tds;
 import j2q.core.sqlCreator.PairOfTableField;
 import j2q.setup.definitions.design.schema.enums.DbF;
 import j2q.setup.definitions.design.schema.enums.DbT;
-import j2q.db.model.GlobalFieldModelDefinition;
+import j2q.db.definition.GlobalFieldModelDefinition;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import lombok.Getter;

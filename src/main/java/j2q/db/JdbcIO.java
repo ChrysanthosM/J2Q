@@ -4,6 +4,7 @@ import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import j2q.db.loader.IRowLoader;
+import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.stereotype.Component;
 
@@ -109,6 +110,52 @@ public final class JdbcIO {
         return Optional.empty() ;
     }
 
+    public int[] addBatch(@Nonnull DataSource dataSource,
+                          @Nonnull String query, @Nullable List<List<Object>> params) throws SQLException {
+        Preconditions.checkNotNull(dataSource);
+        Preconditions.checkNotNull(query);
+
+        try (Connection conn = dataSource.getConnection();
+             final PreparedStatement stmt = conn.prepareStatement(query)) {
+            if (CollectionUtils.isNotEmpty(params)) {
+                conn.setAutoCommit(false);
+                params.forEach(p -> {
+                    try {
+                        setParams(stmt, p.toArray());
+                        stmt.addBatch();
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
+            }
+            int[] updateCounts = stmt.executeBatch();
+            conn.setAutoCommit(true);
+            return updateCounts;
+        }
+    }
+    public long[] addLargeBatch(@Nonnull DataSource dataSource,
+                                @Nonnull String query, @Nullable List<List<Object>> params) throws SQLException {
+        Preconditions.checkNotNull(dataSource);
+        Preconditions.checkNotNull(query);
+
+        try (Connection conn = dataSource.getConnection();
+             final PreparedStatement stmt = conn.prepareStatement(query)) {
+            if (CollectionUtils.isNotEmpty(params)) {
+                conn.setAutoCommit(false);
+                params.forEach(p -> {
+                    try {
+                        setParams(stmt, p.toArray());
+                        stmt.addBatch();
+                    } catch (SQLException e) {
+                        throw new RuntimeException(e);
+                    }
+                });
+            }
+            long[] updateCounts = stmt.executeLargeBatch();
+            conn.setAutoCommit(true);
+            return updateCounts;
+        }
+    }
     public boolean executeQuery(@Nonnull DataSource dataSource,
                                 @Nonnull String query, @Nullable Object... params) throws SQLException {
         Preconditions.checkNotNull(dataSource);

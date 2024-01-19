@@ -10,7 +10,7 @@ import java.sql.SQLException;
 import java.util.List;
 
 @Component
-public final class J2Data implements IDataController {
+public final class J2Data implements IJ2DataExtensions {
     @Autowired private AutoNumberingService autoNumberingService;
 
     @Override public List<AutoNumberingDTO> getAutoNumberingList(AutoNumberingRepo.TypeOfSQL type) throws SQLException {

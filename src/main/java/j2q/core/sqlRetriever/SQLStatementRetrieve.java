@@ -3,7 +3,7 @@ package j2q.core.sqlRetriever;
 import j2q.core.linSQL.LinSQL;
 import j2q.core.linSQL.LInSQLBuilderParams;
 import j2q.core.sqlCreator.sqlBuilder.*;
-import j2q.db.model.GlobalDBDefinition;
+import j2q.db.definition.GlobalDBDefinition;
 import lombok.Getter;
 
 @Getter

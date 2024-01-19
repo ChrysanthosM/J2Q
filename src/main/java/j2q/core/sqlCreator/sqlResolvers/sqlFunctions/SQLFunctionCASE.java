@@ -1,7 +1,7 @@
 package j2q.core.sqlCreator.sqlResolvers.sqlFunctions;
 
 import j2q.commons.CommonMethods;
-import j2q.db.model.GlobalFieldModelDefinition;
+import j2q.db.definition.GlobalFieldModelDefinition;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
 import j2q.core.sqlRetriever.IDeploySQLFunctions;
