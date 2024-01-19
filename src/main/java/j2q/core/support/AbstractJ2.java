@@ -20,7 +20,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.concurrent.*;
 
-import static j2q.setup.definitions.design.repo.Params.LOAD_TIMEOUT;
+import static j2q.setup.definitions.design.repo.LoadParams.LOAD_TIMEOUT;
 
 
 public abstract class AbstractJ2<E extends Enum<E>> {
