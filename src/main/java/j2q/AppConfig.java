@@ -9,9 +9,9 @@ import org.springframework.context.annotation.Configuration;
 
 @Configuration
 public class AppConfig {
-    @Autowired private DbFieldInstances dbFieldInstances;
-    @Autowired private DbTableInstances dbTableInstances;
+    private @Autowired DbFieldInstances dbFieldInstances;
+    private @Autowired DbTableInstances dbTableInstances;
 
-    @Autowired private DataSourceForSQLite defaultDataSource;
+    private @Autowired DataSourceForSQLite defaultDataSource;
     public IDataSource getDefaultDataSource() { return defaultDataSource; }
 }

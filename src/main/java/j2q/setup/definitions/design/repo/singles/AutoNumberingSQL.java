@@ -5,6 +5,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public final class AutoNumberingSQL {
-    @Autowired private AutoNumberingJ2SQL j2AutoNumbering;
+    private @Autowired AutoNumberingJ2SQL j2AutoNumbering;
     public String getSQL(AutoNumberingRepo.TypeOfSQL type) { return j2AutoNumbering.getSQL(type); }
 }

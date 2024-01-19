@@ -11,7 +11,7 @@ import static j2q.core.face.J2SQLShared.MAX;
 
 @Component
 public final class AutoNumberingJ2SQL extends AbstractJ2<AutoNumberingRepo.TypeOfSQL> implements AutoNumberingRepo {
-    @Autowired private TAutoNumbering tAutoNumbering;
+    private @Autowired TAutoNumbering tAutoNumbering;
 
     private AutoNumberingJ2SQL() {
         super(TypeOfSQL.class);

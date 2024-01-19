@@ -11,9 +11,9 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public final class RestControllerSQL {
-    @Autowired private UsersSQL usersSQL;
-    @Autowired private AutoNumberingSQL autoNumberingSQL;
-    @Autowired private OptionsSQL optionsSQL;
+    private @Autowired UsersSQL usersSQL;
+    private @Autowired AutoNumberingSQL autoNumberingSQL;
+    private @Autowired OptionsSQL optionsSQL;
 
     //localhost:8080/AutoNumberingSQL?type=ALL
     @GetMapping("/AutoNumberingSQL")

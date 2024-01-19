@@ -12,7 +12,7 @@ import java.util.List;
 
 @RestController
 public final class RestAutoNumberingController implements IAutoNumbering {
-    @Autowired private J2Data j2Data;
+    private @Autowired J2Data j2Data;
 
     @GetMapping("/AutoNumberingList") //localhost:8080/AutoNumberingList?type=ALL
     @Override public List<AutoNumberingDTO> getAutoNumberingList(@RequestParam(name = "type") AutoNumberingRepo.TypeOfSQL type) throws SQLException {

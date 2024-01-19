@@ -1,7 +1,5 @@
 package j2q.tests;
 
-import j2q.setup.definitions.design.repo.singles.AutoNumberingRepo;
-import j2q.setup.controllers.J2Data;
 import j2q.core.face.J2SQL;
 import j2q.db.JdbcIO;
 import j2q.db.datasources.DataSourceForSQLite;
@@ -16,8 +14,6 @@ import java.util.List;
 
 @SpringBootTest
 public class TestJdbcIO {
-    private @Autowired J2Data j2Data;
-
     private @Autowired DataSourceForSQLite sqliteDataSource;
     private @Autowired JdbcIO jdbcIO;
     private @Autowired TAutoNumbering tAutoNumbering;
@@ -42,15 +38,5 @@ public class TestJdbcIO {
 
         listSample = jdbcIO.selectAsync(sqliteDataSource.getDS(), AutoNumberingDTO.newConverter(), stmt);
         listSample.forEach(System.out::println);
-    }
-
-    @Test
-    public void testJ2Data() throws SQLException {
-        List<AutoNumberingDTO> listSample = j2Data.getAutoNumberingList(AutoNumberingRepo.TypeOfSQL.ALL);
-        listSample.forEach(System.out::println);
-        listSample = j2Data.getAutoNumberingListAsync(AutoNumberingRepo.TypeOfSQL.ALL);
-        listSample.forEach(System.out::println);
-
-
     }
 }

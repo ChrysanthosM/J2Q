@@ -12,7 +12,7 @@ import java.util.List;
 
 @Component
 public final class AutoNumberingService extends AbstractService<AutoNumberingDTO> {
-    @Autowired private AutoNumberingSQL autoNumberingSQL;
+    private @Autowired AutoNumberingSQL autoNumberingSQL;
 
     public List<AutoNumberingDTO> getAutoNumberingList(AutoNumberingRepo.TypeOfSQL type) throws SQLException {
         return getJdbcIO().select(getDefaultDataSource(), AutoNumberingDTO.newConverter(), autoNumberingSQL.getSQL(type));

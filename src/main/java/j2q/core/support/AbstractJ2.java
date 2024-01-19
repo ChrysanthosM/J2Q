@@ -24,7 +24,7 @@ import static j2q.setup.definitions.design.repo.LoadParams.LOAD_TIMEOUT;
 
 
 public abstract class AbstractJ2<E extends Enum<E>> {
-    @Autowired private ApplicationContext context;
+    private @Autowired ApplicationContext context;
     @Getter private IDataSource defaultDataSource;
 
     @Getter private final Class<E> typeOfSQL;

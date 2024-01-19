@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public final class UsersJ2SQL extends AbstractJ2<UsersRepo.TypeOfSQL> implements UsersRepo {
-    @Autowired private TUsers tUsers;
+    private @Autowired TUsers tUsers;
 
     private UsersJ2SQL() {
         super(UsersRepo.TypeOfSQL.class);

@@ -11,7 +11,7 @@ import java.util.List;
 
 @Component
 public final class J2Data implements IJ2DataExtensions {
-    @Autowired private AutoNumberingService autoNumberingService;
+    private @Autowired AutoNumberingService autoNumberingService;
 
     @Override public List<AutoNumberingDTO> getAutoNumberingList(AutoNumberingRepo.TypeOfSQL type) throws SQLException {
         return autoNumberingService.getAutoNumberingList(type);

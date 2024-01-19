@@ -5,6 +5,6 @@ import org.springframework.stereotype.Component;
 
 @Component
 public final class UsersSQL {
-    @Autowired private UsersJ2SQL j2Users;
+    private @Autowired UsersJ2SQL j2Users;
     public String getSQL(UsersRepo.TypeOfSQL type) { return j2Users.getSQL(type); }
 }
