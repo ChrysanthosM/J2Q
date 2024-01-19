@@ -16,9 +16,13 @@ public class TestJ2Data {
 
     @Test
     public void testJ2Data() throws SQLException {
-        List<AutoNumberingDTO> listSample = j2Data.getAutoNumberingList(AutoNumberingRepo.TypeOfSQL.ALL);
-        listSample.forEach(System.out::println);
+        List<AutoNumberingDTO> listSample;
+
         listSample = j2Data.getAutoNumberingListAsync(AutoNumberingRepo.TypeOfSQL.ALL);
         listSample.forEach(System.out::println);
+
+        listSample = j2Data.getAutoNumberingList(AutoNumberingRepo.TypeOfSQL.ALL);
+        listSample.forEach(System.out::println);
+
     }
 }

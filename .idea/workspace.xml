@@ -7,22 +7,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b604b0d-001f-468b-a5c7-4b8b3422a052" name="Changes" comment="commit">
-      <change afterPath="$PROJECT_DIR$/src/test/java/j2q/tests/TestJ2Data.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/AppConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/support/AbstractJ2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/support/AbstractJ2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/support/AbstractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/support/AbstractService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/J2Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/J2Data.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/RestAutoNumberingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/RestAutoNumberingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/RestControllerSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/RestControllerSQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/AutoNumberingJ2SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/AutoNumberingJ2SQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/AutoNumberingSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/AutoNumberingSQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/OptionsSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/OptionsSQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/UsersJ2SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/UsersJ2SQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/UsersSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/UsersSQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/services/AutoNumberingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/services/AutoNumberingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/j2q/tests/TestJdbcIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/j2q/tests/TestJdbcIO.java" afterDir="false" />
+    <list default="true" id="1b604b0d-001f-468b-a5c7-4b8b3422a052" name="Changes" comment="TestJ2Data">
+      <change beforePath="$PROJECT_DIR$/src/test/java/j2q/tests/TestJ2Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/j2q/tests/TestJ2Data.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,6 +72,9 @@
     </key>
     <key name="MoveInnerDialog.RECENTS_KEY">
       <recent name="j2q.setup.definitions.design.schema.enums" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="j2q.tests" />
     </key>
   </component>
   <component name="RunManager" selected="JUnit.TestJ2Data.testJ2Data">
@@ -401,7 +390,15 @@
       <option name="project" value="LOCAL" />
       <updated>1705691515230</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="TestJ2Data">
+      <option name="closed" value="true" />
+      <created>1705693924876</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1705693924876</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -422,6 +419,7 @@
     <MESSAGE value="refactor" />
     <MESSAGE value="deploy ordering" />
     <MESSAGE value="commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="commit" />
+    <MESSAGE value="TestJ2Data" />
+    <option name="LAST_COMMIT_MESSAGE" value="TestJ2Data" />
   </component>
 </project>
