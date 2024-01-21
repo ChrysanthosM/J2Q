@@ -1,9 +1,9 @@
 package j2q.setup.definitions.design.repo.singles;
 
 import j2q.core.face.J2SQL;
-import j2q.core.support.LoadJ2SQL;
+import j2q.core.bridge.LoadJ2SQL;
 import j2q.setup.definitions.design.schema.tables.TUsers;
-import j2q.core.support.AbstractJ2;
+import j2q.core.bridge.AbstractJ2;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

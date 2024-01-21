@@ -1,4 +1,4 @@
-package j2q.core.support;
+package j2q.core.bridge;
 
 import java.sql.SQLException;
 import java.util.List;

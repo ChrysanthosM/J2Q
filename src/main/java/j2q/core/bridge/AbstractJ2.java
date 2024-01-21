@@ -1,4 +1,4 @@
-package j2q.core.support;
+package j2q.core.bridge;
 
 import com.google.common.collect.Lists;
 import j2q.AppConfig;

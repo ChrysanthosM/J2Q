@@ -1,6 +1,6 @@
 package j2q.setup.services;
 
-import j2q.core.support.AbstractService;
+import j2q.core.bridge.AbstractService;
 import j2q.setup.definitions.design.repo.singles.AutoNumberingRepo;
 import j2q.setup.definitions.design.repo.singles.AutoNumberingSQL;
 import j2q.setup.definitions.dtos.AutoNumberingDTO;

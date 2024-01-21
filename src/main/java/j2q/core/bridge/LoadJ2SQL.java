@@ -1,4 +1,4 @@
-package j2q.core.support;
+package j2q.core.bridge;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

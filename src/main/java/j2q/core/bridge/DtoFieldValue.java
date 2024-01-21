@@ -1,4 +1,4 @@
-package j2q.core.support;
+package j2q.core.bridge;
 
 import j2q.setup.definitions.design.schema.enums.DbF;
 import org.apache.commons.lang3.tuple.Pair;
