@@ -1,13 +1,13 @@
 package j2q.setup.definitions.design.repo.singles;
 
-import j2q.core.face.J2SQL;
+import j2q.core.j2sql.J2SQL;
 import j2q.core.bridge.AbstractJ2;
 import j2q.core.bridge.LoadJ2SQL;
 import j2q.setup.definitions.design.schema.tables.TAutoNumbering;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import static j2q.core.face.J2SQLShared.MAX;
+import static j2q.core.j2sql.J2SQLShared.MAX;
 
 @Component
 public final class AutoNumberingJ2SQL extends AbstractJ2<AutoNumberingRepo.TypeOfSQL> implements AutoNumberingRepo {

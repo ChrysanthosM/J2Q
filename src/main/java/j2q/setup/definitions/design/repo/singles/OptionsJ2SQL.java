@@ -1,6 +1,6 @@
 package j2q.setup.definitions.design.repo.singles;
 
-import j2q.core.face.J2SQL;
+import j2q.core.j2sql.J2SQL;
 import j2q.core.bridge.LoadJ2SQL;
 import j2q.setup.definitions.design.schema.tables.TOptions;
 import j2q.core.bridge.AbstractJ2;

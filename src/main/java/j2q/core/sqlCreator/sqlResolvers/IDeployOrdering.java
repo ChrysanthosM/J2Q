@@ -1,6 +1,6 @@
 package j2q.core.sqlCreator.sqlResolvers;
 
-import j2q.core.face.J2SQLShared;
+import j2q.core.j2sql.J2SQLShared;
 import org.apache.commons.lang3.tuple.MutablePair;
 
 import javax.swing.*;

@@ -1,4 +1,4 @@
-package j2q.core.face;
+package j2q.core.j2sql;
 
 import j2q.core.linSQL.LinSQL;
 import j2q.core.sqlCreator.sqlResolvers.sqlFilters.*;
