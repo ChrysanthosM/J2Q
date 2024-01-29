@@ -171,6 +171,7 @@
       <set>
         <option value="jdk-21.0.1-corretto-21.0.1-4caba194b151-0837d75e" />
         <option value="jdk-21.0.1-corretto-21.0.1-f644763e9732-eed86825" />
+        <option value="jdk-21.0.2-corretto-21.0.2-4caba194b151-51586f01" />
       </set>
     </attachedChunks>
   </component>
@@ -423,7 +424,15 @@
       <option name="project" value="LOCAL" />
       <updated>1706206756112</updated>
     </task>
-    <option name="localTasksCounter" value="31" />
+    <task id="LOCAL-00031" summary="some renames">
+      <option name="closed" value="true" />
+      <created>1706287338616</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1706287338616</updated>
+    </task>
+    <option name="localTasksCounter" value="32" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
