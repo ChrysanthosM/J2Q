@@ -1,0 +1,24 @@
+package j2q.core.creator.resolvers.filters;
+
+import j2q.core.creator.LInSQLBuilderShared;
+import j2q.core.retrievers.SQLRetrieverForDBs;
+
+import javax.annotation.Nonnull;
+import javax.annotation.Nullable;
+
+public final class WhenThenSimple extends WhenThen {
+    private final Object whenCondition;
+
+    public WhenThenSimple(@Nonnull Object whenCondition, @Nullable Object thenExpression) {
+        super(thenExpression);
+        this.whenCondition = whenCondition;
+    }
+
+    @Override
+    public String getResolveObjectForSQL(SQLRetrieverForDBs forSQLRetrieverForDB) {
+        StringBuilder returnValue = new StringBuilder("WHEN ");
+        returnValue.append(LInSQLBuilderShared.getSqlUserSelection(this.whenCondition).getResolveObjectForSQL(forSQLRetrieverForDB));
+        returnValue.append(super.getThen(forSQLRetrieverForDB));
+        return returnValue.toString();
+    }
+}

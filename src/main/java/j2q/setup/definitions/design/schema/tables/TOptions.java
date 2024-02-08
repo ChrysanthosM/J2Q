@@ -1,6 +1,6 @@
 package j2q.setup.definitions.design.schema.tables;
 
-import j2q.core.sqlCreator.PairOfTableField;
+import j2q.core.creator.PairOfTableField;
 import j2q.core.bridge.TTable;
 import j2q.setup.definitions.design.schema.enums.DbF;
 import j2q.setup.definitions.design.schema.enums.DbT;

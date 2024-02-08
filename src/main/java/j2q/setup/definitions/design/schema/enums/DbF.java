@@ -1,8 +1,8 @@
 package j2q.setup.definitions.design.schema.enums;
 
-import j2q.core.sqlCreator.sqlResolvers.IDeployOrdering;
-import j2q.core.sqlCreator.sqlResolvers.sqlFilters.IDeployFilters;
-import j2q.core.sqlCreator.sqlResolvers.sqlFilters.IProvideDataTypeForSQL;
+import j2q.core.creator.resolvers.IDeployOrdering;
+import j2q.core.creator.resolvers.filters.IDeployFilters;
+import j2q.core.creator.resolvers.filters.IProvideDataTypeForSQL;
 import j2q.core.tds.DbFieldValues;
 import j2q.db.definition.GlobalFieldModelDefinition;
 import lombok.Getter;

@@ -1,14 +1,14 @@
 package j2q.core.j2sql;
 
-import j2q.core.linSQL.LinSQL;
-import j2q.core.sqlCreator.sqlResolvers.sqlFilters.*;
-import j2q.core.sqlCreator.sqlResolvers.sqlUserField.SQLFieldFromPairOfTableField;
-import j2q.core.sqlCreator.PairOfTableField;
+import j2q.core.linsql.LinSQL;
+import j2q.core.creator.resolvers.filters.*;
+import j2q.core.creator.resolvers.fields.SQLFieldFromPairOfTableField;
+import j2q.core.creator.PairOfTableField;
 import j2q.db.definition.GlobalFieldModelDefinition;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
-import j2q.core.sqlCreator.sqlResolvers.sqlFunctions.SQLFunction;
-import j2q.core.sqlRetriever.IDeploySQLFunctions;
+import j2q.core.creator.resolvers.functions.SQLFunction;
+import j2q.core.retrievers.IDeploySQLFunctions;
 import jdk.jfr.Description;
 import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.tuple.MutablePair;
