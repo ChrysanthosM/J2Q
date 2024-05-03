@@ -1,7 +1,7 @@
 package j2q.setup.definitions.design.schema.tables;
 
-import j2q.core.creator.PairOfTableField;
-import j2q.core.bridge.TTable;
+import j2q.core.PairOfTableField;
+import j2q.core.TTable;
 import j2q.setup.definitions.design.schema.enums.DbF;
 import j2q.setup.definitions.design.schema.enums.DbT;
 import org.springframework.stereotype.Component;

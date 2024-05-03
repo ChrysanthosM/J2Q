@@ -1,6 +1,6 @@
 package j2q.setup.definitions.design.schema.enums;
 
-import j2q.core.tds.IValueFor;
+import j2q.core.IValueFor;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 

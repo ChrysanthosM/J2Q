@@ -1,7 +1,7 @@
 package j2q.tests;
 
 import com.google.common.collect.Lists;
-import j2q.core.j2sql.J2SQL;
+import j2q.core.J2SQL;
 import j2q.db.datasources.DataSourceForDB2i;
 import j2q.setup.definitions.design.schema.enums.DbFValues;
 import j2q.setup.definitions.design.schema.tables.TAutoNumbering;
@@ -14,10 +14,9 @@ import org.springframework.boot.test.context.SpringBootTest;
 import java.util.List;
 import java.util.Objects;
 
-import static j2q.core.j2sql.J2SQL.asAlias;
-import static j2q.core.j2sql.J2SQL.operation;
-import static j2q.core.j2sql.J2SQLShared.*;
-import static j2q.core.j2sql.J2SQLShared.PFX.*;
+import static j2q.core.J2SQL.*;
+import static j2q.core.J2SQLShared.*;
+import static j2q.core.J2SQLShared.PFX.*;
 
 
 @SpringBootTest

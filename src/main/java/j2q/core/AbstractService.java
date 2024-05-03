@@ -1,0 +1,21 @@
+package j2q.core;
+
+import j2q.AppConfig;
+import j2q.db.JdbcIO;
+import jakarta.annotation.PostConstruct;
+import lombok.Getter;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+
+import javax.sql.DataSource;
+
+public abstract non-sealed class AbstractService<T> implements IBaseDAO<T> {
+    private @Autowired ApplicationContext context;
+    @Getter private DataSource defaultDataSource;
+    @Autowired @Getter private JdbcIO jdbcIO;
+
+    @PostConstruct
+    private void init() {
+        defaultDataSource = context.getBean(AppConfig.class).getDefaultDataSource().getDS();
+    }
+}
