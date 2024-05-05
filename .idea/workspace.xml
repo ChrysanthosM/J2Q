@@ -7,13 +7,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b604b0d-001f-468b-a5c7-4b8b3422a052" name="Changes" comment="fix pom">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="1b604b0d-001f-468b-a5c7-4b8b3422a052" name="Changes" comment="fixes">
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/AbstractJ2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/AbstractJ2.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/AbstractWhere.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/AbstractWhere.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/SQLRetrieverForDB_DB2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/SQLRetrieverForDB_DB2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/SQLRetrieverForDB_MSSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/SQLRetrieverForDB_MSSQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/IDeployFilters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/IDeployFilters.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/IDeployOrdering.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/IDeployOrdering.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/J2SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/J2SQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/LInSQLBuilderParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/LInSQLBuilderParams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/LInSQLBuilderShared.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/LInSQLBuilderShared.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/LinSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/LinSQL.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/TTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/TTable.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/schema/tables/TAutoNumbering.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/schema/tables/TAutoNumbering.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/AutoNumberingJ2SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/AutoNumberingJ2SQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/OptionsJ2SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/OptionsJ2SQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/UsersJ2SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/UsersJ2SQL.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/j2q/tests/TestSQLStatements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/j2q/tests/TestSQLStatements.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -477,7 +483,15 @@
       <option name="project" value="LOCAL" />
       <updated>1714745613937</updated>
     </task>
-    <option name="localTasksCounter" value="37" />
+    <task id="LOCAL-00037" summary="fixes">
+      <option name="closed" value="true" />
+      <created>1714938411566</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1714938411566</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -504,6 +518,7 @@
     <MESSAGE value="rename packages" />
     <MESSAGE value="merged packages" />
     <MESSAGE value="fix pom" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix pom" />
+    <MESSAGE value="fixes" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
   </component>
 </project>

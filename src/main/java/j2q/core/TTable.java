@@ -3,12 +3,11 @@ package j2q.core;
 import com.google.common.collect.ImmutableList;
 import j2q.setup.definitions.design.schema.enums.DbF;
 import j2q.setup.definitions.design.schema.enums.DbT;
-import lombok.AccessLevel;
 import lombok.Getter;
 
 import java.util.List;
 
-@Getter(AccessLevel.PROTECTED)
+@Getter
 public abstract class TTable extends DbTable {
     private final DbT dbT;
     private final String systemName;
