@@ -3,11 +3,12 @@ package j2q.core;
 import com.google.common.collect.ImmutableList;
 import j2q.setup.definitions.design.schema.enums.DbF;
 import j2q.setup.definitions.design.schema.enums.DbT;
+import lombok.AccessLevel;
 import lombok.Getter;
 
 import java.util.List;
 
-@Getter
+@Getter(AccessLevel.PROTECTED)
 public abstract class TTable extends DbTable {
     private final DbT dbT;
     private final String systemName;
@@ -18,7 +19,7 @@ public abstract class TTable extends DbTable {
 
     private List<PairOfTableField> dbFs;
 
-    public TTable(DbT dbT) {
+    protected TTable(DbT dbT) {
         this.dbT = dbT;
         this.systemName = dbT.getSystemName();
         this.tablePrefixForFields = dbT.getTablePrefixForFields();
@@ -27,7 +28,7 @@ public abstract class TTable extends DbTable {
         this.putAutoStamp = dbT.getPutAutoStamp();
     }
 
-    public void setDbFs(PairOfTableField... dbFs) { this.dbFs = ImmutableList.copyOf(dbFs); }
+    protected void setDbFs(PairOfTableField... dbFs) { this.dbFs = ImmutableList.copyOf(dbFs); }
 
-    public PairOfTableField getPairOfTableField(DbF forDbF) { return PairOfTableField.of(getDbT(), forDbF); }
+    protected PairOfTableField getPairOfTableField(DbF forDbF) { return PairOfTableField.of(getDbT(), forDbF); }
 }

@@ -47,7 +47,7 @@ sealed abstract class AbstractWhere extends AbstractFilter
             returnValue.append(userSelection.getResolveObjectForSQL(forSQLRetrieverForDB)).append(StringUtils.SPACE);
         }
         if (super.isInvertSelection()) returnValue.append("NOT").append(StringUtils.SPACE);
-        returnValue.append(StringUtils.defaultString(getTypeOfWhere().getPutClause(), Strings.nullToEmpty(putComparisonClause)));
+        returnValue.append(StringUtils.defaultIfBlank(getTypeOfWhere().getPutClause(), Strings.nullToEmpty(putComparisonClause)));
 
         return returnValue.append(StringUtils.SPACE).toString();
     }

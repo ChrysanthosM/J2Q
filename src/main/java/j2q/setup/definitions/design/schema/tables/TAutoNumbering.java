@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 @Component
 public final class TAutoNumbering extends TTable {
-    public TAutoNumbering() {
+    private TAutoNumbering() {
         super(DbT.AutoNumbering);
         setDbFs(REC_ID, ENTITY_TYPE, ENTITY_NUMBER);
     }

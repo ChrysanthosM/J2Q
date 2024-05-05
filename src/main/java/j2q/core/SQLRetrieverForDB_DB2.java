@@ -67,7 +67,7 @@ final class SQLRetrieverForDB_DB2 extends SQLRetrieverForDBs {
         if (initSts.getSts() == InitializationStatus.ReturnSts.ERROR_EXISTS) throw new RuntimeException(initSts.getExc());
 
         String returnStmt = super.getWorkBuildSQLSelectFields().getStringForSQL().trim() +
-                StringUtils.defaultString(super.getWorkBuildSQLJoinWith().getSelectedJoinFieldsForSQL(), StringUtils.SPACE) +
+                StringUtils.defaultIfBlank(super.getWorkBuildSQLJoinWith().getSelectedJoinFieldsForSQL(), StringUtils.SPACE) +
                 super.getSQLStatementFromWhereGroupByOrderBy() +
                 getLimitOffsetForSQL(super.getWorkLInSQLBuilderParams().getLimitOffset()) +
                 getOffsetFetchForSQL(super.getWorkLInSQLBuilderParams().getOffsetFetch());
