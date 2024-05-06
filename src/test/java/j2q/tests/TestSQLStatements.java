@@ -335,7 +335,7 @@ public class TestSQLStatements {
                         ? "UPDATE $.AutoNumbering SET EntityNumber = EntityNumber  +1"
                         : "UPDATE $.Sys_AutoNumbering SET AASys_EntityNumber = AASys_EntityNumber  +1"));
 
-//        String tempSQL = J2SQL.create(workDataSource, normalizeNames).select(tAutoNumbering. );
+//        String tempSQL = J2SQL.create(workDataSource, normalizeNames).select(tAutoNumbering.g );
 
 
     }

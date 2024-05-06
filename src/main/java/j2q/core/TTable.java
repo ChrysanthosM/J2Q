@@ -8,7 +8,7 @@ import lombok.Getter;
 import java.util.List;
 
 @Getter
-public abstract class TTable extends DbTable {
+public abstract non-sealed class TTable extends DbTable {
     private final DbT dbT;
     private final String systemName;
     private final String tablePrefixForFields;

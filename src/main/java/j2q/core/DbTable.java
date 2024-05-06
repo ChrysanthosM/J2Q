@@ -3,28 +3,30 @@ package j2q.core;
 import j2q.setup.definitions.design.schema.enums.DbF;
 import j2q.setup.definitions.design.schema.enums.DbT;
 import jakarta.annotation.PostConstruct;
+import lombok.AccessLevel;
 import lombok.Getter;
 import org.apache.commons.lang3.tuple.Pair;
 
 import javax.annotation.Nonnull;
 import java.util.List;
 
-abstract non-sealed class DbTable implements IDbTable {
+@Getter(AccessLevel.PROTECTED)
+abstract sealed class DbTable implements IDbTable permits TTable {
     public final DbF ALL = DbF.ALL;
 
     @Override public abstract DbT getDbT();
-    @Override public abstract String getSystemName();
-    @Override public abstract String getTablePrefixForFields();
-    @Override public abstract List<DbF> getHasKeys();
-    @Override public abstract Boolean getAutoIncrease();
-    @Override public abstract Boolean getPutAutoStamp();
+    protected abstract String getSystemName();
+    protected abstract String getTablePrefixForFields();
+    protected abstract List<DbF> getHasKeys();
+    protected abstract Boolean getAutoIncrease();
+    protected abstract Boolean getPutAutoStamp();
 
-    @Override public abstract List<PairOfTableField> getDbFs();
+    protected abstract List<PairOfTableField> getDbFs();
 
-    @Getter private DbTableInfo dbTableInfo = null;
+    private DbTableInfo dbTableInfo = null;
 
     @PostConstruct
-    public void loadTableInfo() {
+    private void loadTableInfo() {
         dbTableInfo = new DbTableInfo(this);
     }
 

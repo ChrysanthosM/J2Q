@@ -7,11 +7,11 @@ import java.util.List;
 
 sealed interface IDbTable permits DbTable {
     DbT getDbT();
-    String getSystemName();
-    String getTablePrefixForFields();
-    List<DbF> getHasKeys();
-    Boolean getAutoIncrease();
-    Boolean getPutAutoStamp();
-
-    List<PairOfTableField> getDbFs();
+//    String getSystemName();
+//    String getTablePrefixForFields();
+//    List<DbF> getHasKeys();
+//    Boolean getAutoIncrease();
+//    Boolean getPutAutoStamp();
+//
+//    List<PairOfTableField> getDbFs();
 }
