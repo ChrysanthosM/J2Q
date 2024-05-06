@@ -3,13 +3,14 @@ package j2q.core;
 import com.google.common.collect.ImmutableList;
 import j2q.setup.definitions.design.schema.enums.DbF;
 import j2q.setup.definitions.design.schema.enums.DbT;
+import lombok.AccessLevel;
 import lombok.Getter;
 
 import java.util.List;
 
-@Getter
+@Getter(AccessLevel.PROTECTED)
 public abstract non-sealed class TTable extends DbTable {
-    private final DbT dbT;
+    @Getter(AccessLevel.PUBLIC) private final DbT dbT;
     private final String systemName;
     private final String tablePrefixForFields;
     private final List<DbF> hasKeys;
