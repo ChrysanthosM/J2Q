@@ -20,7 +20,7 @@ public final class DbTableInstances {
     }
     @PostConstruct
     public void init() {
-        this.implementations.parallelStream().forEach(dbT -> mapTableInstances.put(dbT.getDbT(), (DbTable) dbT));
+        this.implementations.parallelStream().forEach(dbT -> mapTableInstances.put(((DbTable) dbT).getDbT(), (DbTable) dbT));
     }
 
 

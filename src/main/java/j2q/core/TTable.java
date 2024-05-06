@@ -10,7 +10,7 @@ import java.util.List;
 
 @Getter(AccessLevel.PROTECTED)
 public abstract non-sealed class TTable extends DbTable {
-    @Getter(AccessLevel.PUBLIC) private final DbT dbT;
+    private final DbT dbT;
     private final String systemName;
     private final String tablePrefixForFields;
     private final List<DbF> hasKeys;

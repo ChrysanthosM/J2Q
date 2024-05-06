@@ -14,7 +14,7 @@ import java.util.List;
 abstract sealed class DbTable implements IDbTable permits TTable {
     public final DbF ALL = DbF.ALL;
 
-    @Override public abstract DbT getDbT();
+    protected abstract DbT getDbT();
     protected abstract String getSystemName();
     protected abstract String getTablePrefixForFields();
     protected abstract List<DbF> getHasKeys();
