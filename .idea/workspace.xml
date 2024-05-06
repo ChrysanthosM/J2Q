@@ -9,6 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1b604b0d-001f-468b-a5c7-4b8b3422a052" name="Changes" comment="fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/j2q/tests/TestSQLStatements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/j2q/tests/TestSQLStatements.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,7 +27,7 @@
   <component name="Git.Settings">
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="master" />
+        <entry key="$PROJECT_DIR$" value="merge-packages" />
       </map>
     </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -83,7 +84,7 @@
       <recent name="j2q.tests" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestRestAutoNumberingController.testGetAutoNumberingList">
+  <component name="RunManager" selected="JUnit.TestSQLStatements.testSQLStatements">
     <configuration name="TestJ2Data.testJ2Data" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="J2Q" />
       <extension name="coverage">
@@ -156,9 +157,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.TestSQLStatements.testSQLStatements" />
         <item itemvalue="JUnit.TestRestAutoNumberingController.testGetAutoNumberingList" />
         <item itemvalue="JUnit.TestJ2Data.testJ2Data" />
-        <item itemvalue="JUnit.TestSQLStatements.testSQLStatements" />
         <item itemvalue="JUnit.TestRestControllerSQL.testGetAutoNumberingSQL" />
       </list>
     </recent_temporary>
