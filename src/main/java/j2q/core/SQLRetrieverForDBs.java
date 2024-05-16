@@ -22,7 +22,7 @@ sealed abstract class SQLRetrieverForDBs extends SQLRetrieverCore implements IDe
         return this.tableMustPrefixFields;
     }
 
-    public boolean isNamingIsNormalized() { return (this.typeOfNamingSystemOrNormalized == LinSQL.TypeOfNamingSystemOrNormalized.NORMALIZED); }
+    boolean isNamingIsNormalized() { return (this.typeOfNamingSystemOrNormalized == LinSQL.TypeOfNamingSystemOrNormalized.NORMALIZED); }
 
     @Getter @Setter(AccessLevel.PROTECTED) private LInSQLBuilderParams workLInSQLBuilderParams = null;
 

@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
 final class WhenThenSimple extends WhenThen {
     private final Object whenCondition;
 
-    public WhenThenSimple(@Nonnull Object whenCondition, @Nullable Object thenExpression) {
+    WhenThenSimple(@Nonnull Object whenCondition, @Nullable Object thenExpression) {
         super(thenExpression);
         this.whenCondition = whenCondition;
     }

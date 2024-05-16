@@ -11,7 +11,7 @@ final class SQLFunction2Params extends SQLFunction {
     @Override
     public IDeploySQLFunctions.TypeOfSQLFunction getTypeOfSQLFunction() { return this.typeOfSQLFunction; }
 
-    public SQLFunction2Params(IDeploySQLFunctions.TypeOfSQLFunction typeOfSQLFunction, @Nonnull Object... args) {
+    SQLFunction2Params(IDeploySQLFunctions.TypeOfSQLFunction typeOfSQLFunction, @Nonnull Object... args) {
         this.typeOfSQLFunction = typeOfSQLFunction;
         super.init(null, null, args);
     }

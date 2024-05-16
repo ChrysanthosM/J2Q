@@ -9,7 +9,7 @@ final class InSubSelectWhere extends AbstractWhere {
 
     private final String inSubSelect;
 
-    public InSubSelectWhere(@Nonnull Object whereObject, @Nonnull String inSubSelect) {
+    InSubSelectWhere(@Nonnull Object whereObject, @Nonnull String inSubSelect) {
         super(whereObject);
         this.inSubSelect = inSubSelect;
     }

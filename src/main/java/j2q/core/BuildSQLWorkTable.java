@@ -10,7 +10,7 @@ final class BuildSQLWorkTable extends BuildSQLCore {
     @Getter(AccessLevel.PACKAGE) private final DbTable dbTable;
     @Getter(AccessLevel.PACKAGE) private final String tableAsAlias;
 
-    public static BuildSQLWorkTable createFor(SQLRetrieverForDBs forSQLRetrieverForDB) { return new BuildSQLWorkTable(forSQLRetrieverForDB); }
+    static BuildSQLWorkTable createFor(SQLRetrieverForDBs forSQLRetrieverForDB) { return new BuildSQLWorkTable(forSQLRetrieverForDB); }
     private BuildSQLWorkTable(SQLRetrieverForDBs forSQLRetrieverForDB) {
         this.dbTable = forSQLRetrieverForDB.getWorkLInSQLBuilderParams().getWorkWithTableOnlyDbTable();
         this.tableAsAlias = StringUtils.defaultString(forSQLRetrieverForDB.getWorkLInSQLBuilderParams().getWorkWithTableOnlyAsAlias());

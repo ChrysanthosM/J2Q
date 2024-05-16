@@ -9,7 +9,7 @@ final class SQLFunctionTRANSLATE extends SQLFunction {
     @Override
     public IDeploySQLFunctions.TypeOfSQLFunction getTypeOfSQLFunction() { return IDeploySQLFunctions.TypeOfSQLFunction.TRANSLATE; }
 
-    public SQLFunctionTRANSLATE(@Nonnull Object... args) { super.init(null, null, args); }
+    SQLFunctionTRANSLATE(@Nonnull Object... args) { super.init(null, null, args); }
 
     @Override public String getResolveObjectForSQL(SQLRetrieverForDBs forSQLRetrieverForDB) { return forSQLRetrieverForDB.resolveSQLStringsFunction(this); }
 

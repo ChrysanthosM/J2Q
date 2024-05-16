@@ -10,7 +10,7 @@ final class SQLFunctionCONCAT extends SQLFunction {
     @Override
     public IDeploySQLFunctions.TypeOfSQLFunction getTypeOfSQLFunction() { return IDeploySQLFunctions.TypeOfSQLFunction.CONCAT; }
 
-    public SQLFunctionCONCAT(@Nonnull Object... args) { super.init(null,null, args); }
+    SQLFunctionCONCAT(@Nonnull Object... args) { super.init(null,null, args); }
 
     @Override public String getResolveObjectForSQL(SQLRetrieverForDBs forSQLRetrieverForDB) { return forSQLRetrieverForDB.resolveSQLStringsFunction(this); }
 

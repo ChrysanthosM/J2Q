@@ -30,12 +30,12 @@ abstract sealed class SQLRetrieverCore implements IDeployMethods, IDeploySQLStat
     @Getter(AccessLevel.PROTECTED) @Setter(AccessLevel.PROTECTED) private BuildSQLInsertRows workBuildSQLInsertRows = null;
 
     @Getter private final Set<Triple<DbTable, String, List<DbF>>> availableTablesWithFields = Sets.newHashSet();
-    public void addAvailableTableWithFields(Triple<DbTable, String, List<DbF>> tableWithFields) { this.availableTablesWithFields.add(tableWithFields); }
-    public void addAvailableTableWithFields(Set<Triple<DbTable, String, List<DbF>>> tablesWithFields) { this.availableTablesWithFields.addAll(tablesWithFields); }
+    void addAvailableTableWithFields(Triple<DbTable, String, List<DbF>> tableWithFields) { this.availableTablesWithFields.add(tableWithFields); }
+    void addAvailableTableWithFields(Set<Triple<DbTable, String, List<DbF>>> tablesWithFields) { this.availableTablesWithFields.addAll(tablesWithFields); }
     protected void clearAvailableTablesWithFields() { this.availableTablesWithFields.clear(); }
 
     @Getter private final List<String> fieldMapper = Lists.newArrayList();
-    public void addFieldMapper(String fieldMapper) { this.fieldMapper.add(fieldMapper); }
+    void addFieldMapper(String fieldMapper) { this.fieldMapper.add(fieldMapper); }
     protected void clearFieldMapper() { this.fieldMapper.clear(); }
 
     private static void initSQLStatementCommons(SQLRetrieverForDBs initSQLRetrieverForDB) {

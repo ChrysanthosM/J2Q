@@ -9,7 +9,7 @@ final class ExistsWhere extends AbstractWhere {
 
     private final String inSubSelect;
 
-    public ExistsWhere(@Nonnull String inSubSelect) {
+    ExistsWhere(@Nonnull String inSubSelect) {
         super(null);
         this.inSubSelect = inSubSelect;
     }

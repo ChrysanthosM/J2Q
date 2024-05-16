@@ -6,7 +6,7 @@ import lombok.Getter;
 @Getter
 final class SQLStatementRetrieve {
     private final SQLRetrieverForDBs sqlRetrieverForDB;
-    public SQLStatementRetrieve(GlobalDBDefinition.TypeOfDB typeOfDB, String dbPrefixForTableLocation, boolean tableMustPrefixFields,
+    SQLStatementRetrieve(GlobalDBDefinition.TypeOfDB typeOfDB, String dbPrefixForTableLocation, boolean tableMustPrefixFields,
                                 LinSQL.TypeOfNamingSystemOrNormalized typeOfNamingSystemOrNormalized) {
         switch (typeOfDB) {
             case SQLite -> this.sqlRetrieverForDB = new SQLRetrieverForDB_SQLite(typeOfNamingSystemOrNormalized);
@@ -16,19 +16,19 @@ final class SQLStatementRetrieve {
         }
     }
 
-    public void setWorkLInSQLBuilderParams(LInSQLBuilderParams workLInSQLBuilderParams) { this.sqlRetrieverForDB.setWorkLInSQLBuilderParams(workLInSQLBuilderParams); }
+    void setWorkLInSQLBuilderParams(LInSQLBuilderParams workLInSQLBuilderParams) { this.sqlRetrieverForDB.setWorkLInSQLBuilderParams(workLInSQLBuilderParams); }
 
-    public BuildSQLWorkTable getWorkBuildSQLWorkTable() { return this.sqlRetrieverForDB.getWorkBuildSQLWorkTable(); }
-    public BuildSQLJoinWith getWorkBuildSQLJoinWith() { return this.sqlRetrieverForDB.getWorkBuildSQLJoinWith(); }
-    public BuildSQLSelectFields getWorkBuildSQLSelectFields() { return this.sqlRetrieverForDB.getWorkBuildSQLSelectFields(); }
-    public BuildSQLWhereFilters getWorkBuildSQLWhereFilters() { return this.sqlRetrieverForDB.getWorkBuildSQLWhereFilters(); }
-    public BuildSQLOrderBy getWorkBuildSQLOrderBy() { return this.sqlRetrieverForDB.getWorkBuildSQLOrderBy(); }
-    public BuildSQLGroupByHavingValues getWorkBuildSQLGroupByHavingValues() { return this.sqlRetrieverForDB.getWorkBuildSQLGroupByHavingValues(); }
+    BuildSQLWorkTable getWorkBuildSQLWorkTable() { return this.sqlRetrieverForDB.getWorkBuildSQLWorkTable(); }
+    BuildSQLJoinWith getWorkBuildSQLJoinWith() { return this.sqlRetrieverForDB.getWorkBuildSQLJoinWith(); }
+    BuildSQLSelectFields getWorkBuildSQLSelectFields() { return this.sqlRetrieverForDB.getWorkBuildSQLSelectFields(); }
+    BuildSQLWhereFilters getWorkBuildSQLWhereFilters() { return this.sqlRetrieverForDB.getWorkBuildSQLWhereFilters(); }
+    BuildSQLOrderBy getWorkBuildSQLOrderBy() { return this.sqlRetrieverForDB.getWorkBuildSQLOrderBy(); }
+    BuildSQLGroupByHavingValues getWorkBuildSQLGroupByHavingValues() { return this.sqlRetrieverForDB.getWorkBuildSQLGroupByHavingValues(); }
 
-    public String getSQLStatementForSelect() { return this.sqlRetrieverForDB.getSQLStatementForSelect().concat(this.sqlRetrieverForDB.createComments(this.sqlRetrieverForDB.getWorkLInSQLBuilderParams().getComments())); }
-    public String getSQLStatementForDelete() { return this.sqlRetrieverForDB.getSQLStatementForDelete().concat(this.sqlRetrieverForDB.createComments(this.sqlRetrieverForDB.getWorkLInSQLBuilderParams().getComments())); }
-    public String getSQLStatementForUpdate() { return this.sqlRetrieverForDB.getSQLStatementForUpdate().concat(this.sqlRetrieverForDB.createComments(this.sqlRetrieverForDB.getWorkLInSQLBuilderParams().getComments())); }
-    public String getSQLStatementForInsert() { return this.sqlRetrieverForDB.getSQLStatementForInsert().concat(this.sqlRetrieverForDB.createComments(this.sqlRetrieverForDB.getWorkLInSQLBuilderParams().getComments())); }
-    public String getSQLStatementForInsertGetOnlyValues() { return this.sqlRetrieverForDB.getSQLStatementForInsertGetOnlyValues().concat(this.sqlRetrieverForDB.createComments(this.sqlRetrieverForDB.getWorkLInSQLBuilderParams().getComments())); }
+    String getSQLStatementForSelect() { return this.sqlRetrieverForDB.getSQLStatementForSelect().concat(this.sqlRetrieverForDB.createComments(this.sqlRetrieverForDB.getWorkLInSQLBuilderParams().getComments())); }
+    String getSQLStatementForDelete() { return this.sqlRetrieverForDB.getSQLStatementForDelete().concat(this.sqlRetrieverForDB.createComments(this.sqlRetrieverForDB.getWorkLInSQLBuilderParams().getComments())); }
+    String getSQLStatementForUpdate() { return this.sqlRetrieverForDB.getSQLStatementForUpdate().concat(this.sqlRetrieverForDB.createComments(this.sqlRetrieverForDB.getWorkLInSQLBuilderParams().getComments())); }
+    String getSQLStatementForInsert() { return this.sqlRetrieverForDB.getSQLStatementForInsert().concat(this.sqlRetrieverForDB.createComments(this.sqlRetrieverForDB.getWorkLInSQLBuilderParams().getComments())); }
+    String getSQLStatementForInsertGetOnlyValues() { return this.sqlRetrieverForDB.getSQLStatementForInsertGetOnlyValues().concat(this.sqlRetrieverForDB.createComments(this.sqlRetrieverForDB.getWorkLInSQLBuilderParams().getComments())); }
 
 }

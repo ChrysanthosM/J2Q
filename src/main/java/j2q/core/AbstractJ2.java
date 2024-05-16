@@ -1,6 +1,7 @@
 package j2q.core;
 
 import com.google.common.collect.Lists;
+import com.google.common.collect.Maps;
 import j2q.AppConfig;
 import j2q.ApplicationSQLRun;
 import j2q.db.datasources.IDataSource;
@@ -27,8 +28,8 @@ public abstract class AbstractJ2<E extends Enum<E>> {
     @Getter private IDataSource defaultDataSource;
 
     @Getter private final Class<E> typeOfSQL;
-    @Getter private final Map<E, J2SQL> bufferJ2SQLs = new ConcurrentHashMap<>();
-    @Getter private final Map<E, String> bufferSQLs = new ConcurrentHashMap<>();
+    @Getter private final Map<E, J2SQL> bufferJ2SQLs = Maps.newConcurrentMap();
+    @Getter private final Map<E, String> bufferSQLs = Maps.newConcurrentMap();
 
     private final Deque<Pair<E, CompletableFuture<J2SQL>>> loadBuffers = new ConcurrentLinkedDeque<>();
 

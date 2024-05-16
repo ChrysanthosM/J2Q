@@ -9,7 +9,7 @@ final class BetweenValuesWhere extends AbstractWhere {
 
     private final Pair<Object, Object> betweenValues;
 
-    public BetweenValuesWhere(@Nonnull Object whereObject, @Nonnull Pair<Object, Object> betweenValues) {
+    BetweenValuesWhere(@Nonnull Object whereObject, @Nonnull Pair<Object, Object> betweenValues) {
         super(whereObject);
         this.betweenValues = betweenValues;
     }

@@ -10,7 +10,7 @@ final class SQLFunction3Params extends SQLFunction {
     @Override
     public IDeploySQLFunctions.TypeOfSQLFunction getTypeOfSQLFunction() { return this.typeOfSQLFunction; }
 
-    public SQLFunction3Params(IDeploySQLFunctions.TypeOfSQLFunction typeOfSQLFunction, @Nonnull Object... args) {
+    SQLFunction3Params(IDeploySQLFunctions.TypeOfSQLFunction typeOfSQLFunction, @Nonnull Object... args) {
         this.typeOfSQLFunction = typeOfSQLFunction;
         super.init(null,null, args);
     }

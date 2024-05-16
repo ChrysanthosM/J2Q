@@ -17,7 +17,7 @@ abstract sealed class SQLFunction extends SqlUserSelection
     static String getNonSupportedMsg() { return "Non Supported Method"; }
 
     @Override public Type getTypeOfSelection() { return this.getClass(); }
-    public abstract IDeploySQLFunctions.TypeOfSQLFunction getTypeOfSQLFunction();
+    abstract IDeploySQLFunctions.TypeOfSQLFunction getTypeOfSQLFunction();
 
     private List<Object> params = Lists.newArrayList();
     protected List<Object> getParams() { return this.params; }
@@ -41,8 +41,8 @@ abstract sealed class SQLFunction extends SqlUserSelection
         return mainParam.getResolveObjectForSQL(forSQLRetrieverForDB);
     }
 
-    public abstract String defaultResolver(SQLRetrieverForDBs forSQLRetrieverForDB);
-    public abstract String alternateResolver(SQLRetrieverForDBs forSQLRetrieverForDB, @Nullable Object... args);
+    abstract String defaultResolver(SQLRetrieverForDBs forSQLRetrieverForDB);
+    abstract String alternateResolver(SQLRetrieverForDBs forSQLRetrieverForDB, @Nullable Object... args);
 
 
     @Override public void init(@Nullable String setPrefix, @Nullable String asAlias, @Nullable Object... args) {

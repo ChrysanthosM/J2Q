@@ -12,7 +12,7 @@ import java.util.Objects;
 
 final class BuildSQLWhereFilters extends BuildSQLCore {
 
-    public static BuildSQLWhereFilters createFor(SQLRetrieverForDBs forSQLRetrieverForDB) { return new BuildSQLWhereFilters(forSQLRetrieverForDB); }
+    static BuildSQLWhereFilters createFor(SQLRetrieverForDBs forSQLRetrieverForDB) { return new BuildSQLWhereFilters(forSQLRetrieverForDB); }
     private BuildSQLWhereFilters(SQLRetrieverForDBs forSQLRetrieverForDB) {
         List<IWhere> whereFilters = forSQLRetrieverForDB.getWorkLInSQLBuilderParams().getWhereClauses().stream().dropWhile(Objects::isNull).toList();
         if (CollectionUtils.isEmpty(whereFilters)) return;
@@ -21,8 +21,8 @@ final class BuildSQLWhereFilters extends BuildSQLCore {
         if (CollectionUtils.isNotEmpty(whereFiltersForSQL)) super.setStringForSQL(CommonMethods.stringsConcat(false, Joiner.on(StringUtils.SPACE).join(whereFiltersForSQL)));
     }
 
-    public static String getWhereFilters(String basicFilters) { return getWhereFiltersWithJoins(basicFilters, null); }
-    public static String getWhereFiltersWithJoins(String basicFilters, @Nullable String joinFilters) {
+    static String getWhereFilters(String basicFilters) { return getWhereFiltersWithJoins(basicFilters, null); }
+    static String getWhereFiltersWithJoins(String basicFilters, @Nullable String joinFilters) {
         if (StringUtils.isBlank(basicFilters) && StringUtils.isBlank(joinFilters)) return StringUtils.EMPTY;
         StringBuilder builder = new StringBuilder("WHERE ");
         if (StringUtils.isBlank(basicFilters)) {
@@ -35,8 +35,8 @@ final class BuildSQLWhereFilters extends BuildSQLCore {
     }
 
 
-    public static String getResolveFilterForSQL(SQLRetrieverForDBs forSQLRetrieverForDB, IWhere whereFilter, boolean resetFirstOperator) { return getResolveFiltersForSQL(forSQLRetrieverForDB, List.of(whereFilter), resetFirstOperator).getFirst(); }
-    public static List<String> getResolveFiltersForSQL(SQLRetrieverForDBs forSQLRetrieverForDB, List<IWhere> whereFilters, boolean resetFirstOperator) {
+    static String getResolveFilterForSQL(SQLRetrieverForDBs forSQLRetrieverForDB, IWhere whereFilter, boolean resetFirstOperator) { return getResolveFiltersForSQL(forSQLRetrieverForDB, List.of(whereFilter), resetFirstOperator).getFirst(); }
+    static List<String> getResolveFiltersForSQL(SQLRetrieverForDBs forSQLRetrieverForDB, List<IWhere> whereFilters, boolean resetFirstOperator) {
         whereFilters.stream().filter(w -> ((IFilter) w).getTypeOfLogicalOperator() == null).forEach(w -> ((IFilter) w).setTypeOfLogicalOperator(LinSQL.TypeOfLogicalOperator.AND));
         if (resetFirstOperator) ((IFilter) whereFilters.getFirst()).setTypeOfLogicalOperator(null);
 

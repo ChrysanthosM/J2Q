@@ -12,7 +12,7 @@ import java.util.List;
 final class BuildSQLSelectFields extends BuildSQLCore {
     @Getter(AccessLevel.PACKAGE) private String selectedFieldsString;
 
-    public static BuildSQLSelectFields createFor(SQLRetrieverForDBs forSQLRetrieverForDB) { return new BuildSQLSelectFields(forSQLRetrieverForDB); }
+    static BuildSQLSelectFields createFor(SQLRetrieverForDBs forSQLRetrieverForDB) { return new BuildSQLSelectFields(forSQLRetrieverForDB); }
     private BuildSQLSelectFields(SQLRetrieverForDBs forSQLRetrieverForDB) {
         final List<SqlUserSelection> selectFields = Lists.newArrayList();
         if (CollectionUtils.isEmpty(forSQLRetrieverForDB.getWorkLInSQLBuilderParams().getSqlUserSelections())) {

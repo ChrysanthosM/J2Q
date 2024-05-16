@@ -21,15 +21,15 @@ final class SQLFieldFromTable extends SqlUserSelection {
     private DbF dbF;
     private DbField dbField = null;
 
-    public SQLFieldFromTable(@Nonnull DbF dbF) {
+    SQLFieldFromTable(@Nonnull DbF dbF) {
         super();
         init(null, null, dbF);
     }
-    public SQLFieldFromTable(@Nonnull DbF dbF, @Nullable String asAlias) {
+    SQLFieldFromTable(@Nonnull DbF dbF, @Nullable String asAlias) {
         super();
         init(null, asAlias, dbF);
     }
-    public SQLFieldFromTable(@Nonnull DbF dbF, @Nullable String asAlias, @Nullable String setPrefix) {
+    SQLFieldFromTable(@Nonnull DbF dbF, @Nullable String asAlias, @Nullable String setPrefix) {
         super();
         init(setPrefix, asAlias, dbF);
     }
@@ -41,7 +41,7 @@ final class SQLFieldFromTable extends SqlUserSelection {
         super.setAsAlias(asAlias);
     }
 
-    public DbF getDbFieldEnum() { return this.dbF; }
+    DbF getDbFieldEnum() { return this.dbF; }
 
     @Override public String getResolveObjectForSQL(SQLRetrieverForDBs forSQLRetrieverForDB) {
         return getResolveObjectForSQLMain(forSQLRetrieverForDB, null);

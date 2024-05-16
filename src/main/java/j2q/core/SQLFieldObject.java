@@ -8,7 +8,7 @@ final class SQLFieldObject extends SqlUserSelection {
 
     private Object object;
 
-    public SQLFieldObject(@Nullable Object object, @Nullable String asAlias, @Nullable String setPrefix) {
+    SQLFieldObject(@Nullable Object object, @Nullable String asAlias, @Nullable String setPrefix) {
         super();
         init(setPrefix, asAlias, object);
     }

@@ -16,7 +16,7 @@ final class SQLFunctionCASE extends SQLFunction {
     @Override
     public IDeploySQLFunctions.TypeOfSQLFunction getTypeOfSQLFunction() { return IDeploySQLFunctions.TypeOfSQLFunction.CASE; }
 
-    public SQLFunctionCASE(@Nonnull Object... args) { super.init(null,null, args); }
+    SQLFunctionCASE(@Nonnull Object... args) { super.init(null,null, args); }
 
     @Override public String getResolveObjectForSQL(SQLRetrieverForDBs forSQLRetrieverForDB) { return forSQLRetrieverForDB.resolveSQLStringsFunction(this); }
 

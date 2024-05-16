@@ -15,7 +15,7 @@ final class InValuesWhere extends AbstractWhere {
 
     private final List<Object> inValues;
 
-    public InValuesWhere(@Nonnull Object whereObject, @Nonnull List<Object> inValues) {
+    InValuesWhere(@Nonnull Object whereObject, @Nonnull List<Object> inValues) {
         super(whereObject);
         this.inValues = inValues;
     }

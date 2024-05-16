@@ -7,7 +7,7 @@ import java.lang.reflect.Type;
 
 abstract non-sealed class SqlUserSelection implements ISqlUserSelection {
     @Getter private boolean ignoreTableAsAlias = false;
-    public void setIgnoreTableAsAlias() { this.ignoreTableAsAlias = true; }
+    void setIgnoreTableAsAlias() { this.ignoreTableAsAlias = true; }
 
     @Override public abstract Type getTypeOfSelection();
     @Override public abstract String getResolveObjectForSQL(SQLRetrieverForDBs forSQLRetrieverForDB);

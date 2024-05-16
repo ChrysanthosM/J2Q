@@ -15,7 +15,7 @@ import java.util.stream.IntStream;
 final class BuildSQLInsertRows extends BuildSQLCore {
     private String insertIntoFieldsForSQL = null;
 
-    public static BuildSQLInsertRows createFor(SQLRetrieverForDBs forSQLRetrieverForDB) { return new BuildSQLInsertRows(forSQLRetrieverForDB); }
+    static BuildSQLInsertRows createFor(SQLRetrieverForDBs forSQLRetrieverForDB) { return new BuildSQLInsertRows(forSQLRetrieverForDB); }
     private BuildSQLInsertRows(SQLRetrieverForDBs forSQLRetrieverForDB) {
         boolean putAutoStamp = forSQLRetrieverForDB.getWorkBuildSQLWorkTable().getDbTable().getPutAutoStamp();
 

@@ -19,7 +19,7 @@ final class DbField {
 
     private final List<String> dbfAcceptedValues;
 
-    public DbField(DbF dbF) {
+    DbField(DbF dbF) {
         this.dbfNameEnum = dbF;
 
         this.dbfNormalName = this.dbfNameEnum.name();

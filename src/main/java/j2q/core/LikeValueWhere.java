@@ -12,7 +12,7 @@ final class LikeValueWhere extends AbstractWhere {
     private final String escapeLeft;
     private final String escapeRight;
 
-    public LikeValueWhere(@Nonnull Object whereObject, @Nullable String compareValue, @Nullable String escapeLeft, @Nullable String escapeRight) {
+    LikeValueWhere(@Nonnull Object whereObject, @Nullable String compareValue, @Nullable String escapeLeft, @Nullable String escapeRight) {
         super(whereObject);
         this.compareValue = compareValue;
         this.escapeLeft = escapeLeft;

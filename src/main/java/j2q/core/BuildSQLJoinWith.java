@@ -16,7 +16,7 @@ final class BuildSQLJoinWith extends BuildSQLCore {
     private String joinWithTablesOnFieldsForSQL = StringUtils.EMPTY;
     @Getter private String whereJoinFiltersForSQL = StringUtils.EMPTY;
 
-    public static BuildSQLJoinWith createFor(SQLRetrieverForDBs forSQLRetrieverForDB) { return new BuildSQLJoinWith(forSQLRetrieverForDB); }
+    static BuildSQLJoinWith createFor(SQLRetrieverForDBs forSQLRetrieverForDB) { return new BuildSQLJoinWith(forSQLRetrieverForDB); }
     private BuildSQLJoinWith(SQLRetrieverForDBs forSQLRetrieverForDB) {
         List<MutableTriple<LinSQL.TypeOfJoin, LinSQL, List<IWhere>>> joinWiths = forSQLRetrieverForDB.getWorkLInSQLBuilderParams().getJoinWith();
         if (CollectionUtils.isEmpty(joinWiths)) return;

@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.Objects;
 
 final class BuildSQLUnionWith extends BuildSQLCore {
-    public static BuildSQLUnionWith createFor(SQLRetrieverForDBs forSQLRetrieverForDB) { return new BuildSQLUnionWith(forSQLRetrieverForDB); }
+    static BuildSQLUnionWith createFor(SQLRetrieverForDBs forSQLRetrieverForDB) { return new BuildSQLUnionWith(forSQLRetrieverForDB); }
     private BuildSQLUnionWith(SQLRetrieverForDBs forSQLRetrieverForDB) {
         List<LinSQL> unionWithLinSQLS = forSQLRetrieverForDB.getWorkLInSQLBuilderParams().getUnionWithQueries();
         if (CollectionUtils.isEmpty(unionWithLinSQLS)) return;

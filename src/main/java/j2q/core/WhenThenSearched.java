@@ -6,7 +6,7 @@ import javax.annotation.Nullable;
 final class WhenThenSearched extends WhenThen {
     private final IWhere searchCondition;
 
-    public WhenThenSearched(@Nonnull IWhere searchCondition, @Nullable Object thenExpression) {
+    WhenThenSearched(@Nonnull IWhere searchCondition, @Nullable Object thenExpression) {
         super(thenExpression);
         this.searchCondition = searchCondition;
     }

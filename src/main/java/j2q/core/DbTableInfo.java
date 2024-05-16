@@ -40,7 +40,7 @@ final class DbTableInfo {
     private final ImmutableMap<DbF, GlobalFieldModelDefinition.DbFieldDataType> dbtHasFieldsNameEnum_DataType;
     private final ImmutableMap<DbF, GlobalFieldModelDefinition.DataTypeForSQL> dbtHasFieldsNameEnum_DataTypeForSQL;
 
-    public DbTableInfo(DbTable dbTable) {
+    DbTableInfo(DbTable dbTable) {
         this.dbtNameEnum = dbTable.getDbT();
 
         this.dbtNormalName = this.dbtNameEnum.name();

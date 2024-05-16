@@ -15,7 +15,7 @@ import java.util.stream.Stream;
 final class GroupOfWheres extends AbstractFilter {
     private final List<IWhere> whereFilters;
 
-    public GroupOfWheres(@Nonnull List<IWhere> whereFilters) {
+    GroupOfWheres(@Nonnull List<IWhere> whereFilters) {
         this.whereFilters = whereFilters;
     }
 
@@ -38,7 +38,7 @@ final class GroupOfWheres extends AbstractFilter {
 
 
     @Description("create Filters (enclosed in Parenthesis)")
-    public static IWhere getGroupOfFilters(@Nullable LinSQL.TypeOfLogicalOperator typeOfLogicalOperator, boolean invertSelection, @Nonnull IWhere... filters) {
+    static IWhere getGroupOfFilters(@Nullable LinSQL.TypeOfLogicalOperator typeOfLogicalOperator, boolean invertSelection, @Nonnull IWhere... filters) {
         List<IWhere> whereList = Lists.newArrayList();
         Stream.of(filters).filter(Objects::nonNull).forEach(whereList::add);
         if (CollectionUtils.isEmpty(whereList)) return null;

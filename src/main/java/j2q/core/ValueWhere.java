@@ -9,7 +9,7 @@ final class ValueWhere extends AbstractWhere {
     private final LinSQL.TypeOfComparison typeOfComparison;
     private final Object compareValue;
 
-    public ValueWhere(@Nonnull Object whereObject, @Nullable LinSQL.TypeOfComparison typeOfComparison, @Nullable Object compareValue) {
+    ValueWhere(@Nonnull Object whereObject, @Nullable LinSQL.TypeOfComparison typeOfComparison, @Nullable Object compareValue) {
         super(whereObject);
         this.typeOfComparison = typeOfComparison;
         this.compareValue = compareValue;

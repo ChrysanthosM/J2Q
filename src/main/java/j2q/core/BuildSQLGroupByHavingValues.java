@@ -12,7 +12,7 @@ import java.util.Objects;
 
 final class BuildSQLGroupByHavingValues extends BuildSQLCore {
 
-    public static BuildSQLGroupByHavingValues createFor(SQLRetrieverForDBs forSQLRetrieverForDB) { return new BuildSQLGroupByHavingValues(forSQLRetrieverForDB); }
+    static BuildSQLGroupByHavingValues createFor(SQLRetrieverForDBs forSQLRetrieverForDB) { return new BuildSQLGroupByHavingValues(forSQLRetrieverForDB); }
     private BuildSQLGroupByHavingValues(SQLRetrieverForDBs forSQLRetrieverForDB) {
         MutablePair<List<SqlUserSelection>, List<IWhere>> groupBySelectionsHavingValues = forSQLRetrieverForDB.getWorkLInSQLBuilderParams().getGroupBySelectionsHavingValues();
         if (groupBySelectionsHavingValues == null) return;

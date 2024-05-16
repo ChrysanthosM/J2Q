@@ -13,7 +13,7 @@ final class SQLFieldOperation extends SqlUserSelection {
     private Object object;
     private String operation;
 
-    public SQLFieldOperation(Object object, String operation) {
+    SQLFieldOperation(Object object, String operation) {
         super();
         init(null, operation, object);
     }

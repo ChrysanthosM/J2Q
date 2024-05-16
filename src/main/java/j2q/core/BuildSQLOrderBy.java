@@ -13,7 +13,7 @@ import java.util.List;
 
 final class BuildSQLOrderBy extends BuildSQLCore {
 
-    public static BuildSQLOrderBy createFor(SQLRetrieverForDBs forSQLRetrieverForDB) { return new BuildSQLOrderBy(forSQLRetrieverForDB); }
+    static BuildSQLOrderBy createFor(SQLRetrieverForDBs forSQLRetrieverForDB) { return new BuildSQLOrderBy(forSQLRetrieverForDB); }
     private BuildSQLOrderBy(SQLRetrieverForDBs forSQLRetrieverForDB) {
         List<MutablePair<SqlUserSelection, SortOrder>> orderByFields = forSQLRetrieverForDB.getWorkLInSQLBuilderParams().getOrderByFields();
         if (CollectionUtils.isEmpty(orderByFields)) return;
