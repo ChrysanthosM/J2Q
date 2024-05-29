@@ -16,6 +16,5 @@ public class ApplicationSQLRun {
 
     public static void main(String[] args) {
         SpringApplication.run(ApplicationSQLRun.class, args);
-        System.out.println(ApplicationSQLRun.class.getSimpleName() + " loaded in " + loadingTime + " ms." );
     }
 }
