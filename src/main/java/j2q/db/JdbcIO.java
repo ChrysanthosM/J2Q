@@ -90,6 +90,23 @@ public final class JdbcIO {
         }
         return ImmutableList.copyOf(returnList);
     }
+    public Optional<Long> selectNumeric(@Nonnull DataSource dataSource,
+                                        @Nonnull String query, @Nullable Object... params) throws SQLException {
+        Preconditions.checkNotNull(dataSource);
+        Preconditions.checkNotNull(query);
+
+        try (Connection conn = dataSource.getConnection();
+             final PreparedStatement stmt = conn.prepareStatement(query)) {
+            setParams(stmt, params);
+
+            try (ResultSet resultSet = stmt.executeQuery()) {
+                if (resultSet.next()) {
+                    return Optional.of(resultSet.getLong(1));
+                }
+            }
+        }
+        return Optional.empty();
+    }
 
     public <T> Optional<T> selectOne(@Nonnull DataSource dataSource, @Nonnull IRowLoader<T> rowLoader,
                                      @Nonnull String query, @Nullable Object... params) throws SQLException {
