@@ -9,7 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1b604b0d-001f-468b-a5c7-4b8b3422a052" name="Changes" comment="fixes">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/ApplicationSQLRun.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/ApplicationSQLRun.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +84,7 @@
       <recent name="j2q.tests" />
     </key>
   </component>
-  <component name="RunManager" selected="Application.ApplicationSQLRun">
+  <component name="RunManager" selected="JUnit.TestJ2Data.testJ2Data">
     <configuration name="ApplicationSQLRun" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="j2q.ApplicationSQLRun" />
       <module name="J2Q" />
@@ -171,11 +171,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.ApplicationSQLRun" />
-        <item itemvalue="JUnit.TestSQLStatements.testSQLStatements" />
         <item itemvalue="JUnit.TestJ2Data.testJ2Data" />
-        <item itemvalue="JUnit.TestRestAutoNumberingController.testGetAutoNumberingList" />
+        <item itemvalue="JUnit.TestSQLStatements.testSQLStatements" />
         <item itemvalue="JUnit.TestRestControllerSQL.testGetAutoNumberingSQL" />
+        <item itemvalue="JUnit.TestRestAutoNumberingController.testGetAutoNumberingList" />
+        <item itemvalue="Application.ApplicationSQLRun" />
       </list>
     </recent_temporary>
   </component>
@@ -540,7 +540,23 @@
       <option name="project" value="LOCAL" />
       <updated>1715880104362</updated>
     </task>
-    <option name="localTasksCounter" value="45" />
+    <task id="LOCAL-00045" summary="fixes">
+      <option name="closed" value="true" />
+      <created>1717001910344</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1717001910344</updated>
+    </task>
+    <task id="LOCAL-00046" summary="fixes">
+      <option name="closed" value="true" />
+      <created>1717002018349</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1717002018349</updated>
+    </task>
+    <option name="localTasksCounter" value="47" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
