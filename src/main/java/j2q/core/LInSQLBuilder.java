@@ -6,6 +6,8 @@ import lombok.AccessLevel;
 import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.Arrays;
+
 
 final class LInSQLBuilder {
     @Getter(AccessLevel.PACKAGE) private final LInSQLBuilderParams workLInSQLBuilderParams = new LInSQLBuilderParams();
@@ -42,15 +44,10 @@ final class LInSQLBuilder {
 
     private GlobalDBDefinition.TypeOfDB getLInSQLBuilderTypeOfDB(String forDbPrefixForTableOrLocation) {
         String extensionString = Files.getFileExtension(forDbPrefixForTableOrLocation);
-        for (GlobalDBDefinition.TypeOfDB typeOfDB : GlobalDBDefinition.TypeOfDB.values()) {
-            String dbExtension = typeOfDB.getAttributeExtension();
-            if (dbExtension != null) {
-                if (dbExtension.equals(extensionString)) {
-                    return typeOfDB;
-                }
-            }
-        }
-        return null;
+        return Arrays.stream(GlobalDBDefinition.TypeOfDB.values())
+                .filter(typeOfDB -> extensionString.equals(typeOfDB.getAttributeExtension()))
+                .findFirst()
+                .orElse(null);
     }
 
 

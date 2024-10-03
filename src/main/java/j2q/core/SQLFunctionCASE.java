@@ -11,6 +11,7 @@ import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 final class SQLFunctionCASE extends SQLFunction {
     @Override
@@ -31,8 +32,10 @@ final class SQLFunctionCASE extends SQLFunction {
 
         List<Object> whenList = super.getParams().subList(3, super.getParams().size()) ;
         whenList.stream().filter(Objects::nonNull).forEach(f -> ((WhenThen) f).setDataTypeForSQL(dataTypeForSQL));
-        List<String> searchListResolved = Lists.newArrayList();
-        whenList.stream().filter(Objects::nonNull).forEach(when -> searchListResolved.add(((WhenThen) when).getResolveObjectForSQL(forSQLRetrieverForDB)));
+        List<String> searchListResolved = whenList.stream()
+                .filter(Objects::nonNull)
+                .map(when -> ((WhenThen) when).getResolveObjectForSQL(forSQLRetrieverForDB))
+                .collect(Collectors.toList());
         String whenExpression = Joiner.on(StringUtils.SPACE).join(searchListResolved);
 
         return CommonMethods.stringsConcat(false, "CASE ", StringUtils.defaultString(caseExpression).concat(StringUtils.SPACE), whenExpression, " ELSE ", elseExpression, " END");

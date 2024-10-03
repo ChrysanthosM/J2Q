@@ -9,6 +9,7 @@ import org.apache.commons.lang3.StringUtils;
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 final class BuildSQLWhereFilters extends BuildSQLCore {
 
@@ -40,13 +41,10 @@ final class BuildSQLWhereFilters extends BuildSQLCore {
         whereFilters.stream().filter(w -> ((IFilter) w).getTypeOfLogicalOperator() == null).forEach(w -> ((IFilter) w).setTypeOfLogicalOperator(LinSQL.TypeOfLogicalOperator.AND));
         if (resetFirstOperator) ((IFilter) whereFilters.getFirst()).setTypeOfLogicalOperator(null);
 
-        List<String> whereFiltersForSQL = Lists.newArrayList();
-        for (IWhere where : whereFilters) {
-            String whereForSQL = ((IResolveObjectForSQL) where).getResolveObjectForSQL(forSQLRetrieverForDB);
-            if (StringUtils.isNotBlank(whereForSQL)) {
-                whereFiltersForSQL.add(whereForSQL);
-            }
-        }
+        List<String> whereFiltersForSQL = whereFilters.stream()
+                .map(where -> ((IResolveObjectForSQL) where).getResolveObjectForSQL(forSQLRetrieverForDB))
+                .filter(StringUtils::isNotBlank)
+                .collect(Collectors.toList());
         return whereFiltersForSQL;
     }
 

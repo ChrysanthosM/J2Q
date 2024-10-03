@@ -12,6 +12,7 @@ import javax.swing.*;
 import java.math.BigInteger;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 @Getter
 final class LInSQLBuilderParams {
@@ -63,16 +64,19 @@ final class LInSQLBuilderParams {
 
     //-------Select Fields/Constants/Functions/StringsFunctions
     List<DbF> getUserSelectionsOnlyDbFieldEnum() {
-        List<DbF> returnList = Lists.newArrayList();
-        sqlUserSelections.stream().filter(s -> s instanceof SQLFieldFromTable).forEach(s -> returnList.add(((SQLFieldFromTable) s).getDbFieldEnum()));
-        return returnList;
+        return sqlUserSelections.stream()
+                .filter(s -> s instanceof SQLFieldFromTable)
+                .map(s -> ((SQLFieldFromTable) s).getDbFieldEnum())
+                .collect(Collectors.toList());
     }
     void addUserSelection(Object userSelection, String asAlias) { this.sqlUserSelections.add(LInSQLBuilderShared.getSqlUserSelection(userSelection, asAlias)); }
 
     //-------GroupBy/Having
     void setGroupBySelectionsHavingValues(MutablePair<List<Object>, List<IWhere>> groupBySelectionsHavingValues) {
-        List<SqlUserSelection> groupByUserSelections = Lists.newArrayList();
-        groupBySelectionsHavingValues.getLeft().stream().filter(Objects::nonNull).forEach(g -> groupByUserSelections.add(LInSQLBuilderShared.getSqlUserSelection(g)));
+        List<SqlUserSelection> groupByUserSelections = groupBySelectionsHavingValues.getLeft().stream()
+                .filter(Objects::nonNull)
+                .map(LInSQLBuilderShared::getSqlUserSelection)
+                .collect(Collectors.toList());
         this.groupBySelectionsHavingValues = MutablePair.of(groupByUserSelections, groupBySelectionsHavingValues.getRight());
     }
 

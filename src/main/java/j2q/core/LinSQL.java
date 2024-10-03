@@ -15,6 +15,7 @@ import javax.annotation.Nullable;
 import javax.swing.*;
 import java.math.BigInteger;
 import java.util.*;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 final class LinSQL {
@@ -147,13 +148,11 @@ final class LinSQL {
     }
 
     public void groupBy(@Nonnull Object... setGroupBy) {
-        List<Object> groupBy = Lists.newArrayList();
-        Stream.of(setGroupBy).filter(Objects::nonNull).forEach(groupBy::add);
+        List<Object> groupBy = Stream.of(setGroupBy).filter(Objects::nonNull).collect(Collectors.toList());
         workLInSQLBuilder.getWorkLInSQLBuilderParams().setGroupBySelectionsHavingValues(MutablePair.of(groupBy, new ArrayList<>()));
     }
     public void having(@Nonnull IWhere... filters) {
-        List<IWhere> whereList = Lists.newArrayList();
-        Stream.of(filters).filter(Objects::nonNull).forEach(whereList::add);
+        List<IWhere> whereList = Stream.of(filters).filter(Objects::nonNull).toList();
         workLInSQLBuilder.getWorkLInSQLBuilderParams().getGroupBySelectionsHavingValues().getRight().addAll(whereList);
     }
 
@@ -164,8 +163,7 @@ final class LinSQL {
         workLInSQLBuilder.getWorkLInSQLBuilderParams().addJoinWith(MutableTriple.of(typeOfJoin, joinWith, joinOnList));
     }
     public LinSQL on(@Nonnull IWhere... joinOn) {
-        List<IWhere> joinOnList = Lists.newArrayList();
-        Stream.of(joinOn).filter(Objects::nonNull).forEach(joinOnList::add);
+        List<IWhere> joinOnList = Stream.of(joinOn).filter(Objects::nonNull).collect(Collectors.toList());
         workLInSQLBuilder.getWorkLInSQLBuilderParams().getLastJoin().setRight(joinOnList);
         return this;
     }

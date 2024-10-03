@@ -19,6 +19,7 @@ import java.util.Deque;
 import java.util.List;
 import java.util.Map;
 import java.util.concurrent.*;
+import java.util.stream.Collectors;
 
 import static j2q.setup.definitions.design.repo.LoadParams.LOAD_TIMEOUT;
 
@@ -52,15 +53,11 @@ public abstract class AbstractJ2<E extends Enum<E>> {
     }
 
     private void loadBuffers() {
-        List<Method> loaders = getLoaders();
+        List<Method> loaders = Arrays.stream(this.getClass().getDeclaredMethods())
+                .filter(method -> method.isAnnotationPresent(LoadJ2SQL.class))
+                .collect(Collectors.toList());
         if (CollectionUtils.isNotEmpty(loaders)) {
-            loaders.parallelStream().forEach(m -> {
-                try {
-                    m.invoke(this);
-                } catch (IllegalAccessException | InvocationTargetException e) {
-                    throw new RuntimeException(e);
-                }
-            });
+            loaders.parallelStream().forEach(this::invokeThis);
         }
         if (loadBuffers.isEmpty()) return;
 
@@ -74,16 +71,11 @@ public abstract class AbstractJ2<E extends Enum<E>> {
             }
         });
     }
-    private List<Method> getLoaders() {
-        List<Method> loadMethods = Lists.newArrayList();
-        Method[] methods = this.getClass().getDeclaredMethods();
-        if (CollectionUtils.isNotEmpty(Arrays.asList(methods))) {
-            for (Method method : methods) {
-                if (method.isAnnotationPresent(LoadJ2SQL.class)) {
-                    loadMethods.add(method);
-                }
-            }
+    private void invokeThis(Method m) {
+        try {
+            m.invoke(this);
+        } catch (IllegalAccessException | InvocationTargetException e) {
+            throw new RuntimeException(e);
         }
-        return loadMethods;
     }
 }

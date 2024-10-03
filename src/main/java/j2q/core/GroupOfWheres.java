@@ -10,6 +10,7 @@ import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 final class GroupOfWheres extends AbstractFilter {
@@ -39,8 +40,9 @@ final class GroupOfWheres extends AbstractFilter {
 
     @Description("create Filters (enclosed in Parenthesis)")
     static IWhere getGroupOfFilters(@Nullable LinSQL.TypeOfLogicalOperator typeOfLogicalOperator, boolean invertSelection, @Nonnull IWhere... filters) {
-        List<IWhere> whereList = Lists.newArrayList();
-        Stream.of(filters).filter(Objects::nonNull).forEach(whereList::add);
+        List<IWhere> whereList = Stream.of(filters)
+                .filter(Objects::nonNull)
+                .collect(Collectors.toList());
         if (CollectionUtils.isEmpty(whereList)) return null;
         GroupOfWheres wheres = new GroupOfWheres(whereList);
         if (typeOfLogicalOperator != null) wheres.setTypeOfLogicalOperator(typeOfLogicalOperator);

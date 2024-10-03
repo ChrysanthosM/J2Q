@@ -10,6 +10,7 @@ import org.apache.commons.lang3.StringUtils;
 import java.sql.Timestamp;
 import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 final class BuildSQLInsertRows extends BuildSQLCore {
@@ -53,12 +54,10 @@ final class BuildSQLInsertRows extends BuildSQLCore {
 
     private String getInsertRowForSQL(SQLRetrieverForDBs forSQLRetrieverForDB,
                                       List<DbF> intoDbF, boolean isAutoStamp, List<Object> rowFieldValues) {
-        List<String> fieldValuesForSQL = Lists.newArrayList();
-        for (int i = 0; i < intoDbF.size(); i++) {
-            fieldValuesForSQL.add(LInSQLBuilderShared.getSqlUserSelection(
-                    rowFieldValues.get(i), intoDbF.get(i).getFieldDataType().getDataTypeForSQL()).getResolveObjectForSQL(forSQLRetrieverForDB));
-        }
-
+        List<String> fieldValuesForSQL = IntStream.range(0, intoDbF.size())
+                .mapToObj(i -> LInSQLBuilderShared.getSqlUserSelection(rowFieldValues.get(i), intoDbF.get(i).getFieldDataType().getDataTypeForSQL())
+                        .getResolveObjectForSQL(forSQLRetrieverForDB))
+                .collect(Collectors.toList());
         if (isAutoStamp) {
             fieldValuesForSQL.add(System.getenv("USERNAME"));
             fieldValuesForSQL.add(new Timestamp(System.currentTimeMillis()).toString());

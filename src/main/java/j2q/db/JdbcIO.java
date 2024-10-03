@@ -1,8 +1,10 @@
 package j2q.db;
 
+import com.google.common.annotations.Beta;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
+import com.google.common.collect.Sets;
 import j2q.db.loader.IRowLoader;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.tuple.Pair;
@@ -21,7 +23,7 @@ import java.util.stream.IntStream;
 @ThreadSafe
 @Component
 public final class JdbcIO {
-    private List<Pair<String, Object>> getColumnNamesValues(ResultSetMetaData metaData, ResultSet fromResultSet) throws SQLException {
+    private static List<Pair<String, Object>> getColumnNamesValues(ResultSetMetaData metaData, ResultSet fromResultSet) throws SQLException {
         int columnsCount = metaData.getColumnCount();
         final List<Pair<String, Object>> columnNamesValues = new ArrayList<>(columnsCount);
         IntStream.range(1, columnsCount + 1).forEach(i -> {
@@ -34,14 +36,13 @@ public final class JdbcIO {
         return ImmutableList.copyOf(columnNamesValues);
     }
 
-    /**
-     * !!!!!!!!! RETURNS UNSORTED List !!!!!!!!!
-     */
+
+    @Beta
     public <T> List<T> selectAsync(@Nonnull DataSource dataSource, @Nonnull IRowLoader<T> rowLoader,
                                    @Nonnull String query, @Nullable Object... params) throws SQLException {
         Preconditions.checkNotNull(dataSource);
         Preconditions.checkNotNull(query);
-        List<T> returnList = new CopyOnWriteArrayList<>();
+        Set<T> returnList = Sets.newConcurrentHashSet();
 
         List<CompletableFuture<T>> futureTs = Lists.newArrayList();
         try (Connection conn = dataSource.getConnection();
@@ -52,13 +53,7 @@ public final class JdbcIO {
                 ResultSetMetaData metaData = resultSet.getMetaData();
                 while (resultSet.next()) {
                     final List<Pair<String, Object>> columnNamesValues = getColumnNamesValues(metaData, resultSet);
-                    CompletableFuture<T> futureT = CompletableFuture.supplyAsync(() -> {
-                        try {
-                            return rowLoader.convertResultSet(columnNamesValues);
-                        } catch (Exception e) {
-                            throw new RuntimeException("Error creating futureT", e);
-                        }
-                    });
+                    CompletableFuture<T> futureT = CompletableFuture.supplyAsync(() -> getConvertedResult(rowLoader, columnNamesValues));
                     futureTs.add(futureT);
                 }
                 futureTs.parallelStream().forEach(futureT -> {
@@ -67,6 +62,13 @@ public final class JdbcIO {
                 });
             }
             return ImmutableList.copyOf(returnList);
+        }
+    }
+    private static <T> T getConvertedResult(IRowLoader<T> rowLoader, List<Pair<String, Object>> columnNamesValues) {
+        try {
+            return rowLoader.convertResultSet(columnNamesValues);
+        } catch (Exception e) {
+            throw new RuntimeException("Error creating futureT", e);
         }
     }
 
