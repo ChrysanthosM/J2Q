@@ -1,6 +1,5 @@
 package j2q.core;
 
-import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 import j2q.AppConfig;
 import j2q.ApplicationSQLRun;

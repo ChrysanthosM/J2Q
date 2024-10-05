@@ -1,7 +1,6 @@
 package j2q.core;
 
 import com.google.common.base.Joiner;
-import com.google.common.collect.Lists;
 import jdk.jfr.Description;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;

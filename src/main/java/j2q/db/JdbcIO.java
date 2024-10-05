@@ -7,8 +7,11 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import j2q.db.loader.IRowLoader;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
@@ -17,7 +20,7 @@ import javax.sql.DataSource;
 import java.sql.*;
 import java.util.*;
 import java.util.concurrent.CompletableFuture;
-import java.util.concurrent.CopyOnWriteArrayList;
+import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 @ThreadSafe
@@ -36,32 +39,31 @@ public final class JdbcIO {
         return ImmutableList.copyOf(columnNamesValues);
     }
 
-
     @Beta
     public <T> List<T> selectAsync(@Nonnull DataSource dataSource, @Nonnull IRowLoader<T> rowLoader,
                                    @Nonnull String query, @Nullable Object... params) throws SQLException {
         Preconditions.checkNotNull(dataSource);
         Preconditions.checkNotNull(query);
-        Set<T> returnList = Sets.newConcurrentHashSet();
 
-        List<CompletableFuture<T>> futureTs = Lists.newArrayList();
         try (Connection conn = dataSource.getConnection();
              final PreparedStatement stmt = conn.prepareStatement(query)) {
             setParams(stmt, params);
 
             try (ResultSet resultSet = stmt.executeQuery()) {
                 ResultSetMetaData metaData = resultSet.getMetaData();
+                List<CompletableFuture<T>> futureTs = Lists.newArrayList();
                 while (resultSet.next()) {
                     final List<Pair<String, Object>> columnNamesValues = getColumnNamesValues(metaData, resultSet);
                     CompletableFuture<T> futureT = CompletableFuture.supplyAsync(() -> getConvertedResult(rowLoader, columnNamesValues));
                     futureTs.add(futureT);
                 }
-                futureTs.parallelStream().forEach(futureT -> {
-                    T completedT = futureT.join();
-                    if (completedT != null) returnList.add(completedT);
-                });
+
+                List<T> results = futureTs.parallelStream()
+                        .map(CompletableFuture::join)
+                        .filter(Objects::nonNull)
+                        .collect(Collectors.toList());
+                return ImmutableList.copyOf(results);
             }
-            return ImmutableList.copyOf(returnList);
         }
     }
     private static <T> T getConvertedResult(IRowLoader<T> rowLoader, List<Pair<String, Object>> columnNamesValues) {
@@ -77,20 +79,20 @@ public final class JdbcIO {
         Preconditions.checkNotNull(dataSource);
         Preconditions.checkNotNull(rowLoader);
         Preconditions.checkNotNull(query);
-        List<T> returnList = Lists.newArrayList();
 
         try (Connection conn = dataSource.getConnection();
              final PreparedStatement stmt = conn.prepareStatement(query)) {
             setParams(stmt, params);
 
             try (ResultSet resultSet = stmt.executeQuery()) {
+                List<T> returnList = new ArrayList<>(resultSet.getMetaData().getColumnCount());
                 while (resultSet.next()) {
                     T pojo = rowLoader.convertResultSet(resultSet);
                     if (pojo != null) returnList.add(pojo);
                 }
+                return ImmutableList.copyOf(returnList);
             }
         }
-        return ImmutableList.copyOf(returnList);
     }
     public Optional<Long> selectNumeric(@Nonnull DataSource dataSource,
                                         @Nonnull String query, @Nullable Object... params) throws SQLException {
@@ -126,9 +128,27 @@ public final class JdbcIO {
                 }
             }
         }
-        return Optional.empty() ;
+        return Optional.empty();
     }
 
+    public boolean insertBulk(@Nonnull DataSource dataSource,
+                              @Nullable String intoFieldsQuery, @Nonnull List<List<Object>> insertRowsWithValues) throws SQLException {
+        Preconditions.checkNotNull(insertRowsWithValues);
+
+        String insertRowsWithValuesQuery = insertRowsWithValues.parallelStream()
+                .map(subList -> subList.stream()
+                        .map(obj -> "?")
+                        .collect(Collectors.joining(", ", "(", ")")))
+                .collect(Collectors.joining(", ", "VALUES ", ";"));
+        final String query = ObjectUtils.defaultIfNull(intoFieldsQuery, StringUtils.EMPTY)
+                .concat(insertRowsWithValuesQuery);
+
+        List<Object> insertValues = insertRowsWithValues.stream().flatMap(List::stream).toList();
+
+        return executeQuery(dataSource, query, insertValues.toArray());
+    }
+
+    @Transactional
     public int[] addBatch(@Nonnull DataSource dataSource,
                           @Nonnull String query, @Nullable List<List<Object>> params) throws SQLException {
         Preconditions.checkNotNull(dataSource);
@@ -137,7 +157,6 @@ public final class JdbcIO {
         try (Connection conn = dataSource.getConnection();
              final PreparedStatement stmt = conn.prepareStatement(query)) {
             if (CollectionUtils.isNotEmpty(params)) {
-                conn.setAutoCommit(false);
                 params.forEach(p -> {
                     try {
                         setParams(stmt, p.toArray());
@@ -147,11 +166,10 @@ public final class JdbcIO {
                     }
                 });
             }
-            int[] updateCounts = stmt.executeBatch();
-            conn.setAutoCommit(true);
-            return updateCounts;
+            return stmt.executeBatch();
         }
     }
+    @Transactional
     public long[] addLargeBatch(@Nonnull DataSource dataSource,
                                 @Nonnull String query, @Nullable List<List<Object>> params) throws SQLException {
         Preconditions.checkNotNull(dataSource);
@@ -160,7 +178,6 @@ public final class JdbcIO {
         try (Connection conn = dataSource.getConnection();
              final PreparedStatement stmt = conn.prepareStatement(query)) {
             if (CollectionUtils.isNotEmpty(params)) {
-                conn.setAutoCommit(false);
                 params.forEach(p -> {
                     try {
                         setParams(stmt, p.toArray());
@@ -170,11 +187,10 @@ public final class JdbcIO {
                     }
                 });
             }
-            long[] updateCounts = stmt.executeLargeBatch();
-            conn.setAutoCommit(true);
-            return updateCounts;
+            return stmt.executeLargeBatch();
         }
     }
+
     public boolean executeQuery(@Nonnull DataSource dataSource,
                                 @Nonnull String query, @Nullable Object... params) throws SQLException {
         Preconditions.checkNotNull(dataSource);
@@ -186,6 +202,7 @@ public final class JdbcIO {
             return stmt.execute();
         }
     }
+
     public int executeUpdate(@Nonnull DataSource dataSource,
                              @Nonnull String query, @Nullable Object... params) throws SQLException {
         Preconditions.checkNotNull(dataSource);

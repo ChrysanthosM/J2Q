@@ -17,7 +17,7 @@ final class SQLFieldFromConstant extends SqlUserSelection {
 
     SQLFieldFromConstant(@Nonnull Object value, @Nullable String asAlias, @Nonnull GlobalFieldModelDefinition.DataTypeForSQL dataTypeForSQL) {
         init(null, asAlias, value);
-        this.dataTypeForSQL = Optional.ofNullable(dataTypeForSQL);
+        this.dataTypeForSQL = Optional.of(dataTypeForSQL);
     }
     @Override public void init(@Nullable String setPrefix, @Nullable String asAlias, @Nullable Object... args) {
         Preconditions.checkNotNull(args);

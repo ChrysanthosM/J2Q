@@ -3,7 +3,6 @@ package j2q.core;
 import j2q.commons.CommonMethods;
 import j2q.db.definition.GlobalFieldModelDefinition;
 import com.google.common.base.Joiner;
-import com.google.common.collect.Lists;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.annotation.Nonnull;
