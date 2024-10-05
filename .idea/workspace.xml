@@ -7,16 +7,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b604b0d-001f-468b-a5c7-4b8b3422a052" name="Changes" comment="fixes">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/AbstractJ2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/AbstractJ2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/BuildSQLWhereFilters.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/BuildSQLWhereFilters.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/GroupOfWheres.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/GroupOfWheres.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/SQLFieldFromConstant.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/SQLFieldFromConstant.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/SQLFunctionCASE.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/SQLFunctionCASE.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/db/JdbcIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/db/JdbcIO.java" afterDir="false" />
-    </list>
+    <list default="true" id="1b604b0d-001f-468b-a5c7-4b8b3422a052" name="Changes" comment="improvements" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -578,7 +569,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727982722284</updated>
     </task>
-    <option name="localTasksCounter" value="49" />
+    <task id="LOCAL-00049" summary="improvements">
+      <option name="closed" value="true" />
+      <created>1728154559204</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1728154559205</updated>
+    </task>
+    <option name="localTasksCounter" value="50" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -606,6 +605,7 @@
     <MESSAGE value="merged packages" />
     <MESSAGE value="fix pom" />
     <MESSAGE value="fixes" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixes" />
+    <MESSAGE value="improvements" />
+    <option name="LAST_COMMIT_MESSAGE" value="improvements" />
   </component>
 </project>
