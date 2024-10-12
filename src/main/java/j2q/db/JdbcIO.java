@@ -4,11 +4,8 @@ import com.google.common.annotations.Beta;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
-import com.google.common.collect.Sets;
 import j2q.db.loader.IRowLoader;
 import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.lang3.ObjectUtils;
-import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
@@ -129,23 +126,6 @@ public final class JdbcIO {
             }
         }
         return Optional.empty();
-    }
-
-    public boolean insertBulk(@Nonnull DataSource dataSource,
-                              @Nullable String intoFieldsQuery, @Nonnull List<List<Object>> insertRowsWithValues) throws SQLException {
-        Preconditions.checkNotNull(insertRowsWithValues);
-
-        String insertRowsWithValuesQuery = insertRowsWithValues.parallelStream()
-                .map(subList -> subList.stream()
-                        .map(obj -> "?")
-                        .collect(Collectors.joining(", ", "(", ")")))
-                .collect(Collectors.joining(", ", "VALUES ", ";"));
-        final String query = ObjectUtils.defaultIfNull(intoFieldsQuery, StringUtils.EMPTY)
-                .concat(insertRowsWithValuesQuery);
-
-        List<Object> insertValues = insertRowsWithValues.stream().flatMap(List::stream).toList();
-
-        return executeQuery(dataSource, query, insertValues.toArray());
     }
 
     @Transactional

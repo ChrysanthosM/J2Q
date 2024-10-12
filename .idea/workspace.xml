@@ -7,7 +7,21 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1b604b0d-001f-468b-a5c7-4b8b3422a052" name="Changes" comment="improvements" />
+    <list default="true" id="1b604b0d-001f-468b-a5c7-4b8b3422a052" name="Changes" comment="improvements">
+      <change afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/dtos/Idto.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/AbstractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/AbstractService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/TTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/TTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/db/JdbcIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/db/JdbcIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/IAutoNumbering.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/IAutoNumbering.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/J2Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/J2Data.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/AutoNumberingJ2SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/AutoNumberingJ2SQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/dtos/AutoNumberingDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/dtos/AutoNumberingDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/dtos/OptionsDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/dtos/OptionsDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/dtos/UsersDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/dtos/UsersDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/services/AutoNumberingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/services/AutoNumberingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/j2q/tests/TestJ2Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/j2q/tests/TestJ2Data.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -16,8 +30,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Interface" />
         <option value="Class" />
+        <option value="Interface" />
       </list>
     </option>
   </component>
@@ -47,7 +61,7 @@
   &quot;keyToString&quot;: {
     &quot;Application.ApplicationSQLRun.executor&quot;: &quot;Debug&quot;,
     &quot;JUnit.RestAutoNumberingControllerTest.testGetAutoNumberingList.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestJ2Data.testJ2Data.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TestJ2Data.testJ2Data.executor&quot;: &quot;Debug&quot;,
     &quot;JUnit.TestJdbcIO.testData.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.TestJdbcIO.testJ2Data.executor&quot;: &quot;Run&quot;,
     &quot;JUnit.TestRestAutoNumberingController.testGetAutoNumberingList.executor&quot;: &quot;Run&quot;,
@@ -184,14 +198,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1704301824325</updated>
-    </task>
-    <task id="LOCAL-00001" summary="1st Commit">
-      <option name="closed" value="true" />
-      <created>1704302883853</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1704302883853</updated>
     </task>
     <task id="LOCAL-00002" summary="J2Data">
       <option name="closed" value="true" />
@@ -577,7 +583,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728154559205</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="improvements">
+      <option name="closed" value="true" />
+      <created>1728154775065</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1728154775065</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -607,5 +621,21 @@
     <MESSAGE value="fixes" />
     <MESSAGE value="improvements" />
     <option name="LAST_COMMIT_MESSAGE" value="improvements" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/j2q/tests/TestJ2Data.java</url>
+          <line>33</line>
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/j2q/tests/TestJ2Data.java</url>
+          <line>34</line>
+          <option name="timeStamp" value="6" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

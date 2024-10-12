@@ -14,7 +14,7 @@ public abstract non-sealed class TTable extends DbTable {
     private final String systemName;
     private final String tablePrefixForFields;
     private final List<DbF> hasKeys;
-    private final Boolean autoIncrease;
+    @Getter private final Boolean autoIncrease;
     private final Boolean putAutoStamp;
 
     private List<PairOfTableField> dbFs;

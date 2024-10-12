@@ -10,7 +10,11 @@ import java.sql.SQLException;
 import java.util.List;
 import java.util.NoSuchElementException;
 
-public record AutoNumberingDTO(int recId, String entityType, int entityNumber) {
+public record AutoNumberingDTO(int recId, String entityType, int entityNumber) implements Idto {
+    @Override
+    public List<Object> listValues() {
+        return List.of(recId, entityType, entityNumber);
+    }
 
     public static LoadDTO newConverter() { return new LoadDTO(); }
     public static class LoadDTO extends RowLoader<AutoNumberingDTO> {
@@ -31,5 +35,6 @@ public record AutoNumberingDTO(int recId, String entityType, int entityNumber) {
             );
         }
     }
+
 }
 

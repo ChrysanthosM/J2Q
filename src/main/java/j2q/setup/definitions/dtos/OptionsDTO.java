@@ -1,6 +1,7 @@
 package j2q.setup.definitions.dtos;
 
 import j2q.core.DtoFieldValue;
+import j2q.core.TTable;
 import j2q.db.loader.RowLoader;
 import j2q.setup.definitions.design.schema.enums.DbF;
 import org.apache.commons.lang3.tuple.Pair;
@@ -11,7 +12,11 @@ import java.util.List;
 import java.util.NoSuchElementException;
 
 public record OptionsDTO(int recId, String optionType, String optionName, String optionValue, String optionDetails,
-                         String userStamp, String dateStamp) {
+                         String userStamp, String dateStamp) implements Idto {
+    @Override
+    public List<Object> listValues() {
+        return List.of(recId, optionType, optionName, optionValue, optionDetails, userStamp, dateStamp);
+    }
 
     public static LoadDTO newConverter() { return new LoadDTO(); }
     public static class LoadDTO extends RowLoader<OptionsDTO> {
