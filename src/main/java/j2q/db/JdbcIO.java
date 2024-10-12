@@ -48,9 +48,15 @@ public final class JdbcIO {
 
             try (ResultSet resultSet = stmt.executeQuery()) {
                 ResultSetMetaData metaData = resultSet.getMetaData();
+                final List<Pair<String, Object>> columnNamesValues = Lists.newArrayList();
+                boolean firstTime = true;
+
                 List<CompletableFuture<T>> futureTs = Lists.newArrayList();
                 while (resultSet.next()) {
-                    final List<Pair<String, Object>> columnNamesValues = getColumnNamesValues(metaData, resultSet);
+                    if (firstTime) {
+                        columnNamesValues.addAll(getColumnNamesValues(metaData, resultSet));
+                        firstTime = false;
+                    }
                     CompletableFuture<T> futureT = CompletableFuture.supplyAsync(() -> getConvertedResult(rowLoader, columnNamesValues));
                     futureTs.add(futureT);
                 }

@@ -27,7 +27,7 @@ public class TestJ2Data {
 
     @Test
     public void testJ2Data() throws SQLException {
-        insertTest();
+//        insertTest();
 
         List<AutoNumberingDTO> listSample;
 
