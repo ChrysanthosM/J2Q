@@ -25,14 +25,16 @@ public final class RestAutoNumberingController implements IAutoNumbering {
     }
 
 
+    @GetMapping("/insertBulk")
     @Override
     public boolean insertBulk(List<AutoNumberingDTO> insertRows) throws SQLException {
-        return false;
+        return j2Data.insertBulk(insertRows);
     }
 
+    @GetMapping("/cleanTable")
     @Override
     public boolean cleanTable() throws SQLException {
-        return false;
+        return j2Data.cleanTable();
     }
 
 }
