@@ -1,6 +1,8 @@
 J2Q = Java to Query
+SpringBoot based
 
 for example:
+
 J2SQL.create(workDataSource, normalizeNames)
                         .from(tAutoNumbering.as(T0))
                         .select(tAutoNumbering.ENTITY_NUMBER.as("asEntNum"))
