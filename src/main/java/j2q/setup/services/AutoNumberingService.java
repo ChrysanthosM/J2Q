@@ -27,7 +27,7 @@ public final class AutoNumberingService extends AbstractService<AutoNumberingDTO
         final String query = autoNumberingSQL.getSQL(AutoNumberingRepo.TypeOfSQL.INSERT_ROW);
         final String finalQuery = getBulkInsertSQL(query, insertRows.size());
         List<Object> insertValues = insertRows.stream().flatMap(dto -> dto.getInsertValues(tAutoNumbering, dto).stream()).toList();
-        return getJdbcIO().executeQuery(getDefaultDataSource(), finalQuery, insertValues);
+        return getJdbcIO().executeQuery(getDefaultDataSource(), finalQuery, insertValues.toArray());
     }
 
     public boolean cleanTable() throws SQLException {

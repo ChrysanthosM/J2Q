@@ -9,11 +9,7 @@
   <component name="ChangeListManager">
     <list default="true" id="1b604b0d-001f-468b-a5c7-4b8b3422a052" name="Changes" comment="improvements">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/db/JdbcIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/db/JdbcIO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/IAutoNumbering.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/IAutoNumbering.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/J2Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/J2Data.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/AutoNumberingJ2SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/AutoNumberingJ2SQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/AutoNumberingRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/AutoNumberingRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/RestAutoNumberingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/RestAutoNumberingController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/services/AutoNumberingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/services/AutoNumberingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/j2q/tests/TestJ2Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/j2q/tests/TestJ2Data.java" afterDir="false" />
     </list>
@@ -193,14 +189,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1704301824325</updated>
-    </task>
-    <task id="LOCAL-00004" summary="fix">
-      <option name="closed" value="true" />
-      <created>1704393911493</created>
-      <option name="number" value="00004" />
-      <option name="presentableId" value="LOCAL-00004" />
-      <option name="project" value="LOCAL" />
-      <updated>1704393911493</updated>
     </task>
     <task id="LOCAL-00005" summary="fix AbstractService">
       <option name="closed" value="true" />
@@ -586,7 +574,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728736415704</updated>
     </task>
-    <option name="localTasksCounter" value="53" />
+    <task id="LOCAL-00053" summary="improvements">
+      <option name="closed" value="true" />
+      <created>1728803271287</created>
+      <option name="number" value="00053" />
+      <option name="presentableId" value="LOCAL-00053" />
+      <option name="project" value="LOCAL" />
+      <updated>1728803271288</updated>
+    </task>
+    <option name="localTasksCounter" value="54" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -622,8 +618,18 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/test/java/j2q/tests/TestJ2Data.java</url>
-          <line>41</line>
-          <option name="timeStamp" value="11" />
+          <line>42</line>
+          <option name="timeStamp" value="16" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/j2q/tests/TestJ2Data.java</url>
+          <line>39</line>
+          <option name="timeStamp" value="19" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/java/j2q/setup/services/AutoNumberingService.java</url>
+          <line>29</line>
+          <option name="timeStamp" value="20" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

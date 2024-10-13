@@ -19,8 +19,8 @@ public class TestJ2Data {
 
     public void insertTest() throws SQLException {
         List<AutoNumberingDTO> insertRowsWithValues = Lists.newArrayList();
-        for (int i = 0; i < 999; i++) {
-            insertRowsWithValues.add(new AutoNumberingDTO(0, StringUtils.leftPad(String.valueOf(i), 3, '0'), i));
+        for (int i = 1; i < 100; i++) {
+            insertRowsWithValues.add(new AutoNumberingDTO(0, "A" + StringUtils.leftPad(String.valueOf(i), 2, '0'), i));
         }
         boolean inserted = j2Data.insertBulk(insertRowsWithValues);
     }
@@ -36,11 +36,10 @@ public class TestJ2Data {
 
         List<AutoNumberingDTO> listSample;
 
-        listSample = j2Data.getAutoNumberingListAsync(AutoNumberingRepo.TypeOfSQL.ALL);
+        listSample = j2Data.getAutoNumberingList(AutoNumberingRepo.TypeOfSQL.ALL);
         listSample.forEach(System.out::println);
 
-//        listSample = j2Data.getAutoNumberingList(AutoNumberingRepo.TypeOfSQL.ALL);
-//        listSample.forEach(System.out::println);
-
+        listSample = j2Data.getAutoNumberingListAsync(AutoNumberingRepo.TypeOfSQL.ALL);
+        listSample.forEach(System.out::println);
     }
 }
