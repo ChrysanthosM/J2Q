@@ -30,4 +30,8 @@ public final class AutoNumberingService extends AbstractService<AutoNumberingDTO
         return getJdbcIO().executeQuery(getDefaultDataSource(), finalQuery, insertValues);
     }
 
+    public boolean cleanTable() throws SQLException {
+        return getJdbcIO().executeQuery(getDefaultDataSource(), autoNumberingSQL.getSQL(AutoNumberingRepo.TypeOfSQL.DELETE_ALL));
+    }
+
 }

@@ -34,5 +34,8 @@ public final class AutoNumberingJ2SQL extends AbstractJ2<AutoNumberingRepo.TypeO
                 .orderBy(tAutoNumbering.ENTITY_TYPE));
     }
 
+    @LoadJ2SQL public void loadDELETE_ALL() {
+        addLoader(TypeOfSQL.DELETE_ALL, J2SQL.create(getDefaultDataSource()).deleteFrom(tAutoNumbering));
+    }
 
 }

@@ -10,4 +10,6 @@ import java.util.List;
 public sealed interface IAutoNumbering permits IJ2DataExtensions, RestAutoNumberingController {
     List<AutoNumberingDTO> getAutoNumberingList(@RequestParam(name = "type") AutoNumberingRepo.TypeOfSQL type) throws SQLException;
     List<AutoNumberingDTO> getAutoNumberingListAsync(@RequestParam(name = "type") AutoNumberingRepo.TypeOfSQL type) throws SQLException;
+    boolean insertBulk(List<AutoNumberingDTO> insertRows) throws SQLException;
+    boolean cleanTable() throws SQLException;
 }

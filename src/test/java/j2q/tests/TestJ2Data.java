@@ -25,17 +25,22 @@ public class TestJ2Data {
         boolean inserted = j2Data.insertBulk(insertRowsWithValues);
     }
 
+    public void deleteTest() throws SQLException {
+        boolean cleaned = j2Data.cleanTable();
+    }
+
     @Test
     public void testJ2Data() throws SQLException {
-//        insertTest();
+        deleteTest();
+        insertTest();
 
         List<AutoNumberingDTO> listSample;
 
         listSample = j2Data.getAutoNumberingListAsync(AutoNumberingRepo.TypeOfSQL.ALL);
         listSample.forEach(System.out::println);
 
-        listSample = j2Data.getAutoNumberingList(AutoNumberingRepo.TypeOfSQL.ALL);
-        listSample.forEach(System.out::println);
+//        listSample = j2Data.getAutoNumberingList(AutoNumberingRepo.TypeOfSQL.ALL);
+//        listSample.forEach(System.out::println);
 
     }
 }

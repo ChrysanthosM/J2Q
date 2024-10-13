@@ -21,8 +21,13 @@ public final class J2Data implements IJ2DataExtensions {
         return autoNumberingService.getAutoNumberingListAsync(type);
     }
 
-    public boolean insertBulk(List<AutoNumberingDTO> insertRows) throws SQLException {
+    @Override public boolean insertBulk(List<AutoNumberingDTO> insertRows) throws SQLException {
         if (CollectionUtils.isEmpty(insertRows)) return true;
         return autoNumberingService.insertBulk(insertRows);
+    }
+
+    @Override
+    public boolean cleanTable() throws SQLException {
+        return autoNumberingService.cleanTable();
     }
 }
