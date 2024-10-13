@@ -3,6 +3,10 @@ J2Q = Java to Query
 SpringBoot based
 
 
+Check 
+public class TestSQLStatements, 
+public class TestJ2Data
+
 for example:
 
 J2SQL.create(workDataSource, normalizeNames)
