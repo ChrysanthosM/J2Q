@@ -38,8 +38,8 @@ public class JdbcTemplateConfig {
     public DataSource db2iDataSource() {
         HikariDataSource dataSource = new HikariDataSource();
         dataSource.setJdbcUrl("jdbc:as400://YOUR_IBM_I_SYSTEM/YOUR_DATABASE_NAME");
-        dataSource.setUsername("YOUR_DB2_USER");
-        dataSource.setPassword("YOUR_DB2_PASSWORD");
+        dataSource.setUsername("DB2_USER");
+        dataSource.setPassword("DB2_PASSWORD");
         return dataSource;
     }
     @Bean(name = "db2iJdbcTemplate")
