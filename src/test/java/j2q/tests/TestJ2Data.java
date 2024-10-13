@@ -1,6 +1,5 @@
 package j2q.tests;
 
-import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import j2q.setup.controllers.J2Data;
 import j2q.setup.definitions.design.repo.singles.AutoNumberingRepo;
