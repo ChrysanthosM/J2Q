@@ -19,8 +19,14 @@ public class TestJ2Data {
 
     public void insertTest() throws SQLException {
         List<AutoNumberingDTO> insertRowsWithValues = Lists.newArrayList();
-        for (int i = 1; i < 100; i++) {
-            insertRowsWithValues.add(new AutoNumberingDTO(0, "A" + StringUtils.leftPad(String.valueOf(i), 2, '0'), i));
+        int intValue = 1;
+        for (char firstLetter = 'A'; firstLetter <= 'Z'; firstLetter++) {
+            for (char secondLetter = 'A'; secondLetter <= 'Z'; secondLetter++) {
+                for (char thirdLetter = 'A'; thirdLetter <= 'Z'; thirdLetter++) {
+                        String combination = StringUtils.join(firstLetter, secondLetter, thirdLetter);
+                        insertRowsWithValues.add(new AutoNumberingDTO(0, combination, intValue++));
+                }
+            }
         }
         boolean inserted = j2Data.insertBulk(insertRowsWithValues);
     }
@@ -31,15 +37,22 @@ public class TestJ2Data {
 
     @Test
     public void testJ2Data() throws SQLException {
+        long startTime, durationTime;
+        List<AutoNumberingDTO> listSample;
+
         deleteTest();
         insertTest();
 
-        List<AutoNumberingDTO> listSample;
-
+        startTime = System.currentTimeMillis();
         listSample = j2Data.getAutoNumberingList(AutoNumberingRepo.TypeOfSQL.ALL);
-        listSample.forEach(System.out::println);
+        durationTime = System.currentTimeMillis() - startTime;
+        System.out.println("getAutoNumberingList finished in " + durationTime + " ms");
+//        listSample.forEach(System.out::println);
 
+        startTime = System.currentTimeMillis();
         listSample = j2Data.getAutoNumberingListAsync(AutoNumberingRepo.TypeOfSQL.ALL);
-        listSample.forEach(System.out::println);
+        durationTime = System.currentTimeMillis() - startTime;
+        System.out.println("getAutoNumberingListAsync finished in " + durationTime + " ms");
+//        listSample.forEach(System.out::println);
     }
 }
