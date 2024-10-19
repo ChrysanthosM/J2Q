@@ -8,21 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b604b0d-001f-468b-a5c7-4b8b3422a052" name="Changes" comment="improvements">
-      <change afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/J2DataExtension1.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/IRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/IAutoNumbering.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/IAutoNumbering.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/IJ2DataExtensions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/IJ2DataExtensions.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/J2Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/J2Data.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/RestAutoNumberingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/RestAutoNumberingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/AutoNumberingJ2SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/AutoNumberingJ2SQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/AutoNumberingRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/AutoNumberingRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/OptionsJ2SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/OptionsJ2SQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/OptionsRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/OptionsRepo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/UsersJ2SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/UsersJ2SQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/UsersRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/UsersRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/AbstractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/AbstractService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/services/AutoNumberingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/services/AutoNumberingService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/j2q/tests/TestJ2Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/j2q/tests/TestJ2Data.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +51,7 @@
   "keyToString": {
     "Application.ApplicationSQLRun.executor": "Debug",
     "JUnit.RestAutoNumberingControllerTest.testGetAutoNumberingList.executor": "Run",
-    "JUnit.TestJ2Data.testJ2Data.executor": "Run",
+    "JUnit.TestJ2Data.testJ2Data.executor": "Debug",
     "JUnit.TestJdbcIO.testData.executor": "Run",
     "JUnit.TestJdbcIO.testJ2Data.executor": "Run",
     "JUnit.TestRestAutoNumberingController.testGetAutoNumberingList.executor": "Run",
@@ -184,8 +172,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestSQLStatements.testSQLStatements" />
         <item itemvalue="JUnit.TestJ2Data.testJ2Data" />
+        <item itemvalue="JUnit.TestSQLStatements.testSQLStatements" />
         <item itemvalue="JUnit.TestRestAutoNumberingController.testGetAutoNumberingList" />
         <item itemvalue="JUnit.TestRestControllerSQL.testGetAutoNumberingSQL" />
         <item itemvalue="Application.ApplicationSQLRun" />
@@ -200,22 +188,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1704301824325</updated>
-    </task>
-    <task id="LOCAL-00011" summary="some refactor">
-      <option name="closed" value="true" />
-      <created>1704735619239</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1704735619239</updated>
-    </task>
-    <task id="LOCAL-00012" summary="create setup package">
-      <option name="closed" value="true" />
-      <created>1704737118547</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1704737118547</updated>
     </task>
     <task id="LOCAL-00013" summary="create TTable">
       <option name="closed" value="true" />
@@ -593,7 +565,23 @@
       <option name="project" value="LOCAL" />
       <updated>1728826207785</updated>
     </task>
-    <option name="localTasksCounter" value="60" />
+    <task id="LOCAL-00060" summary="improvements">
+      <option name="closed" value="true" />
+      <created>1729349614931</created>
+      <option name="number" value="00060" />
+      <option name="presentableId" value="LOCAL-00060" />
+      <option name="project" value="LOCAL" />
+      <updated>1729349614932</updated>
+    </task>
+    <task id="LOCAL-00061" summary="improvements">
+      <option name="closed" value="true" />
+      <created>1729349730422</created>
+      <option name="number" value="00061" />
+      <option name="presentableId" value="LOCAL-00061" />
+      <option name="project" value="LOCAL" />
+      <updated>1729349730422</updated>
+    </task>
+    <option name="localTasksCounter" value="62" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

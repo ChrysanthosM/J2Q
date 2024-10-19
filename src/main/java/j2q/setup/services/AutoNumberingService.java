@@ -1,10 +1,12 @@
 package j2q.setup.services;
 
+import com.google.common.collect.Lists;
 import j2q.core.AbstractService;
 import j2q.setup.definitions.design.repo.singles.AutoNumberingRepo;
 import j2q.setup.definitions.design.repo.singles.AutoNumberingSQL;
 import j2q.setup.definitions.design.schema.tables.TAutoNumbering;
 import j2q.setup.definitions.dtos.AutoNumberingDTO;
+import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -25,9 +27,8 @@ public final class AutoNumberingService extends AbstractService<AutoNumberingDTO
 
     public boolean insertBulk(List<AutoNumberingDTO> insertRows) throws SQLException {
         final String query = autoNumberingSQL.getSQL(AutoNumberingRepo.TypeOfSQL.INSERT);
-        final String finalQuery = getBulkInsertSQL(query, insertRows.size());
-        List<Object> insertValues = insertRows.stream().flatMap(dto -> dto.getInsertValues(tAutoNumbering, dto).stream()).toList();
-        return getJdbcIO().executeQuery(getDefaultDataSource(), finalQuery, insertValues.toArray());
+        final ImmutablePair<String, List<Object>> queryAndValues = getBulkInsertQueryAndValues(query, Lists.newArrayList(insertRows), tAutoNumbering);
+        return getJdbcIO().executeQuery(getDefaultDataSource(), queryAndValues.left, queryAndValues.right.toArray());
     }
 
     public boolean cleanTable() throws SQLException {
