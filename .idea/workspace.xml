@@ -97,7 +97,7 @@
       <recent name="j2q.tests" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestSQLStatements.testSQLStatements">
+  <component name="RunManager" selected="JUnit.TestJ2Data.testJ2Data">
     <configuration name="ApplicationSQLRun" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="j2q.ApplicationSQLRun" />
       <module name="J2Q" />
