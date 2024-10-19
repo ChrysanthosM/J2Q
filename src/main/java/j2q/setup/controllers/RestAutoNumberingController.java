@@ -1,5 +1,6 @@
 package j2q.setup.controllers;
 
+import j2q.J2Data;
 import j2q.setup.definitions.design.repo.singles.AutoNumberingRepo;
 import j2q.setup.definitions.dtos.AutoNumberingDTO;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,14 +28,14 @@ public final class RestAutoNumberingController implements IAutoNumbering {
 
     @GetMapping("/insertBulk")
     @Override
-    public boolean insertBulk(List<AutoNumberingDTO> insertRows) throws SQLException {
-        return j2Data.insertBulk(insertRows);
+    public boolean insertAutoNumberingBulk(List<AutoNumberingDTO> insertRows) throws SQLException {
+        return j2Data.insertAutoNumberingBulk(insertRows);
     }
 
     @GetMapping("/cleanTable")
     @Override
-    public boolean cleanTable() throws SQLException {
-        return j2Data.cleanTable();
+    public boolean cleanAutoNumberingTable() throws SQLException {
+        return j2Data.cleanAutoNumberingTable();
     }
 
 }

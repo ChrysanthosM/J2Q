@@ -15,13 +15,13 @@ public final class OptionsJ2SQL extends AbstractJ2<OptionsRepo.TypeOfSQL> implem
         super(TypeOfSQL.class);
     }
 
-    @LoadJ2SQL public void loadALL() {
-        addLoader(TypeOfSQL.ALL, J2SQL.create(getDefaultDataSource()).from(tOptions));
+    @LoadJ2SQL public void loadList() {
+        addLoader(TypeOfSQL.LIST, J2SQL.create(getDefaultDataSource()).from(tOptions));
     }
-    @LoadJ2SQL public void loadINSERT_ROW() {
-        addLoader(TypeOfSQL.INSERT_ROW, J2SQL.create(getDefaultDataSource()).insertInto(tOptions).insertRow());
+    @LoadJ2SQL public void loadInsert() {
+        addLoader(TypeOfSQL.INSERT, J2SQL.create(getDefaultDataSource()).insertInto(tOptions).insertRow());
     }
-    @LoadJ2SQL public void loadSPECIFIC_OPTION_TYPE() {
-        addLoader(TypeOfSQL.SPECIFIC_OPTION_TYPE, J2SQL.create(getDefaultDataSource()).from(tOptions).where(tOptions.OPTION_TYPE.eq("?")));
+    @LoadJ2SQL public void loadFind() {
+        addLoader(TypeOfSQL.FIND, J2SQL.create(getDefaultDataSource()).from(tOptions).where(tOptions.OPTION_TYPE.eq("?")));
     }
 }

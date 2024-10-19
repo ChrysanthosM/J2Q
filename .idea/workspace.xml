@@ -8,8 +8,21 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b604b0d-001f-468b-a5c7-4b8b3422a052" name="Changes" comment="improvements">
+      <change afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/J2DataExtension1.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/IRepo.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/dbconfig/JdbcTemplateConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/dbconfig/JdbcTemplateConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/IAutoNumbering.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/IAutoNumbering.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/IJ2DataExtensions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/IJ2DataExtensions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/J2Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/J2Data.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/RestAutoNumberingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/controllers/RestAutoNumberingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/AutoNumberingJ2SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/AutoNumberingJ2SQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/AutoNumberingRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/AutoNumberingRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/OptionsJ2SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/OptionsJ2SQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/OptionsRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/OptionsRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/UsersJ2SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/UsersJ2SQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/UsersRepo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/UsersRepo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/services/AutoNumberingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/services/AutoNumberingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/j2q/tests/TestJ2Data.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/j2q/tests/TestJ2Data.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -19,8 +32,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -46,36 +59,36 @@
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;Application.ApplicationSQLRun.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.RestAutoNumberingControllerTest.testGetAutoNumberingList.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestJ2Data.testJ2Data.executor&quot;: &quot;Debug&quot;,
-    &quot;JUnit.TestJdbcIO.testData.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestJdbcIO.testJ2Data.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestRestAutoNumberingController.testGetAutoNumberingList.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestRestControllerSQL.testGetAutoNumberingSQL.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TestSQLStatements.testSQLStatements.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/MyDocuments/Cloud/GoogleDrive/Programming/Java/jpaTesting&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;run.code.analysis.last.selected.profile&quot;: &quot;pProject Default&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "Application.ApplicationSQLRun.executor": "Debug",
+    "JUnit.RestAutoNumberingControllerTest.testGetAutoNumberingList.executor": "Run",
+    "JUnit.TestJ2Data.testJ2Data.executor": "Run",
+    "JUnit.TestJdbcIO.testData.executor": "Run",
+    "JUnit.TestJdbcIO.testJ2Data.executor": "Run",
+    "JUnit.TestRestAutoNumberingController.testGetAutoNumberingList.executor": "Run",
+    "JUnit.TestRestControllerSQL.testGetAutoNumberingSQL.executor": "Run",
+    "JUnit.TestSQLStatements.testSQLStatements.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "D:/MyDocuments/Cloud/GoogleDrive/Programming/Java/jpaTesting",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
+    "project.structure.side.proportion": "0.2",
+    "run.code.analysis.last.selected.profile": "pProject Default",
+    "settings.editor.selected.configurable": "preferences.pluginManager"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\MyDocuments\Cloud\GoogleDrive\Programming\Java\J2Q\src\test\java" />
       <recent name="D:\MyDocuments\Cloud\GoogleDrive\Programming\Java\J2Q\src\main\java" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="j2q.core.tds" />
       <recent name="j2q" />
+      <recent name="j2q.core.tds" />
     </key>
     <key name="MoveInnerDialog.RECENTS_KEY">
       <recent name="j2q.setup.definitions.design.schema.enums" />
@@ -187,14 +200,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1704301824325</updated>
-    </task>
-    <task id="LOCAL-00010" summary="some refactor">
-      <option name="closed" value="true" />
-      <created>1704649537172</created>
-      <option name="number" value="00010" />
-      <option name="presentableId" value="LOCAL-00010" />
-      <option name="project" value="LOCAL" />
-      <updated>1704649537172</updated>
     </task>
     <task id="LOCAL-00011" summary="some refactor">
       <option name="closed" value="true" />
@@ -580,7 +585,15 @@
       <option name="project" value="LOCAL" />
       <updated>1728825364337</updated>
     </task>
-    <option name="localTasksCounter" value="59" />
+    <task id="LOCAL-00059" summary="improvements">
+      <option name="closed" value="true" />
+      <created>1728826207784</created>
+      <option name="number" value="00059" />
+      <option name="presentableId" value="LOCAL-00059" />
+      <option name="project" value="LOCAL" />
+      <updated>1728826207785</updated>
+    </task>
+    <option name="localTasksCounter" value="60" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

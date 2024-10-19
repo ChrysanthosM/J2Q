@@ -11,23 +11,23 @@ import java.sql.SQLException;
 import java.util.List;
 
 @Component
-public final class J2Data implements IJ2DataExtensions {
+public final class J2DataExtension1 implements IJ2DataExtensions {
     private @Autowired AutoNumberingService autoNumberingService;
 
     @Override public List<AutoNumberingDTO> getAutoNumberingList(AutoNumberingRepo.TypeOfSQL type) throws SQLException {
-        return autoNumberingService.getAutoNumberingList(type);
+        return autoNumberingService.getList(type);
     }
     @Override public List<AutoNumberingDTO> getAutoNumberingListAsync(AutoNumberingRepo.TypeOfSQL type) throws SQLException {
-        return autoNumberingService.getAutoNumberingListAsync(type);
+        return autoNumberingService.getListAsync(type);
     }
 
-    @Override public boolean insertBulk(List<AutoNumberingDTO> insertRows) throws SQLException {
+    @Override public boolean insertAutoNumberingBulk(List<AutoNumberingDTO> insertRows) throws SQLException {
         if (CollectionUtils.isEmpty(insertRows)) return true;
         return autoNumberingService.insertBulk(insertRows);
     }
 
     @Override
-    public boolean cleanTable() throws SQLException {
+    public boolean cleanAutoNumberingTable() throws SQLException {
         return autoNumberingService.cleanTable();
     }
 }

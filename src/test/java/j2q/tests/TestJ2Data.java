@@ -1,7 +1,7 @@
 package j2q.tests;
 
 import com.google.common.collect.Lists;
-import j2q.setup.controllers.J2Data;
+import j2q.J2Data;
 import j2q.setup.definitions.design.repo.singles.AutoNumberingRepo;
 import j2q.setup.definitions.dtos.AutoNumberingDTO;
 import org.apache.commons.lang3.StringUtils;
@@ -27,11 +27,11 @@ public class TestJ2Data {
                 }
             }
         }
-        boolean inserted = j2Data.insertBulk(insertRowsWithValues);
+        boolean inserted = j2Data.insertAutoNumberingBulk(insertRowsWithValues);
     }
 
     public void deleteTest() throws SQLException {
-        boolean cleaned = j2Data.cleanTable();
+        boolean cleaned = j2Data.cleanAutoNumberingTable();
     }
 
     @Test
@@ -43,15 +43,17 @@ public class TestJ2Data {
         insertTest();
 
         startTime = System.currentTimeMillis();
-        listSample = j2Data.getAutoNumberingList(AutoNumberingRepo.TypeOfSQL.ALL);
+        listSample = j2Data.getAutoNumberingList(AutoNumberingRepo.TypeOfSQL.LIST);
         durationTime = System.currentTimeMillis() - startTime;
         System.out.println("getAutoNumberingList finished in " + durationTime + " ms");
 //        listSample.forEach(System.out::println);
 
         startTime = System.currentTimeMillis();
-        listSample = j2Data.getAutoNumberingListAsync(AutoNumberingRepo.TypeOfSQL.ALL);
+        listSample = j2Data.getAutoNumberingListAsync(AutoNumberingRepo.TypeOfSQL.LIST);
         durationTime = System.currentTimeMillis() - startTime;
         System.out.println("getAutoNumberingListAsync finished in " + durationTime + " ms");
 //        listSample.forEach(System.out::println);
+
+        deleteTest();
     }
 }

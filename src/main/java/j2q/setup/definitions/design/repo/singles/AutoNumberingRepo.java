@@ -1,11 +1,13 @@
 package j2q.setup.definitions.design.repo.singles;
 
-public interface AutoNumberingRepo {
+import j2q.setup.definitions.design.repo.IRepo;
+
+public interface AutoNumberingRepo extends IRepo {
     enum TypeOfSQL {
-        ALL,
-        INSERT_ROW,
+        LIST,
+        INSERT,
         DELETE_ALL,
-        SPECIFIC_ENTITY,
+        FIND,
         MAX_NUMBER_PER_ENTITY,
     }
 }

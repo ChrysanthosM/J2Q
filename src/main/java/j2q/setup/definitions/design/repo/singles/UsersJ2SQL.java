@@ -15,10 +15,10 @@ public final class UsersJ2SQL extends AbstractJ2<UsersRepo.TypeOfSQL> implements
         super(UsersRepo.TypeOfSQL.class);
     }
 
-    @LoadJ2SQL public void loadALL() {
-        addLoader(TypeOfSQL.ALL, J2SQL.create(getDefaultDataSource()).from(tUsers));
+    @LoadJ2SQL public void loadList() {
+        addLoader(TypeOfSQL.LIST, J2SQL.create(getDefaultDataSource()).from(tUsers));
     }
-    @LoadJ2SQL public void loadINSERT_ROW() {
-        addLoader(TypeOfSQL.INSERT_ROW, J2SQL.create(getDefaultDataSource()).insertInto(tUsers).insertRow());
+    @LoadJ2SQL public void loadInsert() {
+        addLoader(TypeOfSQL.INSERT, J2SQL.create(getDefaultDataSource()).insertInto(tUsers).insertRow());
     }
 }
