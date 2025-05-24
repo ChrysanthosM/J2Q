@@ -19,17 +19,17 @@ public final class AutoNumberingService extends AbstractService<AutoNumberingDTO
     private @Autowired TAutoNumbering tAutoNumbering;
 
     public List<AutoNumberingDTO> getList(AutoNumberingRepo.TypeOfSQL type) throws SQLException {
-        return getJdbcIO().select(getDefaultDataSource(), AutoNumberingDTO.newConverter(), autoNumberingSQL.getSQL(type));
+        return getJdbcIO().select(AutoNumberingDTO.newConverter(), autoNumberingSQL.getSQL(type));
     }
 
     public boolean insertBulk(List<AutoNumberingDTO> insertRows) throws SQLException {
         final String query = autoNumberingSQL.getSQL(AutoNumberingRepo.TypeOfSQL.INSERT);
         final ImmutablePair<String, List<Object>> queryAndValues = getBulkInsertQueryAndValues(query, Lists.newArrayList(insertRows), tAutoNumbering);
-        return getJdbcIO().executeQuery(getDefaultDataSource(), queryAndValues.left, queryAndValues.right.toArray());
+        return getJdbcIO().executeQuery(queryAndValues.left, queryAndValues.right.toArray());
     }
 
     public boolean cleanTable() throws SQLException {
-        return getJdbcIO().executeQuery(getDefaultDataSource(), autoNumberingSQL.getSQL(AutoNumberingRepo.TypeOfSQL.DELETE_ALL));
+        return getJdbcIO().executeQuery(autoNumberingSQL.getSQL(AutoNumberingRepo.TypeOfSQL.DELETE_ALL));
     }
 
 }

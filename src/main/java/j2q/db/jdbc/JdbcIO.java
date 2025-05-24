@@ -1,6 +1,8 @@
 package j2q.db.jdbc;
 
+import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
+import com.google.common.collect.Lists;
 import j2q.db.datasources.WorkWithDataSource;
 import j2q.db.loader.IRowLoader;
 import org.apache.commons.collections4.CollectionUtils;
@@ -13,7 +15,6 @@ import org.springframework.validation.annotation.Validated;
 
 import javax.annotation.Nullable;
 import javax.annotation.concurrent.ThreadSafe;
-import javax.sql.DataSource;
 import java.sql.*;
 import java.util.*;
 
@@ -23,7 +24,7 @@ import java.util.*;
 public class JdbcIO {
     private @Autowired WorkWithDataSource workDataSource;
 
-    public <T> List<T> select(@NotNull DataSource dataSource, @NotNull IRowLoader<T> rowLoader,
+    public <T> List<T> select(@NotNull IRowLoader<T> rowLoader,
                               @NotNull String query, @Nullable Object... params) throws SQLException {
         try (Connection conn = workDataSource.getDefaultDataSourceProvider().getDS().getConnection();
              final PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -40,7 +41,7 @@ public class JdbcIO {
         }
     }
 
-    public <T> Optional<T> selectOne(@NotNull DataSource dataSource, @NotNull IRowLoader<T> rowLoader,
+    public <T> Optional<T> selectOne(@NotNull IRowLoader<T> rowLoader,
                                      @NotNull String query, @Nullable Object... params) throws SQLException {
         try (Connection conn = workDataSource.getDefaultDataSourceProvider().getDS().getConnection();
              final PreparedStatement stmt = conn.prepareStatement(query)) {
@@ -55,8 +56,7 @@ public class JdbcIO {
         return Optional.empty();
     }
 
-    public Optional<Long> selectNumeric(@NotNull DataSource dataSource,
-                                        @NotNull String query, @Nullable Object... params) throws SQLException {
+    public Optional<Long> selectNumeric(@NotNull String query, @Nullable Object... params) throws SQLException {
         try (Connection conn = workDataSource.getDefaultDataSourceProvider().getDS().getConnection();
              final PreparedStatement stmt = conn.prepareStatement(query)) {
             setParamsMain(stmt, params);
@@ -71,8 +71,7 @@ public class JdbcIO {
     }
 
     @Transactional
-    public int[] addBatch(@NotNull DataSource dataSource,
-                          @NotNull String query, @Nullable List<List<Object>> params) throws SQLException {
+    public int[] addBatch(@NotNull String query, @Nullable List<List<Object>> params) throws SQLException {
         try (Connection conn = workDataSource.getDefaultDataSourceProvider().getDS().getConnection();
              final PreparedStatement stmt = conn.prepareStatement(query)) {
             if (CollectionUtils.isNotEmpty(params)) {
@@ -90,8 +89,7 @@ public class JdbcIO {
     }
 
     @Transactional
-    public long[] addLargeBatch(@NotNull DataSource dataSource,
-                                @NotNull String query, @Nullable List<List<Object>> params) throws SQLException {
+    public long[] addLargeBatch(@NotNull String query, @Nullable List<List<Object>> params) throws SQLException {
         try (Connection conn = workDataSource.getDefaultDataSourceProvider().getDS().getConnection();
              final PreparedStatement stmt = conn.prepareStatement(query)) {
             if (CollectionUtils.isNotEmpty(params)) {
@@ -108,10 +106,71 @@ public class JdbcIO {
         }
     }
 
+    @Transactional
+    public List<int[]> addBatchResultList(@NotNull AddBatchInfo... addBatchInfos) throws SQLException {
+        final List<int[]> resultBatch = Lists.newArrayList();
+        try (Connection conn = workDataSource.getDefaultDataSourceProvider().getDS().getConnection()) {
+            if (!workDataSource.getDefaultDataSourceProvider().isAutomaticTransactional()) conn.setAutoCommit(false);
+            for (AddBatchInfo addBatchInfo : addBatchInfos) {
+                try (final PreparedStatement stmt = conn.prepareStatement(addBatchInfo.query())) {
+                    if (CollectionUtils.isNotEmpty(addBatchInfo.params())) {
+                        setParams(addBatchInfo, stmt);
+                    }
+                    resultBatch.add(stmt.executeBatch());
+                }
+            }
+            if (!workDataSource.getDefaultDataSourceProvider().isAutomaticTransactional()) conn.setAutoCommit(true);
+        }
+        return resultBatch;
+    }
+    @Transactional
+    public List<long[]> addLargeBatchResultList(@NotNull AddBatchInfo... addBatchInfos) throws SQLException {
+        final List<long[]> resultBatch = Lists.newArrayList();
+        try (Connection conn = workDataSource.getDefaultDataSourceProvider().getDS().getConnection()) {
+            if (!workDataSource.getDefaultDataSourceProvider().isAutomaticTransactional()) conn.setAutoCommit(false);
+            for (AddBatchInfo addBatchInfo : addBatchInfos) {
+                try (final PreparedStatement stmt = conn.prepareStatement(addBatchInfo.query())) {
+                    if (CollectionUtils.isNotEmpty(addBatchInfo.params())) {
+                        setParams(addBatchInfo, stmt);
+                    }
+                    resultBatch.add(stmt.executeLargeBatch());
+                }
+            }
+            if (!workDataSource.getDefaultDataSourceProvider().isAutomaticTransactional()) conn.setAutoCommit(true);
+        }
+        return resultBatch;
+    }
 
     @Transactional
-    public boolean executeQuery(@NotNull DataSource dataSource,
-                                @NotNull String query, @Nullable Object... params) throws SQLException {
+    public int[] addBatchResultArray(@NotNull AddBatchInfo addBatchInfo) throws SQLException {
+        try (Connection conn = workDataSource.getDefaultDataSourceProvider().getDS().getConnection();
+             final PreparedStatement stmt = conn.prepareStatement(addBatchInfo.query())) {
+            if (CollectionUtils.isNotEmpty(addBatchInfo.params())) {
+                if (!workDataSource.getDefaultDataSourceProvider().isAutomaticTransactional()) conn.setAutoCommit(false);
+                setParams(addBatchInfo, stmt);
+            }
+            int[] updateCounts = stmt.executeBatch();
+            if (!workDataSource.getDefaultDataSourceProvider().isAutomaticTransactional()) conn.setAutoCommit(true);
+            return updateCounts;
+        }
+    }
+
+    @Transactional
+    public long[] addLargeBatchResultArray(@NotNull AddBatchInfo addBatchInfo) throws SQLException {
+        try (Connection conn = workDataSource.getDefaultDataSourceProvider().getDS().getConnection();
+             final PreparedStatement stmt = conn.prepareStatement(addBatchInfo.query())) {
+            if (CollectionUtils.isNotEmpty(addBatchInfo.params())) {
+                if (!workDataSource.getDefaultDataSourceProvider().isAutomaticTransactional()) conn.setAutoCommit(false);
+                setParams(addBatchInfo, stmt);
+            }
+            long[] updateCounts = stmt.executeLargeBatch();
+            if (!workDataSource.getDefaultDataSourceProvider().isAutomaticTransactional()) conn.setAutoCommit(true);
+            return updateCounts;
+        }
+    }
+
+    @Transactional
+    public boolean executeQuery(@NotNull String query, @Nullable Object... params) throws SQLException {
         try (Connection conn = workDataSource.getDefaultDataSourceProvider().getDS().getConnection();
              final PreparedStatement stmt = conn.prepareStatement(query)) {
             setParamsMain(stmt, params);
@@ -120,8 +179,7 @@ public class JdbcIO {
     }
 
     @Transactional
-    public int executeUpdate(@NotNull DataSource dataSource,
-                             @NotNull String query, @Nullable Object... params) throws SQLException {
+    public int executeUpdate(@NotNull String query, @Nullable Object... params) throws SQLException {
         try (Connection conn = workDataSource.getDefaultDataSourceProvider().getDS().getConnection();
              final PreparedStatement stmt = conn.prepareStatement(query)) {
             setParamsMain(stmt, params);
@@ -129,8 +187,7 @@ public class JdbcIO {
         }
     }
     @Transactional
-    public long executeLargeUpdate(@NotNull DataSource dataSource,
-                                   @NotNull String query, @Nullable Object... params) throws SQLException {
+    public long executeLargeUpdate(@NotNull String query, @Nullable Object... params) throws SQLException {
         try (Connection conn = workDataSource.getDefaultDataSourceProvider().getDS().getConnection();
              final PreparedStatement stmt = conn.prepareStatement(query)) {
             setParamsMain(stmt, params);

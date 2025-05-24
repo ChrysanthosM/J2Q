@@ -15,14 +15,7 @@ import java.util.stream.Collectors;
 import java.util.stream.IntStream;
 
 public abstract non-sealed class AbstractService<T> implements IBaseDAO<T> {
-    private @Autowired ApplicationContext context;
-    @Getter private DataSource defaultDataSource;
     @Autowired @Getter private JdbcIO jdbcIO;
-
-    @PostConstruct
-    private void init() {
-        defaultDataSource = context.getBean(AppConfig.class).getDefaultDataSource().getDS();
-    }
 
     protected static ImmutablePair<String, List<Object>> getBulkInsertQueryAndValues(String query, List<Idto> insertRows, TTable tTable) {
         final String putValuesParams = query.substring(query.indexOf("VALUES ") + "VALUES ".length());

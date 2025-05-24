@@ -8,15 +8,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b604b0d-001f-468b-a5c7-4b8b3422a052" name="Changes" comment="improvements">
-      <change afterPath="$PROJECT_DIR$/src/main/java/j2q/db/datasources/AbstractDataSourceProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/j2q/db/datasources/DataSourceProvider.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/j2q/db/datasources/DataSourceProviderForDB2i.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/j2q/db/datasources/DataSourceProviderForMSSQL.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/j2q/db/datasources/DataSourceProviderForSQLite.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/j2q/db/datasources/DataSourceResolver.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/java/j2q/db/datasources/WorkWithDataSource.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/AbstractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/AbstractService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/j2q/db/jdbc/JdbcIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/db/jdbc/JdbcIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/services/AutoNumberingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/services/AutoNumberingService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -68,7 +62,7 @@
   "keyToString": {
     "Application.ApplicationSQLRun.executor": "Run",
     "JUnit.RestAutoNumberingControllerTest.testGetAutoNumberingList.executor": "Run",
-    "JUnit.TestJ2Data.testJ2Data.executor": "Run",
+    "JUnit.TestJ2Data.testJ2Data.executor": "Debug",
     "JUnit.TestJdbcIO.testData.executor": "Run",
     "JUnit.TestJdbcIO.testJ2Data.executor": "Run",
     "JUnit.TestRestAutoNumberingController.testGetAutoNumberingList.executor": "Run",
@@ -213,14 +207,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1704301824325</updated>
-    </task>
-    <task id="LOCAL-00017" summary="2nd commit">
-      <option name="closed" value="true" />
-      <created>1704999249759</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1704999249759</updated>
     </task>
     <task id="LOCAL-00018" summary="change J2SQLs">
       <option name="closed" value="true" />
@@ -606,7 +592,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748078706811</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="improvements">
+      <option name="closed" value="true" />
+      <created>1748084344214</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1748084344214</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
