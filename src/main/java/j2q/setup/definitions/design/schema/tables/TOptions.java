@@ -13,11 +13,11 @@ public final class TOptions extends TTable {
         setDbFs(REC_ID, OPTION_TYPE, OPTION_NAME, OPTION_VALUE, OPTION_DETAILS);
     }
 
-    public final PairOfTableField REC_ID = PairOfTableField.of(getDbT(), DbF.RecID);
-    public final PairOfTableField OPTION_TYPE = PairOfTableField.of(getDbT(), DbF.OptionType);
-    public final PairOfTableField OPTION_NAME = PairOfTableField.of(getDbT(), DbF.OptionName);
-    public final PairOfTableField OPTION_VALUE = PairOfTableField.of(getDbT(), DbF.OptionValue);
-    public final PairOfTableField OPTION_DETAILS = PairOfTableField.of(getDbT(), DbF.OptionDetails);
-    public final PairOfTableField USER_STAMP = PairOfTableField.of(getDbT(), DbF.UserStamp);
-    public final PairOfTableField DATE_STAMP = PairOfTableField.of(getDbT(), DbF.DateStamp);
+    public final PairOfTableField REC_ID = getPairOfTableField(DbF.RecID);
+    public final PairOfTableField OPTION_TYPE = getPairOfTableField(DbF.OptionType);
+    public final PairOfTableField OPTION_NAME = getPairOfTableField(DbF.OptionName);
+    public final PairOfTableField OPTION_VALUE = getPairOfTableField(DbF.OptionValue);
+    public final PairOfTableField OPTION_DETAILS = getPairOfTableField(DbF.OptionDetails);
+    public final PairOfTableField USER_STAMP = getPairOfTableField(DbF.UserStamp);
+    public final PairOfTableField DATE_STAMP = getPairOfTableField(DbF.DateStamp);
 }

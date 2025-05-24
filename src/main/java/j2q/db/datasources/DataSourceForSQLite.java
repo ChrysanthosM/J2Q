@@ -6,11 +6,12 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import javax.sql.DataSource;
+import java.util.Optional;
 
 @Component
 public final class DataSourceForSQLite implements IDataSource {
-    private @Autowired @Qualifier("sqliteDataSource") DataSource sqliteDataSource;
+    private @Autowired @Qualifier("sqliteDataSource") Optional<DataSource> sqliteDataSource;
 
-    @Override public DataSource getDS() { return sqliteDataSource; }
+    @Override public DataSource getDS() { return sqliteDataSource.orElseThrow(); }
     @Override public GlobalDBDefinition.TypeOfDB getTypeOfDB() { return GlobalDBDefinition.TypeOfDB.SQLite; }
 }

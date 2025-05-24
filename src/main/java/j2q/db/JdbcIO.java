@@ -22,7 +22,7 @@ import java.util.stream.IntStream;
 
 @ThreadSafe
 @Component
-public final class JdbcIO {
+public class JdbcIO {
     private static List<Pair<String, Object>> getColumnNamesValues(ResultSetMetaData metaData, ResultSet fromResultSet) throws SQLException {
         int columnsCount = metaData.getColumnCount();
         final List<Pair<String, Object>> columnNamesValues = new ArrayList<>(columnsCount);
