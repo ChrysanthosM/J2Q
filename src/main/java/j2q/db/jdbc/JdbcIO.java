@@ -1,10 +1,12 @@
 package j2q.db.jdbc;
 
 import com.google.common.collect.ImmutableList;
+import j2q.db.datasources.WorkWithDataSource;
 import j2q.db.loader.IRowLoader;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ArrayUtils;
 import org.jetbrains.annotations.NotNull;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
@@ -19,10 +21,11 @@ import java.util.*;
 @Component
 @Validated
 public class JdbcIO {
+    private @Autowired WorkWithDataSource workDataSource;
 
     public <T> List<T> select(@NotNull DataSource dataSource, @NotNull IRowLoader<T> rowLoader,
                               @NotNull String query, @Nullable Object... params) throws SQLException {
-        try (Connection conn = dataSource.getConnection();
+        try (Connection conn = workDataSource.getDefaultDataSourceProvider().getDS().getConnection();
              final PreparedStatement stmt = conn.prepareStatement(query)) {
             setParamsMain(stmt, params);
 
@@ -39,7 +42,7 @@ public class JdbcIO {
 
     public <T> Optional<T> selectOne(@NotNull DataSource dataSource, @NotNull IRowLoader<T> rowLoader,
                                      @NotNull String query, @Nullable Object... params) throws SQLException {
-        try (Connection conn = dataSource.getConnection();
+        try (Connection conn = workDataSource.getDefaultDataSourceProvider().getDS().getConnection();
              final PreparedStatement stmt = conn.prepareStatement(query)) {
             setParamsMain(stmt, params);
 
@@ -54,7 +57,7 @@ public class JdbcIO {
 
     public Optional<Long> selectNumeric(@NotNull DataSource dataSource,
                                         @NotNull String query, @Nullable Object... params) throws SQLException {
-        try (Connection conn = dataSource.getConnection();
+        try (Connection conn = workDataSource.getDefaultDataSourceProvider().getDS().getConnection();
              final PreparedStatement stmt = conn.prepareStatement(query)) {
             setParamsMain(stmt, params);
 
@@ -70,7 +73,7 @@ public class JdbcIO {
     @Transactional
     public int[] addBatch(@NotNull DataSource dataSource,
                           @NotNull String query, @Nullable List<List<Object>> params) throws SQLException {
-        try (Connection conn = dataSource.getConnection();
+        try (Connection conn = workDataSource.getDefaultDataSourceProvider().getDS().getConnection();
              final PreparedStatement stmt = conn.prepareStatement(query)) {
             if (CollectionUtils.isNotEmpty(params)) {
                 params.forEach(p -> {
@@ -89,7 +92,7 @@ public class JdbcIO {
     @Transactional
     public long[] addLargeBatch(@NotNull DataSource dataSource,
                                 @NotNull String query, @Nullable List<List<Object>> params) throws SQLException {
-        try (Connection conn = dataSource.getConnection();
+        try (Connection conn = workDataSource.getDefaultDataSourceProvider().getDS().getConnection();
              final PreparedStatement stmt = conn.prepareStatement(query)) {
             if (CollectionUtils.isNotEmpty(params)) {
                 params.forEach(p -> {
@@ -109,7 +112,7 @@ public class JdbcIO {
     @Transactional
     public boolean executeQuery(@NotNull DataSource dataSource,
                                 @NotNull String query, @Nullable Object... params) throws SQLException {
-        try (Connection conn = dataSource.getConnection();
+        try (Connection conn = workDataSource.getDefaultDataSourceProvider().getDS().getConnection();
              final PreparedStatement stmt = conn.prepareStatement(query)) {
             setParamsMain(stmt, params);
             return stmt.execute();
@@ -119,7 +122,7 @@ public class JdbcIO {
     @Transactional
     public int executeUpdate(@NotNull DataSource dataSource,
                              @NotNull String query, @Nullable Object... params) throws SQLException {
-        try (Connection conn = dataSource.getConnection();
+        try (Connection conn = workDataSource.getDefaultDataSourceProvider().getDS().getConnection();
              final PreparedStatement stmt = conn.prepareStatement(query)) {
             setParamsMain(stmt, params);
             return stmt.executeUpdate();
@@ -128,7 +131,7 @@ public class JdbcIO {
     @Transactional
     public long executeLargeUpdate(@NotNull DataSource dataSource,
                                    @NotNull String query, @Nullable Object... params) throws SQLException {
-        try (Connection conn = dataSource.getConnection();
+        try (Connection conn = workDataSource.getDefaultDataSourceProvider().getDS().getConnection();
              final PreparedStatement stmt = conn.prepareStatement(query)) {
             setParamsMain(stmt, params);
             return stmt.executeLargeUpdate();

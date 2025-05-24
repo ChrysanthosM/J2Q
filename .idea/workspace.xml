@@ -8,11 +8,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b604b0d-001f-468b-a5c7-4b8b3422a052" name="Changes" comment="improvements">
-      <change afterPath="$PROJECT_DIR$/src/main/java/j2q/db/jdbc/AddBatchInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/j2q/db/datasources/AbstractDataSourceProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/j2q/db/datasources/DataSourceProvider.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/j2q/db/datasources/DataSourceProviderForDB2i.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/j2q/db/datasources/DataSourceProviderForMSSQL.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/j2q/db/datasources/DataSourceProviderForSQLite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/j2q/db/datasources/DataSourceResolver.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/j2q/db/datasources/WorkWithDataSource.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/AbstractService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/AbstractService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/db/JdbcIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/db/jdbc/JdbcIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/db/jdbc/JdbcIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/db/jdbc/JdbcIO.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -77,7 +81,7 @@
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
     "git-widget-placeholder": "master",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/MyDocuments/Cloud/GoogleDrive/Programming/Java/J2Q/src/main/resources/DBs",
+    "last_opened_file_path": "D:/MyDocuments/Cloud/GoogleDrive/Programming/Java/J2Q/src/main/java/j2q/db/datasources",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -87,6 +91,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\MyDocuments\Cloud\GoogleDrive\Programming\Java\J2Q\src\main\java\j2q\db\datasources" />
       <recent name="D:\MyDocuments\Cloud\GoogleDrive\Programming\Java\J2Q\src\main\resources\DBs" />
       <recent name="D:\MyDocuments\Cloud\GoogleDrive\Programming\Java\J2Q\src\main\resources" />
       <recent name="D:\MyDocuments\Cloud\GoogleDrive\Programming\Java\J2Q\src\test\java" />
@@ -100,11 +105,12 @@
       <recent name="j2q.setup.definitions.design.schema.enums" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="j2q.db.datasources" />
       <recent name="j2q.db" />
       <recent name="j2q.tests" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestSQLStatements.testSQLStatements">
+  <component name="RunManager" selected="JUnit.TestJ2Data.testJ2Data">
     <configuration name="ApplicationSQLRun" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="j2q.ApplicationSQLRun" />
       <module name="J2Q" />
@@ -191,8 +197,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.TestSQLStatements.testSQLStatements" />
         <item itemvalue="JUnit.TestJ2Data.testJ2Data" />
+        <item itemvalue="JUnit.TestSQLStatements.testSQLStatements" />
         <item itemvalue="Application.ApplicationSQLRun" />
         <item itemvalue="JUnit.TestRestControllerSQL.testGetAutoNumberingSQL" />
         <item itemvalue="JUnit.TestRestAutoNumberingController.testGetAutoNumberingList" />
@@ -207,14 +213,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1704301824325</updated>
-    </task>
-    <task id="LOCAL-00016" summary="first commit">
-      <option name="closed" value="true" />
-      <created>1704991391537</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1704991391537</updated>
     </task>
     <task id="LOCAL-00017" summary="2nd commit">
       <option name="closed" value="true" />
@@ -600,7 +598,15 @@
       <option name="project" value="LOCAL" />
       <updated>1748077829440</updated>
     </task>
-    <option name="localTasksCounter" value="65" />
+    <task id="LOCAL-00065" summary="improvements">
+      <option name="closed" value="true" />
+      <created>1748078706811</created>
+      <option name="number" value="00065" />
+      <option name="presentableId" value="LOCAL-00065" />
+      <option name="project" value="LOCAL" />
+      <updated>1748078706811</updated>
+    </task>
+    <option name="localTasksCounter" value="66" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
