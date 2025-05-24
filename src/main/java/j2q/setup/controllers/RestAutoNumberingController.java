@@ -20,11 +20,6 @@ public final class RestAutoNumberingController implements IAutoNumbering {
         return j2Data.getAutoNumberingList(type);
     }
 
-    @GetMapping("/AutoNumberingListAsync") //localhost:8080/AutoNumberingListAsync?type=ALL
-    @Override public List<AutoNumberingDTO> getAutoNumberingListAsync(@RequestParam(name = "type") AutoNumberingRepo.TypeOfSQL type) throws SQLException {
-        return j2Data.getAutoNumberingListAsync(type);
-    }
-
 
     @GetMapping("/insertBulk")
     @Override

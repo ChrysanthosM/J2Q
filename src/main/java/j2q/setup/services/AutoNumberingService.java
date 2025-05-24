@@ -21,9 +21,6 @@ public final class AutoNumberingService extends AbstractService<AutoNumberingDTO
     public List<AutoNumberingDTO> getList(AutoNumberingRepo.TypeOfSQL type) throws SQLException {
         return getJdbcIO().select(getDefaultDataSource(), AutoNumberingDTO.newConverter(), autoNumberingSQL.getSQL(type));
     }
-    public List<AutoNumberingDTO> getListAsync(AutoNumberingRepo.TypeOfSQL type) throws SQLException {
-        return getJdbcIO().selectAsync(getDefaultDataSource(), AutoNumberingDTO.newConverter(), autoNumberingSQL.getSQL(type));
-    }
 
     public boolean insertBulk(List<AutoNumberingDTO> insertRows) throws SQLException {
         final String query = autoNumberingSQL.getSQL(AutoNumberingRepo.TypeOfSQL.INSERT);

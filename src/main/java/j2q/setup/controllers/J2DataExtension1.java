@@ -17,9 +17,6 @@ public final class J2DataExtension1 implements IJ2DataExtensions {
     @Override public List<AutoNumberingDTO> getAutoNumberingList(AutoNumberingRepo.TypeOfSQL type) throws SQLException {
         return autoNumberingService.getList(type);
     }
-    @Override public List<AutoNumberingDTO> getAutoNumberingListAsync(AutoNumberingRepo.TypeOfSQL type) throws SQLException {
-        return autoNumberingService.getListAsync(type);
-    }
 
     @Override public boolean insertAutoNumberingBulk(List<AutoNumberingDTO> insertRows) throws SQLException {
         if (CollectionUtils.isEmpty(insertRows)) return true;

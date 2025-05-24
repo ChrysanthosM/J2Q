@@ -17,9 +17,7 @@ public final class J2Data {
     public List<AutoNumberingDTO> getAutoNumberingList(AutoNumberingRepo.TypeOfSQL type) throws SQLException {
         return j2DataExtension1.getAutoNumberingList(type);
     }
-    public List<AutoNumberingDTO> getAutoNumberingListAsync(AutoNumberingRepo.TypeOfSQL type) throws SQLException {
-        return j2DataExtension1.getAutoNumberingListAsync(type);
-    }
+
     public boolean insertAutoNumberingBulk(List<AutoNumberingDTO> insertRows) throws SQLException {
         if (CollectionUtils.isEmpty(insertRows)) return true;
         return j2DataExtension1.insertAutoNumberingBulk(insertRows);

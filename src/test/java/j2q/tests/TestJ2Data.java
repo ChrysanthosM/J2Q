@@ -48,12 +48,6 @@ public class TestJ2Data {
         System.out.println("getAutoNumberingList finished in " + durationTime + " ms");
 //        listSample.forEach(System.out::println);
 
-        startTime = System.currentTimeMillis();
-        listSample = j2Data.getAutoNumberingListAsync(AutoNumberingRepo.TypeOfSQL.LIST);
-        durationTime = System.currentTimeMillis() - startTime;
-        System.out.println("getAutoNumberingListAsync finished in " + durationTime + " ms");
-//        listSample.forEach(System.out::println);
-
         deleteTest();
     }
 }

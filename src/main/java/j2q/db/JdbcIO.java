@@ -36,41 +36,6 @@ public class JdbcIO {
         return ImmutableList.copyOf(columnNamesValues);
     }
 
-    @Beta
-    public <T> List<T> selectAsync(@Nonnull DataSource dataSource, @Nonnull IRowLoader<T> rowLoader,
-                                   @Nonnull String query, @Nullable Object... params) throws SQLException {
-        Preconditions.checkNotNull(dataSource);
-        Preconditions.checkNotNull(query);
-
-        try (Connection conn = dataSource.getConnection();
-             final PreparedStatement stmt = conn.prepareStatement(query)) {
-            setParams(stmt, params);
-
-            try (ResultSet resultSet = stmt.executeQuery()) {
-                ResultSetMetaData metaData = resultSet.getMetaData();
-                List<CompletableFuture<T>> futureTs = Lists.newArrayList();
-                while (resultSet.next()) {
-                    final List<Pair<String, Object>> columnNamesValues = getColumnNamesValues(metaData, resultSet);
-                    CompletableFuture<T> futureT = CompletableFuture.supplyAsync(() -> getConvertedResult(rowLoader, columnNamesValues));
-                    futureTs.add(futureT);
-                }
-
-                List<T> results = futureTs.parallelStream()
-                        .map(CompletableFuture::join)
-                        .filter(Objects::nonNull)
-                        .collect(Collectors.toList());
-                return ImmutableList.copyOf(results);
-            }
-        }
-    }
-    private static <T> T getConvertedResult(IRowLoader<T> rowLoader, List<Pair<String, Object>> columnNamesValues) {
-        try {
-            return rowLoader.convertResultSet(columnNamesValues);
-        } catch (Exception e) {
-            throw new RuntimeException("Error creating futureT", e);
-        }
-    }
-
     public <T> List<T> select(@Nonnull DataSource dataSource, @Nonnull IRowLoader<T> rowLoader,
                               @Nonnull String query, @Nullable Object... params) throws SQLException {
         Preconditions.checkNotNull(dataSource);
