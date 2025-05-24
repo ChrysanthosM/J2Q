@@ -1,15 +1,11 @@
 package j2q.core;
 
-import j2q.AppConfig;
 import j2q.db.jdbc.JdbcIO;
 import j2q.setup.definitions.dtos.Idto;
-import jakarta.annotation.PostConstruct;
 import lombok.Getter;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.ApplicationContext;
 
-import javax.sql.DataSource;
 import java.util.List;
 import java.util.stream.Collectors;
 import java.util.stream.IntStream;

@@ -1,7 +1,6 @@
 package j2q.setup.definitions.dtos;
 
 import j2q.core.DtoFieldValue;
-import j2q.core.TTable;
 import j2q.db.loader.RowLoader;
 import j2q.setup.definitions.design.schema.enums.DbF;
 import org.apache.commons.lang3.tuple.Pair;

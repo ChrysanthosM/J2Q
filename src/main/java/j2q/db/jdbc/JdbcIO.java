@@ -1,6 +1,5 @@
 package j2q.db.jdbc;
 
-import com.google.common.base.Preconditions;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
 import j2q.db.datasources.WorkWithDataSource;

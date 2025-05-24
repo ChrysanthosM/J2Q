@@ -34,7 +34,6 @@ public class WorkWithDataSource {
     @Getter
     private DataSourceProvider defaultDataSourceProvider;
 
-    @Getter
     private @Autowired DataSourceResolver dataSourceResolver;
 
     @PostConstruct
