@@ -108,7 +108,13 @@
             <version>1.18.32</version>
             <scope>provided</scope>
         </dependency>
-<!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.projectlombok/lombok-maven-plugin &ndash;&gt;-->
+        <dependency>
+            <groupId>org.jetbrains</groupId>
+            <artifactId>annotations</artifactId>
+            <version>13.0</version>
+            <scope>compile</scope>
+        </dependency>
+        <!--        &lt;!&ndash; https://mvnrepository.com/artifact/org.projectlombok/lombok-maven-plugin &ndash;&gt;-->
 <!--        <dependency>-->
 <!--            <groupId>org.projectlombok</groupId>-->
 <!--            <artifactId>lombok-maven-plugin</artifactId>-->

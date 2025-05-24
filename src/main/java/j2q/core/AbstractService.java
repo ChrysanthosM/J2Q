@@ -1,7 +1,7 @@
 package j2q.core;
 
 import j2q.AppConfig;
-import j2q.db.JdbcIO;
+import j2q.db.jdbc.JdbcIO;
 import j2q.setup.definitions.dtos.Idto;
 import jakarta.annotation.PostConstruct;
 import lombok.Getter;
