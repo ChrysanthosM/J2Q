@@ -3,7 +3,7 @@ package j2q.core;
 import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;
 
-sealed abstract class AbstractFilter implements IWhere, IResolveObjectForSQL, IFilter
+abstract sealed class AbstractFilter implements IWhere, IResolveObjectForSQL, IFilter
         permits AbstractWhere, GroupOfWheres {
     @Override public abstract String getResolveObjectForSQL(SQLRetrieverForDBs forSQLRetrieverForDB);
 

@@ -70,42 +70,6 @@ public class JdbcIO {
     }
 
     @Transactional
-    public int[] addBatch(@NotNull String query, @Nullable List<List<Object>> params) throws SQLException {
-        try (Connection conn = workDataSource.getDefaultDataSourceProvider().getDS().getConnection();
-             final PreparedStatement stmt = conn.prepareStatement(query)) {
-            if (CollectionUtils.isNotEmpty(params)) {
-                params.forEach(p -> {
-                    try {
-                        setParamsMain(stmt, p.toArray());
-                        stmt.addBatch();
-                    } catch (SQLException e) {
-                        throw new RuntimeException(e);
-                    }
-                });
-            }
-            return stmt.executeBatch();
-        }
-    }
-
-    @Transactional
-    public long[] addLargeBatch(@NotNull String query, @Nullable List<List<Object>> params) throws SQLException {
-        try (Connection conn = workDataSource.getDefaultDataSourceProvider().getDS().getConnection();
-             final PreparedStatement stmt = conn.prepareStatement(query)) {
-            if (CollectionUtils.isNotEmpty(params)) {
-                params.forEach(p -> {
-                    try {
-                        setParamsMain(stmt, p.toArray());
-                        stmt.addBatch();
-                    } catch (SQLException e) {
-                        throw new RuntimeException(e);
-                    }
-                });
-            }
-            return stmt.executeLargeBatch();
-        }
-    }
-
-    @Transactional
     public List<int[]> addBatchResultList(@NotNull AddBatchInfo... addBatchInfos) throws SQLException {
         final List<int[]> resultBatch = Lists.newArrayList();
         try (Connection conn = workDataSource.getDefaultDataSourceProvider().getDS().getConnection()) {

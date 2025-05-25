@@ -1,11 +1,13 @@
 package j2q.commons;
 
 import com.google.common.base.Joiner;
+import lombok.experimental.UtilityClass;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.annotation.Nonnull;
 
-public final class CommonMethods {
+@UtilityClass
+public class CommonMethods {
     public static String stringsConcat(boolean encloseInParenthesis, @Nonnull String... args) {
         StringBuilder concatString = new StringBuilder();
         if (encloseInParenthesis) concatString.append("(");
