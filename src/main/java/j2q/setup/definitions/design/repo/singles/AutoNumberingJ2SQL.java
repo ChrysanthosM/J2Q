@@ -19,23 +19,23 @@ public final class AutoNumberingJ2SQL extends AbstractJ2<AutoNumberingRepo.TypeO
     }
 
     @LoadJ2SQL public void loadList() {
-        addLoader(TypeOfSQL.LIST, J2SQL.create(getDefaultDataSource()).from(tAutoNumbering));
+        addLoader(TypeOfSQL.LIST, J2SQL.create(getWorkWithDataSource()).from(tAutoNumbering));
     }
     @LoadJ2SQL public void loadInsert() {
-        addLoader(TypeOfSQL.INSERT, J2SQL.create(getDefaultDataSource()).insertInto(tAutoNumbering).insertRow());
+        addLoader(TypeOfSQL.INSERT, J2SQL.create(getWorkWithDataSource()).insertInto(tAutoNumbering).insertRow());
     }
     @LoadJ2SQL public void loadFind() {
-        addLoader(TypeOfSQL.FIND, J2SQL.create(getDefaultDataSource()).from(tAutoNumbering).where(tAutoNumbering.ENTITY_TYPE.eq("?")));
+        addLoader(TypeOfSQL.FIND, J2SQL.create(getWorkWithDataSource()).from(tAutoNumbering).where(tAutoNumbering.ENTITY_TYPE.eq("?")));
     }
     @LoadJ2SQL public void loadMaxNumberPerEntity() {
-        addLoader(TypeOfSQL.MAX_NUMBER_PER_ENTITY, J2SQL.create(getDefaultDataSource()).from(tAutoNumbering).
+        addLoader(TypeOfSQL.MAX_NUMBER_PER_ENTITY, J2SQL.create(getWorkWithDataSource()).from(tAutoNumbering).
                 select(tAutoNumbering.ENTITY_TYPE, MAX(tAutoNumbering.ENTITY_NUMBER))
                 .groupBy(tAutoNumbering.ENTITY_TYPE)
                 .orderBy(tAutoNumbering.ENTITY_TYPE));
     }
 
     @LoadJ2SQL public void loadDeleteAll() {
-        addLoader(TypeOfSQL.DELETE_ALL, J2SQL.create(getDefaultDataSource()).deleteFrom(tAutoNumbering));
+        addLoader(TypeOfSQL.DELETE_ALL, J2SQL.create(getWorkWithDataSource()).deleteFrom(tAutoNumbering));
     }
 
 }

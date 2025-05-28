@@ -16,9 +16,9 @@ public final class UsersJ2SQL extends AbstractJ2<UsersRepo.TypeOfSQL> implements
     }
 
     @LoadJ2SQL public void loadList() {
-        addLoader(TypeOfSQL.LIST, J2SQL.create(getDefaultDataSource()).from(tUsers));
+        addLoader(TypeOfSQL.LIST, J2SQL.create(getWorkWithDataSource()).from(tUsers));
     }
     @LoadJ2SQL public void loadInsert() {
-        addLoader(TypeOfSQL.INSERT, J2SQL.create(getDefaultDataSource()).insertInto(tUsers).insertRow());
+        addLoader(TypeOfSQL.INSERT, J2SQL.create(getWorkWithDataSource()).insertInto(tUsers).insertRow());
     }
 }

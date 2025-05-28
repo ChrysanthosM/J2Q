@@ -1,15 +1,15 @@
 package j2q.core;
 
-import j2q.db.definition.GlobalDBDefinition;
+import j2q.db.datasources.WorkWithDataSource;
 import lombok.Getter;
 
 @Getter
 final class SQLStatementRetrieve {
     private final SQLRetrieverForDBs sqlRetrieverForDB;
-    SQLStatementRetrieve(GlobalDBDefinition.TypeOfDB typeOfDB, String dbPrefixForTableLocation, boolean tableMustPrefixFields,
-                                LinSQL.TypeOfNamingSystemOrNormalized typeOfNamingSystemOrNormalized) {
+    SQLStatementRetrieve(WorkWithDataSource.DataSourceType typeOfDB, String dbPrefixForTableLocation, boolean tableMustPrefixFields,
+                         LinSQL.TypeOfNamingSystemOrNormalized typeOfNamingSystemOrNormalized) {
         switch (typeOfDB) {
-            case SQLite -> this.sqlRetrieverForDB = new SQLRetrieverForDB_SQLite(typeOfNamingSystemOrNormalized);
+            case SQLITE -> this.sqlRetrieverForDB = new SQLRetrieverForDB_SQLite(typeOfNamingSystemOrNormalized);
             case DB2_AS400 -> this.sqlRetrieverForDB = new SQLRetrieverForDB_DB2(typeOfNamingSystemOrNormalized, dbPrefixForTableLocation, tableMustPrefixFields);
             case MSSQL -> this.sqlRetrieverForDB = new SQLRetrieverForDB_MSSQL(typeOfNamingSystemOrNormalized, dbPrefixForTableLocation, tableMustPrefixFields);
             default -> throw new UnsupportedOperationException(typeOfDB + " is not supported");

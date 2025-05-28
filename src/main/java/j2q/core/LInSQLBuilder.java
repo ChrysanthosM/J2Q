@@ -1,12 +1,9 @@
 package j2q.core;
 
-import j2q.db.definition.GlobalDBDefinition;
-import com.google.common.io.Files;
+import j2q.db.datasources.WorkWithDataSource;
 import lombok.AccessLevel;
 import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;
-
-import java.util.Arrays;
 
 
 final class LInSQLBuilder {
@@ -19,36 +16,36 @@ final class LInSQLBuilder {
         return createForSQLite(LinSQL.TypeOfNamingSystemOrNormalized.SYSTEM);
     }
     static LInSQLBuilder createForSQLite(LinSQL.TypeOfNamingSystemOrNormalized typeOfNamingSystemOrNormalized) {
-        return new LInSQLBuilder(GlobalDBDefinition.TypeOfDB.SQLite, StringUtils.EMPTY, false, typeOfNamingSystemOrNormalized);
+        return new LInSQLBuilder(WorkWithDataSource.DataSourceType.SQLITE, StringUtils.EMPTY, false, typeOfNamingSystemOrNormalized);
     }
 
     static LInSQLBuilder createForDB2(String dbPrefixForTableOrLocation) { return createForDB2(dbPrefixForTableOrLocation, LinSQL.TypeOfNamingSystemOrNormalized.SYSTEM, false); }
     static LInSQLBuilder createForDB2(String dbPrefixForTableOrLocation, LinSQL.TypeOfNamingSystemOrNormalized typeOfNamingSystemOrNormalized) { return createForDB2(dbPrefixForTableOrLocation, typeOfNamingSystemOrNormalized, false); }
     static LInSQLBuilder createForDB2(String dbPrefixForTableOrLocation, boolean tableMustPrefixFields) { return createForDB2(dbPrefixForTableOrLocation, LinSQL.TypeOfNamingSystemOrNormalized.SYSTEM, tableMustPrefixFields); }
     static LInSQLBuilder createForDB2(String dbPrefixForTableOrLocation, LinSQL.TypeOfNamingSystemOrNormalized typeOfNamingSystemOrNormalized, boolean tableMustPrefixFields) {
-        return new LInSQLBuilder(GlobalDBDefinition.TypeOfDB.DB2_AS400, dbPrefixForTableOrLocation, tableMustPrefixFields, typeOfNamingSystemOrNormalized);
+        return new LInSQLBuilder(WorkWithDataSource.DataSourceType.DB2_AS400, dbPrefixForTableOrLocation, tableMustPrefixFields, typeOfNamingSystemOrNormalized);
     }
 
     static LInSQLBuilder createForMSSQL() { return createForMSSQL(LinSQL.TypeOfNamingSystemOrNormalized.SYSTEM); }
     static LInSQLBuilder createForMSSQL(LinSQL.TypeOfNamingSystemOrNormalized typeOfNamingSystemOrNormalized) {
-        return new LInSQLBuilder(GlobalDBDefinition.TypeOfDB.MSSQL, StringUtils.EMPTY, false, typeOfNamingSystemOrNormalized);
+        return new LInSQLBuilder(WorkWithDataSource.DataSourceType.MSSQL, StringUtils.EMPTY, false, typeOfNamingSystemOrNormalized);
     }
 
 
-    private LInSQLBuilder(GlobalDBDefinition.TypeOfDB typeOfDB, String dbPrefixForTableOrLocation, boolean tableMustPrefixFields, LinSQL.TypeOfNamingSystemOrNormalized typeOfNamingSystemOrNormalized) {
+    private LInSQLBuilder(WorkWithDataSource.DataSourceType typeOfDB, String dbPrefixForTableOrLocation, boolean tableMustPrefixFields, LinSQL.TypeOfNamingSystemOrNormalized typeOfNamingSystemOrNormalized) {
         this.sqlStatementRetrieve = new SQLStatementRetrieve(typeOfDB, dbPrefixForTableOrLocation, tableMustPrefixFields, typeOfNamingSystemOrNormalized);
     }
 
 
     void clearSQLProperties() { this.workLInSQLBuilderParams.clearSQLPropertiesMain(); }
 
-    private GlobalDBDefinition.TypeOfDB getLInSQLBuilderTypeOfDB(String forDbPrefixForTableOrLocation) {
-        String extensionString = Files.getFileExtension(forDbPrefixForTableOrLocation);
-        return Arrays.stream(GlobalDBDefinition.TypeOfDB.values())
-                .filter(typeOfDB -> extensionString.equals(typeOfDB.getAttributeExtension()))
-                .findFirst()
-                .orElse(null);
-    }
+//    private GlobalDBDefinition.TypeOfDB getLInSQLBuilderTypeOfDB(String forDbPrefixForTableOrLocation) {
+//        String extensionString = Files.getFileExtension(forDbPrefixForTableOrLocation);
+//        return Arrays.stream(GlobalDBDefinition.TypeOfDB.values())
+//                .filter(typeOfDB -> extensionString.equals(typeOfDB.getAttributeExtension()))
+//                .findFirst()
+//                .orElse(null);
+//    }
 
 
     private String sqlStatement = null;

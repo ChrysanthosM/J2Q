@@ -1,6 +1,6 @@
 package j2q.core;
 
-import j2q.db.datasources.IDataSource;
+import j2q.db.datasources.WorkWithDataSource;
 import j2q.setup.definitions.design.schema.enums.DbF;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
@@ -34,11 +34,11 @@ final class LinSQL {
     public BuildSQLGroupByHavingValues getWorkBuildSQLGroupByHavingValues() { return workLInSQLBuilder.getWorkBuildSQLGroupByHavingValues(); }
     public List<String> getFieldMapper() { return workLInSQLBuilder.getSqlRetrieverForDB().getFieldMapper(); }
 
-    public static LinSQL create(IDataSource dataSource, boolean normalizeNames) { return new LinSQL(dataSource, normalizeNames); }
-    private LinSQL(IDataSource dataSource, boolean normalizeNames) {
-        switch (dataSource.getTypeOfDB()) {
-            case DB2_AS400 -> workLInSQLBuilder = LInSQLBuilder.createForDB2(dataSource.getTypeOfDB().getTablePrefixToReplace(), normalizeNames ? TypeOfNamingSystemOrNormalized.NORMALIZED : TypeOfNamingSystemOrNormalized.SYSTEM, dataSource.getTypeOfDB().getTableMustPrefixFields());
-            case SQLite -> workLInSQLBuilder = LInSQLBuilder.createForSQLite(normalizeNames ? TypeOfNamingSystemOrNormalized.NORMALIZED : TypeOfNamingSystemOrNormalized.SYSTEM);
+    public static LinSQL create(WorkWithDataSource dataSource, boolean normalizeNames) { return new LinSQL(dataSource, normalizeNames); }
+    private LinSQL(WorkWithDataSource dataSource, boolean normalizeNames) {
+        switch (dataSource.getDefaultDataSourceType()) {
+            case DB2_AS400 -> workLInSQLBuilder = LInSQLBuilder.createForDB2(dataSource.getDefaultDataSourceType().getTablePrefixToReplace(), normalizeNames ? TypeOfNamingSystemOrNormalized.NORMALIZED : TypeOfNamingSystemOrNormalized.SYSTEM, dataSource.getDefaultDataSourceType().getTableMustPrefixFields());
+            case SQLITE -> workLInSQLBuilder = LInSQLBuilder.createForSQLite(normalizeNames ? TypeOfNamingSystemOrNormalized.NORMALIZED : TypeOfNamingSystemOrNormalized.SYSTEM);
             case MSSQL -> workLInSQLBuilder = LInSQLBuilder.createForMSSQL(normalizeNames ? TypeOfNamingSystemOrNormalized.NORMALIZED : TypeOfNamingSystemOrNormalized.SYSTEM);
             default -> throw new IllegalCallerException("dataSource.getTypeOfDB not valid");
         }

@@ -3,7 +3,7 @@ package j2q.core;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableSet;
-import j2q.db.datasources.IDataSource;
+import j2q.db.datasources.WorkWithDataSource;
 import jdk.jfr.Description;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.MutablePair;
@@ -16,15 +16,15 @@ import java.util.*;
 
 public final class J2SQL {
     private static final Set<String> OPERATION_SYMBOLS = ImmutableSet.of("+", "-", "*", "/");
-    private final IDataSource forDataSource;
+    private final WorkWithDataSource forDataSource;
     private final LinSQL workLinSQL;
     private final boolean normalizeNames;
 
     @Description("Returns a new J2SQL with system names")
-    public static J2SQL create(IDataSource forDataSource) { return create(forDataSource, false); }
+    public static J2SQL create(WorkWithDataSource forDataSource) { return create(forDataSource, false); }
     @Description("Returns a new J2SQL with System or Normalized names")
-    public static J2SQL create(IDataSource forDataSource, boolean normalizeNames) { return new J2SQL(forDataSource, normalizeNames); }
-    private J2SQL(IDataSource forDataSource, boolean normalizeNames) {
+    public static J2SQL create(WorkWithDataSource forDataSource, boolean normalizeNames) { return new J2SQL(forDataSource, normalizeNames); }
+    private J2SQL(WorkWithDataSource forDataSource, boolean normalizeNames) {
         this.forDataSource = forDataSource;
         this.normalizeNames = normalizeNames;
         this.workLinSQL = LinSQL.create(this.forDataSource, this.normalizeNames);

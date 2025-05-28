@@ -9,10 +9,22 @@
   <component name="ChangeListManager">
     <list default="true" id="1b604b0d-001f-468b-a5c7-4b8b3422a052" name="Changes" comment="improvements">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/commons/CommonMethods.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/commons/CommonMethods.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/AbstractFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/AbstractFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/db/jdbc/AddBatchInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/db/jdbc/AddBatchInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/db/jdbc/JdbcIO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/db/jdbc/JdbcIO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/AppConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/AppConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/AbstractJ2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/AbstractJ2.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/J2SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/J2SQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/LInSQLBuilder.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/LInSQLBuilder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/LinSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/LinSQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/SQLStatementRetrieve.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/SQLStatementRetrieve.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/db/datasources/DataSourceForDB2i.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/db/datasources/DataSourceForMSSQL.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/db/datasources/DataSourceForSQLite.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/db/datasources/IDataSource.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/db/datasources/WorkWithDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/db/datasources/WorkWithDataSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/db/definition/GlobalDBDefinition.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/AutoNumberingJ2SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/AutoNumberingJ2SQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/OptionsJ2SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/OptionsJ2SQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/UsersJ2SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definitions/design/repo/singles/UsersJ2SQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/j2q/tests/TestSQLStatements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/j2q/tests/TestSQLStatements.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -209,22 +221,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1704301824325</updated>
-    </task>
-    <task id="LOCAL-00020" summary="change J2SQLs again">
-      <option name="closed" value="true" />
-      <created>1705141065215</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1705141065215</updated>
-    </task>
-    <task id="LOCAL-00021" summary="refactor">
-      <option name="closed" value="true" />
-      <created>1705154860279</created>
-      <option name="number" value="00021" />
-      <option name="presentableId" value="LOCAL-00021" />
-      <option name="project" value="LOCAL" />
-      <updated>1705154860279</updated>
     </task>
     <task id="LOCAL-00022" summary="refactor">
       <option name="closed" value="true" />
@@ -602,7 +598,23 @@
       <option name="project" value="LOCAL" />
       <updated>1748088586534</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="improvements">
+      <option name="closed" value="true" />
+      <created>1748181034686</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1748181034686</updated>
+    </task>
+    <task id="LOCAL-00070" summary="improvements">
+      <option name="closed" value="true" />
+      <created>1748440534298</created>
+      <option name="number" value="00070" />
+      <option name="presentableId" value="LOCAL-00070" />
+      <option name="project" value="LOCAL" />
+      <updated>1748440534299</updated>
+    </task>
+    <option name="localTasksCounter" value="71" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">

@@ -3,7 +3,7 @@ package j2q.core;
 import com.google.common.collect.Maps;
 import j2q.AppConfig;
 import j2q.ApplicationSQLRun;
-import j2q.db.datasources.IDataSource;
+import j2q.db.datasources.WorkWithDataSource;
 import jakarta.annotation.PostConstruct;
 import lombok.Getter;
 import org.apache.commons.collections4.CollectionUtils;
@@ -25,7 +25,7 @@ import static j2q.setup.definitions.design.repo.LoadParams.LOAD_TIMEOUT;
 
 public abstract class AbstractJ2<E extends Enum<E>> {
     private @Autowired ApplicationContext context;
-    @Getter private IDataSource defaultDataSource;
+    @Getter private @Autowired WorkWithDataSource workWithDataSource;
 
     @Getter private final Class<E> typeOfSQL;
     @Getter private final Map<E, J2SQL> bufferJ2SQLs = Maps.newConcurrentMap();
@@ -42,8 +42,6 @@ public abstract class AbstractJ2<E extends Enum<E>> {
 
     @PostConstruct
     public void load() {
-        this.defaultDataSource = context.getBean(AppConfig.class).getDefaultDataSource();
-
         long startLoadingTime = System.currentTimeMillis();
         loadBuffers();
         long loadingTime = System.currentTimeMillis() - startLoadingTime;

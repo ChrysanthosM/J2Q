@@ -2,7 +2,7 @@ package j2q.tests;
 
 import com.google.common.collect.Lists;
 import j2q.core.J2SQL;
-import j2q.db.datasources.DataSourceForDB2i;
+import j2q.db.datasources.WorkWithDataSource;
 import j2q.setup.definitions.design.schema.enums.DbFValues;
 import j2q.setup.definitions.design.schema.tables.TAutoNumbering;
 import j2q.setup.definitions.design.schema.tables.TOptions;
@@ -22,7 +22,7 @@ import static j2q.core.J2SQLShared.PFX.*;
 @SpringBootTest
 public class TestSQLStatements {
     private final List<String> stmts = Lists.newArrayList();
-    private @Autowired DataSourceForDB2i workDataSource;
+    private @Autowired WorkWithDataSource workDataSource;
     private @Autowired TAutoNumbering tAutoNumbering;
     private @Autowired TOptions tOptions;
 
