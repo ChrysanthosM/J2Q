@@ -2,7 +2,7 @@ package j2q.db.jdbc;
 
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.Lists;
-import j2q.db.datasources.WorkWithDataSource;
+import j2q.db.datasource.WorkWithDataSource;
 import j2q.db.loader.IRowLoader;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.ArrayUtils;

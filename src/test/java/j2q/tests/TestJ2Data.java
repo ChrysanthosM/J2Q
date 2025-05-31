@@ -2,8 +2,8 @@ package j2q.tests;
 
 import com.google.common.collect.Lists;
 import j2q.J2Data;
-import j2q.setup.definitions.design.repo.singles.AutoNumberingRepo;
-import j2q.setup.definitions.dtos.AutoNumberingDTO;
+import j2q.setup.definition.design.repo.singles.AutoNumberingRepo;
+import j2q.setup.definition.dto.AutoNumberingDTO;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

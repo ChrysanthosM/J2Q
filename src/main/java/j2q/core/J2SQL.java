@@ -3,7 +3,7 @@ package j2q.core;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableSet;
-import j2q.db.datasources.WorkWithDataSource;
+import j2q.db.datasource.WorkWithDataSource;
 import jdk.jfr.Description;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.MutablePair;

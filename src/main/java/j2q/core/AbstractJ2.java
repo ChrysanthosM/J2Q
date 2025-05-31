@@ -1,9 +1,8 @@
 package j2q.core;
 
 import com.google.common.collect.Maps;
-import j2q.AppConfig;
 import j2q.ApplicationSQLRun;
-import j2q.db.datasources.WorkWithDataSource;
+import j2q.db.datasource.WorkWithDataSource;
 import jakarta.annotation.PostConstruct;
 import lombok.Getter;
 import org.apache.commons.collections4.CollectionUtils;
@@ -20,7 +19,7 @@ import java.util.Map;
 import java.util.concurrent.*;
 import java.util.stream.Collectors;
 
-import static j2q.setup.definitions.design.repo.LoadParams.LOAD_TIMEOUT;
+import static j2q.setup.definition.design.repo.LoadParams.LOAD_TIMEOUT;
 
 
 public abstract class AbstractJ2<E extends Enum<E>> {

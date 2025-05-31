@@ -1,6 +1,6 @@
 package j2q.core;
 
-import j2q.db.datasources.WorkWithDataSource;
+import j2q.db.datasource.WorkWithDataSource;
 import lombok.AccessLevel;
 import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;

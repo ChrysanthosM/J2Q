@@ -2,10 +2,10 @@ package j2q.tests;
 
 import com.google.common.collect.Lists;
 import j2q.core.J2SQL;
-import j2q.db.datasources.WorkWithDataSource;
-import j2q.setup.definitions.design.schema.enums.DbFValues;
-import j2q.setup.definitions.design.schema.tables.TAutoNumbering;
-import j2q.setup.definitions.design.schema.tables.TOptions;
+import j2q.db.datasource.WorkWithDataSource;
+import j2q.setup.definition.design.schema.enums.DbFValues;
+import j2q.setup.definition.design.schema.table.TAutoNumbering;
+import j2q.setup.definition.design.schema.table.TOptions;
 import org.apache.commons.lang3.StringUtils;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

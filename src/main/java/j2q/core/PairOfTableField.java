@@ -1,7 +1,7 @@
 package j2q.core;
 
-import j2q.setup.definitions.design.schema.enums.DbF;
-import j2q.setup.definitions.design.schema.enums.DbT;
+import j2q.setup.definition.design.schema.enums.DbF;
+import j2q.setup.definition.design.schema.enums.DbT;
 import j2q.db.definition.GlobalFieldModelDefinition;
 import lombok.Getter;
 

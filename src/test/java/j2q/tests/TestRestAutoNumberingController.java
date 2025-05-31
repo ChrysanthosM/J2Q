@@ -1,6 +1,6 @@
 package j2q.tests;
 
-import j2q.setup.controllers.RestAutoNumberingController;
+import j2q.setup.controller.RestAutoNumberingController;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;

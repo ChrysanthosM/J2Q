@@ -1,7 +1,7 @@
 package j2q.core;
 
-import j2q.db.datasources.WorkWithDataSource;
-import j2q.setup.definitions.design.schema.enums.DbF;
+import j2q.db.datasource.WorkWithDataSource;
+import j2q.setup.definition.design.schema.enums.DbF;
 import com.google.common.base.Preconditions;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;

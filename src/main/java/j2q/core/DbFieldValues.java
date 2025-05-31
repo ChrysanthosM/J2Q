@@ -1,7 +1,7 @@
 package j2q.core;
 
-import j2q.setup.definitions.design.schema.enums.DbF;
-import j2q.setup.definitions.design.schema.enums.DbFValues;
+import j2q.setup.definition.design.schema.enums.DbF;
+import j2q.setup.definition.design.schema.enums.DbFValues;
 import jakarta.annotation.PostConstruct;
 import org.apache.commons.collections4.CollectionUtils;
 import org.springframework.stereotype.Component;

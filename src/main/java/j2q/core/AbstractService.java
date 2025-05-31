@@ -1,7 +1,7 @@
 package j2q.core;
 
 import j2q.db.jdbc.JdbcIO;
-import j2q.setup.definitions.dtos.Idto;
+import j2q.setup.definition.dto.Idto;
 import lombok.Getter;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.springframework.beans.factory.annotation.Autowired;
