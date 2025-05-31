@@ -13,11 +13,9 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
 import javax.annotation.Nullable;
-import javax.annotation.concurrent.ThreadSafe;
 import java.sql.*;
 import java.util.*;
 
-@ThreadSafe
 @Component
 @Validated
 public class JdbcIO {
