@@ -19,7 +19,7 @@ final class ValueWhere extends AbstractWhere {
     public String getResolveObjectForSQL(SQLRetrieverForDBs forSQLRetrieverForDB) {
         StringBuilder returnValue = new StringBuilder(super.whereObjectForSQL(forSQLRetrieverForDB, (this.typeOfComparison == null) ? null : forSQLRetrieverForDB.getComparisonType().get(this.typeOfComparison)));
         if (this.compareValue != null) {
-            SqlUserSelection valueWhere = LInSQLBuilderShared.getSqlUserSelection(this.compareValue, super.getDataTypeForSQL());
+            SqlUserSelection valueWhere = LInSQLBuilderShared.getSqlUserSelection(this.compareValue, super.getInQuotesRequirement());
             valueWhere.setIgnoreTableAsAlias();
             returnValue.append(valueWhere.getResolveObjectForSQL(forSQLRetrieverForDB));
         }

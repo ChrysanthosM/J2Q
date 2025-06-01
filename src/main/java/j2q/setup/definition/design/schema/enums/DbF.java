@@ -4,14 +4,14 @@ import j2q.core.DbFieldValues;
 import j2q.core.IDeployFilters;
 import j2q.core.IDeployOrdering;
 import j2q.core.IProvideDataTypeForSQL;
-import j2q.db.definition.GlobalFieldModelDefinition;
+import j2q.db.definition.DbFieldDataType;
 import lombok.Getter;
 
 import java.util.List;
 
 import static j2q.commons.CommonMethods.splitCamelCase;
-import static j2q.db.definition.GlobalFieldModelDefinition.DbFieldDataType.DATATYPE_INTEGER;
-import static j2q.db.definition.GlobalFieldModelDefinition.DbFieldDataType.DATATYPE_TEXT;
+import static j2q.db.definition.DbFieldDataType.DATATYPE_INTEGER;
+import static j2q.db.definition.DbFieldDataType.DATATYPE_TEXT;
 
 @Getter
 public enum DbF implements IDeployFilters, IDeployOrdering, IProvideDataTypeForSQL {
@@ -35,7 +35,7 @@ public enum DbF implements IDeployFilters, IDeployOrdering, IProvideDataTypeForS
     ;
 
     private final String systemName;
-    private final GlobalFieldModelDefinition.DbFieldDataType fieldDataType;
+    private final DbFieldDataType fieldDataType;
     private final String asAlias;
 
     DbF(String systemName) {
@@ -44,7 +44,7 @@ public enum DbF implements IDeployFilters, IDeployOrdering, IProvideDataTypeForS
         this.asAlias = null;
     }
 
-    DbF(String systemName, GlobalFieldModelDefinition.DbFieldDataType fieldDataType) {
+    DbF(String systemName, DbFieldDataType fieldDataType) {
         this.systemName = systemName;
         this.fieldDataType = fieldDataType;
         this.asAlias = splitCamelCase(this.name());
@@ -55,7 +55,7 @@ public enum DbF implements IDeployFilters, IDeployOrdering, IProvideDataTypeForS
     }
 
     @Override
-    public GlobalFieldModelDefinition.DataTypeForSQL getDataTypeForSQL() {
-        return this.getFieldDataType().getDataTypeForSQL();
+    public Boolean getInQuotesRequirement() {
+        return this.getFieldDataType().getInQuotesRequirement();
     }
 }

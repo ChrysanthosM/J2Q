@@ -1,7 +1,7 @@
 package j2q.core;
 
+import j2q.db.definition.DbFieldDataType;
 import j2q.setup.definition.design.schema.enums.DbF;
-import j2q.db.definition.GlobalFieldModelDefinition;
 import lombok.Getter;
 
 import java.util.List;
@@ -14,8 +14,8 @@ final class DbField {
     private final String dbfSystemName;
     private final String dbfAsAlias;
 
-    private final GlobalFieldModelDefinition.DbFieldDataType dbfDataType;
-    private final GlobalFieldModelDefinition.DataTypeForSQL dbfDataTypeForSQL;
+    private final DbFieldDataType dbfDataType;
+    private final Boolean dbfInQuotesRequirement;
 
     private final List<String> dbfAcceptedValues;
 
@@ -27,7 +27,7 @@ final class DbField {
         this.dbfAsAlias = this.dbfNameEnum.getAsAlias();
 
         this.dbfDataType = this.dbfNameEnum.getFieldDataType();
-        this.dbfDataTypeForSQL = this.dbfDataType == null ? null : this.dbfDataType.getDataTypeForSQL();
+        this.dbfInQuotesRequirement = this.dbfDataType == null ? null : this.dbfDataType.getInQuotesRequirement();
 
         this.dbfAcceptedValues = this.dbfNameEnum.getAcceptedValues();
     }

@@ -26,7 +26,7 @@ final class InValuesWhere extends AbstractWhere {
         if (CollectionUtils.isNotEmpty(this.inValues)) {
             List<String> newInValues = this.inValues.stream()
                     .filter(Objects::nonNull)
-                    .map(o -> LInSQLBuilderShared.getSqlUserSelection(o, super.getDataTypeForSQL()).getResolveObjectForSQL(forSQLRetrieverForDB))
+                    .map(o -> LInSQLBuilderShared.getSqlUserSelection(o, super.getInQuotesRequirement()).getResolveObjectForSQL(forSQLRetrieverForDB))
                     .collect(Collectors.toList());
             String valuesJoined = stringsConcat(true, Joiner.on(", ").join(newInValues));
             returnValue.append(valuesJoined);

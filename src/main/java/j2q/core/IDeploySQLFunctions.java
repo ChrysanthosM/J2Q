@@ -1,43 +1,43 @@
 package j2q.core;
 
-import j2q.db.definition.GlobalFieldModelDefinition;
 import lombok.Getter;
 
 sealed interface IDeploySQLFunctions extends IDefaultsSQLRetrieverForDBs
         permits SQLRetrieverCore {
+
     @Getter
     enum TypeOfSQLFunction {
-        TRIM(GlobalFieldModelDefinition.DataTypeForSQL.TEXT),
-        LTRIM(GlobalFieldModelDefinition.DataTypeForSQL.TEXT),
-        RTRIM(GlobalFieldModelDefinition.DataTypeForSQL.TEXT),
-        UPPER(GlobalFieldModelDefinition.DataTypeForSQL.TEXT),
-        LOWER(GlobalFieldModelDefinition.DataTypeForSQL.TEXT),
-        INITCAP(GlobalFieldModelDefinition.DataTypeForSQL.TEXT),
-        CONCAT(GlobalFieldModelDefinition.DataTypeForSQL.TEXT),
-        SUBSTR(GlobalFieldModelDefinition.DataTypeForSQL.TEXT),
-        REPLACE(GlobalFieldModelDefinition.DataTypeForSQL.TEXT),
-        TRANSLATE(GlobalFieldModelDefinition.DataTypeForSQL.TEXT),
-        SPACE(GlobalFieldModelDefinition.DataTypeForSQL.TEXT),
-        LPAD(GlobalFieldModelDefinition.DataTypeForSQL.TEXT),
-        RPAD(GlobalFieldModelDefinition.DataTypeForSQL.TEXT),
-        CASE(GlobalFieldModelDefinition.DataTypeForSQL.TEXT),
-        LEFT(GlobalFieldModelDefinition.DataTypeForSQL.TEXT),
-        RIGHT(GlobalFieldModelDefinition.DataTypeForSQL.TEXT),
-        REPEAT(GlobalFieldModelDefinition.DataTypeForSQL.TEXT),
-        INSTR(GlobalFieldModelDefinition.DataTypeForSQL.NUMERIC),
-        LENGTH(GlobalFieldModelDefinition.DataTypeForSQL.NUMERIC),
+        TRIM(true),
+        LTRIM(true),
+        RTRIM(true),
+        UPPER(true),
+        LOWER(true),
+        INITCAP(true),
+        CONCAT(true),
+        SUBSTR(true),
+        REPLACE(true),
+        TRANSLATE(true),
+        SPACE(true),
+        LPAD(true),
+        RPAD(true),
+        CASE(true),
+        LEFT(true),
+        RIGHT(true),
+        REPEAT(true),
+        INSTR(false),
+        LENGTH(false),
 
-        AVG(GlobalFieldModelDefinition.DataTypeForSQL.NUMERIC),
-        COUNT(GlobalFieldModelDefinition.DataTypeForSQL.NUMERIC),
-        COUNT_BIG(GlobalFieldModelDefinition.DataTypeForSQL.NUMERIC),
-        SUM(GlobalFieldModelDefinition.DataTypeForSQL.NUMERIC),
-        MIN(GlobalFieldModelDefinition.DataTypeForSQL.TEXT),
-        MAX(GlobalFieldModelDefinition.DataTypeForSQL.TEXT),
+        AVG(false),
+        COUNT(false),
+        COUNT_BIG(false),
+        SUM(false),
+        MIN(true),
+        MAX(true),
 
         ;
 
-        private final GlobalFieldModelDefinition.DataTypeForSQL dataTypeForSQL;
-        TypeOfSQLFunction(GlobalFieldModelDefinition.DataTypeForSQL dataTypeForSQL) { this.dataTypeForSQL = dataTypeForSQL; }
+        private final Boolean inQuotesRequirement;
+        TypeOfSQLFunction(Boolean inQuotesRequirement) { this.inQuotesRequirement = inQuotesRequirement; }
     }
     static SQLFunction create(TypeOfSQLFunction typeOfSQLFunction, Object... args) {
         switch (typeOfSQLFunction) {

@@ -1,6 +1,5 @@
 package j2q.core;
 
-import j2q.db.definition.GlobalFieldModelDefinition;
 import com.google.common.base.Strings;
 import org.apache.commons.lang3.StringUtils;
 
@@ -12,7 +11,7 @@ sealed abstract class AbstractWhere extends AbstractFilter
 
     private J2SQLShared.PFX wherePrefix = null;
     private final Object whereObject;
-    private GlobalFieldModelDefinition.DataTypeForSQL dataTypeForSQL = null;
+    private Boolean inQuotesRequirement = null;
 
 
     protected AbstractWhere(Object whereObject) {
@@ -21,13 +20,13 @@ sealed abstract class AbstractWhere extends AbstractFilter
 //            if (this.whereObject instanceof GlobalFieldsDefinition.DbF) this.dataTypeForSQL = ((GlobalFieldsDefinition.DbF) this.whereObject).getFieldDataType().getDataTypeForSQL();
 //            if (this.whereObject instanceof PairOfTableField) this.dataTypeForSQL = ((PairOfTableField) this.whereObject).getDbf().getFieldDataType().getDataTypeForSQL();
 //            if (this.whereObject instanceof J2SQLShared.SQLFunctionObject) this.dataTypeForSQL = ((SQLFunction) ((J2SQLShared.SQLFunctionObject) this.whereObject).getSqlFunction()).getTypeOfSQLFunction().getDataTypeForSQL();
-            if (this.whereObject instanceof IProvideDataTypeForSQL) this.dataTypeForSQL = ((IProvideDataTypeForSQL) this.whereObject).getDataTypeForSQL();
+            if (this.whereObject instanceof IProvideDataTypeForSQL) this.inQuotesRequirement = ((IProvideDataTypeForSQL) this.whereObject).getInQuotesRequirement();
         }
     }
 
     protected void setWherePrefix(J2SQLShared.PFX wherePrefix) { this.wherePrefix = wherePrefix; }
     protected Object getWhereObject() { return whereObject; }
-    protected GlobalFieldModelDefinition.DataTypeForSQL getDataTypeForSQL() { return this.dataTypeForSQL; }
+    protected Boolean getInQuotesRequirement() { return this.inQuotesRequirement; }
 
     protected String resolveParenthesisLeft() { return (super.getParenthesisLeft() > 0) ? Strings.repeat("(", super.getParenthesisLeft()) : StringUtils.EMPTY; }
     protected String resolveParenthesisRight() { return (super.getParenthesisRight() > 0) ? Strings.repeat(")", super.getParenthesisRight()) : StringUtils.EMPTY; }

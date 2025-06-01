@@ -1,7 +1,7 @@
 package j2q.core;
 
+import com.google.common.base.Preconditions;
 import j2q.commons.CommonMethods;
-import j2q.db.definition.GlobalFieldModelDefinition;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.annotation.Nullable;
@@ -18,13 +18,13 @@ final class SQLFieldOperation extends SqlUserSelection {
         init(null, operation, object);
     }
     @Override public void init(@Nullable String setPrefix, @Nullable String expression, @Nullable Object... args) {
-        assert args != null;
+        Preconditions.checkNotNull(args);
         this.object = args[0];
         this.operation = expression;
     }
 
     @Override public String getResolveObjectForSQL(SQLRetrieverForDBs forSQLRetrieverForDB) {
-        SqlUserSelection sqlUserSelection = LInSQLBuilderShared.getSqlUserSelection(this.object, GlobalFieldModelDefinition.DataTypeForSQL.NUMERIC);
+        SqlUserSelection sqlUserSelection = LInSQLBuilderShared.getSqlUserSelection(this.object, false);
         String keepAlias = sqlUserSelection.getAsAlias();
         sqlUserSelection.setAsAlias(null);
         sqlUserSelection.setIgnoreTableAsAlias();

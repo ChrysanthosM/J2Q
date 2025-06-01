@@ -1,8 +1,8 @@
 package j2q.core;
 
+import j2q.db.definition.DbFieldDataType;
 import j2q.setup.definition.design.schema.enums.DbF;
 import j2q.setup.definition.design.schema.enums.DbT;
-import j2q.db.definition.GlobalFieldModelDefinition;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import lombok.Getter;
@@ -31,14 +31,14 @@ final class DbTableInfo {
     private final List<String> dbtHasFieldsNormalNames;
     private final List<String> dbtHasFieldsSystemNames;
     private final List<String> dbtHasFieldsAsAlias;
-    private final List<GlobalFieldModelDefinition.DbFieldDataType> dbtHasFieldsDataType ;
-    private final List<GlobalFieldModelDefinition.DataTypeForSQL> dbtHasFieldsDataTypeForSQL;
+    private final List<DbFieldDataType> dbtHasFieldsDataType ;
+    private final List<Boolean> dbtHasInQuotesRequirement;
 
     private final ImmutableMap<DbF, String> dbtHasFieldsNameEnum_NormalName;
     private final ImmutableMap<DbF, String> dbtHasFieldsNameEnum_SystemName;
     private final ImmutableMap<DbF, String> dbtHasFieldsNameEnum_AsAlias;
-    private final ImmutableMap<DbF, GlobalFieldModelDefinition.DbFieldDataType> dbtHasFieldsNameEnum_DataType;
-    private final ImmutableMap<DbF, GlobalFieldModelDefinition.DataTypeForSQL> dbtHasFieldsNameEnum_DataTypeForSQL;
+    private final ImmutableMap<DbF, DbFieldDataType> dbtHasFieldsNameEnum_DataType;
+    private final ImmutableMap<? extends DbF, ? extends Boolean> dbtHasFieldsNameEnum_InQuotesRequirement;
 
     DbTableInfo(DbTable dbTable) {
         this.dbtNameEnum = dbTable.getDbT();
@@ -58,7 +58,7 @@ final class DbTableInfo {
         this.dbtHasFieldsSystemNames = ImmutableList.copyOf(this.dbtHasDbFields.stream().map(DbField::getDbfSystemName).collect(Collectors.toList()));
         this.dbtHasFieldsAsAlias = ImmutableList.copyOf(this.dbtHasDbFields.stream().map(DbField::getDbfAsAlias).collect(Collectors.toList()));
         this.dbtHasFieldsDataType = ImmutableList.copyOf(this.dbtHasDbFields.stream().map(DbField::getDbfDataType).collect(Collectors.toList()));
-        this.dbtHasFieldsDataTypeForSQL = ImmutableList.copyOf(this.dbtHasDbFields.stream().map(DbField::getDbfDataTypeForSQL).collect(Collectors.toList()));
+        this.dbtHasInQuotesRequirement = ImmutableList.copyOf(this.dbtHasDbFields.stream().map(DbField::getDbfInQuotesRequirement).collect(Collectors.toList()));
 
 //        for (int i = 0; i < this.dbtHasDbFieldNamesEnum.size(); i++) {
 //            this.dbtHasFieldsNameEnum_NormalName.put(this.dbtHasDbFieldNamesEnum.get(i), this.dbtHasFieldsNormalNames.get(i));
@@ -76,11 +76,11 @@ final class DbTableInfo {
         this.dbtHasFieldsNameEnum_AsAlias = ImmutableMap.copyOf((Map<? extends DbF, ? extends String>)
                 IntStream.range(0, this.dbtHasDbFieldNamesEnum.size()).boxed()
                         .collect(Collectors.toMap(this.dbtHasDbFieldNamesEnum::get, this.dbtHasFieldsAsAlias::get, (existing, replacement) -> existing, HashMap::new)));
-        this.dbtHasFieldsNameEnum_DataType = ImmutableMap.copyOf((Map<? extends DbF, ? extends GlobalFieldModelDefinition.DbFieldDataType>)
+        this.dbtHasFieldsNameEnum_DataType = ImmutableMap.copyOf((Map<? extends DbF, ? extends DbFieldDataType>)
                 IntStream.range(0, this.dbtHasDbFieldNamesEnum.size()).boxed()
                         .collect(Collectors.toMap(this.dbtHasDbFieldNamesEnum::get, this.dbtHasFieldsDataType::get, (existing, replacement) -> existing, HashMap::new)));
-        this.dbtHasFieldsNameEnum_DataTypeForSQL = ImmutableMap.copyOf((Map<? extends DbF, ? extends GlobalFieldModelDefinition.DataTypeForSQL>)
+        this.dbtHasFieldsNameEnum_InQuotesRequirement = ImmutableMap.copyOf((Map<? extends DbF, ? extends Boolean>)
                 IntStream.range(0, this.dbtHasDbFieldNamesEnum.size()).boxed()
-                        .collect(Collectors.toMap(this.dbtHasDbFieldNamesEnum::get, this.dbtHasFieldsDataTypeForSQL::get, (existing, replacement) -> existing, HashMap::new)));
+                        .collect(Collectors.toMap(this.dbtHasDbFieldNamesEnum::get, this.dbtHasInQuotesRequirement::get, (existing, replacement) -> existing, HashMap::new)));
     }
 }

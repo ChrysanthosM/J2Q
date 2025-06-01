@@ -16,9 +16,9 @@ final class BetweenValuesWhere extends AbstractWhere {
 
     @Override
     public String getResolveObjectForSQL(SQLRetrieverForDBs forSQLRetrieverForDB) {
-        String returnValue = super.whereObjectForSQL(forSQLRetrieverForDB) + LInSQLBuilderShared.getSqlUserSelection(this.betweenValues.getLeft(), super.getDataTypeForSQL()).getResolveObjectForSQL(forSQLRetrieverForDB) +
+        String returnValue = super.whereObjectForSQL(forSQLRetrieverForDB) + LInSQLBuilderShared.getSqlUserSelection(this.betweenValues.getLeft(), super.getInQuotesRequirement()).getResolveObjectForSQL(forSQLRetrieverForDB) +
                 " AND " +
-                LInSQLBuilderShared.getSqlUserSelection(this.betweenValues.getRight(), super.getDataTypeForSQL()).getResolveObjectForSQL(forSQLRetrieverForDB) +
+                LInSQLBuilderShared.getSqlUserSelection(this.betweenValues.getRight(), super.getInQuotesRequirement()).getResolveObjectForSQL(forSQLRetrieverForDB) +
                 super.resolveAttachedFilters(forSQLRetrieverForDB) +
                 super.resolveParenthesisRight();
         return returnValue;

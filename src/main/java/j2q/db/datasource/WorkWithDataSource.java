@@ -15,7 +15,7 @@ public class WorkWithDataSource {
     @AllArgsConstructor
     @Getter
     public enum DataSourceType {
-        SQLITE ("sqlite", null, "$.", true),
+        SQLITE ("sqlite", null, null, false),
         MSSQL ("mssql", null, null, false),
         DB2_AS400 ("db2i", null, "$.", true),
         ;

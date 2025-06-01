@@ -1,7 +1,6 @@
 package j2q.core;
 
 import j2q.setup.definition.design.schema.enums.DbF;
-import j2q.db.definition.GlobalFieldModelDefinition;
 
 final class LInSQLBuilderShared {
     public static SqlUserSelection getSqlUserSelection(Object selectionObject) {
@@ -10,10 +9,10 @@ final class LInSQLBuilderShared {
     public static SqlUserSelection getSqlUserSelection(Object selectionObject, String asAlias) {
         return getSqlUserSelectionMain(selectionObject, asAlias, null);
     }
-    public static SqlUserSelection getSqlUserSelection(Object selectionObject, GlobalFieldModelDefinition.DataTypeForSQL dataTypeForSQL) {
-        return getSqlUserSelectionMain(selectionObject, null, dataTypeForSQL);
+    public static SqlUserSelection getSqlUserSelection(Object selectionObject, Boolean inQuotesRequirement) {
+        return getSqlUserSelectionMain(selectionObject, null, inQuotesRequirement);
     }
-    private static SqlUserSelection getSqlUserSelectionMain(Object selectionObject, String asAlias, GlobalFieldModelDefinition.DataTypeForSQL dataTypeForSQL) {
+    private static SqlUserSelection getSqlUserSelectionMain(Object selectionObject, String asAlias, Boolean inQuotesRequirement) {
         if (selectionObject instanceof SQLFieldOperation) return (SqlUserSelection) selectionObject;
         if (selectionObject instanceof SQLFieldObject) return (SqlUserSelection) selectionObject;
         if (selectionObject instanceof SQLFieldFromTable) return (SqlUserSelection) selectionObject;
@@ -31,6 +30,6 @@ final class LInSQLBuilderShared {
             return ((SQLFunction) stringsFunction.getSqlFunction());
         }
 
-        return new SQLFieldFromConstant(selectionObject, asAlias, dataTypeForSQL);
+        return new SQLFieldFromConstant(selectionObject, asAlias, inQuotesRequirement);
     }
 }

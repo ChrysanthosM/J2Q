@@ -1,6 +1,5 @@
 package j2q.core;
 
-import j2q.db.definition.GlobalFieldModelDefinition;
 import com.google.common.collect.Lists;
 import org.apache.commons.collections4.CollectionUtils;
 
@@ -25,18 +24,18 @@ abstract sealed class SQLFunction extends SqlUserSelection
     protected void setParams(List<Object> params) { this.params = params; }
     protected void addParam(Object param) { this.params.add(param); }
     private List<String> paramsSelectedFieldForSQL = null;
-    protected List<String> getParamsSelectedFieldForSQL(SQLRetrieverForDBs forSQLRetrieverForDB, @Nullable GlobalFieldModelDefinition.DataTypeForSQL dataTypeForSQL) {
+    protected List<String> getParamsSelectedFieldForSQL(SQLRetrieverForDBs forSQLRetrieverForDB, @Nullable Boolean inQuotesRequirement) {
         if (CollectionUtils.isNotEmpty(this.paramsSelectedFieldForSQL)) return this.paramsSelectedFieldForSQL;
         this.paramsSelectedFieldForSQL = Lists.newArrayList();
         this.params.stream().filter(Objects::nonNull)
-                .forEach(arg -> this.paramsSelectedFieldForSQL.add(LInSQLBuilderShared.getSqlUserSelection(arg, dataTypeForSQL).getResolveObjectForSQL(forSQLRetrieverForDB)));
+                .forEach(arg -> this.paramsSelectedFieldForSQL.add(LInSQLBuilderShared.getSqlUserSelection(arg, inQuotesRequirement).getResolveObjectForSQL(forSQLRetrieverForDB)));
         return this.paramsSelectedFieldForSQL;
     }
-    protected String getFirstParamSelectedFieldForSQL(SQLRetrieverForDBs forSQLRetrieverForDB, @Nullable GlobalFieldModelDefinition.DataTypeForSQL dataTypeForSQL) {
-        return LInSQLBuilderShared.getSqlUserSelection(this.params.getFirst(), dataTypeForSQL).getResolveObjectForSQL(forSQLRetrieverForDB);
+    protected String getFirstParamSelectedFieldForSQL(SQLRetrieverForDBs forSQLRetrieverForDB, @Nullable Boolean inQuotesRequirement) {
+        return LInSQLBuilderShared.getSqlUserSelection(this.params.getFirst(), inQuotesRequirement).getResolveObjectForSQL(forSQLRetrieverForDB);
     }
-    protected String getLastParamSelectedFieldForSQL(SQLRetrieverForDBs forSQLRetrieverForDB, @Nullable GlobalFieldModelDefinition.DataTypeForSQL dataTypeForSQL) {
-        SqlUserSelection mainParam = LInSQLBuilderShared.getSqlUserSelection(this.params.getLast(), dataTypeForSQL);
+    protected String getLastParamSelectedFieldForSQL(SQLRetrieverForDBs forSQLRetrieverForDB, @Nullable Boolean inQuotesRequirement) {
+        SqlUserSelection mainParam = LInSQLBuilderShared.getSqlUserSelection(this.params.getLast(), inQuotesRequirement);
         mainParam.setIgnoreTableAsAlias();
         return mainParam.getResolveObjectForSQL(forSQLRetrieverForDB);
     }

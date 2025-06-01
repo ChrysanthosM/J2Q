@@ -1,6 +1,5 @@
 package j2q.core;
 
-import j2q.db.definition.GlobalFieldModelDefinition;
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
 import jdk.jfr.Description;
@@ -212,8 +211,8 @@ public interface J2SQLShared {
         public Object getSqlFunction() { return sqlFunction; }
 
         @Override
-        public GlobalFieldModelDefinition.DataTypeForSQL getDataTypeForSQL() {
-            return this.sqlFunction.getTypeOfSQLFunction().getDataTypeForSQL();
+        public Boolean getInQuotesRequirement() {
+            return this.sqlFunction.getTypeOfSQLFunction().getInQuotesRequirement();
         }
     }
 
@@ -252,16 +251,16 @@ public interface J2SQLShared {
     static SQLFunctionObject CONCAT(@Nonnull Object... args) { return SQLFunctionObject.of(IDeploySQLFunctions.create(IDeploySQLFunctions.TypeOfSQLFunction.CONCAT, args)); }
     static SQLFunctionObject TRANSLATE(@Nonnull Object arg, @Nonnull Object find, @Nonnull Object replaceWith, @Nullable Object pad) { return SQLFunctionObject.of(IDeploySQLFunctions.create(IDeploySQLFunctions.TypeOfSQLFunction.TRANSLATE, Stream.of(arg, find, replaceWith, pad).toArray())); }
 
-    static SQLFunctionObject CASE(GlobalFieldModelDefinition.DataTypeForSQL dataTypeForSQL, Object caseExpression, Object elseExpression, IWhen... args) {
-        List<Object> argList = Lists.newArrayList(dataTypeForSQL, Optional.ofNullable(caseExpression), elseExpression);
+    static SQLFunctionObject CASE(Boolean inQuotesRequirement, Object caseExpression, Object elseExpression, IWhen... args) {
+        List<Object> argList = Lists.newArrayList(inQuotesRequirement, Optional.ofNullable(caseExpression), elseExpression);
         argList.addAll(Lists.newArrayList(args));
         return SQLFunctionObject.of(IDeploySQLFunctions.create(IDeploySQLFunctions.TypeOfSQLFunction.CASE, argList.toArray()));
     }
-    static SQLFunctionObject CASE1s(@Nullable Object elseExpression, @Nonnull IWhen... args) { return CASE(GlobalFieldModelDefinition.DataTypeForSQL.TEXT, null, elseExpression, args); }
-    static SQLFunctionObject CASE1n(@Nullable Object elseExpression, @Nonnull IWhen... args) { return CASE(GlobalFieldModelDefinition.DataTypeForSQL.NUMERIC, null, elseExpression, args); }
+    static SQLFunctionObject CASE1s(@Nullable Object elseExpression, @Nonnull IWhen... args) { return CASE(true, null, elseExpression, args); }
+    static SQLFunctionObject CASE1n(@Nullable Object elseExpression, @Nonnull IWhen... args) { return CASE(false, null, elseExpression, args); }
     static IWhen WHEN(@Nonnull IWhere searchCondition, @Nonnull Object thenExpression) { return new WhenThenSearched(searchCondition, thenExpression); }
-    static SQLFunctionObject CASE2s(@Nonnull Object caseExpression, @Nullable Object elseExpression, @Nonnull IWhen... args) { return CASE(GlobalFieldModelDefinition.DataTypeForSQL.TEXT, caseExpression, elseExpression, args); }
-    static SQLFunctionObject CASE2n(@Nonnull Object caseExpression, @Nullable Object elseExpression, @Nonnull IWhen... args) { return CASE(GlobalFieldModelDefinition.DataTypeForSQL.NUMERIC, caseExpression, elseExpression, args); }
+    static SQLFunctionObject CASE2s(@Nonnull Object caseExpression, @Nullable Object elseExpression, @Nonnull IWhen... args) { return CASE(true, caseExpression, elseExpression, args); }
+    static SQLFunctionObject CASE2n(@Nonnull Object caseExpression, @Nullable Object elseExpression, @Nonnull IWhen... args) { return CASE(false, caseExpression, elseExpression, args); }
     static IWhen WHEN(@Nonnull Object whenExpression, @Nonnull Object thenExpression) { return new WhenThenSimple(whenExpression, thenExpression); }
 
     static SQLFunctionObject MIN(@Nullable Object arg, boolean distinct) { return SQLFunctionObject.of(IDeploySQLFunctions.create(IDeploySQLFunctions.TypeOfSQLFunction.MIN, Stream.of(distinct, arg).toArray())); }

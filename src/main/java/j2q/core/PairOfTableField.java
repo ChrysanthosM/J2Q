@@ -2,7 +2,6 @@ package j2q.core;
 
 import j2q.setup.definition.design.schema.enums.DbF;
 import j2q.setup.definition.design.schema.enums.DbT;
-import j2q.db.definition.GlobalFieldModelDefinition;
 import lombok.Getter;
 
 import javax.annotation.Nonnull;
@@ -23,7 +22,7 @@ public final class PairOfTableField implements IDeployFilters, IDeployOrdering, 
     public SQLFieldObject as(@Nonnull String asAlias) { return new SQLFieldObject(this, asAlias, null); }
 
     @Override
-    public GlobalFieldModelDefinition.DataTypeForSQL getDataTypeForSQL() {
-        return this.dbf.getFieldDataType().getDataTypeForSQL();
+    public Boolean getInQuotesRequirement() {
+        return this.dbf.getFieldDataType().getInQuotesRequirement();
     }
 }

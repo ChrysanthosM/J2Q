@@ -57,7 +57,7 @@ final class BuildSQLInsertRows extends BuildSQLCore {
     private String getInsertRowForSQL(SQLRetrieverForDBs forSQLRetrieverForDB,
                                       List<DbF> intoDbF, boolean isAutoStamp, List<Object> rowFieldValues) {
         List<String> fieldValuesForSQL = IntStream.range(0, intoDbF.size())
-                .mapToObj(i -> LInSQLBuilderShared.getSqlUserSelection(rowFieldValues.get(i), intoDbF.get(i).getFieldDataType().getDataTypeForSQL())
+                .mapToObj(i -> LInSQLBuilderShared.getSqlUserSelection(rowFieldValues.get(i), intoDbF.get(i).getFieldDataType().getInQuotesRequirement())
                         .getResolveObjectForSQL(forSQLRetrieverForDB))
                 .collect(Collectors.toList());
         if (isAutoStamp) {
