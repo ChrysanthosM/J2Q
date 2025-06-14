@@ -64,12 +64,15 @@ final class LInSQLBuilder {
             case SQL_UPDATE -> this.sqlStatementRetrieve.getSQLStatementForUpdate();
             case SQL_DELETE -> this.sqlStatementRetrieve.getSQLStatementForDelete();
         };
+
+        this.sqlStatement = StringUtils.trimToEmpty(this.sqlStatement.replaceAll("\\s+", StringUtils.SPACE).replaceAll("\\s+,", ","));
         return this.sqlStatement;
     }
     String getFromInsertOnlyTheValues() {
         if (StringUtils.isNotBlank(this.sqlStatement)) return this.sqlStatement;
         this.sqlStatementRetrieve.setWorkLInSQLBuilderParams(this.workLInSQLBuilderParams);
         this.sqlStatement = this.sqlStatementRetrieve.getSQLStatementForInsertGetOnlyValues();
+        this.sqlStatement = StringUtils.trimToEmpty(this.sqlStatement.replaceAll("\\s+", StringUtils.SPACE).replaceAll("\\s+,", ","));
         return this.sqlStatement;
     }
 

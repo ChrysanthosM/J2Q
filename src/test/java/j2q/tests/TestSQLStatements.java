@@ -27,15 +27,14 @@ public class TestSQLStatements {
     private @Autowired TOptions tOptions;
 
     private String checkResult(String stmt, String shouldBe) {
-        String checkStmt = StringUtils.trimToEmpty(stmt.replaceAll("\\s+", StringUtils.SPACE).replaceAll("\\s+,", ","));
         String checkTest = StringUtils.trimToEmpty(
                 StringUtils.isBlank(workDataSource.getDefaultDataSourceType().getTablePrefixToReplace())
                         ? shouldBe.replace("$.", StringUtils.EMPTY).replaceAll("\\s+", StringUtils.SPACE).replaceAll("\\s+,", ",")
-                        : shouldBe.replaceAll("\\s+", " ")
+                        : shouldBe.replaceAll("\\s+", StringUtils.SPACE).replaceAll("\\s+,", ",")
         );
 
-        boolean areSame = Objects.equals(checkStmt, checkTest);
-        return areSame + " - " + stmt.replaceAll("\\s+", StringUtils.SPACE).replaceAll("\\s+,", ",");
+        boolean areSame = Objects.equals(stmt, checkTest);
+        return areSame + " - " + stmt;
     }
 
     @Test
