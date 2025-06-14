@@ -12,11 +12,8 @@ final class LInSQLBuilder {
     private final SQLStatementRetrieve sqlStatementRetrieve;
     SQLRetrieverForDBs getSqlRetrieverForDB() { return this.sqlStatementRetrieve.getSqlRetrieverForDB(); }
 
-    static LInSQLBuilder createForSQLite() {
-        return createForSQLite(LinSQL.TypeOfNamingSystemOrNormalized.SYSTEM);
-    }
-    static LInSQLBuilder createForSQLite(LinSQL.TypeOfNamingSystemOrNormalized typeOfNamingSystemOrNormalized) {
-        return new LInSQLBuilder(WorkWithDataSource.DataSourceType.SQLITE, StringUtils.EMPTY, false, typeOfNamingSystemOrNormalized);
+    static LInSQLBuilder createDefault(WorkWithDataSource.DataSourceType dataSourceType, LinSQL.TypeOfNamingSystemOrNormalized typeOfNamingSystemOrNormalized) {
+        return new LInSQLBuilder(dataSourceType, StringUtils.EMPTY, false, typeOfNamingSystemOrNormalized);
     }
 
     static LInSQLBuilder createForDB2(String dbPrefixForTableOrLocation) { return createForDB2(dbPrefixForTableOrLocation, LinSQL.TypeOfNamingSystemOrNormalized.SYSTEM, false); }
@@ -25,12 +22,6 @@ final class LInSQLBuilder {
     static LInSQLBuilder createForDB2(String dbPrefixForTableOrLocation, LinSQL.TypeOfNamingSystemOrNormalized typeOfNamingSystemOrNormalized, boolean tableMustPrefixFields) {
         return new LInSQLBuilder(WorkWithDataSource.DataSourceType.DB2_AS400, dbPrefixForTableOrLocation, tableMustPrefixFields, typeOfNamingSystemOrNormalized);
     }
-
-    static LInSQLBuilder createForMSSQL() { return createForMSSQL(LinSQL.TypeOfNamingSystemOrNormalized.SYSTEM); }
-    static LInSQLBuilder createForMSSQL(LinSQL.TypeOfNamingSystemOrNormalized typeOfNamingSystemOrNormalized) {
-        return new LInSQLBuilder(WorkWithDataSource.DataSourceType.MSSQL, StringUtils.EMPTY, false, typeOfNamingSystemOrNormalized);
-    }
-
 
     private LInSQLBuilder(WorkWithDataSource.DataSourceType typeOfDB, String dbPrefixForTableOrLocation, boolean tableMustPrefixFields, LinSQL.TypeOfNamingSystemOrNormalized typeOfNamingSystemOrNormalized) {
         this.sqlStatementRetrieve = new SQLStatementRetrieve(typeOfDB, dbPrefixForTableOrLocation, tableMustPrefixFields, typeOfNamingSystemOrNormalized);

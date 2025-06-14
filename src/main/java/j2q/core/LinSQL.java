@@ -38,9 +38,8 @@ final class LinSQL {
     private LinSQL(WorkWithDataSource dataSource, boolean normalizeNames) {
         switch (dataSource.getDefaultDataSourceType()) {
             case DB2_AS400 -> workLInSQLBuilder = LInSQLBuilder.createForDB2(dataSource.getDefaultDataSourceType().getTablePrefixToReplace(), normalizeNames ? TypeOfNamingSystemOrNormalized.NORMALIZED : TypeOfNamingSystemOrNormalized.SYSTEM, dataSource.getDefaultDataSourceType().getTableMustPrefixFields());
-            case SQLITE -> workLInSQLBuilder = LInSQLBuilder.createForSQLite(normalizeNames ? TypeOfNamingSystemOrNormalized.NORMALIZED : TypeOfNamingSystemOrNormalized.SYSTEM);
-            case MSSQL -> workLInSQLBuilder = LInSQLBuilder.createForMSSQL(normalizeNames ? TypeOfNamingSystemOrNormalized.NORMALIZED : TypeOfNamingSystemOrNormalized.SYSTEM);
-            default -> throw new IllegalCallerException("dataSource.getTypeOfDB not valid");
+
+            default -> workLInSQLBuilder = LInSQLBuilder.createDefault(dataSource.getDefaultDataSourceType(), normalizeNames ? TypeOfNamingSystemOrNormalized.NORMALIZED : TypeOfNamingSystemOrNormalized.SYSTEM);
         }
     }
 
