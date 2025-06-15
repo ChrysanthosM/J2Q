@@ -6,10 +6,11 @@ import j2q.core.IDeployOrdering;
 import j2q.core.IProvideDataTypeForSQL;
 import j2q.db.definition.DbFieldDataType;
 import lombok.Getter;
+import org.apache.commons.lang3.StringUtils;
 
+import javax.annotation.Nonnull;
 import java.util.List;
 
-import static j2q.commons.CommonMethods.splitCamelCase;
 import static j2q.db.definition.DbFieldDataType.DATATYPE_INTEGER;
 import static j2q.db.definition.DbFieldDataType.DATATYPE_TEXT;
 
@@ -43,11 +44,15 @@ public enum DbF implements IDeployFilters, IDeployOrdering, IProvideDataTypeForS
         this.fieldDataType = null;
         this.asAlias = null;
     }
-
     DbF(String systemName, DbFieldDataType fieldDataType) {
         this.systemName = systemName;
         this.fieldDataType = fieldDataType;
         this.asAlias = splitCamelCase(this.name());
+    }
+    DbF(String systemName, DbFieldDataType fieldDataType, String asAlias) {
+        this.systemName = systemName;
+        this.fieldDataType = fieldDataType;
+        this.asAlias = asAlias;
     }
 
     public List<String> getAcceptedValues() {
@@ -57,5 +62,21 @@ public enum DbF implements IDeployFilters, IDeployOrdering, IProvideDataTypeForS
     @Override
     public Boolean getInQuotesRequirement() {
         return this.getFieldDataType().getInQuotesRequirement();
+    }
+
+
+    private static String splitCamelCase(@Nonnull String input) {
+        StringBuilder result = new StringBuilder();
+
+        for (int i = 0; i < input.length(); i++) {
+            char currentChar = input.charAt(i);
+
+            // Insert space before uppercase letters that follow a lowercase letter
+            if (i > 0 && Character.isUpperCase(currentChar) && Character.isLowerCase(input.charAt(i - 1))) {
+                result.append(StringUtils.SPACE);
+            }
+            result.append(currentChar);
+        }
+        return result.toString();
     }
 }
