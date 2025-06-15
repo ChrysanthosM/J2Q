@@ -42,12 +42,10 @@ final class BuildSQLInsertRows extends BuildSQLCore {
             intoDbFs.add(DbF.DateStamp);
         }
 
-        String tableHasPrefixForFields = forSQLRetrieverForDB.getTableMustPrefixFields()
-                ? StringUtils.defaultString(forSQLRetrieverForDB.getWorkBuildSQLWorkTable().getDbTable().getTablePrefixForFields())
-                : StringUtils.EMPTY;
-        final List<String> insertIntoFieldsForSQL = Lists.newArrayList();
-        intoDbFs.forEach(f -> insertIntoFieldsForSQL.add(forSQLRetrieverForDB.isNamingIsNormalized() ? f.name() : tableHasPrefixForFields.concat(f.getSystemName())));
-        this.insertIntoFieldsForSQL = insertIntoFieldsForSQL.stream().collect(Collectors.joining(", ", "(", ")"));
+        String tableHasPrefixForFields = StringUtils.defaultString(forSQLRetrieverForDB.getWorkBuildSQLWorkTable().getDbTable().getTablePrefixForFields());
+        final List<String> tempInsertIntoFieldsForSQL = Lists.newArrayList();
+        intoDbFs.forEach(f -> tempInsertIntoFieldsForSQL.add(forSQLRetrieverForDB.isNamingIsNormalized() ? f.name() : tableHasPrefixForFields.concat(f.getSystemName())));
+        this.insertIntoFieldsForSQL = tempInsertIntoFieldsForSQL.stream().collect(Collectors.joining(", ", "(", ")"));
     }
 
     public String getInsertIntoFieldsForSQL() { return this.insertIntoFieldsForSQL.concat(StringUtils.SPACE); }

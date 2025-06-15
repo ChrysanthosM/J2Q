@@ -13,18 +13,14 @@ final class LInSQLBuilder {
     SQLRetrieverForDBs getSqlRetrieverForDB() { return this.sqlStatementRetrieve.getSqlRetrieverForDB(); }
 
     static LInSQLBuilder createDefault(WorkWithDataSource.DataSourceType dataSourceType, LinSQL.TypeOfNamingSystemOrNormalized typeOfNamingSystemOrNormalized) {
-        return new LInSQLBuilder(dataSourceType, StringUtils.EMPTY, false, typeOfNamingSystemOrNormalized);
+        return new LInSQLBuilder(dataSourceType, typeOfNamingSystemOrNormalized, StringUtils.EMPTY);
+    }
+    static LInSQLBuilder createWithTablePrefix(WorkWithDataSource.DataSourceType dataSourceType, LinSQL.TypeOfNamingSystemOrNormalized typeOfNamingSystemOrNormalized, String dbPrefixForTable) {
+        return new LInSQLBuilder(dataSourceType, typeOfNamingSystemOrNormalized, dbPrefixForTable);
     }
 
-    static LInSQLBuilder createForDB2(String dbPrefixForTableOrLocation) { return createForDB2(dbPrefixForTableOrLocation, LinSQL.TypeOfNamingSystemOrNormalized.SYSTEM, false); }
-    static LInSQLBuilder createForDB2(String dbPrefixForTableOrLocation, LinSQL.TypeOfNamingSystemOrNormalized typeOfNamingSystemOrNormalized) { return createForDB2(dbPrefixForTableOrLocation, typeOfNamingSystemOrNormalized, false); }
-    static LInSQLBuilder createForDB2(String dbPrefixForTableOrLocation, boolean tableMustPrefixFields) { return createForDB2(dbPrefixForTableOrLocation, LinSQL.TypeOfNamingSystemOrNormalized.SYSTEM, tableMustPrefixFields); }
-    static LInSQLBuilder createForDB2(String dbPrefixForTableOrLocation, LinSQL.TypeOfNamingSystemOrNormalized typeOfNamingSystemOrNormalized, boolean tableMustPrefixFields) {
-        return new LInSQLBuilder(WorkWithDataSource.DataSourceType.DB2_AS400, dbPrefixForTableOrLocation, tableMustPrefixFields, typeOfNamingSystemOrNormalized);
-    }
-
-    private LInSQLBuilder(WorkWithDataSource.DataSourceType typeOfDB, String dbPrefixForTableOrLocation, boolean tableMustPrefixFields, LinSQL.TypeOfNamingSystemOrNormalized typeOfNamingSystemOrNormalized) {
-        this.sqlStatementRetrieve = new SQLStatementRetrieve(typeOfDB, dbPrefixForTableOrLocation, tableMustPrefixFields, typeOfNamingSystemOrNormalized);
+    private LInSQLBuilder(WorkWithDataSource.DataSourceType typeOfDB, LinSQL.TypeOfNamingSystemOrNormalized typeOfNamingSystemOrNormalized, String dbPrefixForTable) {
+        this.sqlStatementRetrieve = new SQLStatementRetrieve(typeOfDB, typeOfNamingSystemOrNormalized, dbPrefixForTable);
     }
 
 

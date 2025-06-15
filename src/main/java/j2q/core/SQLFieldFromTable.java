@@ -49,9 +49,7 @@ final class SQLFieldFromTable extends SqlUserSelection {
     String getResolveObjectForSQLMain(SQLRetrieverForDBs forSQLRetrieverForDB, @Nullable DbT forDbt) {
         String returnName = StringUtils.defaultString(this.getHasPrefix());
 
-        String tableHasPrefixForFields = forSQLRetrieverForDB.getTableMustPrefixFields()
-                ? (forDbt == null ? StringUtils.EMPTY : StringUtils.defaultString(DbTableInstances.getMapTableInstance(forDbt).getTablePrefixForFields()))
-                : StringUtils.EMPTY;
+        String tableHasPrefixForFields = (forDbt == null ? StringUtils.EMPTY : StringUtils.defaultString(DbTableInstances.getMapTableInstance(forDbt).getTablePrefixForFields()));
 
         if (forSQLRetrieverForDB.getTypeOfNamingSystemOrNormalized() == LinSQL.TypeOfNamingSystemOrNormalized.SYSTEM) {
             returnName = returnName.concat(tableHasPrefixForFields.concat(this.dbField.getDbfSystemName()));

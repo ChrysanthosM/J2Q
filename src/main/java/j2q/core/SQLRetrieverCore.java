@@ -16,7 +16,6 @@ abstract sealed class SQLRetrieverCore implements IDeployMethods, IDeploySQLStat
         permits SQLRetrieverForDBs {
     protected abstract String getDbPrefixForTableLocation();
     protected abstract LinSQL.TypeOfNamingSystemOrNormalized getTypeOfNamingSystemOrNormalized();
-    protected abstract boolean getTableMustPrefixFields();
 
     //initSQLStatement
     @Getter @Setter(AccessLevel.PROTECTED) private BuildSQLWorkTable workBuildSQLWorkTable = null;

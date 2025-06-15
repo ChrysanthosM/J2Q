@@ -6,12 +6,13 @@ import lombok.Getter;
 @Getter
 final class SQLStatementRetrieve {
     private final SQLRetrieverForDBs sqlRetrieverForDB;
-    SQLStatementRetrieve(WorkWithDataSource.DataSourceType typeOfDB, String dbPrefixForTableLocation, boolean tableMustPrefixFields,
-                         LinSQL.TypeOfNamingSystemOrNormalized typeOfNamingSystemOrNormalized) {
+    SQLStatementRetrieve(WorkWithDataSource.DataSourceType typeOfDB,
+                         LinSQL.TypeOfNamingSystemOrNormalized typeOfNamingSystemOrNormalized,
+                         String dbPrefixForTable) {
         switch (typeOfDB) {
             case SQLITE -> this.sqlRetrieverForDB = new SQLRetrieverForDB_SQLite(typeOfNamingSystemOrNormalized);
-            case DB2_AS400 -> this.sqlRetrieverForDB = new SQLRetrieverForDB_DB2(typeOfNamingSystemOrNormalized, dbPrefixForTableLocation, tableMustPrefixFields);
-            case MSSQL -> this.sqlRetrieverForDB = new SQLRetrieverForDB_MSSQL(typeOfNamingSystemOrNormalized, dbPrefixForTableLocation, tableMustPrefixFields);
+            case DB2_AS400 -> this.sqlRetrieverForDB = new SQLRetrieverForDB_DB2(typeOfNamingSystemOrNormalized, dbPrefixForTable);
+            case MSSQL -> this.sqlRetrieverForDB = new SQLRetrieverForDB_MSSQL(typeOfNamingSystemOrNormalized, dbPrefixForTable);
             default -> throw new UnsupportedOperationException(typeOfDB + " is not supported");
         }
     }

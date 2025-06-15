@@ -15,13 +15,12 @@ public class WorkWithDataSource {
     @AllArgsConstructor
     @Getter
     public enum DataSourceType {
-        SQLITE ("sqlite",  null, false),
-        MSSQL ("mssql",  null, false),
-        DB2_AS400 ("db2i",  "$.", true),
+        SQLITE ("sqlite",  null),
+        MSSQL ("mssql",  null),
+        DB2_AS400 ("db2i",  "$."),
         ;
         private final String propertyName;
         private final String tablePrefixToReplace;
-        private final Boolean tableMustPrefixFields;
 
         public static DataSourceType getByPropertyName(String propertyName) {
             for (DataSourceType type : values()) {

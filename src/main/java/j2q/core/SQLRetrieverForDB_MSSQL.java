@@ -34,8 +34,8 @@ final class SQLRetrieverForDB_MSSQL extends SQLRetrieverForDBs {
                     .put(LinSQL.TypeOfJoin.RIGHT , "RIGHT JOIN")
                     .build();
 
-    SQLRetrieverForDB_MSSQL(LinSQL.TypeOfNamingSystemOrNormalized namingSystemOrNormalized, @Nullable String dbPrefixForTable, boolean tableMustPrefixFields) {
-        super(namingSystemOrNormalized, Strings.nullToEmpty(dbPrefixForTable), tableMustPrefixFields);
+    SQLRetrieverForDB_MSSQL(LinSQL.TypeOfNamingSystemOrNormalized namingSystemOrNormalized, @Nullable String dbPrefixForTable) {
+        super(namingSystemOrNormalized, Strings.nullToEmpty(dbPrefixForTable));
     }
 
     @Override public String getNullWord() { return "NULL"; }

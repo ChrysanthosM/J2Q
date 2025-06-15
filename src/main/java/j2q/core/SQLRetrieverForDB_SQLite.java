@@ -33,7 +33,7 @@ final class SQLRetrieverForDB_SQLite extends SQLRetrieverForDBs {
                     .build();
 
     SQLRetrieverForDB_SQLite(LinSQL.TypeOfNamingSystemOrNormalized namingSystemOrNormalized) {
-        super(namingSystemOrNormalized, StringUtils.EMPTY, false);
+        super(namingSystemOrNormalized, StringUtils.EMPTY);
     }
 
     @Override public String getNullWord() { return "NULL"; }

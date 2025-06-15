@@ -36,10 +36,12 @@ final class LinSQL {
 
     public static LinSQL create(WorkWithDataSource dataSource, boolean normalizeNames) { return new LinSQL(dataSource, normalizeNames); }
     private LinSQL(WorkWithDataSource dataSource, boolean normalizeNames) {
-        switch (dataSource.getDefaultDataSourceType()) {
-            case DB2_AS400 -> workLInSQLBuilder = LInSQLBuilder.createForDB2(dataSource.getDefaultDataSourceType().getTablePrefixToReplace(), normalizeNames ? TypeOfNamingSystemOrNormalized.NORMALIZED : TypeOfNamingSystemOrNormalized.SYSTEM, dataSource.getDefaultDataSourceType().getTableMustPrefixFields());
+        TypeOfNamingSystemOrNormalized typeOfNamingSystemOrNormalized = normalizeNames ? TypeOfNamingSystemOrNormalized.NORMALIZED : TypeOfNamingSystemOrNormalized.SYSTEM;
 
-            default -> workLInSQLBuilder = LInSQLBuilder.createDefault(dataSource.getDefaultDataSourceType(), normalizeNames ? TypeOfNamingSystemOrNormalized.NORMALIZED : TypeOfNamingSystemOrNormalized.SYSTEM);
+        switch (dataSource.getDefaultDataSourceType()) {
+            case DB2_AS400 -> workLInSQLBuilder = LInSQLBuilder.createWithTablePrefix(dataSource.getDefaultDataSourceType(), typeOfNamingSystemOrNormalized, dataSource.getDefaultDataSourceType().getTablePrefixToReplace());
+
+            default -> workLInSQLBuilder = LInSQLBuilder.createDefault(dataSource.getDefaultDataSourceType(), typeOfNamingSystemOrNormalized);
         }
     }
 
