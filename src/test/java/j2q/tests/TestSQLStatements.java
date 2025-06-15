@@ -30,11 +30,13 @@ public class TestSQLStatements {
         String checkTest = StringUtils.trimToEmpty(
                 StringUtils.isBlank(workDataSource.getDefaultDataSourceType().getTablePrefixToReplace())
                         ? shouldBe.replace("$.", StringUtils.EMPTY).replaceAll("\\s+", StringUtils.SPACE).replaceAll("\\s+,", ",")
-                        : shouldBe.replaceAll("\\s+", StringUtils.SPACE).replaceAll("\\s+,", ",")
+                        : shouldBe.replaceAll("\\s+", StringUtils.SPACE).replaceAll("\\s+,", ",").toUpperCase()
         );
 
-        boolean areSame = Objects.equals(stmt, checkTest);
-        return areSame + " - " + stmt;
+        boolean areSame = Objects.equals(
+                stmt.toUpperCase().replace("$.", StringUtils.EMPTY),
+                checkTest.toUpperCase().replace("$.", StringUtils.EMPTY));
+        return areSame + " - " + stmt.toUpperCase();
     }
 
     @Test

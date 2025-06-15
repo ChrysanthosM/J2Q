@@ -1,9 +1,9 @@
 package j2q.core;
 
 import j2q.setup.definition.design.schema.enums.DbF;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import java.lang.reflect.Type;
 
 public final class SQLFieldFromPairOfTableField extends SqlUserSelection {

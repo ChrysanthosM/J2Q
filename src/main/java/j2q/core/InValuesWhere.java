@@ -1,8 +1,8 @@
 package j2q.core;
 
+import jakarta.annotation.Nonnull;
 import org.apache.commons.collections4.CollectionUtils;
 
-import javax.annotation.Nonnull;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;

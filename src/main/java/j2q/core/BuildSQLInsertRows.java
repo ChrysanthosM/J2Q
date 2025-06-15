@@ -38,8 +38,8 @@ final class BuildSQLInsertRows extends BuildSQLCore {
         super.setStringForSQL(Joiner.on(", ").join(insertRowsForSQL));
 
         if (putAutoStamp) {
-            intoDbFs.add(DbF.UserStamp);
-            intoDbFs.add(DbF.DateStamp);
+            intoDbFs.add(DbF.USER_STAMP);
+            intoDbFs.add(DbF.DATE_STAMP);
         }
 
         String tableHasPrefixForFields = StringUtils.defaultString(forSQLRetrieverForDB.getWorkBuildSQLWorkTable().getDbTable().getTablePrefixForFields());

@@ -2,7 +2,7 @@ package j2q.core;
 
 import org.apache.commons.lang3.StringUtils;
 
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 final class LinSQLCommons {
     static final String QUOTE =  "'";

@@ -8,14 +8,14 @@ public final class DbFValues {
     @Getter @AllArgsConstructor
     public enum ValuesForEntityType implements IValueFor {
         TEMP_STUCK("E01"), SURROGATE_NUM("E02");
-        private final DbF forDbF = DbF.EntityType;
+        private final DbF forDbF = DbF.ENTITY_TYPE;
         private final String value;
     }
 
     @Getter @AllArgsConstructor
     public enum ValuesForOptionType implements IValueFor {
         SYS_PARAM("O01"), FORM_SETTING("O02");
-        private final DbF forDbF = DbF.OptionType;
+        private final DbF forDbF = DbF.OPTION_TYPE;
         private final String value;
     }
 }

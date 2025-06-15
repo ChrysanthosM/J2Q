@@ -1,6 +1,6 @@
 package j2q.core;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 import java.lang.reflect.Type;
 
 final class SQLFieldObject extends SqlUserSelection {

@@ -1,12 +1,12 @@
 package j2q.core;
 
 import com.google.common.base.Joiner;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import jdk.jfr.Description;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import java.util.List;
 import java.util.Objects;
 import java.util.stream.Collectors;

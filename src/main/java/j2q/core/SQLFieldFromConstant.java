@@ -2,8 +2,8 @@ package j2q.core;
 
 import com.google.common.base.Preconditions;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import java.lang.reflect.Type;
 import java.util.Optional;
 

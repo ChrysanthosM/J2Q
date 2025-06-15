@@ -1,6 +1,7 @@
 package j2q.core;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
+
 import java.lang.reflect.Type;
 
 sealed interface ISqlUserSelection extends IResolveObjectForSQL, IDeployFilters

@@ -8,8 +8,9 @@ import j2q.db.definition.DbFieldDataType;
 import lombok.Getter;
 import org.apache.commons.lang3.StringUtils;
 
-import javax.annotation.Nonnull;
+import java.util.Arrays;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import static j2q.db.definition.DbFieldDataType.DATATYPE_INTEGER;
 import static j2q.db.definition.DbFieldDataType.DATATYPE_TEXT;
@@ -18,20 +19,20 @@ import static j2q.db.definition.DbFieldDataType.DATATYPE_TEXT;
 public enum DbF implements IDeployFilters, IDeployOrdering, IProvideDataTypeForSQL {
     ALL("*"),
 
-    RecID("Sys_RecID", DATATYPE_INTEGER),
-    UserStamp("Sys_UserStamp", DATATYPE_TEXT),
-    DateStamp("Sys_DateStamp", DATATYPE_TEXT),
+    REC_ID("Sys_RecID", DATATYPE_INTEGER),
+    USER_STAMP("Sys_UserStamp", DATATYPE_TEXT),
+    DATE_STAMP("Sys_DateStamp", DATATYPE_TEXT),
 
-    UserName("Sys_UserName", DATATYPE_TEXT),
-    UserPassword("Sys_Password", DATATYPE_TEXT),
+    USER_NAME("Sys_UserName", DATATYPE_TEXT),
+    USER_PASSWORD("Sys_Password", DATATYPE_TEXT),
 
-    EntityType("Sys_EntityType", DATATYPE_TEXT),
-    EntityNumber("Sys_EntityNumber", DATATYPE_INTEGER),
+    ENTITY_TYPE("Sys_EntityType", DATATYPE_TEXT),
+    ENTITY_NUMBER("Sys_EntityNumber", DATATYPE_INTEGER),
 
-    OptionType("Sys_OptionType", DATATYPE_TEXT),
-    OptionName("Sys_OptionName", DATATYPE_TEXT),
-    OptionValue("Sys_OptionValue", DATATYPE_TEXT),
-    OptionDetails("Sys_OptionDetails", DATATYPE_TEXT),
+    OPTION_TYPE("Sys_OptionType", DATATYPE_TEXT),
+    OPTION_NAME("Sys_OptionName", DATATYPE_TEXT),
+    OPTION_VALUE("Sys_OptionValue", DATATYPE_TEXT),
+    OPTION_DETAILS("Sys_OptionDetails", DATATYPE_TEXT),
 
     ;
 
@@ -47,7 +48,7 @@ public enum DbF implements IDeployFilters, IDeployOrdering, IProvideDataTypeForS
     DbF(String systemName, DbFieldDataType fieldDataType) {
         this.systemName = systemName;
         this.fieldDataType = fieldDataType;
-        this.asAlias = splitCamelCase(this.name());
+        this.asAlias = Arrays.stream(this.systemName.toLowerCase().split("_")).map(StringUtils::capitalize).collect(Collectors.joining(StringUtils.SPACE));
     }
     DbF(String systemName, DbFieldDataType fieldDataType, String asAlias) {
         this.systemName = systemName;
@@ -62,21 +63,5 @@ public enum DbF implements IDeployFilters, IDeployOrdering, IProvideDataTypeForS
     @Override
     public Boolean getInQuotesRequirement() {
         return this.getFieldDataType().getInQuotesRequirement();
-    }
-
-
-    private static String splitCamelCase(@Nonnull String input) {
-        StringBuilder result = new StringBuilder();
-
-        for (int i = 0; i < input.length(); i++) {
-            char currentChar = input.charAt(i);
-
-            // Insert space before uppercase letters that follow a lowercase letter
-            if (i > 0 && Character.isUpperCase(currentChar) && Character.isLowerCase(input.charAt(i - 1))) {
-                result.append(StringUtils.SPACE);
-            }
-            result.append(currentChar);
-        }
-        return result.toString();
     }
 }

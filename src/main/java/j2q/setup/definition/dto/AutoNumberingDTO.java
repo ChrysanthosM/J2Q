@@ -21,17 +21,17 @@ public record AutoNumberingDTO(int recId, String entityType, int entityNumber) i
         @Override
         public AutoNumberingDTO convertResultSet(ResultSet resultSet) throws SQLException {
             return new AutoNumberingDTO(
-                    resultSet.getInt(DbF.RecID.getSystemName()),
-                    resultSet.getString(DbF.EntityType.getSystemName()),
-                    resultSet.getInt(DbF.EntityNumber.getSystemName())
+                    resultSet.getInt(DbF.REC_ID.getSystemName()),
+                    resultSet.getString(DbF.ENTITY_TYPE.getSystemName()),
+                    resultSet.getInt(DbF.ENTITY_NUMBER.getSystemName())
             );
         }
         @Override
         public AutoNumberingDTO convertResultSet(List<Pair<String, Object>> columnNamesValues) throws NoSuchElementException {
             return new AutoNumberingDTO(
-                    DtoFieldValue.getValue(DbF.RecID, columnNamesValues),
-                    DtoFieldValue.getValue(DbF.EntityType, columnNamesValues),
-                    DtoFieldValue.getValue(DbF.EntityNumber, columnNamesValues)
+                    DtoFieldValue.getValue(DbF.REC_ID, columnNamesValues),
+                    DtoFieldValue.getValue(DbF.ENTITY_TYPE, columnNamesValues),
+                    DtoFieldValue.getValue(DbF.ENTITY_NUMBER, columnNamesValues)
             );
         }
     }

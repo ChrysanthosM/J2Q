@@ -12,7 +12,7 @@ import org.springframework.stereotype.Component;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.validation.annotation.Validated;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 import java.sql.*;
 import java.util.*;
 

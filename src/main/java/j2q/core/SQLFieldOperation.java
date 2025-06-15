@@ -3,7 +3,7 @@ package j2q.core;
 import com.google.common.base.Preconditions;
 import org.apache.commons.lang3.StringUtils;
 
-import javax.annotation.Nullable;
+import jakarta.annotation.Nullable;
 import java.lang.reflect.Type;
 
 final class SQLFieldOperation extends SqlUserSelection {

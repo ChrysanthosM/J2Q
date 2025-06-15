@@ -7,9 +7,9 @@ import java.util.List;
 
 @AllArgsConstructor @Getter
 public enum DbT {
-    Users("Sys_Users", "AC", List.of(DbF.RecID), false, false),
-    AutoNumbering("Sys_AutoNumbering", "AA", List.of(DbF.RecID), true, false),
-    Options("Sys_Options", "AB", List.of(DbF.RecID), true, true),
+    USERS("Sys_Users", "AC", List.of(DbF.REC_ID), false, false),
+    AUTO_NUMBERING("Sys_AutoNumbering", "AA", List.of(DbF.REC_ID), true, false),
+    OPTIONS("Sys_Options", "AB", List.of(DbF.REC_ID), true, true),
     ;
 
     private final String systemName;

@@ -1,9 +1,8 @@
 package j2q.core;
 
 import com.google.common.base.Strings;
+import jakarta.annotation.Nullable;
 import org.apache.commons.lang3.StringUtils;
-
-import javax.annotation.Nullable;
 
 sealed abstract class AbstractWhere extends AbstractFilter
         permits BetweenValuesWhere, ExistsWhere, InSubSelectWhere, InValuesWhere, LikeValueWhere, ValueWhere {

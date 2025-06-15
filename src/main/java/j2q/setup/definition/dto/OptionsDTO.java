@@ -22,25 +22,25 @@ public record OptionsDTO(int recId, String optionType, String optionName, String
         @Override
         public OptionsDTO convertResultSet(ResultSet resultSet) throws SQLException {
             return new OptionsDTO(
-                    resultSet.getInt(DbF.RecID.getSystemName()),
-                    resultSet.getString(DbF.OptionType.getSystemName()),
-                    resultSet.getString(DbF.OptionName.getSystemName()),
-                    resultSet.getString(DbF.OptionValue.getSystemName()),
-                    resultSet.getString(DbF.OptionDetails.getSystemName()),
-                    resultSet.getString(DbF.UserStamp.getSystemName()),
-                    resultSet.getString(DbF.DateStamp.getSystemName())
+                    resultSet.getInt(DbF.REC_ID.getSystemName()),
+                    resultSet.getString(DbF.OPTION_TYPE.getSystemName()),
+                    resultSet.getString(DbF.OPTION_NAME.getSystemName()),
+                    resultSet.getString(DbF.OPTION_VALUE.getSystemName()),
+                    resultSet.getString(DbF.OPTION_DETAILS.getSystemName()),
+                    resultSet.getString(DbF.USER_STAMP.getSystemName()),
+                    resultSet.getString(DbF.DATE_STAMP.getSystemName())
             );
         }
         @Override
         public OptionsDTO convertResultSet(List<Pair<String, Object>> columnNamesValues) throws NoSuchElementException {
             return new OptionsDTO(
-                    DtoFieldValue.getValue(DbF.RecID, columnNamesValues),
-                    DtoFieldValue.getValue(DbF.OptionType, columnNamesValues),
-                    DtoFieldValue.getValue(DbF.OptionName, columnNamesValues),
-                    DtoFieldValue.getValue(DbF.OptionValue, columnNamesValues),
-                    DtoFieldValue.getValue(DbF.OptionDetails, columnNamesValues),
-                    DtoFieldValue.getValue(DbF.UserStamp, columnNamesValues),
-                    DtoFieldValue.getValue(DbF.DateStamp, columnNamesValues)
+                    DtoFieldValue.getValue(DbF.REC_ID, columnNamesValues),
+                    DtoFieldValue.getValue(DbF.OPTION_TYPE, columnNamesValues),
+                    DtoFieldValue.getValue(DbF.OPTION_NAME, columnNamesValues),
+                    DtoFieldValue.getValue(DbF.OPTION_VALUE, columnNamesValues),
+                    DtoFieldValue.getValue(DbF.OPTION_DETAILS, columnNamesValues),
+                    DtoFieldValue.getValue(DbF.USER_STAMP, columnNamesValues),
+                    DtoFieldValue.getValue(DbF.DATE_STAMP, columnNamesValues)
             );
         }
     }

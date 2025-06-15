@@ -1,8 +1,7 @@
 package j2q.core;
 
+import jakarta.annotation.Nonnull;
 import org.apache.commons.lang3.tuple.Pair;
-
-import javax.annotation.Nonnull;
 
 final class BetweenValuesWhere extends AbstractWhere {
     @Override TypeOfWhere getTypeOfWhere() { return TypeOfWhere.WhereBetween; }

@@ -2,10 +2,10 @@ package j2q.core;
 
 import com.google.common.base.Strings;
 import com.google.common.collect.ImmutableMap;
+import jakarta.annotation.Nullable;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Pair;
 
-import javax.annotation.Nullable;
 import javax.swing.*;
 import java.math.BigInteger;
 import java.util.Map;

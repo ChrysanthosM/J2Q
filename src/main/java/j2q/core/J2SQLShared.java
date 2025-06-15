@@ -2,12 +2,12 @@ package j2q.core;
 
 import com.google.common.base.Preconditions;
 import com.google.common.collect.Lists;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import jdk.jfr.Description;
 import lombok.AllArgsConstructor;
 import org.apache.commons.lang3.tuple.MutablePair;
 
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 import javax.swing.*;
 import java.util.List;
 import java.util.Optional;

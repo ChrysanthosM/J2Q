@@ -4,12 +4,11 @@ import j2q.setup.definition.design.schema.enums.DbF;
 import j2q.setup.definition.design.schema.enums.DbT;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.Triple;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
 
 import java.lang.reflect.Type;
 import java.util.List;

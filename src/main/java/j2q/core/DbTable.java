@@ -2,12 +2,12 @@ package j2q.core;
 
 import j2q.setup.definition.design.schema.enums.DbF;
 import j2q.setup.definition.design.schema.enums.DbT;
+import jakarta.annotation.Nonnull;
 import jakarta.annotation.PostConstruct;
 import lombok.AccessLevel;
 import lombok.Getter;
 import org.apache.commons.lang3.tuple.Pair;
 
-import javax.annotation.Nonnull;
 import java.util.List;
 
 @Getter(AccessLevel.PROTECTED)

@@ -1,8 +1,8 @@
 package j2q.core;
 
+import jakarta.annotation.Nullable;
 import lombok.Getter;
 
-import javax.annotation.Nullable;
 import java.lang.reflect.Type;
 
 abstract non-sealed class SqlUserSelection implements ISqlUserSelection {

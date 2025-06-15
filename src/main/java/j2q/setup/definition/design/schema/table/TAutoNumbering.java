@@ -9,11 +9,11 @@ import org.springframework.stereotype.Component;
 @Component
 public final class TAutoNumbering extends TTable {
     private TAutoNumbering() {
-        super(DbT.AutoNumbering);
+        super(DbT.AUTO_NUMBERING);
         setDbFs(REC_ID, ENTITY_TYPE, ENTITY_NUMBER);
     }
 
-    public final PairOfTableField REC_ID = getPairOfTableField(DbF.RecID);
-    public final PairOfTableField ENTITY_TYPE = getPairOfTableField(DbF.EntityType);
-    public final PairOfTableField ENTITY_NUMBER = getPairOfTableField(DbF.EntityNumber);
+    public final PairOfTableField REC_ID = getPairOfTableField(DbF.REC_ID);
+    public final PairOfTableField ENTITY_TYPE = getPairOfTableField(DbF.ENTITY_TYPE);
+    public final PairOfTableField ENTITY_NUMBER = getPairOfTableField(DbF.ENTITY_NUMBER);
 }

@@ -21,17 +21,17 @@ public record UsersDTO(int recId, String userName, String userPassword) implemen
         @Override
         public UsersDTO convertResultSet(ResultSet resultSet) throws SQLException {
             return new UsersDTO(
-                    resultSet.getInt(DbF.RecID.getSystemName()),
-                    resultSet.getString(DbF.UserName.getSystemName()),
-                    resultSet.getString(DbF.UserPassword.getSystemName())
+                    resultSet.getInt(DbF.REC_ID.getSystemName()),
+                    resultSet.getString(DbF.USER_NAME.getSystemName()),
+                    resultSet.getString(DbF.USER_PASSWORD.getSystemName())
             );
         }
         @Override
         public UsersDTO convertResultSet(List<Pair<String, Object>> columnNamesValues) throws NoSuchElementException {
             return new UsersDTO(
-                    DtoFieldValue.getValue(DbF.RecID, columnNamesValues),
-                    DtoFieldValue.getValue(DbF.UserName, columnNamesValues),
-                    DtoFieldValue.getValue(DbF.UserPassword, columnNamesValues)
+                    DtoFieldValue.getValue(DbF.REC_ID, columnNamesValues),
+                    DtoFieldValue.getValue(DbF.USER_NAME, columnNamesValues),
+                    DtoFieldValue.getValue(DbF.USER_PASSWORD, columnNamesValues)
             );
         }
     }

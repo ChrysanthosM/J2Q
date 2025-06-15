@@ -1,8 +1,7 @@
 package j2q.core;
 
 import com.google.common.base.Strings;
-
-import javax.annotation.Nonnull;
+import jakarta.annotation.Nonnull;
 
 final class InSubSelectWhere extends AbstractWhere {
     @Override TypeOfWhere getTypeOfWhere() { return TypeOfWhere.WhereInSubSelect; }

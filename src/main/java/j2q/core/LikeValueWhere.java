@@ -1,9 +1,8 @@
 package j2q.core;
 
 import com.google.common.base.Strings;
-
-import javax.annotation.Nonnull;
-import javax.annotation.Nullable;
+import jakarta.annotation.Nonnull;
+import jakarta.annotation.Nullable;
 
 final class LikeValueWhere extends AbstractWhere {
     @Override TypeOfWhere getTypeOfWhere() { return TypeOfWhere.WhereLike; }

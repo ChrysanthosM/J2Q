@@ -1,9 +1,9 @@
 package j2q.core;
 
 import com.google.common.collect.Lists;
+import jakarta.annotation.Nullable;
 import org.apache.commons.collections4.CollectionUtils;
 
-import javax.annotation.Nullable;
 import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Objects;
