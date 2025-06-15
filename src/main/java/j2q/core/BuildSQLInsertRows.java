@@ -1,6 +1,5 @@
 package j2q.core;
 
-import j2q.commons.CommonMethods;
 import j2q.setup.definition.design.schema.enums.DbF;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
@@ -48,7 +47,7 @@ final class BuildSQLInsertRows extends BuildSQLCore {
                 : StringUtils.EMPTY;
         final List<String> insertIntoFieldsForSQL = Lists.newArrayList();
         intoDbFs.forEach(f -> insertIntoFieldsForSQL.add(forSQLRetrieverForDB.isNamingIsNormalized() ? f.name() : tableHasPrefixForFields.concat(f.getSystemName())));
-        this.insertIntoFieldsForSQL = CommonMethods.stringsConcat(true, Joiner.on(", ").join(insertIntoFieldsForSQL));
+        this.insertIntoFieldsForSQL = insertIntoFieldsForSQL.stream().collect(Collectors.joining(", ", "(", ")"));
     }
 
     public String getInsertIntoFieldsForSQL() { return this.insertIntoFieldsForSQL.concat(StringUtils.SPACE); }
@@ -64,6 +63,6 @@ final class BuildSQLInsertRows extends BuildSQLCore {
             fieldValuesForSQL.add(System.getenv("USERNAME"));
             fieldValuesForSQL.add(new Timestamp(System.currentTimeMillis()).toString());
         }
-        return CommonMethods.stringsConcat(true, Joiner.on(", ").join(fieldValuesForSQL));
+        return fieldValuesForSQL.stream().collect(Collectors.joining(", ", "(", ")"));
     }
 }

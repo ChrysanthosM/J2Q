@@ -8,19 +8,20 @@ import org.apache.commons.lang3.StringUtils;
 
 sealed abstract class SQLRetrieverForDBs extends SQLRetrieverCore implements IDefaultsSQLRetrieverForDBs
         permits SQLRetrieverForDB_DB2, SQLRetrieverForDB_MSSQL, SQLRetrieverForDB_SQLite {
+
     private final LinSQL.TypeOfNamingSystemOrNormalized typeOfNamingSystemOrNormalized;
     private final String dbPrefixForTableLocation;
     private final boolean tableMustPrefixFields;
+
     SQLRetrieverForDBs(LinSQL.TypeOfNamingSystemOrNormalized typeOfNamingSystemOrNormalized, String dbPrefixForTableLocation, boolean tableMustPrefixFields) {
         this.typeOfNamingSystemOrNormalized = typeOfNamingSystemOrNormalized;
         this.dbPrefixForTableLocation = dbPrefixForTableLocation;
         this.tableMustPrefixFields = tableMustPrefixFields;
     }
+
     @Override public LinSQL.TypeOfNamingSystemOrNormalized getTypeOfNamingSystemOrNormalized() { return this.typeOfNamingSystemOrNormalized; }
     @Override public String getDbPrefixForTableLocation() { return this.dbPrefixForTableLocation; }
-    @Override public boolean getTableMustPrefixFields() {
-        return this.tableMustPrefixFields;
-    }
+    @Override public boolean getTableMustPrefixFields() { return this.tableMustPrefixFields; }
 
     boolean isNamingIsNormalized() { return (this.typeOfNamingSystemOrNormalized == LinSQL.TypeOfNamingSystemOrNormalized.NORMALIZED); }
 

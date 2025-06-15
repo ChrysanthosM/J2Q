@@ -1,6 +1,5 @@
 package j2q.core;
 
-import j2q.commons.CommonMethods;
 import com.google.common.base.Strings;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -23,16 +22,14 @@ final class BuildSQLWorkTable extends BuildSQLCore {
 //            this.dbTable.getDbtHasFieldsNameEnum_NormalName().forEach((k, v) -> tempWorkTableHasFields.put(k, finalTableName.concat(v)));
 //        }
 
-        String useTableName = CommonMethods.stringsConcat(false,
-                StringUtils.defaultString(forSQLRetrieverForDB.getDbPrefixForTableLocation()),
-                (forSQLRetrieverForDB.getTypeOfNamingSystemOrNormalized() == LinSQL.TypeOfNamingSystemOrNormalized.SYSTEM)
+        String useTableName = StringUtils.defaultString(forSQLRetrieverForDB.getDbPrefixForTableLocation()) +
+                (forSQLRetrieverForDB.getTypeOfNamingSystemOrNormalized() == LinSQL.TypeOfNamingSystemOrNormalized.SYSTEM
                         ? this.dbTable.getDbTableInfo().getDbtSystemName()
                         : this.dbTable.getDbTableInfo().getDbtNormalName());
 
-        super.setStringForSQL(CommonMethods.stringsConcat(false,
-                useTableName,
-                Strings.isNullOrEmpty(this.tableAsAlias)
+        super.setStringForSQL(useTableName +
+                (Strings.isNullOrEmpty(this.tableAsAlias)
                         ? StringUtils.EMPTY
-                        : CommonMethods.stringsConcat(false, " AS ", this.tableAsAlias)));
+                        : " AS " + this.tableAsAlias));
     }
 }

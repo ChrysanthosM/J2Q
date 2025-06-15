@@ -1,6 +1,5 @@
 package j2q.core;
 
-import j2q.commons.CommonMethods;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
 import lombok.Getter;
@@ -10,6 +9,7 @@ import org.apache.commons.lang3.tuple.MutableTriple;
 import org.apache.commons.lang3.tuple.Triple;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 final class BuildSQLJoinWith extends BuildSQLCore {
     private String selectedJoinFieldsForSQL = StringUtils.EMPTY;
@@ -42,13 +42,15 @@ final class BuildSQLJoinWith extends BuildSQLCore {
                     joinLinSQL.getSqlRetrieverForDB().getWorkBuildSQLWorkTable().getDbTable().getDbTableInfo().getDbtHasDbFieldNamesEnum()));
             joinLinSQL.getSqlRetrieverForDB().addAvailableTableWithFields(forSQLRetrieverForDB.getAvailableTablesWithFields());
 
-            String joinWithTable = CommonMethods.stringsConcat(false, forSQLRetrieverForDB.getJoinType().get(joinWith.getLeft()), StringUtils.SPACE, joinLinSQL.getWorkBuildSQLWorkTable().getStringForSQL());
+            String joinWithTable = forSQLRetrieverForDB.getJoinType().get(joinWith.getLeft()) +
+                    StringUtils.SPACE +
+                    joinLinSQL.getWorkBuildSQLWorkTable().getStringForSQL();
             List<String> joinOnFields = BuildSQLWhereFilters.getResolveFiltersForSQL(joinLinSQL.getSqlRetrieverForDB(), joinWith.getRight(), true);
             String joinOn = StringUtils.EMPTY;
-            if (CollectionUtils.isNotEmpty(joinOnFields)) joinOn = CommonMethods.stringsConcat(false,"ON (", Joiner.on(" AND ").join(joinOnFields), ")");
-            joinWithTablesOnFieldsList.add(CommonMethods.stringsConcat(false, joinWithTable, joinOn));
+            if (CollectionUtils.isNotEmpty(joinOnFields)) joinOn = joinOnFields.stream().collect(Collectors.joining(" AND ", "ON (", ")"));
+            joinWithTablesOnFieldsList.add(joinWithTable + joinOn);
         }
-        if (CollectionUtils.isNotEmpty(selectedJoinFieldsList)) this.selectedJoinFieldsForSQL = CommonMethods.stringsConcat(false, ", ", Joiner.on(", ").join(selectedJoinFieldsList));
+        if (CollectionUtils.isNotEmpty(selectedJoinFieldsList)) this.selectedJoinFieldsForSQL = ", " + String.join(", ", selectedJoinFieldsList);
         if (CollectionUtils.isNotEmpty(joinWithTablesOnFieldsList)) this.joinWithTablesOnFieldsForSQL = Joiner.on(StringUtils.SPACE).join(joinWithTablesOnFieldsList);
         if (CollectionUtils.isNotEmpty(whereJoinFiltersList)) this.whereJoinFiltersForSQL = Joiner.on(" AND ").join(whereJoinFiltersList);
     }

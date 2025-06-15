@@ -1,6 +1,5 @@
 package j2q.core;
 
-import j2q.commons.CommonMethods;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.annotation.Nonnull;
@@ -28,9 +27,9 @@ final class SQLFunctionAggregatesWithPossibleALL extends SQLFunction {
             }
         }
 
-        String result = CommonMethods.stringsConcat(false, this.typeOfSQLFunction.name(), "(", funcParam,
-                funcParam.equals(LinSQLCommons.ASTERISK) ? StringUtils.EMPTY : super.getLastParamSelectedFieldForSQL(forSQLRetrieverForDB, null),
-                ")");
+        String result = this.typeOfSQLFunction.name() + "(" + funcParam +
+                (funcParam.equals(LinSQLCommons.ASTERISK) ? StringUtils.EMPTY : super.getLastParamSelectedFieldForSQL(forSQLRetrieverForDB, null)) +
+                ")";
         return getFinalValueAsAlias(result, getAsAlias());
     }
     @Override

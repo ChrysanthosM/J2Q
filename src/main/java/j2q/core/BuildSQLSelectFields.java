@@ -1,6 +1,5 @@
 package j2q.core;
 
-import j2q.commons.CommonMethods;
 import com.google.common.collect.Lists;
 import lombok.AccessLevel;
 import lombok.Getter;
@@ -34,6 +33,8 @@ final class BuildSQLSelectFields extends BuildSQLCore {
         }
 
         this.selectedFieldsString = StringUtils.join(selectedFieldsForSQL, ", ");
-        super.setStringForSQL(CommonMethods.stringsConcat(false, "SELECT ", (forSQLRetrieverForDB.getWorkLInSQLBuilderParams().isSelectDistinct() ? "DISTINCT " : StringUtils.EMPTY), this.selectedFieldsString));
+        super.setStringForSQL("SELECT " +
+                (forSQLRetrieverForDB.getWorkLInSQLBuilderParams().isSelectDistinct() ? "DISTINCT " : StringUtils.EMPTY) +
+                this.selectedFieldsString);
     }
 }

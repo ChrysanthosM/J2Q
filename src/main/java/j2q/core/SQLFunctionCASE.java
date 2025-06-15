@@ -1,6 +1,5 @@
 package j2q.core;
 
-import j2q.commons.CommonMethods;
 import com.google.common.base.Joiner;
 import org.apache.commons.lang3.StringUtils;
 
@@ -36,7 +35,8 @@ final class SQLFunctionCASE extends SQLFunction {
                 .collect(Collectors.toList());
         String whenExpression = Joiner.on(StringUtils.SPACE).join(searchListResolved);
 
-        return CommonMethods.stringsConcat(false, "CASE ", StringUtils.defaultString(caseExpression).concat(StringUtils.SPACE), whenExpression, " ELSE ", elseExpression, " END");
+        return "CASE " + StringUtils.defaultString(caseExpression).concat(StringUtils.SPACE) +
+                whenExpression + " ELSE " + elseExpression + " END";
     }
 
     @Override

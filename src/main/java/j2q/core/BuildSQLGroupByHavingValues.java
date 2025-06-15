@@ -1,14 +1,14 @@
 package j2q.core;
 
 
-import j2q.commons.CommonMethods;
-import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
 import org.apache.commons.collections4.CollectionUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.tuple.MutablePair;
 
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 
 final class BuildSQLGroupByHavingValues extends BuildSQLCore {
 
@@ -26,12 +26,12 @@ final class BuildSQLGroupByHavingValues extends BuildSQLCore {
         });
 
         if (CollectionUtils.isEmpty(groupByList)) return;
-        super.setStringForSQL(CommonMethods.stringsConcat(false, "GROUP BY ", Joiner.on(", ").join(groupByList)));
+        super.setStringForSQL(groupByList.stream().collect(Collectors.joining(", ", "GROUP BY ", StringUtils.EMPTY)));
 
         List<IWhere> havingValues = groupBySelectionsHavingValues.right;
         if (CollectionUtils.isEmpty(havingValues)) return;
         List<String> havingValuesForSQL = BuildSQLWhereFilters.getResolveFiltersForSQL(forSQLRetrieverForDB, havingValues, true);
         if (CollectionUtils.isEmpty(havingValuesForSQL)) return;
-        super.setStringForSQL(CommonMethods.stringsConcat(false, super.getStringForSQL(), " HAVING ", Joiner.on(", ").join(havingValuesForSQL)));
+        super.setStringForSQL(super.getStringForSQL() + " HAVING " + String.join(", ", havingValuesForSQL));
     }
 }

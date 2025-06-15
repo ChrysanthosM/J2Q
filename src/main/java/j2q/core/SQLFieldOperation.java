@@ -1,7 +1,6 @@
 package j2q.core;
 
 import com.google.common.base.Preconditions;
-import j2q.commons.CommonMethods;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.annotation.Nullable;
@@ -28,9 +27,8 @@ final class SQLFieldOperation extends SqlUserSelection {
         String keepAlias = sqlUserSelection.getAsAlias();
         sqlUserSelection.setAsAlias(null);
         sqlUserSelection.setIgnoreTableAsAlias();
-        return CommonMethods.stringsConcat(false,
-                sqlUserSelection.getResolveObjectForSQL(forSQLRetrieverForDB),
-                StringUtils.SPACE, LinSQLCommons.asAliasMain(keepAlias),
-                StringUtils.SPACE, this.operation);
+        return sqlUserSelection.getResolveObjectForSQL(forSQLRetrieverForDB) +
+                StringUtils.SPACE + LinSQLCommons.asAliasMain(keepAlias) +
+                StringUtils.SPACE + this.operation;
     }
 }

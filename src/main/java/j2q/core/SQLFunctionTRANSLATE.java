@@ -1,9 +1,8 @@
 package j2q.core;
 
-import j2q.commons.CommonMethods;
-
 import javax.annotation.Nonnull;
 import javax.annotation.Nullable;
+import java.util.List;
 
 final class SQLFunctionTRANSLATE extends SQLFunction {
     @Override
@@ -15,10 +14,9 @@ final class SQLFunctionTRANSLATE extends SQLFunction {
 
     @Override
     public String defaultResolver(SQLRetrieverForDBs forSQLRetrieverForDB) {
-        String result = CommonMethods.stringsConcat(false,
-                "TRANSLATE(", super.getFirstParamSelectedFieldForSQL(forSQLRetrieverForDB, null), ", ",
-                super.getParamsSelectedFieldForSQL(forSQLRetrieverForDB, null).get(1), ", ",
-                super.getParamsSelectedFieldForSQL(forSQLRetrieverForDB, null).get(2));
+        List<?> params = super.getParamsSelectedFieldForSQL(forSQLRetrieverForDB, null);
+        String result = "TRANSLATE(" + super.getFirstParamSelectedFieldForSQL(forSQLRetrieverForDB, null) + ", " +
+                params.get(1) + ", " + params.get(2);
         if (super.getParams().size() == 4)
             result = result.concat(", ".concat(super.getParamsSelectedFieldForSQL(forSQLRetrieverForDB, null).get(3)));
         result = result.concat(")");

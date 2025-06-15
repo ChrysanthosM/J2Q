@@ -30,15 +30,6 @@ final class LInSQLBuilder {
 
     void clearSQLProperties() { this.workLInSQLBuilderParams.clearSQLPropertiesMain(); }
 
-//    private GlobalDBDefinition.TypeOfDB getLInSQLBuilderTypeOfDB(String forDbPrefixForTableOrLocation) {
-//        String extensionString = Files.getFileExtension(forDbPrefixForTableOrLocation);
-//        return Arrays.stream(GlobalDBDefinition.TypeOfDB.values())
-//                .filter(typeOfDB -> extensionString.equals(typeOfDB.getAttributeExtension()))
-//                .findFirst()
-//                .orElse(null);
-//    }
-
-
     private String sqlStatement = null;
     String getSQLStatement() {
         if (StringUtils.isNotBlank(this.sqlStatement)) return this.sqlStatement;

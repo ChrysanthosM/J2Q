@@ -1,7 +1,5 @@
 package j2q.core;
 
-import j2q.commons.CommonMethods;
-import com.google.common.base.Joiner;
 import org.apache.commons.collections4.CollectionUtils;
 import org.apache.commons.lang3.StringUtils;
 
@@ -18,7 +16,7 @@ final class BuildSQLWhereFilters extends BuildSQLCore {
         if (CollectionUtils.isEmpty(whereFilters)) return;
 
         List<String> whereFiltersForSQL = getResolveFiltersForSQL(forSQLRetrieverForDB, whereFilters, true);
-        if (CollectionUtils.isNotEmpty(whereFiltersForSQL)) super.setStringForSQL(CommonMethods.stringsConcat(false, Joiner.on(StringUtils.SPACE).join(whereFiltersForSQL)));
+        if (CollectionUtils.isNotEmpty(whereFiltersForSQL)) super.setStringForSQL(String.join(StringUtils.SPACE, whereFiltersForSQL));
     }
 
     static String getWhereFilters(String basicFilters) { return getWhereFiltersWithJoins(basicFilters, null); }

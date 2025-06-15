@@ -7,6 +7,7 @@ import javax.annotation.Nullable;
 import java.lang.reflect.Type;
 import java.util.List;
 import java.util.Objects;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 abstract sealed class SQLFunction extends SqlUserSelection
@@ -43,6 +44,13 @@ abstract sealed class SQLFunction extends SqlUserSelection
     abstract String defaultResolver(SQLRetrieverForDBs forSQLRetrieverForDB);
     abstract String alternateResolver(SQLRetrieverForDBs forSQLRetrieverForDB, @Nullable Object... args);
 
+    protected String resolverAllParamsInParenthesis(SQLRetrieverForDBs forSQLRetrieverForDB, IDeploySQLFunctions.TypeOfSQLFunction typeOfSQLFunction) {
+        List<?> workParams = getParamsSelectedFieldForSQL(forSQLRetrieverForDB, null);
+        String result = workParams.stream()
+                .map(Object::toString)
+                .collect(Collectors.joining(", ", typeOfSQLFunction.name() + "(", ")"));
+        return getFinalValueAsAlias(result, getAsAlias());
+    }
 
     @Override public void init(@Nullable String setPrefix, @Nullable String asAlias, @Nullable Object... args) {
         assert args != null;

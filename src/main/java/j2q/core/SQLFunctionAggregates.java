@@ -1,6 +1,5 @@
 package j2q.core;
 
-import j2q.commons.CommonMethods;
 import org.apache.commons.lang3.StringUtils;
 
 import javax.annotation.Nonnull;
@@ -25,7 +24,9 @@ final class SQLFunctionAggregates extends SQLFunction {
                 funcParam = "DISTINCT ";
             }
         }
-        String result = CommonMethods.stringsConcat(false, this.typeOfSQLFunction.name(), "(", funcParam.concat(super.getLastParamSelectedFieldForSQL(forSQLRetrieverForDB, null)), ")");
+        String result = this.typeOfSQLFunction.name() + "(" +
+                funcParam.concat(super.getLastParamSelectedFieldForSQL(forSQLRetrieverForDB, null)) +
+                ")";
         return getFinalValueAsAlias(result, getAsAlias());
     }
     @Override
