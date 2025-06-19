@@ -33,9 +33,10 @@ public class TestSQLStatements {
                         : shouldBe.replaceAll("\\s+", StringUtils.SPACE).replaceAll("\\s+,", ",").toUpperCase()
         );
 
-        boolean areSame = Objects.equals(
-                stmt.toUpperCase().replace("$.", StringUtils.EMPTY),
-                checkTest.toUpperCase().replace("$.", StringUtils.EMPTY));
+        stmt = stmt.replace("$.", StringUtils.EMPTY).replaceAll("\\s+", StringUtils.SPACE).replaceAll("\\s+,", ",").toUpperCase();
+        checkTest = checkTest.replace("$.", StringUtils.EMPTY).replaceAll("\\s+", StringUtils.SPACE).replaceAll("\\s+,", ",").toUpperCase();
+
+        boolean areSame = StringUtils.equalsIgnoreCase(stmt, checkTest);
         return areSame + " - " + stmt.toUpperCase();
     }
 

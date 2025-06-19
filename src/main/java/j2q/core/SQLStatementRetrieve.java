@@ -11,7 +11,7 @@ final class SQLStatementRetrieve {
                          String dbPrefixForTable) {
         switch (typeOfDB) {
             case SQLITE -> this.sqlRetrieverForDB = new SQLRetrieverForDB_SQLite(typeOfNamingSystemOrNormalized);
-            case DB2_AS400 -> this.sqlRetrieverForDB = new SQLRetrieverForDB_DB2(typeOfNamingSystemOrNormalized, dbPrefixForTable);
+            case DB2_I -> this.sqlRetrieverForDB = new SQLRetrieverForDB_DB2_I(typeOfNamingSystemOrNormalized, dbPrefixForTable);
             case MSSQL -> this.sqlRetrieverForDB = new SQLRetrieverForDB_MSSQL(typeOfNamingSystemOrNormalized, dbPrefixForTable);
             default -> throw new UnsupportedOperationException(typeOfDB + " is not supported");
         }

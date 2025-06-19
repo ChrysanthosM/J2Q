@@ -13,7 +13,7 @@ public class DataSourceResolver {
         return switch (dataSourceType) {
             case SQLITE -> dataSourceForSQLite;
             case MSSQL -> dataSourceForMSSQL;
-            case DB2_AS400 -> dataSourceProviderForDB2i;
+            case DB2_I -> dataSourceProviderForDB2i;
         };
     }
 }
