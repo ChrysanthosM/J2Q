@@ -1,4 +1,4 @@
-package j2q.setup.definition.design.schema.enums;
+package j2q.setup.definition.design.schema.db2i.enums;
 
 import j2q.core.DbFieldValues;
 import j2q.core.IDeployFilters;

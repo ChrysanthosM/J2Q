@@ -8,13 +8,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1b604b0d-001f-468b-a5c7-4b8b3422a052" name="Changes" comment="improvements">
+      <change afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definition/design/schema/db2i/enums/DbF.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definition/design/schema/db2i/enums/DbFValues.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definition/design/schema/db2i/enums/DbT.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definition/design/schema/db2i/table/TAutoNumbering.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definition/design/schema/db2i/table/TOptions.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/java/j2q/tests/testSQLStatementsSQLIte.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/BuildSQLInsertRows.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/BuildSQLInsertRows.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/DbField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/DbField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/DbFieldInstances.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/DbFieldInstances.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/DbFieldValues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/DbFieldValues.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/DbTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/DbTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/DbTableInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/DbTableInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/DbTableInstances.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/DbTableInstances.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/DtoFieldValue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/DtoFieldValue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/IValueFor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/IValueFor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/LInSQLBuilderParams.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/LInSQLBuilderParams.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/LInSQLBuilderShared.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/LInSQLBuilderShared.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/LinSQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/LinSQL.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/SQLRetrieverForDB_DB2.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/SQLRetrieverForDB_DB2_I.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/SQLRetrieverForDBs.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/SQLRetrieverForDBs.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/SQLStatementRetrieve.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/SQLStatementRetrieve.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/db/datasource/DataSourceResolver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/db/datasource/DataSourceResolver.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/db/datasource/WorkWithDataSource.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/db/datasource/WorkWithDataSource.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/PairOfTableField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/PairOfTableField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/SQLFieldFromPairOfTableField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/SQLFieldFromPairOfTableField.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/SQLFieldFromTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/SQLFieldFromTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/SQLRetrieverCore.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/SQLRetrieverCore.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/core/TTable.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/core/TTable.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definition/design/repo/singles/AutoNumberingJ2SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definition/design/repo/singles/AutoNumberingJ2SQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definition/design/repo/singles/OptionsJ2SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definition/design/repo/singles/OptionsJ2SQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definition/design/repo/singles/UsersJ2SQL.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definition/design/repo/singles/UsersJ2SQL.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definition/design/schema/enums/DbF.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definition/design/schema/sqlite/enums/DbF.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definition/design/schema/enums/DbFValues.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definition/design/schema/sqlite/enums/DbFValues.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definition/design/schema/enums/DbT.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definition/design/schema/sqlite/enums/DbT.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definition/design/schema/table/TAutoNumbering.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definition/design/schema/sqlite/table/TAutoNumbering.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definition/design/schema/table/TOptions.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definition/design/schema/sqlite/table/TOptions.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definition/design/schema/table/TUsers.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definition/dto/AutoNumberingDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definition/dto/AutoNumberingDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definition/dto/OptionsDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definition/dto/OptionsDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/definition/dto/UsersDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/definition/dto/UsersDTO.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/j2q/setup/service/AutoNumberingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/j2q/setup/service/AutoNumberingService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/j2q/tests/TestSQLStatements.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/j2q/tests/TestSQLStatements.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -73,14 +103,15 @@
     "JUnit.TestRestAutoNumberingController.testGetAutoNumberingList.executor": "Run",
     "JUnit.TestRestControllerSQL.testGetAutoNumberingSQL.executor": "Run",
     "JUnit.TestSQLStatements.testSQLStatements.executor": "Debug",
+    "JUnit.testSQLStatementsSQLIte.executor": "Debug",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.git.unshallow": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "SONARLINT_PRECOMMIT_ANALYSIS": "true",
-    "git-widget-placeholder": "master",
+    "git-widget-placeholder": "seperate-schema",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/MyDocuments/Cloud/GoogleDrive/Programming/Java/J2Q/src/main/java/j2q/db/datasources",
+    "last_opened_file_path": "D:/MyDocuments/Cloud/GoogleDrive/Programming/Java/J2Q/src/main/java/j2q/setup/definition/design/schema/db2i",
     "project.structure.last.edited": "Project",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
@@ -90,11 +121,11 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\MyDocuments\Cloud\GoogleDrive\Programming\Java\J2Q\src\main\java\j2q\setup\definition\design\schema\db2i" />
+      <recent name="D:\MyDocuments\Cloud\GoogleDrive\Programming\Java\J2Q\src\main\java\j2q\setup\definition\design\schema" />
       <recent name="D:\MyDocuments\Cloud\GoogleDrive\Programming\Java\J2Q\src\main\java\j2q\db\datasources" />
       <recent name="D:\MyDocuments\Cloud\GoogleDrive\Programming\Java\J2Q\src\main\resources\DBs" />
       <recent name="D:\MyDocuments\Cloud\GoogleDrive\Programming\Java\J2Q\src\main\resources" />
-      <recent name="D:\MyDocuments\Cloud\GoogleDrive\Programming\Java\J2Q\src\test\java" />
-      <recent name="D:\MyDocuments\Cloud\GoogleDrive\Programming\Java\J2Q\src\main\java" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="j2q" />
@@ -105,25 +136,12 @@
       <recent name="j2q.setup.definitions.design.schema.enums" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="j2q.tests" />
       <recent name="j2q.db.datasources" />
       <recent name="j2q.db" />
-      <recent name="j2q.tests" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.TestSQLStatements.testSQLStatements">
-    <configuration name="ApplicationSQLRun" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="j2q.ApplicationSQLRun" />
-      <module name="J2Q" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="j2q.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.testSQLStatementsSQLIte">
     <configuration name="TestJ2Data.testJ2Data" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="J2Q" />
       <extension name="coverage">
@@ -188,8 +206,17 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="testSQLStatementsSQLIte" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="J2Q" />
+      <option name="PACKAGE_NAME" value="j2q.tests" />
+      <option name="MAIN_CLASS_NAME" value="j2q.tests.testSQLStatementsSQLIte" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <list>
-      <item itemvalue="Application.ApplicationSQLRun" />
+      <item itemvalue="JUnit.testSQLStatementsSQLIte" />
       <item itemvalue="JUnit.TestJ2Data.testJ2Data" />
       <item itemvalue="JUnit.TestRestAutoNumberingController.testGetAutoNumberingList" />
       <item itemvalue="JUnit.TestRestControllerSQL.testGetAutoNumberingSQL" />
@@ -197,11 +224,11 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.testSQLStatementsSQLIte" />
         <item itemvalue="JUnit.TestSQLStatements.testSQLStatements" />
         <item itemvalue="JUnit.TestRestControllerSQL.testGetAutoNumberingSQL" />
         <item itemvalue="JUnit.TestRestAutoNumberingController.testGetAutoNumberingList" />
         <item itemvalue="JUnit.TestJ2Data.testJ2Data" />
-        <item itemvalue="Application.ApplicationSQLRun" />
       </list>
     </recent_temporary>
   </component>
@@ -213,14 +240,6 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1704301824325</updated>
-    </task>
-    <task id="LOCAL-00032" summary="some renames">
-      <option name="closed" value="true" />
-      <created>1706554551761</created>
-      <option name="number" value="00032" />
-      <option name="presentableId" value="LOCAL-00032" />
-      <option name="project" value="LOCAL" />
-      <updated>1706554551761</updated>
     </task>
     <task id="LOCAL-00033" summary="MockMvc">
       <option name="closed" value="true" />
@@ -606,7 +625,15 @@
       <option name="project" value="LOCAL" />
       <updated>1749999283343</updated>
     </task>
-    <option name="localTasksCounter" value="81" />
+    <task id="LOCAL-00081" summary="improvements">
+      <option name="closed" value="true" />
+      <created>1750351943634</created>
+      <option name="number" value="00081" />
+      <option name="presentableId" value="LOCAL-00081" />
+      <option name="project" value="LOCAL" />
+      <updated>1750351943634</updated>
+    </task>
+    <option name="localTasksCounter" value="82" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -636,5 +663,16 @@
     <MESSAGE value="fixes" />
     <MESSAGE value="improvements" />
     <option name="LAST_COMMIT_MESSAGE" value="improvements" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/test/java/j2q/tests/testSQLStatementsSQLIte.java</url>
+          <line>31</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

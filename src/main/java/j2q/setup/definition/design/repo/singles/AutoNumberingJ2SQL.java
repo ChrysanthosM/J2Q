@@ -3,7 +3,7 @@ package j2q.setup.definition.design.repo.singles;
 import j2q.core.AbstractJ2;
 import j2q.core.J2SQL;
 import j2q.core.LoadJ2SQL;
-import j2q.setup.definition.design.schema.table.TAutoNumbering;
+import j2q.setup.definition.design.schema.sqlite.table.TAutoNumbering;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 

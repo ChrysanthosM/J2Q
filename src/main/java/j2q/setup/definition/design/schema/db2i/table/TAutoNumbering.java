@@ -1,9 +1,9 @@
-package j2q.setup.definition.design.schema.table;
+package j2q.setup.definition.design.schema.db2i.table;
 
 import j2q.core.PairOfTableField;
 import j2q.core.TTable;
-import j2q.setup.definition.design.schema.enums.DbF;
-import j2q.setup.definition.design.schema.enums.DbT;
+import j2q.setup.definition.design.schema.db2i.enums.DbF;
+import j2q.setup.definition.design.schema.db2i.enums.DbT;
 import org.springframework.stereotype.Component;
 
 @Component

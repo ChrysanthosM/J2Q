@@ -1,6 +1,6 @@
 package j2q.core;
 
-import j2q.setup.definition.design.schema.enums.DbF;
+import j2q.setup.definition.design.schema.sqlite.enums.DbF;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Sets;
 import lombok.AccessLevel;

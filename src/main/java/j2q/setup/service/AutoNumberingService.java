@@ -4,7 +4,7 @@ import com.google.common.collect.Lists;
 import j2q.core.AbstractService;
 import j2q.setup.definition.design.repo.singles.AutoNumberingRepo;
 import j2q.setup.definition.design.repo.singles.AutoNumberingSQL;
-import j2q.setup.definition.design.schema.table.TAutoNumbering;
+import j2q.setup.definition.design.schema.sqlite.table.TAutoNumbering;
 import j2q.setup.definition.dto.AutoNumberingDTO;
 import org.apache.commons.lang3.tuple.ImmutablePair;
 import org.springframework.beans.factory.annotation.Autowired;

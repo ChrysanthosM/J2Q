@@ -1,6 +1,6 @@
 package j2q.core;
 
-import j2q.setup.definition.design.schema.enums.DbT;
+import j2q.setup.definition.design.schema.sqlite.enums.DbT;
 import com.google.common.collect.ImmutableList;
 import jakarta.annotation.PostConstruct;
 import org.springframework.beans.factory.annotation.Autowired;

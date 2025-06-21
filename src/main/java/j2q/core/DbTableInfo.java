@@ -1,8 +1,8 @@
 package j2q.core;
 
 import j2q.db.definition.DbFieldDataType;
-import j2q.setup.definition.design.schema.enums.DbF;
-import j2q.setup.definition.design.schema.enums.DbT;
+import j2q.setup.definition.design.schema.sqlite.enums.DbF;
+import j2q.setup.definition.design.schema.sqlite.enums.DbT;
 import com.google.common.collect.ImmutableList;
 import com.google.common.collect.ImmutableMap;
 import lombok.Getter;

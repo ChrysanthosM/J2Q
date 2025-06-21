@@ -1,7 +1,7 @@
 package j2q.core;
 
 import j2q.db.definition.DbFieldDataType;
-import j2q.setup.definition.design.schema.enums.DbF;
+import j2q.setup.definition.design.schema.sqlite.enums.DbF;
 import lombok.Getter;
 
 import java.util.List;

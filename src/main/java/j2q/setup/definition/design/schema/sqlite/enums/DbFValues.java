@@ -1,4 +1,4 @@
-package j2q.setup.definition.design.schema.enums;
+package j2q.setup.definition.design.schema.sqlite.enums;
 
 import j2q.core.IValueFor;
 import lombok.AllArgsConstructor;

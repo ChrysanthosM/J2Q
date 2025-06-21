@@ -1,7 +1,7 @@
 package j2q.core;
 
-import j2q.setup.definition.design.schema.enums.DbF;
-import j2q.setup.definition.design.schema.enums.DbT;
+import j2q.setup.definition.design.schema.sqlite.enums.DbF;
+import j2q.setup.definition.design.schema.sqlite.enums.DbT;
 import com.google.common.base.Strings;
 import com.google.common.collect.Lists;
 import jakarta.annotation.Nonnull;

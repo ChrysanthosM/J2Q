@@ -1,4 +1,4 @@
-package j2q.setup.definition.design.schema.enums;
+package j2q.setup.definition.design.schema.sqlite.enums;
 
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -7,9 +7,9 @@ import java.util.List;
 
 @AllArgsConstructor @Getter
 public enum DbT {
-    USERS("Sys_Users", "AC", List.of(DbF.REC_ID), false, false),
-    AUTO_NUMBERING("Sys_AutoNumbering", "AA", List.of(DbF.REC_ID), true, false),
-    OPTIONS("Sys_Options", "AB", List.of(DbF.REC_ID), true, true),
+    USERS("Sys_Users", null, List.of(DbF.REC_ID), false, false),
+    AUTO_NUMBERING("Sys_AutoNumbering", null, List.of(DbF.REC_ID), true, false),
+    OPTIONS("Sys_Options", null, List.of(DbF.REC_ID), true, true),
     ;
 
     private final String systemName;

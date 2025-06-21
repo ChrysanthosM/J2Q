@@ -2,7 +2,7 @@ package j2q.setup.definition.dto;
 
 import j2q.core.DtoFieldValue;
 import j2q.db.loader.RowLoader;
-import j2q.setup.definition.design.schema.enums.DbF;
+import j2q.setup.definition.design.schema.sqlite.enums.DbF;
 import org.apache.commons.lang3.tuple.Pair;
 
 import java.sql.ResultSet;
